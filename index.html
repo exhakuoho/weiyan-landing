@@ -361,6 +361,22 @@
       </div>
     </section>
 
+    <!-- 程式範例 / Source Code Downloads -->
+    <sc-if value="{{ activeTool.hasDownloads }}" hint-placeholder-val="{{ true }}">
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:14px;">程式範例 · SOURCE CODE</div>
+      <p style="font-size:15px;color:#8B8F98;margin:0 0 36px;max-width:560px;">點選即可下載對應的控制程式（.tb 檔）。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+        <sc-for list="{{ activeTool.downloads }}" as="d" hint-placeholder-count="5">
+          <a href="{{ d.url }}" download style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid rgba(17,19,24,.1);border-radius:16px;padding:22px 24px;" data-hovercard>
+            <div><div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:6px;">{{ d.tag }}</div><div style="font-size:15px;font-weight:500;color:#111318;">{{ d.label }}</div></div>
+            <span style="font-size:18px;color:#111318;">↓</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
     <!-- Gallery -->
     <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:36px;">GALLERY</div>
@@ -480,7 +496,7 @@
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;margin-bottom:28px;">DOWNLOADS</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
         <sc-for list="{{ activeResource.downloads }}" as="d" hint-placeholder-count="4">
-          <a href="{{ d.url }}" download style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid rgba(17,19,24,.1);border-radius:16px;padding:22px 24px;" data-hovercard>
+          <a style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid rgba(17,19,24,.1);border-radius:16px;padding:22px 24px;" data-hovercard>
             <div><div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:6px;">{{ d.tag }}</div><div style="font-size:15px;font-weight:500;color:#111318;">{{ d.label }}</div></div>
             <span style="font-size:18px;color:#111318;">↓</span>
           </a>
@@ -649,6 +665,13 @@ class Component extends DCLogic {
         learn: [{ n: '1', en: 'PROGRAMMING', zh: '程式設計' }, { n: '2', en: 'SENSORS', zh: '感測技術' }, { n: '3', en: 'CONTROL', zh: '控制系統' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
         features: ['模組化車體設計，可自由擴充', '多種感測器：紅外線、超音波、循跡', '雙馬達精準速度與方向控制', '藍牙 / Wi-Fi 無線控制', '圖像化積木程式入門', 'Python 程式碼進階控制'],
         resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: 'CODE', label: '程式範例' }, { tag: '3D FILES', label: '3D 模型' }, { tag: 'MANUAL', label: '操作說明' }],
+        downloads: [
+          { tag: 'V7RC 遙控', label: '手臂控制程式', url: 'downloads/mtc-v2/MTC_手臂_V7RC.tb' },
+          { tag: 'PS3 手把', label: '手臂控制程式', url: 'downloads/mtc-v2/MTC_手臂_PS3.tb' },
+          { tag: 'V7RC 遙控', label: '發射器程式', url: 'downloads/mtc-v2/MTC_發射器_V7RC.tb' },
+          { tag: 'PS3 手把', label: '發射器程式', url: 'downloads/mtc-v2/MTC_發射器_PS3.tb' },
+          { tag: 'HAKU PPGUN', label: '發射程式 UP25/DOWN0', url: 'downloads/mtc-v2/HAKU_PPGUN_UP25_DOWN0.tb' },
+        ],
       },
       {
         slug: 'humanoid-robot', name: 'Humanoid Robot', subtitle: 'Motion & Robotics Platform', category: 'ROBOTICS',
@@ -672,6 +695,7 @@ class Component extends DCLogic {
       },
     ].map(t => ({
       ...t,
+      hasDownloads: Array.isArray(t.downloads) && t.downloads.length > 0,
       cardImgId: 'tool-card-' + t.slug,
       listImgId: 'tool-list-' + t.slug,
       heroImgId: 'tool-hero-' + t.slug,
@@ -732,12 +756,7 @@ class Component extends DCLogic {
           { h: '連接與環境設定', p: '使用 USB 線連接 MTC V2 與電腦，開啟程式環境，確認裝置已正確連線並可以上傳程式。' },
           { h: '寫下第一段程式', p: '透過圖像化積木設定兩個馬達同時正轉，設定運轉時間，上傳並執行。恭喜 — 你的機器人前進了！' },
         ],
-        downloads: [
-          { tag: 'V7RC 遙控', label: '手臂控制程式', url: 'downloads/mtc-v2/MTC_手臂_V7RC.tb' },
-          { tag: 'PS3 手把', label: '手臂控制程式', url: 'downloads/mtc-v2/MTC_手臂_PS3.tb' },
-          { tag: 'V7RC 遙控', label: '發射器程式', url: 'downloads/mtc-v2/MTC_發射器_V7RC.tb' },
-          { tag: 'PS3 手把', label: '發射器程式', url: 'downloads/mtc-v2/MTC_發射器_PS3.tb' },
-          { tag: 'HAKU PPGUN', label: '發射程式 UP25/DOWN0', url: 'downloads/mtc-v2/HAKU_PPGUN_UP25_DOWN0.tb' } ] },
+        downloads: [{ tag: 'COURSE PDF', label: '課程教材' }, { tag: 'SOURCE CODE', label: '程式範例' }, { tag: '3D FILE', label: '3D 模型' }, { tag: 'WORKSHEET', label: '學習單' }] },
       { slug: 'mtc-sensor', title: 'MTC V2：使用感測器避開障礙', level: 'INTERMEDIATE', category: 'Robotics', duration: '45 MIN',
         desc: '讓機器人「看見」世界。使用超音波感測器偵測前方障礙物，並自動改變行進方向。',
         goals: ['理解感測器的輸入訊號', '學會條件判斷邏輯', '完成自動避障程式'],

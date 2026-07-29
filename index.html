@@ -79,7 +79,7 @@
         <nav style="display:flex;align-items:center;gap:36px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;">
           <a onClick="{{ goTools }}" style="cursor:pointer;color:#111318;">TOOLS</a>
           <a onClick="{{ goResources }}" style="cursor:pointer;color:#111318;">RESOURCES</a>
-          <a href="https://weiyan-camp.designjarvis.com" target="_blank" rel="noopener" style="cursor:pointer;color:#111318;display:inline-flex;align-items:center;gap:7px;">CAMP<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></a>
+          <a onClick="{{ goCamp }}" style="cursor:pointer;color:#111318;display:inline-flex;align-items:center;gap:7px;">CAMP<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></a>
           <a onClick="{{ goProjects }}" style="cursor:pointer;color:#111318;">PROJECTS</a>
           <a onClick="{{ goAbout }}" style="cursor:pointer;color:#111318;">ABOUT</a>
         </nav>
@@ -102,7 +102,7 @@
       <nav style="margin-top:14vh;display:flex;flex-direction:column;gap:28px;font-family:'Space Grotesk',sans-serif;">
         <a onClick="{{ goTools }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;letter-spacing:.02em;">Tools <span style="color:#8B8F98;font-size:15px;">教具</span></a>
         <a onClick="{{ goResources }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Resources <span style="color:#8B8F98;font-size:15px;">教材</span></a>
-        <a href="https://weiyan-camp.designjarvis.com" target="_blank" rel="noopener" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Camp <span style="color:#8B8F98;font-size:15px;">營隊</span></a>
+        <a onClick="{{ goCamp }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Camp <span style="color:#8B8F98;font-size:15px;">營隊</span></a>
         <a onClick="{{ goProjects }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Projects <span style="color:#8B8F98;font-size:15px;">實績</span></a>
         <a onClick="{{ goAbout }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">About <span style="color:#8B8F98;font-size:15px;">關於</span></a>
       </nav>
@@ -537,6 +537,65 @@
   </div>
   </sc-if>
 
+  <!-- ============ CAMP ============ -->
+  <sc-if value="{{ isCamp }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) clamp(40px,6vw,72px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#7868FF;margin-bottom:24px;">CAMP</div>
+      <h1 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(40px,6vw,80px);line-height:1.02;letter-spacing:-.03em;margin:0;">Camps<br>&amp; Registration.</h1>
+      <p style="font-size:clamp(16px,1.8vw,20px);color:#8B8F98;margin:28px 0 0;max-width:620px;">從真實工程技術出發，讓學生透過設計、製作、測試與改良，把好奇心變成能帶走的作品與能力。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;">
+        <a href="https://www.nkust.edu.tw/p/406-1000-105364%2Cr1363.php" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;border:1px solid rgba(17,19,24,.12);font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;color:#111318;cursor:pointer;">NKUST 官方紀錄<span style="color:#7868FF;">&#8599;</span></a>
+        <a href="https://money.udn.com/money/story/5723/9609043" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;border:1px solid rgba(17,19,24,.12);font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;color:#111318;cursor:pointer;">經濟日報報導<span style="color:#7868FF;">&#8599;</span></a>
+      </div>
+    </section>
+
+    <section style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(72px,10vw,150px);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;">
+        <sc-for list="{{ camps }}" as="c" hint-placeholder-count="4">
+          <div data-reveal style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:22px;overflow:hidden;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 26px;border-bottom:1px solid rgba(17,19,24,.07);font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#8B8F98;">
+              <span>{{ c.no }}</span>
+              <sc-if value="{{ c.open }}">
+                <span style="display:inline-flex;align-items:center;gap:7px;color:#111318;">{{ c.status }}<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></span>
+              </sc-if>
+              <sc-if value="{{ !c.open }}">
+                <span style="color:#a9acb4;">{{ c.status }}</span>
+              </sc-if>
+            </div>
+
+            <div style="padding:26px;flex:1;">
+              <p style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin:0 0 10px;">{{ c.en }}</p>
+              <div style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.01em;margin-bottom:14px;">{{ c.zh }}</div>
+              <p style="font-size:14px;line-height:1.8;color:#4a4d55;margin:0 0 22px;">{{ c.sum }}</p>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;border-top:1px solid rgba(17,19,24,.07);padding-top:20px;">
+                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">DATE</span><b style="font-size:13px;font-weight:600;">{{ c.date }}</b></div>
+                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">TIME</span><b style="font-size:13px;font-weight:600;">{{ c.time }}</b></div>
+                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">FOR</span><b style="font-size:13px;font-weight:600;">{{ c.forWho }}</b></div>
+                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">FEE</span><b style="font-size:13px;font-weight:600;">{{ c.fee }}</b></div>
+                <div style="grid-column:1/-1;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">LOCATION</span><b style="font-size:13px;font-weight:600;">{{ c.place }}</b></div>
+              </div>
+
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:20px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;color:#8B8F98;">
+                <span>ENROLLED {{ c.seats }}</span><span>{{ c.seatsNote }}</span><span>{{ c.days }}</span>
+              </div>
+              <p style="font-size:12px;color:#8B8F98;margin:14px 0 0;">{{ c.note }}</p>
+            </div>
+
+            <a href="{{ c.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 26px;border-top:1px solid rgba(17,19,24,.07);font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;color:#111318;cursor:pointer;">{{ c.cta }}<span style="color:#7868FF;">&#8599;</span></a>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-reveal style="margin-top:40px;padding:30px clamp(22px,4vw,40px);border-radius:22px;background:#f6f6f8;border:1px solid rgba(17,19,24,.06);">
+        <p style="font-size:14px;line-height:1.9;color:#4a4d55;margin:0;">營隊由 <b style="color:#111318;">國立高雄科技大學</b> 與微研共同規劃執行，部分梯次報名作業由高科大推廣教育處統一辦理。名額與費用以各梯次公告為準；若卡片顯示 CLOSED，代表該梯次已結束或額滿，可點入查看歷屆內容。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:13px 22px;border-radius:999px;background:#111318;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;cursor:pointer;">LINE 洽詢營隊<span style="color:#7868FF;">&#8599;</span></a>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
   <!-- ============ ABOUT ============ -->
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
   <div>
@@ -590,7 +649,7 @@
             <span style="font-size:11px;letter-spacing:.16em;color:#585b63;margin-bottom:4px;">SITE</span>
             <a onClick="{{ goTools }}" style="cursor:pointer;color:#d3d5da;">Tools</a>
             <a onClick="{{ goResources }}" style="cursor:pointer;color:#d3d5da;">Resources</a>
-            <a href="https://weiyan-camp.designjarvis.com" target="_blank" rel="noopener" style="cursor:pointer;color:#d3d5da;">Camp</a>
+            <a onClick="{{ goCamp }}" style="cursor:pointer;color:#d3d5da;">Camp</a>
             <a onClick="{{ goProjects }}" style="cursor:pointer;color:#d3d5da;">Projects</a>
             <a onClick="{{ goAbout }}" style="cursor:pointer;color:#d3d5da;">About</a>
           </div>
@@ -725,6 +784,51 @@ class Component extends DCLogic {
 
   get keywords() { return ['SCIENCE', 'ENGINEERING', 'TECHNOLOGY', 'EDUCATION']; }
 
+  get camps() {
+    return [
+      {
+        slug: '3d-maker-2026', no: 'CAMP 03', status: 'OPEN', open: true,
+        en: '3D PRINTING MAKER CAMP', zh: '3D 列印創客實作營',
+        sum: '從數位建模、切片與列印，到作品改良與成果發表，三天完成一輪真正的創客工程流程。',
+        date: '2026.08.19 — 08.21', time: '每日 08:30 — 16:00',
+        place: '國立高雄科技大學 建工校區', forWho: '國小三年級至國中三年級',
+        fee: 'NT$5,000', note: '08.15 截止｜額滿提前截止', days: '3 DAYS',
+        seats: '19 / 30', seatsNote: '剩餘名額 11 位',
+        url: 'https://202608-3dpcamp.designjarvis.com/', cta: '查看營隊網站',
+      },
+      {
+        slug: 'ai-rover-2026', no: 'CAMP 04', status: 'OPEN', open: true,
+        en: 'AI SMART ROVER CAMP', zh: 'AI 智慧自走車挑戰營',
+        sum: '結合程式控制、感測應用、駕駛關卡與團隊任務競賽，讓孩子從操作走向工程思考。',
+        date: '2026.08.26 — 08.28', time: '每日 08:30 — 16:00',
+        place: '國立高雄科技大學 建工校區', forWho: '國小、國中生｜無需基礎',
+        fee: '費用請洽主辦單位', note: '招生中｜額滿為止', days: '3 DAYS',
+        seats: '6 / 30', seatsNote: '剩餘名額 24 位',
+        url: 'https://lin.ee/rZW93KN', cta: 'LINE 洽詢報名',
+      },
+      {
+        slug: 'aisteam-2026', no: 'CAMP 02', status: 'CLOSED', open: false,
+        en: 'AI × STEAM EXPLORATION CAMP', zh: 'AI × STEAM 科技探索營',
+        sum: '透過 AI 程式、氫能科學與智慧自走車，完成跨領域的三日科技實作體驗。',
+        date: '2026.07.29 — 07.31', time: '每日 08:30 — 16:00',
+        place: '國立高雄科技大學 建工校區', forWho: '國小、國中及高中生',
+        fee: 'NT$3,500', note: '07.22 已截止', days: '3 DAYS',
+        seats: '60 / 60', seatsNote: '額滿',
+        url: 'https://aisteam-camp2.pages.dev/', cta: '查看歷屆資料',
+      },
+      {
+        slug: 'faymi-5day-2026', no: 'CAMP 01', status: 'CLOSED', open: false,
+        en: 'FIVE-DAY TECHNOLOGY CAMP', zh: 'AI × STEAM 未來科技探索營',
+        sum: '五天完成程式、3D 列印、綠色能源、自走車與創客挑戰，建立完整的科技創作歷程。',
+        date: '2026.07.27 — 07.31', time: '每日 08:00 — 16:00',
+        place: '國立高雄科技大學 建工校區', forWho: '國小、國中生｜無需基礎',
+        fee: 'NT$8,000', note: '報名已截止', days: '5 DAYS',
+        seats: '40 / 40', seatsNote: '額滿',
+        url: 'https://faymi-steam-camp.mauve-petal-0386.chatgpt.site', cta: '查看歷屆資料',
+      },
+    ];
+  }
+
   _rawProjects() {
     return [
       { slug: 'nkust-camp', title: '科技探索營', partner: 'NKUST', location: 'KAOHSIUNG', year: '2026', category: 'STEAM EDUCATION', desc: '與國立高雄科技大學合作的暑期科技探索營，學生透過機器人與程式設計，體驗真實的工程實作。' },
@@ -845,15 +949,15 @@ class Component extends DCLogic {
     return {
       isHome: r === 'home', isTools: r === 'tools', isToolDetail: r === 'tool',
       isResources: r === 'resources', isResourceDetail: r === 'resource',
-      isProjects: r === 'projects', isAbout: r === 'about',
+      isProjects: r === 'projects', isAbout: r === 'about', isCamp: r === 'camp',
       isMobile: this.state.isMobile, notMobile: !this.state.isMobile,
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
       closeMenu: () => this.setState({ menuOpen: false }),
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
-      goAbout: () => this.go('about'),
-      tools: this.tools, categories: this.categories, keywords: this.keywords,
+      goAbout: () => this.go('about'), goCamp: () => this.go('camp'),
+      tools: this.tools, categories: this.categories, keywords: this.keywords, camps: this.camps,
       projects: this.projects, homeProjects: this.homeProjects,
       activeTool, activeResource: active,
       resourceFilters: this.resourceFilters, visibleResources: visible,

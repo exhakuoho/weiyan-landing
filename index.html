@@ -10,7 +10,7 @@
 <meta name="keywords" content="微研, WEIYAN, weiyan, 營隊專家, 營隊, 夏令營, 科學營隊, 冬令營, 營隊承辦, 科學教育, 工程教育, 科技教育, 機器人教學, 自走車, MTC V2, 人工智慧, 程式設計, 3D列印, STEAM, 教材, 教具, 高雄">
 <meta name="author" content="微研 WEIYAN">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://weiyan.pages.dev/">
+<link rel="canonical" href="https://weiyan.designjarvis.com/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <!-- ===== Open Graph（LINE / Facebook 分享） ===== -->
@@ -19,7 +19,7 @@
 <meta property="og:title" content="微研 WEIYAN｜科學・工程・機器人科技教育">
 <meta property="og:description" content="讓科學，從動手開始。機器人、AI、3D 列印、工程教材教具與課程資源，並開放程式範例下載。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:url" content="https://weiyan.pages.dev/">
+<meta property="og:url" content="https://weiyan.designjarvis.com/">
 <meta property="og:image" content="https://weiyan.pages.dev/og-image.png">
 
 <!-- ===== Twitter Card ===== -->
@@ -866,7 +866,14 @@ class Component extends DCLogic {
 
     // 直接輸入 #camp 之類的網址進站時，開在對應頁面
     const initial = this._readHash();
-    if (initial.route !== 'home') this.setState(initial);
+    if (initial.route !== 'home') {
+      this.setState(initial);
+    } else if (/^weiyan-camp\./i.test(location.hostname)) {
+      // weiyan-camp.designjarvis.com 的 QR code 已印製發出，此網域一律開在營隊頁。
+      // 用 replaceState 不留額外的上一頁記錄。
+      this.setState({ route: 'camp' });
+      history.replaceState(null, '', '#camp');
+    }
 
     this._onHash = () => {
       const next = this._readHash();

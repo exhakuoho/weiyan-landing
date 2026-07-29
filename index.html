@@ -863,10 +863,27 @@ class Component extends DCLogic {
     };
     this._onResize();
     window.addEventListener('resize', this._onResize);
+
+    // 直接輸入 #camp 之類的網址進站時，開在對應頁面
+    const initial = this._readHash();
+    if (initial.route !== 'home') this.setState(initial);
+
+    this._onHash = () => {
+      const next = this._readHash();
+      if (next.route !== this.state.route ||
+          next.toolSlug !== undefined && next.toolSlug !== this.state.toolSlug ||
+          next.resSlug !== undefined && next.resSlug !== this.state.resSlug) {
+        this.setState({ ...next, menuOpen: false });
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }
+    };
+    window.addEventListener('hashchange', this._onHash);
+    window.addEventListener('popstate', this._onHash);
+
     this._reveal();
   }
   componentDidUpdate() { this._reveal(); }
-  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('hashchange', this._onHash); window.removeEventListener('popstate', this._onHash); }
 
   _reveal() {
     requestAnimationFrame(() => {
@@ -894,7 +911,32 @@ class Component extends DCLogic {
 
   go(route, extra) {
     this.setState({ route, menuOpen: false, ...(extra || {}) });
+    this._writeHash(route, extra);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }
+
+  // 網址與畫面同步：讓每一頁都有可分享、可加書籤的網址，
+  // 上一頁／下一頁也能正常運作。
+  _writeHash(route, extra) {
+    const e = extra || {};
+    const hash = route === 'home' ? '' :
+      route === 'tool' ? 'tool/' + (e.toolSlug || this.state.toolSlug) :
+      route === 'resource' ? 'resource/' + (e.resSlug || this.state.resSlug) :
+      route;
+    const next = hash ? '#' + hash : location.pathname + location.search;
+    if (next === location.href.replace(location.origin, '')) return;
+    history.pushState(null, '', next);
+  }
+
+  _readHash() {
+    const raw = (location.hash || '').replace(/^#\/?/, '');
+    if (!raw) return { route: 'home' };
+    const [name, slug] = raw.split('/');
+    const routes = ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp'];
+    if (routes.indexOf(name) < 0) return { route: 'home' };
+    if (name === 'tool' && slug) return { route: 'tool', toolSlug: slug };
+    if (name === 'resource' && slug) return { route: 'resource', resSlug: slug };
+    return { route: name };
   }
 
   get tools() {

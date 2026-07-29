@@ -91,6 +91,35 @@
     .wy-cap { padding:44px 16px 16px; font-size:12.5px; }
   }
   @media (prefers-reduced-motion: reduce) { .wy-slide { transition:none; } }
+
+  /* 相簿 */
+  .wy-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .wy-thumb { position:relative; aspect-ratio:4/3; border:0; padding:0; border-radius:16px; overflow:hidden;
+              cursor:pointer; background:#101114; display:block; }
+  .wy-thumb img { width:100%; height:100%; object-fit:cover; transition:transform .5s cubic-bezier(.2,.7,.2,1); }
+  .wy-thumb:hover img, .wy-thumb:focus-visible img { transform:scale(1.06); }
+  .wy-thumb:focus-visible { outline:3px solid #7868FF; outline-offset:2px; }
+
+  /* 燈箱 */
+  .wy-lb { position:fixed; inset:0; z-index:200; display:grid; place-items:center;
+           background:rgba(8,9,12,.93); backdrop-filter:blur(4px); padding:24px; }
+  .wy-lb img { max-width:min(1200px,94vw); max-height:78vh; border-radius:10px; display:block; }
+  .wy-lb-cap { max-width:min(1200px,94vw); margin-top:16px; color:#d3d5da; font-size:14px; line-height:1.7; text-align:center; }
+  .wy-lb-pos { display:block; margin-top:7px; font-family:'Space Grotesk',sans-serif; font-size:11px; letter-spacing:.16em; color:#8B8F98; }
+  .wy-lb-x { position:absolute; top:18px; right:20px; width:44px; height:44px; border:0; border-radius:50%;
+             background:rgba(255,255,255,.12); color:#fff; font-size:20px; cursor:pointer; }
+  .wy-lb-x:hover { background:#7868FF; }
+  .wy-lb-nav { position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border:0;
+               border-radius:50%; background:rgba(255,255,255,.12); color:#fff; font-size:20px; cursor:pointer; }
+  .wy-lb-nav:hover { background:#7868FF; }
+  .wy-lb-nav.p { left:20px; } .wy-lb-nav.n { right:20px; }
+  @media (max-width:700px) {
+    .wy-grid { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; }
+    .wy-lb { padding:14px; }
+    .wy-lb img { max-height:64vh; }
+    .wy-lb-nav { width:40px; height:40px; font-size:17px; }
+    .wy-lb-nav.p { left:8px; } .wy-lb-nav.n { right:8px; }
+  }
 </style>
 </helmet>
 
@@ -106,6 +135,7 @@
           <a onClick="{{ goTools }}" style="cursor:pointer;color:#111318;">TOOLS</a>
           <a onClick="{{ goResources }}" style="cursor:pointer;color:#111318;">RESOURCES</a>
           <a onClick="{{ goCamp }}" style="cursor:pointer;color:#111318;display:inline-flex;align-items:center;gap:7px;">CAMP<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></a>
+          <a onClick="{{ goGallery }}" style="cursor:pointer;color:#111318;">GALLERY</a>
           <a onClick="{{ goProjects }}" style="cursor:pointer;color:#111318;">PROJECTS</a>
           <a onClick="{{ goAbout }}" style="cursor:pointer;color:#111318;">ABOUT</a>
         </nav>
@@ -129,6 +159,7 @@
         <a onClick="{{ goTools }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;letter-spacing:.02em;">Tools <span style="color:#8B8F98;font-size:15px;">教具</span></a>
         <a onClick="{{ goResources }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Resources <span style="color:#8B8F98;font-size:15px;">教材</span></a>
         <a onClick="{{ goCamp }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Camp <span style="color:#8B8F98;font-size:15px;">營隊</span></a>
+        <a onClick="{{ goGallery }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Gallery <span style="color:#8B8F98;font-size:15px;">相簿</span></a>
         <a onClick="{{ goProjects }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Projects <span style="color:#8B8F98;font-size:15px;">實績</span></a>
         <a onClick="{{ goAbout }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">About <span style="color:#8B8F98;font-size:15px;">關於</span></a>
       </nav>
@@ -600,6 +631,10 @@
           <button class="{{ d.cls }}" type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}"></button>
         </sc-for>
       </div>
+
+      <div style="display:flex;justify-content:center;margin-top:22px;">
+        <a onClick="{{ goGallery }}" style="display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;border:1px solid rgba(17,19,24,.14);font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;color:#111318;cursor:pointer;">查看完整營隊相簿<span style="color:#7868FF;">&rarr;</span></a>
+      </div>
     </section>
 
     <section style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);">
@@ -801,6 +836,48 @@
   </div>
   </sc-if>
 
+  <!-- ============ GALLERY ============ -->
+  <sc-if value="{{ isGallery }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) clamp(32px,5vw,52px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#7868FF;margin-bottom:24px;">GALLERY</div>
+      <h1 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(40px,6vw,80px);line-height:1.02;letter-spacing:-.03em;margin:0;">Camp<br>Archive.</h1>
+      <p style="font-size:clamp(16px,1.8vw,20px);color:#8B8F98;margin:28px 0 0;max-width:620px;">我們辦過的每一梯營隊，都留下真實的現場紀錄。沒有情境照，沒有素材庫。</p>
+      <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;color:#8B8F98;margin:30px 0 0;">{{ albumCount }} ALBUMS &middot; {{ totalShots }} PHOTOS</p>
+    </section>
+
+    <sc-for list="{{ albums }}" as="al" hint-placeholder-count="1">
+      <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,96px);">
+        <div style="display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-end;padding-top:clamp(28px,4vw,44px);border-top:1px solid rgba(17,19,24,.12);margin-bottom:26px;">
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;margin-bottom:12px;">{{ al.batch }}</div>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1.22;letter-spacing:-.02em;margin:0;">{{ al.title }}</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.1em;color:#8B8F98;">
+              <span>{{ al.date }}</span><span>{{ al.place }}</span><span style="color:#7868FF;">{{ al.count }}</span>
+            </div>
+          </div>
+          <p style="font-size:13px;line-height:1.8;color:#8B8F98;margin:0;max-width:24em;">{{ al.note }}</p>
+        </div>
+
+        <div class="wy-grid">
+          <sc-for list="{{ al.thumbs }}" as="t">
+            <button class="wy-thumb" type="button" onClick="{{ t.open }}" aria-label="{{ t.alt }}">
+              <img src="{{ t.src }}" alt="{{ t.alt }}" loading="lazy" decoding="async" />
+            </button>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <section style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(72px,10vw,130px);">
+      <div style="padding:30px clamp(22px,4vw,40px);border-radius:22px;background:#f6f6f8;border:1px solid rgba(17,19,24,.06);">
+        <p style="font-size:14px;line-height:1.9;color:#4a4d55;margin:0;">照片皆為營隊現場實拍，已取得學員家長之肖像使用同意。若您是學員家長，希望調整或移除特定照片，請透過官方 LINE 與我們聯繫，我們會盡快處理。</p>
+        <a onClick="{{ goCamp }}" style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:13px 22px;border-radius:999px;background:#111318;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;cursor:pointer;">查看目前開放的營隊<span style="color:#7868FF;">&rarr;</span></a>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
   <!-- ============ ABOUT ============ -->
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
   <div>
@@ -836,6 +913,18 @@
       </div>
     </section>
   </div>
+  </sc-if>
+
+  <sc-if value="{{ lbOpen }}">
+    <div class="wy-lb" onClick="{{ lbBackdrop }}" role="dialog" aria-modal="true" aria-label="照片檢視">
+      <button class="wy-lb-x" type="button" aria-label="關閉" onClick="{{ lbClose }}">&#10005;</button>
+      <button class="wy-lb-nav p" type="button" aria-label="上一張" onClick="{{ lbPrev }}">&#10094;</button>
+      <button class="wy-lb-nav n" type="button" aria-label="下一張" onClick="{{ lbNext }}">&#10095;</button>
+      <div>
+        <img src="{{ lbSrc }}" alt="{{ lbAlt }}" />
+        <div class="wy-lb-cap">{{ lbAlt }}<span class="wy-lb-pos">{{ lbPos }}</span></div>
+      </div>
+    </div>
   </sc-if>
 
   </main>
@@ -891,6 +980,7 @@
             <a onClick="{{ goTools }}" style="cursor:pointer;color:#d3d5da;">Tools</a>
             <a onClick="{{ goResources }}" style="cursor:pointer;color:#d3d5da;">Resources</a>
             <a onClick="{{ goCamp }}" style="cursor:pointer;color:#d3d5da;">Camp</a>
+            <a onClick="{{ goGallery }}" style="cursor:pointer;color:#d3d5da;">Gallery</a>
             <a onClick="{{ goProjects }}" style="cursor:pointer;color:#d3d5da;">Projects</a>
             <a onClick="{{ goAbout }}" style="cursor:pointer;color:#d3d5da;">About</a>
           </div>
@@ -914,7 +1004,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { route: 'home', toolSlug: 'mtc-v2', resSlug: 'mtc-forward', filter: 'ALL', isMobile: false, menuOpen: false, campTopic: '全部', campAge: '不限', campExpanded: '', campFaq: -1, photo: 0 };
+  state = { route: 'home', toolSlug: 'mtc-v2', resSlug: 'mtc-forward', filter: 'ALL', isMobile: false, menuOpen: false, campTopic: '全部', campAge: '不限', campExpanded: '', campFaq: -1, photo: 0, lbAlbum: -1, lbShot: 0 };
 
   componentDidMount() {
     this._onResize = () => {
@@ -960,6 +1050,14 @@ class Component extends DCLogic {
 
     // 鍵盤左右鍵切換照片（僅在營隊頁）
     this._onKey = (e) => {
+      // 燈箱開著時優先處理
+      if (this.state.lbAlbum >= 0) {
+        const n = this._rawAlbums()[this.state.lbAlbum].shots.length;
+        if (e.key === 'Escape') { this.setState({ lbAlbum: -1 }); return; }
+        if (e.key === 'ArrowRight') { e.preventDefault(); this.setState({ lbShot: (this.state.lbShot + 1) % n }); return; }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); this.setState({ lbShot: (this.state.lbShot - 1 + n) % n }); return; }
+        return;
+      }
       if (this.state.route !== 'camp') return;
       if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
       const el = document.getElementById('wy-carousel');
@@ -1043,7 +1141,7 @@ class Component extends DCLogic {
     const raw = (location.hash || '').replace(/^#\/?/, '');
     if (!raw) return { route: 'home' };
     const [name, slug] = raw.split('/');
-    const routes = ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp'];
+    const routes = ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp', 'gallery'];
     if (routes.indexOf(name) < 0) return { route: 'home' };
     if (name === 'tool' && slug) return { route: 'tool', toolSlug: slug };
     if (name === 'resource' && slug) return { route: 'resource', resSlug: slug };
@@ -1205,25 +1303,45 @@ class Component extends DCLogic {
     ];
   }
 
-  _rawPhotos() {
-    const base = '/photos/camp-2026-07/';
+  // 相簿資料。之後新增梯次，在陣列最前面加一本即可，其餘程式不用動。
+  _rawAlbums() {
     return [
-      ['photo-01', '結業式全體大合照，學員手持高科大頒發的競賽獎牌'],
-      ['photo-12', '課前準備：桌上排開的機器人自走車、機械手臂與遙控器'],
-      ['photo-10', '電腦教室進行答題挑戰賽，學員踴躍舉手'],
-      ['photo-03', 'Scratch 方塊程式教學，助教在螢幕前逐步講解'],
-      ['photo-11', '助教一對一指導學員除錯'],
-      ['photo-05', '課堂搶答，學員高舉雙手'],
-      ['photo-04', '講師在舞台上說明競賽賽道與關卡配置'],
-      ['photo-13', '學員在賽道旁以平板操控自走車完成任務'],
-      ['photo-08', '兩位學員蹲在賽道上調整自走車與機械手臂'],
-      ['photo-14', '學員圍著賽道觀察自走車循跡行進'],
-      ['photo-15', '電腦教室裡完成任務的學員'],
-      ['photo-02', '課間活動時間的學員'],
-      ['photo-07', '學員在課桌旁合影'],
-      ['photo-09', '完成挑戰後開心比手勢的學員'],
-      ['photo-06', '營隊工作人員與大學生助教'],
-    ].map(function (x) { return { src: base + x[0] + '.webp?v=1', alt: x[1] }; });
+      {
+        slug: 'amr-2026-07',
+        title: '機器人自走車 \u00d7 AI 科技探索營',
+        batch: '北嶺 \u00d7 壽齡 · 第一梯',
+        date: '2026.07.01 — 07.03',
+        place: '高雄市彌陀區壽齡國民小學',
+        note: '與高雄市政府教育局合辦，30 位國小學員完成三日課程與團隊競賽。',
+        dir: '/photos/camp-2026-07/',
+        shots: [
+          ['photo-01', '結業式全體大合照，學員手持高科大頒發的競賽獎牌'],
+          ['photo-12', '課前準備：桌上排開的機器人自走車、機械手臂與遙控器'],
+          ['photo-10', '電腦教室進行答題挑戰賽，學員踴躍舉手'],
+          ['photo-03', 'Scratch 方塊程式教學，助教在螢幕前逐步講解'],
+          ['photo-11', '助教一對一指導學員除錯'],
+          ['photo-05', '課堂搶答，學員高舉雙手'],
+          ['photo-04', '講師在舞台上說明競賽賽道與關卡配置'],
+          ['photo-13', '學員在賽道旁以平板操控自走車完成任務'],
+          ['photo-08', '兩位學員蹲在賽道上調整自走車與機械手臂'],
+          ['photo-14', '學員圍著賽道觀察自走車循跡行進'],
+          ['photo-15', '電腦教室裡完成任務的學員'],
+          ['photo-02', '課間活動時間的學員'],
+          ['photo-07', '學員在課桌旁合影'],
+          ['photo-09', '完成挑戰後開心比手勢的學員'],
+          ['photo-06', '營隊工作人員與大學生助教'],
+        ],
+      },
+    ];
+  }
+
+  // 攤平成 {src, alt}，供輪播與相簿共用
+  _albumShots(album) {
+    return album.shots.map((x) => ({ src: album.dir + x[0] + '.webp?v=1', alt: x[1] }));
+  }
+
+  _rawPhotos() {
+    return this._albumShots(this._rawAlbums()[0]);
   }
 
   get pressItems() {
@@ -1370,6 +1488,40 @@ class Component extends DCLogic {
     });
   }
 
+  _galleryVals() {
+    const albums = this._rawAlbums();
+    const open = (ai, si) => this.setState({ lbAlbum: ai, lbShot: si });
+    const close = () => this.setState({ lbAlbum: -1 });
+
+    const ai = this.state.lbAlbum;
+    const lbOpen = ai >= 0;
+    const shots = lbOpen ? this._albumShots(albums[ai]) : [];
+    const si = lbOpen ? Math.min(this.state.lbShot, shots.length - 1) : 0;
+    const step = (d) => this.setState({ lbShot: (si + d + shots.length) % shots.length });
+
+    return {
+      albums: albums.map((a, i) => ({
+        ...a,
+        count: a.shots.length + ' 張',
+        thumbs: this._albumShots(a).map((sh, j) => ({
+          ...sh,
+          open: () => open(i, j),
+        })),
+      })),
+      albumCount: albums.length,
+      totalShots: albums.reduce((n, a) => n + a.shots.length, 0),
+      lbOpen,
+      lbSrc: lbOpen ? shots[si].src : '',
+      lbAlt: lbOpen ? shots[si].alt : '',
+      lbPos: lbOpen ? (si + 1) + ' / ' + shots.length : '',
+      lbClose: close,
+      lbPrev: () => step(-1),
+      lbNext: () => step(1),
+      // 只有點在背景本身才關閉；點按鈕或圖片時 target 是子元素，不會誤關
+      lbBackdrop: (e) => { if (e && e.target === e.currentTarget) close(); },
+    };
+  }
+
   _photoVals() {
     const list = this._rawPhotos();
     const cur = this.state.photo;
@@ -1447,17 +1599,18 @@ class Component extends DCLogic {
     return {
       isHome: r === 'home', isTools: r === 'tools', isToolDetail: r === 'tool',
       isResources: r === 'resources', isResourceDetail: r === 'resource',
-      isProjects: r === 'projects', isAbout: r === 'about', isCamp: r === 'camp',
+      isProjects: r === 'projects', isAbout: r === 'about', isCamp: r === 'camp', isGallery: r === 'gallery',
       isMobile: this.state.isMobile, notMobile: !this.state.isMobile,
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
       closeMenu: () => this.setState({ menuOpen: false }),
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
-      goAbout: () => this.go('about'), goCamp: () => this.go('camp'),
+      goAbout: () => this.go('about'), goCamp: () => this.go('camp'), goGallery: () => this.go('gallery'),
       tools: this.tools, categories: this.categories, keywords: this.keywords, pressItems: this.pressItems,
       ...this._campVals(),
       ...this._photoVals(),
+      ...this._galleryVals(),
       projects: this.projects, homeProjects: this.homeProjects,
       activeTool, activeResource: active,
       resourceFilters: this.resourceFilters, visibleResources: visible,

@@ -65,6 +65,32 @@
   @keyframes wy-orbit { to { transform: rotate(360deg); } }
   @keyframes wy-orbit-rev { to { transform: rotate(-360deg); } }
   @keyframes wy-pulse { 0%,100% { opacity:.5; transform:scale(1);} 50% { opacity:1; transform:scale(1.18);} }
+
+  /* 營隊現場照片輪播 */
+  .wy-carousel { position:relative; border-radius:24px; overflow:hidden; background:#101114; aspect-ratio:16/9; }
+  .wy-slide { position:absolute; inset:0; opacity:0; transition:opacity .7s ease; pointer-events:none; }
+  .wy-slide.is-on { opacity:1; pointer-events:auto; }
+  .wy-slide-bg { position:absolute; inset:-8%; background-size:cover; background-position:center;
+                 filter:blur(26px) brightness(.55); transform:scale(1.1); }
+  .wy-slide img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+  .wy-cap { position:absolute; left:0; right:0; bottom:0; padding:52px 26px 20px; color:#fff;
+            font-size:14px; line-height:1.6;
+            background:linear-gradient(to top, rgba(8,9,12,.86), rgba(8,9,12,0)); }
+  .wy-nav { position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px; border:0;
+            border-radius:50%; background:rgba(12,13,16,.55); color:#fff; font-size:19px; cursor:pointer;
+            display:grid; place-items:center; backdrop-filter:blur(6px); transition:background .2s; }
+  .wy-nav:hover { background:rgba(120,104,255,.9); }
+  .wy-nav.prev { left:14px; } .wy-nav.next { right:14px; }
+  .wy-dots { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:18px; }
+  .wy-dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; cursor:pointer;
+            background:rgba(17,19,24,.22); transition:background .2s, width .2s; }
+  .wy-dot.is-on { width:24px; border-radius:99px; background:#7868FF; }
+  @media (max-width:700px) {
+    .wy-carousel { aspect-ratio:4/3; border-radius:18px; }
+    .wy-nav { width:38px; height:38px; font-size:16px; }
+    .wy-cap { padding:44px 16px 16px; font-size:12.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .wy-slide { transition:none; } }
 </style>
 </helmet>
 
@@ -547,6 +573,35 @@
       <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;color:#8B8F98;margin:32px 0 0;">國立高雄科技大學 &#215; 高雄市政府教育局 &#215; 在地學校</p>
     </section>
 
+    <!-- ---- 營隊現場照片輪播 ---- -->
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(48px,7vw,80px);">
+      <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end;margin-bottom:22px;">
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:14px;">ON SITE &middot; 2026.07.01&ndash;03</div>
+          <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1.2;letter-spacing:-.02em;margin:0;">營隊現場，沒有修飾。</h2>
+        </div>
+        <p style="font-size:13px;line-height:1.8;color:#8B8F98;margin:0;max-width:22em;">機器人自走車 &times; AI 科技探索營（北嶺 &times; 壽齡）活動實拍。</p>
+      </div>
+
+      <div class="wy-carousel" id="wy-carousel" onMouseEnter="{{ photoPause }}" onMouseLeave="{{ photoResume }}">
+        <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="1">
+          <div class="{{ ph.cls }}">
+            <div class="wy-slide-bg" style="{{ ph.bg }}"></div>
+            <img src="{{ ph.src }}" alt="{{ ph.alt }}" loading="{{ ph.loading }}" decoding="async" />
+          </div>
+        </sc-for>
+        <div class="wy-cap">{{ photoCaption }}</div>
+        <button class="wy-nav prev" type="button" aria-label="上一張照片" onClick="{{ photoPrev }}">&#10094;</button>
+        <button class="wy-nav next" type="button" aria-label="下一張照片" onClick="{{ photoNext }}">&#10095;</button>
+      </div>
+
+      <div class="wy-dots">
+        <sc-for list="{{ photoDots }}" as="d" hint-placeholder-count="15">
+          <button class="{{ d.cls }}" type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}"></button>
+        </sc-for>
+      </div>
+    </section>
+
     <section style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);">
       <div style="display:flex;flex-wrap:wrap;gap:22px 44px;align-items:center;padding:22px 0;border-top:1px solid rgba(17,19,24,.1);border-bottom:1px solid rgba(17,19,24,.1);">
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
@@ -859,7 +914,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { route: 'home', toolSlug: 'mtc-v2', resSlug: 'mtc-forward', filter: 'ALL', isMobile: false, menuOpen: false, campTopic: '全部', campAge: '不限', campExpanded: '', campFaq: -1 };
+  state = { route: 'home', toolSlug: 'mtc-v2', resSlug: 'mtc-forward', filter: 'ALL', isMobile: false, menuOpen: false, campTopic: '全部', campAge: '不限', campExpanded: '', campFaq: -1, photo: 0 };
 
   componentDidMount() {
     this._onResize = () => {
@@ -892,10 +947,54 @@ class Component extends DCLogic {
     window.addEventListener('hashchange', this._onHash);
     window.addEventListener('popstate', this._onHash);
 
+    // 照片輪播自動播放；使用者若偏好減少動態則不自動切換
+    const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!still) {
+      this._photoTimer = setInterval(() => {
+        const idle = !this._photoTouched || Date.now() - this._photoTouched > 9000;
+        if (this.state.route === 'camp' && !document.hidden && !this._photoPaused && idle) {
+          this.setState({ photo: (this.state.photo + 1) % this._rawPhotos().length });
+        }
+      }, 5200);
+    }
+
+    // 鍵盤左右鍵切換照片（僅在營隊頁）
+    this._onKey = (e) => {
+      if (this.state.route !== 'camp') return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      const el = document.getElementById('wy-carousel');
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;   // 不在畫面內就不攔截
+      e.preventDefault();
+      this._photoTouched = Date.now();
+      const n = this._rawPhotos().length;
+      this.setState({ photo: (this.state.photo + (e.key === 'ArrowRight' ? 1 : -1) + n) % n });
+    };
+    window.addEventListener('keydown', this._onKey);
+
+    // 手機左右滑動
+    let x0 = null;
+    this._onTouchStart = (e) => {
+      const el = document.getElementById('wy-carousel');
+      if (el && el.contains(e.target)) x0 = e.touches[0].clientX;
+    };
+    this._onTouchEnd = (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) < 45) return;
+      this._photoTouched = Date.now();
+      const n = this._rawPhotos().length;
+      this.setState({ photo: (this.state.photo + (dx < 0 ? 1 : -1) + n) % n });
+    };
+    window.addEventListener('touchstart', this._onTouchStart, { passive: true });
+    window.addEventListener('touchend', this._onTouchEnd, { passive: true });
+
     this._reveal();
   }
   componentDidUpdate() { this._reveal(); }
-  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('hashchange', this._onHash); window.removeEventListener('popstate', this._onHash); }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('hashchange', this._onHash); window.removeEventListener('popstate', this._onHash); clearInterval(this._photoTimer); window.removeEventListener('keydown', this._onKey); window.removeEventListener('touchstart', this._onTouchStart); window.removeEventListener('touchend', this._onTouchEnd); }
 
   _reveal() {
     requestAnimationFrame(() => {
@@ -1106,6 +1205,27 @@ class Component extends DCLogic {
     ];
   }
 
+  _rawPhotos() {
+    const base = '/photos/camp-2026-07/';
+    return [
+      ['photo-01', '結業式全體大合照，學員手持高科大頒發的競賽獎牌'],
+      ['photo-12', '課前準備：桌上排開的機器人自走車、機械手臂與遙控器'],
+      ['photo-10', '電腦教室進行答題挑戰賽，學員踴躍舉手'],
+      ['photo-03', 'Scratch 方塊程式教學，助教在螢幕前逐步講解'],
+      ['photo-11', '助教一對一指導學員除錯'],
+      ['photo-05', '課堂搶答，學員高舉雙手'],
+      ['photo-04', '講師在舞台上說明競賽賽道與關卡配置'],
+      ['photo-13', '學員在賽道旁以平板操控自走車完成任務'],
+      ['photo-08', '兩位學員蹲在賽道上調整自走車與機械手臂'],
+      ['photo-14', '學員圍著賽道觀察自走車循跡行進'],
+      ['photo-15', '電腦教室裡完成任務的學員'],
+      ['photo-02', '課間活動時間的學員'],
+      ['photo-07', '學員在課桌旁合影'],
+      ['photo-09', '完成挑戰後開心比手勢的學員'],
+      ['photo-06', '營隊工作人員與大學生助教'],
+    ].map(function (x) { return { src: base + x[0] + '.webp', alt: x[1] }; });
+  }
+
   get pressItems() {
     return [
       { outlet: '經濟日報',
@@ -1250,6 +1370,37 @@ class Component extends DCLogic {
     });
   }
 
+  _photoVals() {
+    const list = this._rawPhotos();
+    const cur = this.state.photo;
+    // 使用者手動切換後，暫緩自動播放，避免操作到一半被搶走
+    const go = (i) => {
+      this._photoTouched = Date.now();
+      this.setState({ photo: (i + list.length) % list.length });
+    };
+    return {
+      photos: list.map((ph, i) => ({
+        ...ph,
+        cls: i === cur ? 'wy-slide is-on' : 'wy-slide',
+        bg: 'background-image:url(' + ph.src + ')',
+        // 首張立即載入，其餘交給瀏覽器延後
+        loading: i === 0 ? 'eager' : 'lazy',
+      })),
+      photoDots: list.map((ph, i) => ({
+        cls: i === cur ? 'wy-dot is-on' : 'wy-dot',
+        label: '第 ' + (i + 1) + ' 張照片',
+        go: () => go(i),
+      })),
+      photoPrev: () => go(cur - 1),
+      photoNext: () => go(cur + 1),
+      photoGo: go,
+      photoPause: () => { this._photoPaused = true; },
+      photoResume: () => { this._photoPaused = false; },
+      photoCaption: list[cur].alt,
+      photoPos: (cur + 1) + ' / ' + list.length,
+    };
+  }
+
   _campVals() {
     const topic = this.state.campTopic, age = this.state.campAge;
     const match = (c) =>
@@ -1306,6 +1457,7 @@ class Component extends DCLogic {
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'),
       tools: this.tools, categories: this.categories, keywords: this.keywords, pressItems: this.pressItems,
       ...this._campVals(),
+      ...this._photoVals(),
       projects: this.projects, homeProjects: this.homeProjects,
       activeTool, activeResource: active,
       resourceFilters: this.resourceFilters, visibleResources: visible,

@@ -804,13 +804,18 @@
           <span style="font-size:26px;flex-shrink:0;">&#8599;</span>
         </a>
 
-        <a href="https://money.udn.com/money/story/5723/9609043" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-radius:20px;border:1px solid rgba(255,255,255,.16);color:#fff;cursor:pointer;">
-          <span>
-            <span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#8B8F98;margin-bottom:7px;">PRESS</span>
-            <b style="display:block;font-size:15px;font-weight:600;">經濟日報活動報導</b>
-          </span>
-          <span style="font-size:20px;color:#7868FF;flex-shrink:0;">&#8599;</span>
-        </a>
+        <div style="padding:22px 26px;border-radius:20px;border:1px solid rgba(255,255,255,.16);">
+          <span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#8B8F98;margin-bottom:16px;">PRESS &middot; 媒體報導</span>
+          <sc-for list="{{ pressItems }}" as="n">
+            <a href="{{ n.url }}" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid rgba(255,255,255,.09);color:#fff;cursor:pointer;">
+              <span style="min-width:0;">
+                <span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.14em;color:#7868FF;margin-bottom:5px;">{{ n.outlet }}</span>
+                <b style="display:block;font-size:13px;font-weight:600;line-height:1.55;">{{ n.title }}</b>
+              </span>
+              <span style="font-size:15px;color:#8B8F98;flex-shrink:0;margin-top:12px;">&#8599;</span>
+            </a>
+          </sc-for>
+        </div>
       </div>
     </div>
   </section>
@@ -1101,6 +1106,23 @@ class Component extends DCLogic {
     ];
   }
 
+  get pressItems() {
+    return [
+      { outlet: '經濟日報',
+        title: '高科大偏鄉夏令營落幕　攜手高市府教育局、壽齡與北嶺國小玩轉 AI 自走車',
+        url: 'https://money.udn.com/money/story/5723/9609043' },
+      { outlet: '台新傳媒',
+        title: '高科大 AI 機器人夏令營　偏鄉學童探索科技新未來',
+        url: 'https://seenews.tw/101945' },
+      { outlet: '漾新聞 Young News',
+        title: 'AI 機器人走進偏鄉　高科大夏令營攜手教育局啟動科技夢',
+        url: 'https://www.youngnews3631.com/news_detail.php?NewsID=16837' },
+      { outlet: '漾新聞 Young News',
+        title: '60 名學子變身 AI 未來玩家　走讀高雄玩出數位創意',
+        url: 'https://www.youngnews3631.com/news_detail.php?NewsID=16776' },
+    ];
+  }
+
   _rawCampFaqs() {
     return [
       { q: '孩子沒有任何程式或機械基礎，可以參加嗎？',
@@ -1282,7 +1304,7 @@ class Component extends DCLogic {
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'),
-      tools: this.tools, categories: this.categories, keywords: this.keywords,
+      tools: this.tools, categories: this.categories, keywords: this.keywords, pressItems: this.pressItems,
       ...this._campVals(),
       projects: this.projects, homeProjects: this.homeProjects,
       activeTool, activeResource: active,

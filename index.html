@@ -540,53 +540,207 @@
   <!-- ============ CAMP ============ -->
   <sc-if value="{{ isCamp }}" hint-placeholder-val="{{ false }}">
   <div>
-    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) clamp(40px,6vw,72px);">
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) clamp(32px,5vw,56px);">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#7868FF;margin-bottom:24px;">CAMP</div>
       <h1 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(40px,6vw,80px);line-height:1.02;letter-spacing:-.03em;margin:0;">Camps<br>&amp; Registration.</h1>
       <p style="font-size:clamp(16px,1.8vw,20px);color:#8B8F98;margin:28px 0 0;max-width:620px;">從真實工程技術出發，讓學生透過設計、製作、測試與改良，把好奇心變成能帶走的作品與能力。</p>
+      <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;color:#8B8F98;margin:32px 0 0;">國立高雄科技大學 &#215; 高雄市政府教育局 &#215; 在地學校</p>
     </section>
 
-    <section style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(72px,10vw,150px);">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;">
-        <sc-for list="{{ camps }}" as="c" hint-placeholder-count="4">
-          <div data-reveal style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:22px;overflow:hidden;">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 26px;border-bottom:1px solid rgba(17,19,24,.07);font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#8B8F98;">
+    <section style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);">
+      <div style="display:flex;flex-wrap:wrap;gap:22px 44px;align-items:center;padding:22px 0;border-top:1px solid rgba(17,19,24,.1);border-bottom:1px solid rgba(17,19,24,.1);">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#a9acb4;margin-right:6px;">TOPIC</span>
+          <sc-for list="{{ campTopics }}" as="t">
+            <sc-if value="{{ t.active }}"><a onClick="{{ t.select }}" style="cursor:pointer;padding:9px 17px;border-radius:999px;background:#111318;color:#fff;font-size:12.5px;font-weight:600;">{{ t.label }}</a></sc-if>
+            <sc-if value="{{ !t.active }}"><a onClick="{{ t.select }}" style="cursor:pointer;padding:9px 17px;border-radius:999px;border:1px solid rgba(17,19,24,.14);color:#4a4d55;font-size:12.5px;">{{ t.label }}</a></sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#a9acb4;margin-right:6px;">AGE</span>
+          <sc-for list="{{ campAges }}" as="a">
+            <sc-if value="{{ a.active }}"><a onClick="{{ a.select }}" style="cursor:pointer;padding:9px 17px;border-radius:999px;background:#111318;color:#fff;font-size:12.5px;font-weight:600;">{{ a.label }}</a></sc-if>
+            <sc-if value="{{ !a.active }}"><a onClick="{{ a.select }}" style="cursor:pointer;padding:9px 17px;border-radius:999px;border:1px solid rgba(17,19,24,.14);color:#4a4d55;font-size:12.5px;">{{ a.label }}</a></sc-if>
+          </sc-for>
+        </div>
+        <span style="margin-left:auto;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#8B8F98;">{{ campResultCount }} RESULTS</span>
+      </div>
+    </section>
+
+    <sc-if value="{{ hasOpenCamps }}">
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(48px,7vw,86px) clamp(20px,5vw,48px) 0;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:20px;">01 / NOW OPEN</div>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;margin-bottom:36px;">
+        <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.1;letter-spacing:-.02em;margin:0;">報名中的營隊</h2>
+        <p style="font-size:14px;line-height:1.85;color:#8B8F98;margin:0;max-width:26em;">白色卡片代表目前開放報名。展開「每日課程安排」可看見實際課程內容，點選下方按鈕前往報名或查看營隊網站。</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <sc-for list="{{ openCamps }}" as="c" hint-placeholder-count="2">
+          <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;box-shadow:0 14px 40px rgba(17,19,24,.06);">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 26px;border-bottom:1px solid rgba(17,19,24,.09);font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#8B8F98;">
               <span>{{ c.no }}</span>
-              <sc-if value="{{ c.open }}">
-                <span style="display:inline-flex;align-items:center;gap:7px;color:#111318;">{{ c.status }}<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></span>
-              </sc-if>
-              <sc-if value="{{ !c.open }}">
-                <span style="color:#a9acb4;">{{ c.status }}</span>
-              </sc-if>
+              <span style="display:inline-flex;align-items:center;gap:7px;color:#111318;">{{ c.status }}<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></span>
             </div>
 
-            <div style="padding:26px;flex:1;">
-              <p style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin:0 0 10px;">{{ c.en }}</p>
-              <div style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.01em;margin-bottom:14px;">{{ c.zh }}</div>
-              <p style="font-size:14px;line-height:1.8;color:#4a4d55;margin:0 0 22px;">{{ c.sum }}</p>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;border-top:1px solid rgba(17,19,24,.07);padding-top:20px;">
-                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">DATE</span><b style="font-size:13px;font-weight:600;">{{ c.date }}</b></div>
-                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">TIME</span><b style="font-size:13px;font-weight:600;">{{ c.time }}</b></div>
-                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">FOR</span><b style="font-size:13px;font-weight:600;">{{ c.forWho }}</b></div>
-                <div><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">FEE</span><b style="font-size:13px;font-weight:600;">{{ c.fee }}</b></div>
-                <div style="grid-column:1/-1;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:5px;">LOCATION</span><b style="font-size:13px;font-weight:600;">{{ c.place }}</b></div>
+            <div style="padding:clamp(24px,3vw,36px);">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;">
+                <div style="flex:1;min-width:0;">
+                  <p style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;margin:0 0 10px;">{{ c.en }}</p>
+                  <h3 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 12px;">{{ c.zh }}</h3>
+                  <p style="font-size:14px;line-height:1.8;color:#4a4d55;margin:0;max-width:44em;">{{ c.sum }}</p>
+                </div>
+                <a href="{{ c.url }}" target="_blank" rel="noopener" aria-label="open camp info" style="flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,19,24,.14);color:#111318;font-size:17px;cursor:pointer;">&#8599;</a>
               </div>
 
-              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:20px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;color:#8B8F98;">
-                <span>ENROLLED {{ c.seats }}</span><span>{{ c.seatsNote }}</span><span>{{ c.days }}</span>
+              <div style="margin-top:26px;">
+                <div style="height:4px;border-radius:99px;background:rgba(17,19,24,.08);overflow:hidden;">
+                  <div style="width:{{ c.pct }};height:100%;background:#7868FF;border-radius:99px;"></div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;color:#8B8F98;">
+                  <span>ENROLLED {{ c.taken }} / {{ c.total }}</span><span>{{ c.seatsNote }}</span>
+                </div>
               </div>
-              <p style="font-size:12px;color:#8B8F98;margin:14px 0 0;">{{ c.note }}</p>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:26px;border:1px solid rgba(17,19,24,.09);border-radius:14px;overflow:hidden;">
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.09);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">DATE</span><b style="font-size:13px;font-weight:600;">{{ c.date }}</b></div>
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.09);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">TIME</span><b style="font-size:13px;font-weight:600;">{{ c.time }}</b></div>
+                <div style="padding:16px 18px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">LOCATION</span><b style="font-size:13px;font-weight:600;">{{ c.place }}</b></div>
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.09);border-top:1px solid rgba(17,19,24,.09);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">FOR</span><b style="font-size:13px;font-weight:600;">{{ c.forWho }}</b></div>
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.09);border-top:1px solid rgba(17,19,24,.09);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">FEE</span><b style="font-size:13px;font-weight:600;">{{ c.fee }}</b></div>
+                <div style="padding:16px 18px;border-top:1px solid rgba(17,19,24,.09);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">STATUS</span><b style="font-size:13px;font-weight:600;">{{ c.note }}</b></div>
+              </div>
+
+              <div style="margin-top:22px;border-top:1px solid rgba(17,19,24,.09);padding-top:20px;">
+                <a onClick="{{ c.toggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;">
+                  <b style="font-size:14px;font-weight:600;">每日課程安排</b>
+                  <span style="display:inline-flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.14em;color:#8B8F98;">{{ c.days }}<sc-if value="{{ c.expanded }}"><span style="font-size:20px;color:#7868FF;">&#8722;</span></sc-if><sc-if value="{{ !c.expanded }}"><span style="font-size:20px;color:#7868FF;">&#43;</span></sc-if></span>
+                </a>
+                <sc-if value="{{ c.expanded }}">
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin-top:20px;">
+                    <sc-for list="{{ c.schedule }}" as="d">
+                      <div style="padding:18px;border-radius:14px;background:#f6f6f8;">
+                        <span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:8px;">{{ d.d }}</span>
+                        <b style="display:block;font-size:15px;font-weight:600;margin-bottom:10px;">{{ d.t }}</b>
+                        <sc-for list="{{ d.items }}" as="it">
+                          <span style="display:block;font-size:13px;line-height:1.8;color:#4a4d55;">{{ it }}</span>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
             </div>
 
-            <a href="{{ c.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 26px;border-top:1px solid rgba(17,19,24,.07);font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;color:#111318;cursor:pointer;">{{ c.cta }}<span style="color:#7868FF;">&#8599;</span></a>
+            <a href="{{ c.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px clamp(24px,3vw,36px);border-top:1px solid rgba(17,19,24,.09);background:#111318;color:#fff;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;">{{ c.cta }}<span>&#8599;</span></a>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ hasClosedCamps }}">
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(48px,7vw,86px) clamp(20px,5vw,48px) 0;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#8B8F98;margin-bottom:20px;">02 / CLOSED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;margin-bottom:36px;">
+        <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.1;letter-spacing:-.02em;margin:0;">已截止的營隊</h2>
+        <p style="font-size:14px;line-height:1.85;color:#8B8F98;margin:0;max-width:26em;">灰色卡片代表該梯次已結束或額滿，仍可展開課程內容，作為選擇下一梯次的參考。</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <sc-for list="{{ closedCamps }}" as="c" hint-placeholder-count="2">
+          <article data-reveal style="background:#f2f2f4;border:1px solid rgba(17,19,24,.08);border-radius:22px;overflow:hidden;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 26px;border-bottom:1px solid rgba(17,19,24,.08);font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#8B8F98;">
+              <span>{{ c.no }}</span>
+              <span style="display:inline-flex;align-items:center;gap:7px;color:#a9acb4;">{{ c.status }}</span>
+            </div>
+
+            <div style="padding:clamp(24px,3vw,36px);">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;">
+                <div style="flex:1;min-width:0;">
+                  <p style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#8B8F98;margin:0 0 10px;">{{ c.en }}</p>
+                  <h3 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 12px;">{{ c.zh }}</h3>
+                  <p style="font-size:14px;line-height:1.8;color:#4a4d55;margin:0;max-width:44em;">{{ c.sum }}</p>
+                </div>
+                <a href="{{ c.url }}" target="_blank" rel="noopener" aria-label="open camp info" style="flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,19,24,.14);color:#111318;font-size:17px;cursor:pointer;">&#8599;</a>
+              </div>
+
+              <div style="margin-top:26px;">
+                <div style="height:4px;border-radius:99px;background:rgba(17,19,24,.08);overflow:hidden;">
+                  <div style="width:{{ c.pct }};height:100%;background:#c3c5cc;border-radius:99px;"></div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;color:#8B8F98;">
+                  <span>ENROLLED {{ c.taken }} / {{ c.total }}</span><span>{{ c.seatsNote }}</span>
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:26px;border:1px solid rgba(17,19,24,.08);border-radius:14px;overflow:hidden;">
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.08);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">DATE</span><b style="font-size:13px;font-weight:600;">{{ c.date }}</b></div>
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.08);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">TIME</span><b style="font-size:13px;font-weight:600;">{{ c.time }}</b></div>
+                <div style="padding:16px 18px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">LOCATION</span><b style="font-size:13px;font-weight:600;">{{ c.place }}</b></div>
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.08);border-top:1px solid rgba(17,19,24,.08);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">FOR</span><b style="font-size:13px;font-weight:600;">{{ c.forWho }}</b></div>
+                <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.08);border-top:1px solid rgba(17,19,24,.08);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">FEE</span><b style="font-size:13px;font-weight:600;">{{ c.fee }}</b></div>
+                <div style="padding:16px 18px;border-top:1px solid rgba(17,19,24,.08);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">STATUS</span><b style="font-size:13px;font-weight:600;">{{ c.note }}</b></div>
+              </div>
+
+              <div style="margin-top:22px;border-top:1px solid rgba(17,19,24,.08);padding-top:20px;">
+                <a onClick="{{ c.toggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;">
+                  <b style="font-size:14px;font-weight:600;">每日課程安排</b>
+                  <span style="display:inline-flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.14em;color:#8B8F98;">{{ c.days }}<sc-if value="{{ c.expanded }}"><span style="font-size:20px;color:#8B8F98;">&#8722;</span></sc-if><sc-if value="{{ !c.expanded }}"><span style="font-size:20px;color:#8B8F98;">&#43;</span></sc-if></span>
+                </a>
+                <sc-if value="{{ c.expanded }}">
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin-top:20px;">
+                    <sc-for list="{{ c.schedule }}" as="d">
+                      <div style="padding:18px;border-radius:14px;background:#e9e9ed;">
+                        <span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#8B8F98;margin-bottom:8px;">{{ d.d }}</span>
+                        <b style="display:block;font-size:15px;font-weight:600;margin-bottom:10px;">{{ d.t }}</b>
+                        <sc-for list="{{ d.items }}" as="it">
+                          <span style="display:block;font-size:13px;line-height:1.8;color:#4a4d55;">{{ it }}</span>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+
+            <a href="{{ c.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px clamp(24px,3vw,36px);border-top:1px solid rgba(17,19,24,.08);background:transparent;color:#111318;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;">{{ c.cta }}<span>&#8599;</span></a>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) 0;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:20px;">03 / BEFORE YOU REGISTER</div>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;margin-bottom:40px;">
+        <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.1;letter-spacing:-.02em;margin:0;">報名前常見問題</h2>
+        <p style="font-size:14px;line-height:1.85;color:#8B8F98;margin:0;max-width:24em;">以下為家長最常詢問的項目。若仍有疑問，歡迎透過官方 LINE 直接詢問。</p>
+      </div>
+      <div style="border-top:1px solid rgba(17,19,24,.14);">
+        <sc-for list="{{ campFaqs }}" as="f" hint-placeholder-count="6">
+          <div style="border-bottom:1px solid rgba(17,19,24,.1);">
+            <a onClick="{{ f.toggle }}" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 4px;cursor:pointer;">
+              <b style="font-size:clamp(14px,1.6vw,16px);font-weight:600;line-height:1.6;">{{ f.q }}</b>
+              <sc-if value="{{ f.isOpen }}"><span style="font-size:22px;color:#7868FF;flex-shrink:0;">&#8722;</span></sc-if>
+              <sc-if value="{{ !f.isOpen }}"><span style="font-size:22px;color:#7868FF;flex-shrink:0;">&#43;</span></sc-if>
+            </a>
+            <sc-if value="{{ f.isOpen }}">
+              <p style="font-size:14px;line-height:1.95;color:#4a4d55;margin:0;padding:0 4px 26px;max-width:52em;">{{ f.a }}</p>
+            </sc-if>
           </div>
         </sc-for>
       </div>
+    </section>
 
-      <div data-reveal style="margin-top:40px;padding:30px clamp(22px,4vw,40px);border-radius:22px;background:#f6f6f8;border:1px solid rgba(17,19,24,.06);">
-        <p style="font-size:14px;line-height:1.9;color:#4a4d55;margin:0;">營隊由 <b style="color:#111318;">國立高雄科技大學</b> 與微研共同規劃執行，部分梯次報名作業由高科大推廣教育處統一辦理。名額與費用以各梯次公告為準；若卡片顯示 CLOSED，代表該梯次已結束或額滿，可點入查看歷屆內容。</p>
-        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:13px 22px;border-radius:999px;background:#111318;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;cursor:pointer;">LINE 洽詢營隊<span style="color:#7868FF;">&#8599;</span></a>
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) clamp(72px,10vw,140px);">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,80px);justify-content:space-between;align-items:flex-start;">
+        <div style="flex:1 1 380px;min-width:280px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#8B8F98;margin-bottom:26px;">REGISTRATION SUPPORT</div>
+          <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(32px,4.8vw,58px);line-height:1.14;letter-spacing:-.02em;margin:0;">不確定哪一梯<br>適合孩子？</h2>
+        </div>
+        <div style="flex:1 1 340px;min-width:270px;">
+          <p style="font-size:15px;line-height:1.95;color:#4a4d55;margin:0 0 34px;">可透過官方 LINE 洽詢適合年齡、課程內容、剩餘名額與報名流程。平日 09:00 — 18:00 回覆。</p>
+          <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px;border-top:1px solid rgba(17,19,24,.16);border-bottom:1px solid rgba(17,19,24,.16);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;color:#111318;cursor:pointer;">CONTACT VIA LINE<span style="color:#7868FF;font-size:18px;">&#8599;</span></a>
+        </div>
       </div>
     </section>
   </div>
@@ -700,7 +854,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { route: 'home', toolSlug: 'mtc-v2', resSlug: 'mtc-forward', filter: 'ALL', isMobile: false, menuOpen: false };
+  state = { route: 'home', toolSlug: 'mtc-v2', resSlug: 'mtc-forward', filter: 'ALL', isMobile: false, menuOpen: false, campTopic: '全部', campAge: '不限', campExpanded: '', campFaq: -1 };
 
   componentDidMount() {
     this._onResize = () => {
@@ -811,48 +965,91 @@ class Component extends DCLogic {
 
   get keywords() { return ['SCIENCE', 'ENGINEERING', 'TECHNOLOGY', 'EDUCATION']; }
 
-  get camps() {
+  _rawCamps() {
     return [
       {
-        slug: '3d-maker-2026', no: 'CAMP 03', status: 'OPEN', open: true,
+        slug: '3d-maker-2026', no: 'CAMP 03', status: 'OPEN', isOpen: true,
         en: '3D PRINTING MAKER CAMP', zh: '3D 列印創客實作營',
         sum: '從數位建模、切片與列印，到作品改良與成果發表，三天完成一輪真正的創客工程流程。',
+        topics: ['3D 列印'], ages: ['國小', '國中'],
         date: '2026.08.19 — 08.21', time: '每日 08:30 — 16:00',
         place: '國立高雄科技大學 建工校區', forWho: '國小三年級至國中三年級',
         fee: 'NT$5,000', note: '08.15 截止｜額滿提前截止', days: '3 DAYS',
-        seats: '19 / 30', seatsNote: '剩餘名額 11 位',
+        taken: 19, total: 30, seatsNote: '剩餘名額 11 位',
         url: 'https://202608-3dpcamp.designjarvis.com/', cta: '查看營隊網站',
+        schedule: [
+          { d: 'DAY 01', t: '數位建模', items: ['3D 建模軟體入門', '從草圖到可列印模型', '結構與支撐概念'] },
+          { d: 'DAY 02', t: '切片與列印', items: ['切片參數與填充率', '實機操作與監控', '列印失敗排除'] },
+          { d: 'DAY 03', t: '改良與發表', items: ['量測與問題分析', '二次修模重印', '成果發表與講評'] },
+        ],
       },
       {
-        slug: 'ai-rover-2026', no: 'CAMP 04', status: 'OPEN', open: true,
+        slug: 'ai-rover-2026', no: 'CAMP 04', status: 'OPEN', isOpen: true,
         en: 'AI SMART ROVER CAMP', zh: 'AI 智慧自走車挑戰營',
         sum: '結合程式控制、感測應用、駕駛關卡與團隊任務競賽，讓孩子從操作走向工程思考。',
+        topics: ['自走車'], ages: ['國小', '國中'],
         date: '2026.08.26 — 08.28', time: '每日 08:30 — 16:00',
         place: '國立高雄科技大學 建工校區', forWho: '國小、國中生｜無需基礎',
         fee: '費用請洽主辦單位', note: '招生中｜額滿為止', days: '3 DAYS',
-        seats: '6 / 30', seatsNote: '剩餘名額 24 位',
+        taken: 6, total: 30, seatsNote: '剩餘名額 24 位',
         url: 'https://lin.ee/rZW93KN', cta: 'LINE 洽詢報名',
+        schedule: [
+          { d: 'DAY 01', t: '程式控制與感測', items: ['自走車結構認識', '基礎程式流程', '感測器讀值與校正'] },
+          { d: 'DAY 02', t: '駕駛關卡挑戰', items: ['循跡與避障', '關卡逐級破解', '參數調校與紀錄'] },
+          { d: 'DAY 03', t: '團隊任務競賽', items: ['任務策略討論', '正式競賽', '頒獎與檢討'] },
+        ],
       },
       {
-        slug: 'aisteam-2026', no: 'CAMP 02', status: 'CLOSED', open: false,
+        slug: 'aisteam-2026', no: 'CAMP 02', status: 'CLOSED', isOpen: false,
         en: 'AI × STEAM EXPLORATION CAMP', zh: 'AI × STEAM 科技探索營',
         sum: '透過 AI 程式、氫能科學與智慧自走車，完成跨領域的三日科技實作體驗。',
+        topics: ['AI 程式', '自走車'], ages: ['國小', '國中', '高中'],
         date: '2026.07.29 — 07.31', time: '每日 08:30 — 16:00',
         place: '國立高雄科技大學 建工校區', forWho: '國小、國中及高中生',
         fee: 'NT$3,500', note: '07.22 已截止', days: '3 DAYS',
-        seats: '60 / 60', seatsNote: '額滿',
+        taken: 60, total: 60, seatsNote: '額滿',
         url: 'https://aisteam-camp2.pages.dev/', cta: '查看歷屆資料',
+        schedule: [
+          { d: 'DAY 01', t: 'AI 程式', items: ['AI 應用概念', '圖形化程式實作'] },
+          { d: 'DAY 02', t: '氫能科學', items: ['氫能原理', '燃料電池車實作'] },
+          { d: 'DAY 03', t: '智慧自走車', items: ['感測與控制', '關卡挑戰與發表'] },
+        ],
       },
       {
-        slug: 'faymi-5day-2026', no: 'CAMP 01', status: 'CLOSED', open: false,
+        slug: 'faymi-5day-2026', no: 'CAMP 01', status: 'CLOSED', isOpen: false,
         en: 'FIVE-DAY TECHNOLOGY CAMP', zh: 'AI × STEAM 未來科技探索營',
         sum: '五天完成程式、3D 列印、綠色能源、自走車與創客挑戰，建立完整的科技創作歷程。',
+        topics: ['3D 列印', '綠色能源', '自走車'], ages: ['國小', '國中'],
         date: '2026.07.27 — 07.31', time: '每日 08:00 — 16:00',
         place: '國立高雄科技大學 建工校區', forWho: '國小、國中生｜無需基礎',
         fee: 'NT$8,000', note: '報名已截止', days: '5 DAYS',
-        seats: '40 / 40', seatsNote: '額滿',
+        taken: 40, total: 40, seatsNote: '額滿',
         url: 'https://faymi-steam-camp.mauve-petal-0386.chatgpt.site', cta: '查看歷屆資料',
+        schedule: [
+          { d: 'DAY 01', t: '程式入門', items: ['邏輯與流程', '圖形化程式'] },
+          { d: 'DAY 02', t: '3D 列印', items: ['建模與切片', '實機列印'] },
+          { d: 'DAY 03', t: '綠色能源', items: ['氫能與太陽能', '能源車實作'] },
+          { d: 'DAY 04', t: '智慧自走車', items: ['感測應用', '關卡挑戰'] },
+          { d: 'DAY 05', t: '創客挑戰', items: ['團隊任務', '成果發表'] },
+        ],
       },
+    ];
+  }
+
+  _rawCampFaqs() {
+    return [
+      { q: '孩子沒有任何程式或機械基礎，可以參加嗎？',
+        a: '可以。所有梯次皆從零開始教學，課程以動手操作為主，並採小組進行，每組配置助教陪同。若孩子年齡接近下限，建議先透過 LINE 告知年級與經驗，我們會建議最適合的梯次。' },
+      { q: '午餐、保險與飲水如何安排？',
+        a: '各梯次的餐點形式、投保內容與校內飲水安排略有不同，詳細說明請透過官方 LINE 洽詢，我們會提供該梯次的完整資訊。若孩子有食物過敏，請於報名時一併告知。' },
+      { q: '報名後可以取消嗎？退費規則是什麼？',
+        a: '退費依主辦單位公告之規定辦理；由高科大推廣教育處統一報名的梯次，則依該處退費規定辦理。實際比例與申請方式請透過官方 LINE 洽詢。' },
+      { q: '遇到颱風或停課怎麼辦？',
+        a: '依高雄市政府公告之停班停課決定辦理。若遇停課，將以順延補課或按日退費方式處理，並於前一日晚間透過 LINE 群組公告。' },
+      { q: '作品可以帶回家嗎？結業有證書嗎？',
+        a: '3D 列印與創客類梯次的作品於結業當日由學生帶回。結業式將頒發研習證明，並提供當梯次的照片與成果紀錄。' },
+      { q: '家長可以入班觀課嗎？',
+        a: '結業成果發表歡迎家長參加。平日課程的旁聽安排請事先透過 LINE 與我們確認，以免影響課堂進行。' },
     ];
   }
 
@@ -966,6 +1163,42 @@ class Component extends DCLogic {
     });
   }
 
+  _campVals() {
+    const topic = this.state.campTopic, age = this.state.campAge;
+    const match = (c) =>
+      (topic === '全部' || c.topics.indexOf(topic) >= 0) &&
+      (age === '不限' || c.ages.indexOf(age) >= 0);
+
+    const decorate = (c) => ({
+      ...c,
+      pct: Math.round((c.taken / c.total) * 100) + '%',
+      expanded: this.state.campExpanded === c.slug,
+      toggle: () => this.setState({ campExpanded: this.state.campExpanded === c.slug ? '' : c.slug }),
+    });
+
+    const matched = this._rawCamps().filter(match);
+    const openCamps = matched.filter(c => c.isOpen).map(decorate);
+    const closedCamps = matched.filter(c => !c.isOpen).map(decorate);
+
+    const chip = (label, current, key) => ({
+      label, active: label === current,
+      select: () => this.setState({ [key]: label }),
+    });
+
+    return {
+      openCamps, closedCamps,
+      hasOpenCamps: openCamps.length > 0,
+      hasClosedCamps: closedCamps.length > 0,
+      campResultCount: matched.length,
+      campTopics: ['全部', '3D 列印', 'AI 程式', '自走車', '綠色能源'].map(l => chip(l, topic, 'campTopic')),
+      campAges: ['不限', '國小', '國中', '高中'].map(l => chip(l, age, 'campAge')),
+      campFaqs: this._rawCampFaqs().map((f, i) => ({
+        ...f, isOpen: this.state.campFaq === i,
+        toggle: () => this.setState({ campFaq: this.state.campFaq === i ? -1 : i }),
+      })),
+    };
+  }
+
   renderVals() {
     const r = this.state.route;
     const all = this._rawResources();
@@ -984,7 +1217,8 @@ class Component extends DCLogic {
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'),
-      tools: this.tools, categories: this.categories, keywords: this.keywords, camps: this.camps,
+      tools: this.tools, categories: this.categories, keywords: this.keywords,
+      ...this._campVals(),
       projects: this.projects, homeProjects: this.homeProjects,
       activeTool, activeResource: active,
       resourceFilters: this.resourceFilters, visibleResources: visible,

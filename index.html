@@ -721,7 +721,10 @@
               </div>
             </div>
 
-            <a href="{{ c.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px clamp(24px,3vw,36px);border-top:1px solid rgba(17,19,24,.09);background:#111318;color:#fff;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;">{{ c.cta }}<span>&#8599;</span></a>
+            <div style="display:flex;flex-wrap:wrap;border-top:1px solid rgba(17,19,24,.09);">
+              <a href="{{ c.url }}" target="_blank" rel="noopener" style="flex:1 1 190px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px clamp(20px,2.6vw,30px);color:#111318;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;">{{ c.cta }}<span style="color:#7868FF;">&#8599;</span></a>
+              <a href="{{ c.regUrl }}" target="_blank" rel="noopener" style="flex:1 1 190px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px clamp(20px,2.6vw,30px);background:#111318;color:#fff;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer;">立即報名<span>&#8599;</span></a>
+            </div>
           </article>
         </sc-for>
       </div>
@@ -1228,6 +1231,7 @@ class Component extends DCLogic {
         fee: 'NT$5,000', note: '08.15 截止｜額滿提前截止', days: '3 DAYS',
         taken: 19, total: 30, seatsNote: '剩餘名額 11 位',
         url: 'https://202608-3dpcamp.designjarvis.com/', cta: '查看營隊網站',
+        regUrl: 'https://cec.nkust.edu.tw/ClassSign.aspx?id=121088',
         schedule: [
           { d: 'DAY 01', t: '數位建模', items: ['3D 建模軟體入門', '從草圖到可列印模型', '結構與支撐概念'] },
           { d: 'DAY 02', t: '切片與列印', items: ['切片參數與填充率', '實機操作與監控', '列印失敗排除'] },
@@ -1244,6 +1248,7 @@ class Component extends DCLogic {
         fee: 'NT$5,000', note: '08.23 截止｜高科大 第三梯', days: '3 DAYS',
         taken: 6, total: 30, seatsNote: '剩餘名額 24 位',
         url: 'https://202608-aisteam3.designjarvis.com/', cta: '查看營隊網站',
+        regUrl: 'https://cec.nkust.edu.tw/ClassSign.aspx?id=121089',
         schedule: [
           { d: 'DAY 01', t: '喚醒機器人', items: ['認識自走車與麥克納姆輪', '機械手臂作動', 'Scratch 方塊程式入門'] },
           { d: 'DAY 02', t: '破冰交流 × 遙控操作', items: ['破冰活動與分組', '遙控駕駛與夾取練習', '任務關卡與賽道試跑'] },

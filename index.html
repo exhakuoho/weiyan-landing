@@ -11,7 +11,7 @@
 <meta name="author" content="微研 WEIYAN">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://weiyan.designjarvis.com/">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <!-- ===== Open Graph（LINE / Facebook 分享） ===== -->
 <meta property="og:type" content="website">
@@ -42,7 +42,7 @@
 }
 </script>
 
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <noscript>
@@ -54,7 +54,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<script src="/image-slot.js"></script>
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -1134,13 +1134,15 @@ class Component extends DCLogic {
 
     // 直接輸入 #camp 之類的網址進站時，開在對應頁面
     const initial = this._readHash();
+    this._syncHead(initial.route);
     if (initial.route !== 'home') {
       this.setState(initial);
     } else if (/^weiyan-camp\./i.test(location.hostname)) {
       // weiyan-camp.designjarvis.com 的 QR code 已印製發出，此網域一律開在營隊頁。
       // 用 replaceState 不留額外的上一頁記錄。
       this.setState({ route: 'camp' });
-      history.replaceState(null, '', '#camp');
+      history.replaceState(null, '', '/camp');
+      this._syncHead('camp');
     }
 
     this._onHash = () => {
@@ -1149,6 +1151,7 @@ class Component extends DCLogic {
           next.toolSlug !== undefined && next.toolSlug !== this.state.toolSlug ||
           next.resSlug !== undefined && next.resSlug !== this.state.resSlug) {
         this.setState({ ...next, menuOpen: false });
+        this._syncHead(next.route);
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       }
     };
@@ -1244,26 +1247,67 @@ class Component extends DCLogic {
 
   // 網址與畫面同步：讓每一頁都有可分享、可加書籤的網址，
   // 上一頁／下一頁也能正常運作。
-  _writeHash(route, extra) {
-    const e = extra || {};
-    const hash = route === 'home' ? '' :
-      route === 'tool' ? 'tool/' + (e.toolSlug || this.state.toolSlug) :
-      route === 'resource' ? 'resource/' + (e.resSlug || this.state.resSlug) :
-      route;
-    const next = hash ? '#' + hash : location.pathname + location.search;
-    if (next === location.href.replace(location.origin, '')) return;
-    history.pushState(null, '', next);
+  get routeNames() {
+    return ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp', 'gallery', 'join'];
   }
 
+  /** route -> 網址路徑。首頁為 /，其餘為 /camp、/tool/mtc-v2 這類真實路徑。 */
+  _pathFor(route, extra) {
+    const e = extra || {};
+    if (route === 'home') return '/';
+    if (route === 'tool') return '/tool/' + (e.toolSlug || this.state.toolSlug);
+    if (route === 'resource') return '/resource/' + (e.resSlug || this.state.resSlug);
+    return '/' + route;
+  }
+
+  _writeHash(route, extra) {
+    const next = this._pathFor(route, extra) + location.search;
+    if (next === location.pathname + location.search) return;
+    history.pushState(null, '', next);
+    this._syncHead(route);
+  }
+
+  /**
+   * 解析目前網址。優先讀路徑；若路徑是根目錄但帶有舊的 #camp，
+   * 仍然照舊解析 —已經流出去的 hash 連結必須繼續有效。
+   */
   _readHash() {
-    const raw = (location.hash || '').replace(/^#\/?/, '');
-    if (!raw) return { route: 'home' };
-    const [name, slug] = raw.split('/');
-    const routes = ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp', 'gallery', 'join'];
-    if (routes.indexOf(name) < 0) return { route: 'home' };
-    if (name === 'tool' && slug) return { route: 'tool', toolSlug: slug };
-    if (name === 'resource' && slug) return { route: 'resource', resSlug: slug };
-    return { route: name };
+    const parse = (raw) => {
+      if (!raw) return null;
+      const [name, slug] = raw.split('/');
+      if (this.routeNames.indexOf(name) < 0) return null;
+      if (name === 'tool' && slug) return { route: 'tool', toolSlug: slug };
+      if (name === 'resource' && slug) return { route: 'resource', resSlug: slug };
+      return { route: name };
+    };
+    return parse(location.pathname.replace(/^\/+|\/+$/g, ''))
+        || parse((location.hash || '').replace(/^#\/?/, ''))
+        || { route: 'home' };
+  }
+
+  /** 依頁面更新 title / description / canonical，讓各分頁在搜尋結果有各自的樣貌。 */
+  _syncHead(route) {
+    const base = '微研 WEIYAN｜營隊專家';
+    const meta = {
+      home: [null, null],
+      camp: ['營隊與報名｜' + base, '微研與國立高雄科技大學合辦的科技營隊梯次、課程內容、費用與報名方式。'],
+      gallery: ['營隊相簿｜' + base, '歷屆營隊的現場實拍紀錄，真實課堂、實作與競賽照片。'],
+      join: ['加入我們｜' + base, '徵求營隊講師、剪輯師與合作夥伴，把你的專長變成一堂營隊課程。'],
+      tools: ['教具｜' + base, 'MTC V2 自走車等機器人與科技教育教具。'],
+      resources: ['教材｜' + base, '機器人、程式與 3D 列印課程教材與程式範例下載。'],
+      projects: ['實績｜' + base, '微研在真實教學現場的營隊、課程與學校合作實績。'],
+      about: ['關於微研｜' + base, '微研專注於科學、工程與科技教育，是營隊專家。'],
+    };
+    const m = meta[route];
+    if (!m) return;
+    const origTitle = this._origTitle || (this._origTitle = document.title);
+    const origDesc = this._origDesc || (this._origDesc =
+      (document.querySelector('meta[name="description"]') || {}).content || '');
+    document.title = m[0] || origTitle;
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.content = m[1] || origDesc;
+    let c = document.querySelector('link[rel="canonical"]');
+    if (c) c.href = 'https://weiyan.designjarvis.com' + this._pathFor(route);
   }
 
   get tools() {
@@ -1278,11 +1322,11 @@ class Component extends DCLogic {
         features: ['模組化車體設計，可自由擴充', '多種感測器：紅外線、超音波、循跡', '雙馬達精準速度與方向控制', '藍牙 / Wi-Fi 無線控制', '圖像化積木程式入門', 'Python 程式碼進階控制'],
         resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: 'CODE', label: '程式範例' }, { tag: '3D FILES', label: '3D 模型' }, { tag: 'MANUAL', label: '操作說明' }],
         downloads: [
-          { tag: 'V7RC 遙控', label: '手臂控制程式', url: 'downloads/mtc-v2/MTC_手臂_V7RC.tb' },
-          { tag: 'PS3 手把', label: '手臂控制程式', url: 'downloads/mtc-v2/MTC_手臂_PS3.tb' },
-          { tag: 'V7RC 遙控', label: '發射器程式', url: 'downloads/mtc-v2/MTC_發射器_V7RC.tb' },
-          { tag: 'PS3 手把', label: '發射器程式', url: 'downloads/mtc-v2/MTC_發射器_PS3.tb' },
-          { tag: 'HAKU PPGUN', label: '發射程式 UP25/DOWN0', url: 'downloads/mtc-v2/HAKU_PPGUN_UP25_DOWN0.tb' },
+          { tag: 'V7RC 遙控', label: '手臂控制程式', url: '/downloads/mtc-v2/MTC_手臂_V7RC.tb' },
+          { tag: 'PS3 手把', label: '手臂控制程式', url: '/downloads/mtc-v2/MTC_手臂_PS3.tb' },
+          { tag: 'V7RC 遙控', label: '發射器程式', url: '/downloads/mtc-v2/MTC_發射器_V7RC.tb' },
+          { tag: 'PS3 手把', label: '發射器程式', url: '/downloads/mtc-v2/MTC_發射器_PS3.tb' },
+          { tag: 'HAKU PPGUN', label: '發射程式 UP25/DOWN0', url: '/downloads/mtc-v2/HAKU_PPGUN_UP25_DOWN0.tb' },
         ],
       },
       {

@@ -1,0 +1,11 @@
+# SPA fallback：只對已知路由回傳 index.html，
+# 其餘路徑維持正常 404（避免圖片等資源缺檔時被回傳 HTML 並被快取）
+/camp        /index.html  200
+/gallery     /index.html  200
+/join        /index.html  200
+/tools       /index.html  200
+/resources   /index.html  200
+/projects    /index.html  200
+/about       /index.html  200
+/tool/*      /index.html  200
+/resource/*  /index.html  200

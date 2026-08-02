@@ -7,7 +7,7 @@
 <!-- ===== SEO：主要標籤（關鍵字 微研 / WEIYAN） ===== -->
 <title>微研 WEIYAN｜營隊專家｜科學・工程・機器人科技教育｜營隊與教材教具</title>
 <meta name="description" content="微研 WEIYAN 是營隊專家，與國立高雄科技大學及在地學校合作辦理科技營隊，並提供機器人（自走車 MTC V2）、人工智慧與程式、3D 列印、工程結構等教材教具與課程資源。Learn by making, discover by exploring.">
-<meta name="keywords" content="微研, WEIYAN, weiyan, 營隊專家, 營隊, 夏令營, 科學營隊, 冬令營, 營隊承辦, 科學教育, 工程教育, 科技教育, 機器人教學, 自走車, MTC V2, 人工智慧, 程式設計, 3D列印, STEAM, 教材, 教具, 高雄">
+<meta name="keywords" content="微研, WEIYAN, weiyan, 營隊專家, 營隊, 夏令營, 科學營隊, 冬令營, 營隊承辦, 科學教育, 工程教育, 科技教育, 營隊講師招募, 科學老師招募, 剪輯師招募, 營隊合作, 機器人教學, 自走車, MTC V2, 人工智慧, 程式設計, 3D列印, STEAM, 教材, 教具, 高雄">
 <meta name="author" content="微研 WEIYAN">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://weiyan.designjarvis.com/">
@@ -138,6 +138,7 @@
           <a onClick="{{ goGallery }}" style="cursor:pointer;color:#111318;">GALLERY</a>
           <a onClick="{{ goProjects }}" style="cursor:pointer;color:#111318;">PROJECTS</a>
           <a onClick="{{ goAbout }}" style="cursor:pointer;color:#111318;">ABOUT</a>
+          <a onClick="{{ goJoin }}" style="cursor:pointer;color:#111318;">JOIN</a>
         </nav>
       </sc-if>
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
@@ -162,6 +163,7 @@
         <a onClick="{{ goGallery }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Gallery <span style="color:#8B8F98;font-size:15px;">相簿</span></a>
         <a onClick="{{ goProjects }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Projects <span style="color:#8B8F98;font-size:15px;">實績</span></a>
         <a onClick="{{ goAbout }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">About <span style="color:#8B8F98;font-size:15px;">關於</span></a>
+        <a onClick="{{ goJoin }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Join <span style="color:#8B8F98;font-size:15px;">加入我們</span></a>
       </nav>
       <div style="margin-top:auto;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;color:#8B8F98;">SCIENCE · ENGINEERING · EDUCATION · <span style="color:#7868FF;">CAMP EXPERTS</span></div>
     </div>
@@ -918,6 +920,118 @@
   </div>
   </sc-if>
 
+  <!-- ============ JOIN 加入我們 ============ -->
+  <sc-if value="{{ isJoin }}" hint-placeholder-val="{{ false }}">
+  <div>
+
+    <!-- Hero -->
+    <section style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,120px) clamp(20px,5vw,48px) clamp(32px,4vw,56px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#7868FF;margin-bottom:28px;">JOIN WEIYAN</div>
+      <h1 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(32px,5vw,64px);line-height:1.14;letter-spacing:-.02em;margin:0;max-width:13em;">讓你的專長，<br>成為一堂精彩的營隊課程</h1>
+      <p style="font-size:clamp(16px,1.9vw,19px);line-height:1.9;color:#4a4d55;margin:32px 0 0;max-width:33em;">你有一項擅長的技術、興趣或專業領域嗎？想利用寒暑假接案、累積教學經驗，甚至發展屬於自己的營隊課程嗎？</p>
+      <p style="font-size:clamp(16px,1.9vw,19px);line-height:1.9;color:#111318;font-weight:500;margin:18px 0 0;max-width:33em;">歡迎加入我們，將你的專長轉化成孩子喜歡、家長認同的學習體驗。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;">
+        <a href="{{ joinFormUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#111318;color:#fff;padding:16px 30px;border-radius:14px;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">提交我的合作想法 <span style="color:#7868FF;">&rarr;</span></a>
+        <a href="#join-roles" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(17,19,24,.2);color:#111318;padding:16px 30px;border-radius:14px;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">我們正在尋找誰 <span>&darr;</span></a>
+      </div>
+      <p style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:11.5px;letter-spacing:.1em;color:#a9acb4;margin:20px 0 0;">ALWAYS OPEN &middot; 常態收件，不需要準備正式履歷</p>
+    </section>
+
+    <!-- 我們正在尋找 -->
+    <section id="join-roles" data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(48px,7vw,90px);">
+      <div style="border-top:1px solid rgba(17,19,24,.1);padding-top:clamp(40px,6vw,72px);">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;color:#7868FF;margin-bottom:18px;">WHO WE ARE LOOKING FOR</div>
+        <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.1;letter-spacing:-.02em;margin:0 0 clamp(28px,4vw,44px);">我們正在尋找</h2>
+
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <sc-for list="{{ joinRoles }}" as="r" hint-placeholder-count="3">
+            <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;box-shadow:0 14px 40px rgba(17,19,24,.05);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 26px;border-bottom:1px solid rgba(17,19,24,.09);font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#8B8F98;">
+                <span>{{ r.no }}</span>
+                <span style="display:inline-flex;align-items:center;gap:7px;color:#111318;">{{ r.kind }}<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></span>
+              </div>
+
+              <div style="padding:clamp(24px,3vw,36px);">
+                <p style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;margin:0 0 10px;">{{ r.en }}</p>
+                <h3 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 16px;">{{ r.zh }}</h3>
+                <p style="font-size:15.5px;line-height:1.9;color:#4a4d55;margin:0 0 14px;max-width:46em;">{{ r.p1 }}</p>
+                <p style="font-size:15.5px;line-height:1.9;color:#4a4d55;margin:0;max-width:46em;">{{ r.p2 }}</p>
+
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;">
+                  <sc-for list="{{ r.tags }}" as="t">
+                    <span style="padding:8px 15px;border-radius:999px;border:1px solid rgba(17,19,24,.12);font-size:12.5px;color:#4a4d55;">{{ t }}</span>
+                  </sc-for>
+                </div>
+
+                <a href="{{ r.formUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:13px 24px;border-radius:999px;background:#111318;color:#fff;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:13px;letter-spacing:.04em;font-weight:600;cursor:pointer;">{{ r.cta }}<span style="color:#7868FF;">&rarr;</span></a>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- 你提供專業，我們一起把想法變成課程 -->
+    <section data-reveal style="background:#111318;color:#fff;">
+      <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);">
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start;justify-content:space-between;">
+          <div style="flex:1 1 420px;min-width:280px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;color:#7868FF;margin-bottom:20px;">WE BUILD IT TOGETHER</div>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,4vw,48px);line-height:1.16;letter-spacing:-.02em;margin:0;">你提供專業，<br>我們一起把想法變成課程</h2>
+            <p style="font-size:clamp(15px,1.7vw,18px);line-height:1.9;color:#b7bac2;margin:26px 0 0;max-width:30em;">從課程企劃、活動設計到實際開課，我們期待與不同領域的人才合作，打造更多有趣、有深度，也真正能讓孩子動手實作的學習體驗。</p>
+          </div>
+          <div style="flex:1 1 380px;min-width:280px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;">
+            <sc-for list="{{ joinWeDo }}" as="w" hint-placeholder-count="4">
+              <div style="border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:24px 22px;min-height:120px;display:flex;flex-direction:column;gap:10px;">
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#7868FF;">{{ w.en }}</span>
+                <b style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:16px;font-weight:700;line-height:1.5;">{{ w.zh }}</b>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 流程 -->
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,48px) clamp(24px,4vw,48px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;color:#7868FF;margin-bottom:18px;">HOW IT WORKS</div>
+      <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(26px,3.6vw,42px);line-height:1.14;letter-spacing:-.02em;margin:0 0 clamp(28px,4vw,44px);">接下來會發生什麼</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;">
+        <sc-for list="{{ joinSteps }}" as="s" hint-placeholder-count="3">
+          <div style="border:1px solid rgba(17,19,24,.1);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;gap:12px;min-height:170px;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;">{{ s.n }}</span>
+            <b style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:18px;font-weight:700;line-height:1.45;">{{ s.title }}</b>
+            <span style="font-size:14px;line-height:1.8;color:#4a4d55;">{{ s.desc }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,5vw,48px) clamp(56px,8vw,110px);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+        <sc-for list="{{ joinFaqs }}" as="q" hint-placeholder-count="4">
+          <div style="border:1px solid rgba(17,19,24,.1);border-radius:18px;padding:26px 24px;">
+            <b style="display:block;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:16px;font-weight:700;line-height:1.55;margin-bottom:12px;">{{ q.q }}</b>
+            <span style="font-size:14.5px;line-height:1.85;color:#4a4d55;">{{ q.a }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- 收尾 CTA -->
+    <section data-reveal style="background:#101114;color:#fff;">
+      <div style="max-width:1280px;margin:0 auto;padding:clamp(64px,10vw,140px) clamp(20px,5vw,48px);text-align:center;">
+        <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,56px);line-height:1.14;letter-spacing:-.02em;margin:0;">準備好讓更多人<br>看見你的專長了嗎？</h2>
+        <p style="font-size:clamp(15px,1.8vw,18px);line-height:1.9;color:#b7bac2;margin:28px auto 0;max-width:31em;">立即填寫合作表單，告訴我們你的專長、經歷與想合作的方向，期待與你一起創造下一場精彩的營隊。</p>
+        <a href="{{ joinFormUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:17px 34px;border-radius:14px;background:#7868FF;color:#fff;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 18px 44px rgba(120,104,255,.28);">提交我的合作想法 <span>&rarr;</span></a>
+        <p style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:12px;letter-spacing:.06em;color:#585b63;margin:22px 0 0;">不需要準備正式履歷．留下聯絡方式與一句話介紹就好</p>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
   <sc-if value="{{ lbOpen }}">
     <div class="wy-lb" onClick="{{ lbBackdrop }}" role="dialog" aria-modal="true" aria-label="照片檢視">
       <button class="wy-lb-x" type="button" aria-label="關閉" onClick="{{ lbClose }}">&#10005;</button>
@@ -986,6 +1100,7 @@
             <a onClick="{{ goGallery }}" style="cursor:pointer;color:#d3d5da;">Gallery</a>
             <a onClick="{{ goProjects }}" style="cursor:pointer;color:#d3d5da;">Projects</a>
             <a onClick="{{ goAbout }}" style="cursor:pointer;color:#d3d5da;">About</a>
+            <a onClick="{{ goJoin }}" style="cursor:pointer;color:#d3d5da;">Join</a>
           </div>
           <div style="display:flex;flex-direction:column;gap:14px;font-family:'Space Grotesk',sans-serif;font-size:14px;">
             <span style="font-size:11px;letter-spacing:.16em;color:#585b63;margin-bottom:4px;">CONNECT</span>
@@ -1144,7 +1259,7 @@ class Component extends DCLogic {
     const raw = (location.hash || '').replace(/^#\/?/, '');
     if (!raw) return { route: 'home' };
     const [name, slug] = raw.split('/');
-    const routes = ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp', 'gallery'];
+    const routes = ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp', 'gallery', 'join'];
     if (routes.indexOf(name) < 0) return { route: 'home' };
     if (name === 'tool' && slug) return { route: 'tool', toolSlug: slug };
     if (name === 'resource' && slug) return { route: 'resource', resSlug: slug };
@@ -1364,6 +1479,64 @@ class Component extends DCLogic {
         title: '60 名學子變身 AI 未來玩家　走讀高雄玩出數位創意',
         url: 'https://www.youngnews3631.com/news_detail.php?NewsID=16776' },
     ];
+  }
+
+
+  // ============================================================
+  // JOIN 加入我們
+  // 【要改表單網址只要改下面這一行】
+  // ============================================================
+  _joinVals() {
+    const joinFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSefleubXqQhrU0ENegld88i3MlpzdKTO9B2RHrFzh6KoZZIrA/viewform';
+    const withUrl = (list) => list.map(r => ({ ...r, formUrl: joinFormUrl }));
+
+    return {
+      joinFormUrl,
+
+      joinRoles: withUrl([
+        {
+          no: 'R01', en: 'CAMP INSTRUCTOR', zh: '營隊講師／專業人才', kind: '不限領域',
+          cta: '我想提交教學或開課想法',
+          p1: '無論你擅長的是科技、AI、程式設計、機器人、3D 列印、手作、美術、音樂、科學、運動或其他特色領域，只要你有想法、有熱情，都歡迎與我們聊聊。',
+          p2: '你不需要一開始就擁有完整的課程，我們可以一起討論課程主題、活動內容與營隊形式，讓你的專業真正成為一門可以落地執行的課程。',
+          tags: ['科技', 'AI', '程式設計', '機器人', '3D 列印', '手作', '美術', '音樂', '科學', '運動', '其他特色領域'],
+        },
+        {
+          no: 'R02', en: 'SEASONAL PARTNER', zh: '寒暑假合作講師', kind: '彈性合作',
+          cta: '我想利用寒暑假合作',
+          p1: '想利用寒暑假接案、增加收入，或嘗試不同的教學舞台嗎？',
+          p2: '我們歡迎老師、大專院校學生、研究生、業界專業人士及自由工作者加入，合作形式可依課程內容、時間與經驗彈性討論。',
+          tags: ['老師', '大專院校學生', '研究生', '業界專業人士', '自由工作者'],
+        },
+        {
+          no: 'R03', en: 'VIDEO EDITOR', zh: '影片剪輯師', kind: '可遠端',
+          cta: '我想提供剪輯作品集',
+          p1: '我們也正在尋找具備短影音、活動紀錄、課程花絮及社群影片剪輯能力的合作夥伴。',
+          p2: '如果你熟悉 Reels、Shorts、TikTok 等直式短影音，能掌握節奏、字幕、配樂與畫面重點，歡迎將作品集提供給我們。',
+          tags: ['Reels', 'Shorts', 'TikTok', '活動紀錄', '課程花絮', '社群影片'],
+        },
+      ]),
+
+      joinWeDo: [
+        { en: 'VENUE', zh: '場地、設備與教具' },
+        { en: 'ENROLLMENT', zh: '招生、行銷與報名' },
+        { en: 'OPERATIONS', zh: '行政、保險與家長聯繫' },
+        { en: 'CURRICULUM', zh: '課程企劃與流程設計' },
+      ],
+
+      joinSteps: [
+        { n: 'STEP 01', title: '填寫合作表單', desc: '留下聯絡方式，用一句話告訴我們你的專長或想合作的方向。大約三分鐘。' },
+        { n: 'STEP 02', title: '我們主動與你聯絡', desc: '每一份我們都會看。先用電話或訊息聊聊你想做的事，不是面試。' },
+        { n: 'STEP 03', title: '一起把課程定案', desc: '確認主題、對象、時數與合作方式，接著排進適合的梯次。' },
+      ],
+
+      joinFaqs: [
+        { q: '完全沒有教學經驗可以嗎？', a: '可以。我們更看重你對專長本身的掌握度。第一次帶班會安排資深講師陪同，並提供現成教材與教學流程。' },
+        { q: '一定要住在高雄嗎？', a: '營隊講師因為要到現場，以高雄、台南、屏東為主。影片剪輯可以完全遠端合作，不限地區。' },
+        { q: '酬勞怎麼算？', a: '講師以鐘點計、剪輯以專案計；若是你提案開設的營隊，也可以談分潤。實際金額依主題、時數與經驗在聯絡階段談定。' },
+        { q: '我提的課程會被微研拿走嗎？', a: '不會。課程與教材的著作權仍屬於你，微研只取得雙方約定範圍內的授課使用權，這一點會寫進合作同意書。' },
+      ],
+    };
   }
 
   _rawCampFaqs() {
@@ -1605,6 +1778,7 @@ class Component extends DCLogic {
       isHome: r === 'home', isTools: r === 'tools', isToolDetail: r === 'tool',
       isResources: r === 'resources', isResourceDetail: r === 'resource',
       isProjects: r === 'projects', isAbout: r === 'about', isCamp: r === 'camp', isGallery: r === 'gallery',
+      isJoin: r === 'join',
       isMobile: this.state.isMobile, notMobile: !this.state.isMobile,
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
@@ -1612,10 +1786,12 @@ class Component extends DCLogic {
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'), goGallery: () => this.go('gallery'),
+      goJoin: () => this.go('join'),
       tools: this.tools, categories: this.categories, keywords: this.keywords, pressItems: this.pressItems,
       ...this._campVals(),
       ...this._photoVals(),
       ...this._galleryVals(),
+      ...this._joinVals(),
       projects: this.projects, homeProjects: this.homeProjects,
       activeTool, activeResource: active,
       resourceFilters: this.resourceFilters, visibleResources: visible,

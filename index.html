@@ -1322,6 +1322,16 @@ class Component extends DCLogic {
       projects: ['實績｜' + base, '微研在真實教學現場的營隊、課程與學校合作實績。'],
       about: ['關於微研｜' + base, '微研專注於科學、工程與科技教育，是營隊專家。'],
     };
+    // 教具／教材的細頁也要有自己的 title、description 與 canonical，
+    // 否則 Google 會把它們當成首頁的重複內容而不收錄。
+    const detailSlug = (location.pathname.split('/')[2] || '').trim();
+    if (route === 'tool') {
+      const dt = this.tools.find((x) => x.slug === detailSlug);
+      if (dt) meta.tool = [dt.name + '｜教具｜' + base, dt.desc || dt.subtitle || ''];
+    } else if (route === 'resource') {
+      const dr = this._rawResources().find((x) => x.slug === detailSlug);
+      if (dr) meta.resource = [dr.title + '｜教材｜' + base, dr.desc || ''];
+    }
     const m = meta[route];
     if (!m) return;
     const origTitle = this._origTitle || (this._origTitle = document.title);
@@ -1331,7 +1341,10 @@ class Component extends DCLogic {
     const d = document.querySelector('meta[name="description"]');
     if (d) d.content = m[1] || origDesc;
     let c = document.querySelector('link[rel="canonical"]');
-    if (c) c.href = 'https://weiyan.designjarvis.com' + this._pathFor(route);
+    if (c) c.href = 'https://weiyan.designjarvis.com' +
+      ((route === 'tool' || route === 'resource') && detailSlug
+        ? '/' + route + '/' + detailSlug
+        : this._pathFor(route));
   }
 
   get tools() {

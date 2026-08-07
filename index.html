@@ -10,7 +10,6 @@
 <meta name="keywords" content="微研, WEIYAN, weiyan, 營隊專家, 營隊, 夏令營, 科學營隊, 冬令營, 營隊承辦, 科學教育, 工程教育, 科技教育, 營隊講師招募, 科學老師招募, 剪輯師招募, 營隊合作, 機器人教學, 自走車, MTC V2, 人工智慧, 程式設計, 3D列印, STEAM, 教材, 教具, 高雄">
 <meta name="author" content="微研 WEIYAN">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://weiyan.designjarvis.com/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <!-- ===== Open Graph（LINE / Facebook 分享） ===== -->
@@ -438,7 +437,7 @@
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:36px;">RESOURCES</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
         <sc-for list="{{ activeTool.resources }}" as="r" hint-placeholder-count="4">
-          <a onClick="{{ r.click }}" style="cursor:pointer;display:block;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:18px;padding:28px 26px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s;" data-hovercard>
+          <a href="{{ r.url }}" data-spa onClick="{{ r.click }}" style="cursor:pointer;display:block;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:18px;padding:28px 26px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s;" data-hovercard>
             <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;margin-bottom:44px;">{{ r.tag }}</div>
             <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:16px;font-weight:500;">{{ r.label }}</span><span style="font-size:18px;">→</span></div>
           </a>
@@ -1340,11 +1339,19 @@ class Component extends DCLogic {
     document.title = m[0] || origTitle;
     const d = document.querySelector('meta[name="description"]');
     if (d) d.content = m[1] || origDesc;
-    let c = document.querySelector('link[rel="canonical"]');
-    if (c) c.href = 'https://weiyan.designjarvis.com' +
+    const canonicalUrl = 'https://weiyan.designjarvis.com' +
       ((route === 'tool' || route === 'resource') && detailSlug
         ? '/' + route + '/' + detailSlug
         : this._pathFor(route));
+    let c = document.querySelector('link[rel="canonical"]');
+    if (!c) {
+      c = document.createElement('link');
+      c.rel = 'canonical';
+      document.head.appendChild(c);
+    }
+    c.href = canonicalUrl;
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.content = canonicalUrl;
   }
 
   get tools() {
@@ -1391,6 +1398,9 @@ class Component extends DCLogic {
       hasDownloads: Array.isArray(t.downloads) && t.downloads.length > 0,
       resources: t.resources.map(r => ({
         ...r,
+        url: (Array.isArray(t.downloads) && t.downloads.length > 0 && r.tag === 'CODE')
+          ? '#tool-code'
+          : '/resources',
         click: (Array.isArray(t.downloads) && t.downloads.length > 0 && r.tag === 'CODE')
           ? () => { const el = document.getElementById('tool-code'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
           : () => this.go('resources'),

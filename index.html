@@ -46,11 +46,16 @@
 
 <!-- SEO：導覽改用真實 href（搜尋引擎才爬得到內部頁面）；這段在 capture 階段取消預設跳頁，保留原本的單頁切換體驗。 -->
 <script>
+  // 讓 <a data-spa> 同時擁有真實 href（給搜尋引擎爬）與單頁切換（給使用者）。
+  // 在 bubble 階段執行：此時網站本身的 onClick 已經跑完，
+  // 若網址已被更新成連結目標，就取消瀏覽器的整頁跳轉；
+  // 否則放行，退回一般連結行為（此時仍能正常到達該頁）。
   document.addEventListener("click", function (e) {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target && e.target.closest ? e.target.closest("a[data-spa][href]") : null;
-    if (a) e.preventDefault();
-  }, true);
+    if (!a) return;
+    if (location.pathname === a.getAttribute("href")) e.preventDefault();
+  }, false);
 </script>
 </head>
 <body>

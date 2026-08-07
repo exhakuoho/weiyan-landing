@@ -610,10 +610,10 @@
     <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(48px,7vw,80px);">
       <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end;margin-bottom:22px;">
         <div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:14px;">ON SITE &middot; 2026.07.01&ndash;03</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:14px;">ON SITE &middot; 2026.07.29&ndash;31</div>
           <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1.2;letter-spacing:-.02em;margin:0;">營隊現場，沒有修飾。</h2>
         </div>
-        <p style="font-size:13px;line-height:1.8;color:#8B8F98;margin:0;max-width:22em;">機器人自走車 &times; AI 科技探索營（北嶺 &times; 壽齡）活動實拍。</p>
+        <p style="font-size:13px;line-height:1.8;color:#8B8F98;margin:0;max-width:22em;">AI &times; STEAM 科技探索營（高科大 第二梯）活動實拍。</p>
       </div>
 
       <div class="wy-carousel" id="wy-carousel" onMouseEnter="{{ photoPause }}" onMouseLeave="{{ photoResume }}">
@@ -1470,6 +1470,28 @@ class Component extends DCLogic {
   // 相簿資料。之後新增梯次，在陣列最前面加一本即可，其餘程式不用動。
   _rawAlbums() {
     return [
+      {
+        slug: 'aisteam-2026-07',
+        title: 'AI × STEAM 科技探索營',
+        batch: '高科大 · 第二梯',
+        date: '2026.07.29 — 07.31',
+        place: '國立高雄科技大學 建工校區',
+        note: '國小至高中共 60 位學員完成三日課程，涵蓋 AI 程式、氫能科學與自走車競賽。',
+        dir: '/photos/camp-2026-07-29/',
+        shots: [
+          ['photo-01', '教室內鋪設的自走車賽道，學員圍在場邊觀看車輛行進'],
+          ['photo-02', '講師在螢幕前介紹 MTC V2 自走車結構，學員在座位上觀看'],
+          ['photo-03', '電腦教室裡學員與助教一同操作積木程式'],
+          ['photo-04', '大學生助教蹲下協助學員調整自走車'],
+          ['photo-05', '助教在白板前示範發射軌跡實驗，桌上放著自走車與實驗器材'],
+          ['photo-06', '課堂簡報講解，學員在課桌前聽講'],
+          ['photo-07', '學員坐在賽道旁，手持遙控器操作自走車'],
+          ['photo-08', '競賽場地全景，賽道上布置關卡與待命的自走車'],
+          ['photo-09', '學員在教室中高舉自製長管教具，準備進行發射活動'],
+          ['photo-10', '講師介紹 MTC V2 麥克納姆輪的運作原理'],
+          ['photo-11', '學員與親手完成的作品合影'],
+        ],
+      },
       {
         slug: 'amr-2026-07',
         title: '機器人自走車 \u00d7 AI 科技探索營',

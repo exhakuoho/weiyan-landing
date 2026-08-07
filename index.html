@@ -214,7 +214,7 @@
         <sc-for list="{{ tools }}" as="tool" hint-placeholder-count="3">
           <a onClick="{{ tool.open }}" data-hovercard style="cursor:pointer;display:block;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:22px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;">
             <div style="position:relative;height:240px;overflow:hidden;background:#101114;">
-              <image-slot id="{{ tool.cardImgId }}" shape="rect" placeholder="{{ tool.imgHint }}" style="width:100%;height:100%;"></image-slot>
+              <image-slot id="{{ tool.cardImgId }}" src="{{ tool.img }}" shape="rect" placeholder="{{ tool.imgHint }}" style="width:100%;height:100%;"></image-slot>
             </div>
             <div style="padding:26px 26px 28px;">
               <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;color:#7868FF;margin-bottom:12px;">{{ tool.category }}</div>
@@ -322,7 +322,7 @@
         <sc-for list="{{ tools }}" as="tool" hint-placeholder-count="3">
           <a onClick="{{ tool.open }}" data-hovercard style="cursor:pointer;display:block;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:22px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;">
             <div style="position:relative;height:280px;overflow:hidden;background:#101114;">
-              <image-slot id="{{ tool.listImgId }}" shape="rect" placeholder="{{ tool.imgHint }}" style="width:100%;height:100%;"></image-slot>
+              <image-slot id="{{ tool.listImgId }}" src="{{ tool.img }}" shape="rect" placeholder="{{ tool.imgHint }}" style="width:100%;height:100%;"></image-slot>
             </div>
             <div style="padding:28px;">
               <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;color:#7868FF;margin-bottom:12px;">{{ tool.category }}</div>
@@ -360,7 +360,7 @@
           </div>
           <div style="flex:1 1 380px;min-width:280px;">
             <div style="position:relative;height:clamp(260px,32vw,400px);border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
-              <image-slot id="{{ activeTool.heroImgId }}" shape="rect" placeholder="{{ activeTool.imgHint }}" style="width:100%;height:100%;"></image-slot>
+              <image-slot id="{{ activeTool.heroImgId }}" src="{{ activeTool.img }}" shape="rect" placeholder="{{ activeTool.imgHint }}" style="width:100%;height:100%;"></image-slot>
             </div>
           </div>
         </div>
@@ -1315,7 +1315,7 @@ class Component extends DCLogic {
       {
         slug: 'mtc-v2', name: 'MTC V2', subtitle: 'Smart Robot Platform', category: 'ROBOTICS',
         tagline: ['Learn.', 'Build.', 'Control.'],
-        imgHint: 'MTC V2 產品照',
+        img: '/photos/tools/mtc-v2.webp', imgHint: 'MTC V2 產品照',
         desc: '為程式設計、感測器與機器人控制教育打造的模組化智慧自走車平台。',
         overview: 'MTC V2 是一台專為教學設計的模組化智慧自走車。學生從組裝、感測到程式控制，逐步建立完整的機器人系統概念，並能延伸到真實世界的自動化與工程應用。',
         learn: [{ n: '1', en: 'PROGRAMMING', zh: '程式設計' }, { n: '2', en: 'SENSORS', zh: '感測技術' }, { n: '3', en: 'CONTROL', zh: '控制系統' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
@@ -1332,7 +1332,7 @@ class Component extends DCLogic {
       {
         slug: 'humanoid-robot', name: 'Humanoid Robot', subtitle: 'Motion & Robotics Platform', category: 'ROBOTICS',
         tagline: ['Move.', 'Balance.', 'Think.'],
-        imgHint: '人形機器人照',
+        img: '', imgHint: '人形機器人照',
         desc: '從關節控制、伺服馬達到機器人動作邏輯，建立完整的機器人概念。',
         overview: '人形機器人平台讓學生理解多軸關節、伺服馬達與動作序列。從單一關節控制到完整步態設計，建立機構、控制與程式整合的系統性思維。',
         learn: [{ n: '1', en: 'SERVO', zh: '伺服控制' }, { n: '2', en: 'MOTION', zh: '動作設計' }, { n: '3', en: 'BALANCE', zh: '平衡邏輯' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
@@ -1342,7 +1342,7 @@ class Component extends DCLogic {
       {
         slug: '3d-printing', name: '3D Printing', subtitle: 'Digital Fabrication', category: 'MAKER',
         tagline: ['Design.', 'Model.', 'Make.'],
-        imgHint: '3D 列印教具照',
+        img: '', imgHint: '3D 列印教具照',
         desc: '從數位設計、3D 建模到實體製造，理解數位製造的完整流程。',
         overview: '3D 列印教學模組帶領學生走過完整的數位製造流程：從構想、建模、切片到實體列印。理解數位設計如何轉化為真實可用的物件與工程原型。',
         learn: [{ n: '1', en: 'MODELING', zh: '3D 建模' }, { n: '2', en: 'SLICING', zh: '切片設定' }, { n: '3', en: 'PRINTING', zh: '列印製造' }, { n: '4', en: 'DESIGN', zh: '設計思維' }],

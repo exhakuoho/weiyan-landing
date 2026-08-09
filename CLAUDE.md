@@ -95,6 +95,25 @@ CAMP 頁輪播取 `_rawAlbums()[0]`，但輪播旁的日期與說明文字是**�
 3. 部署要 1–2 分鐘，第一次抓到舊內容是正常的，重試即可
 4. 跟使用者回報時，講清楚**實際驗證到什麼**，不要說「應該生效了」
 
+## 這個站在 designjarvis 家族裡的位置
+
+`designjarvis.com` 底下有十幾個各自獨立的 Cloudflare Pages 專案，本站只是其中之一。
+跨站規則（不要加 `<base href>`、canonical 不可指向 apex 等）以 DesignJarvis 的
+SEO 交接說明為準，但**下面幾點是本站特有、與那份文件不同的**：
+
+- **canonical 與 og:url 由 `_worker.js` 即時注入，`index.html` 裡沒有這幾行。**
+  不要因為在 `index.html` 搜不到就手動補一行，會變成兩個 canonical 互打。
+  要改請改 `_worker.js` 的 `CANONICAL_ORIGIN` 或 `rewriteHead()`。
+- **本站的 `sitemap.xml` 是動態產生的**，站內新增頁面會自動收錄，
+  不需要去 `home.designjarvis.com` 的總 sitemap 加一筆。
+  那份總 sitemap 列的是「各站入口」（本站只佔 `/` 與 `/camp` 兩筆），
+  只有新增**整個站**時才需要動它。
+- **`weiyan-camp.designjarvis.com` 導向 `/camp` 用的是 308**（不是 301），由 worker 處理。
+- **robots.txt 由本 repo 供應**。2026-08-09 已關閉 Cloudflare 的 Managed robots.txt，
+  舊文件說「該檔由 Cloudflare 代管、不可修改」已不成立。
+- apex `designjarvis.com` 目前**沒有 DNS 記錄、無法解析**，任何 canonical、連結、
+  sitemap 都不可指向它。
+
 ## 相關資源
 
 - 原廠（東業創新）MTC V2 資料：`https://trgreat.com/mtc-v2-guide/`、`https://trgreat.com/tu-wiki/`

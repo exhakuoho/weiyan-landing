@@ -1178,6 +1178,7 @@ class Component extends DCLogic {
 
     // 直接輸入 #camp 之類的網址進站時，開在對應頁面
     const initial = this._readHash();
+    this._normalizeLegacyHash(initial);
     this._syncHead(initial.route);
     if (initial.route !== 'home') {
       this.setState(initial);
@@ -1191,6 +1192,7 @@ class Component extends DCLogic {
 
     this._onHash = () => {
       const next = this._readHash();
+      this._normalizeLegacyHash(next);
       if (next.route !== this.state.route ||
           next.toolSlug !== undefined && next.toolSlug !== this.state.toolSlug ||
           next.resSlug !== undefined && next.resSlug !== this.state.resSlug) {
@@ -1305,10 +1307,19 @@ class Component extends DCLogic {
   }
 
   _writeHash(route, extra) {
-    const next = this._pathFor(route, extra) + location.search;
-    if (next === location.pathname + location.search) return;
+    // 站內路由不需要查詢參數；Google、Meta 等來源附加的追蹤參數
+    // 不應一路跟到每個頁面。pushState 同時會清掉舊版 hash。
+    const next = this._pathFor(route, extra);
+    if (next === location.pathname && !location.search && !location.hash) return;
     history.pushState(null, '', next);
     this._syncHead(route);
+  }
+
+  _normalizeLegacyHash(routeState) {
+    const raw = (location.hash || '').replace(/^#\/?/, '');
+    const name = raw.split('/')[0];
+    if (location.pathname !== '/' || !raw || this.routeNames.indexOf(name) < 0) return;
+    history.replaceState(null, '', this._pathFor(routeState.route, routeState));
   }
 
   /**

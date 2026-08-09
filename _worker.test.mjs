@@ -119,6 +119,27 @@ console.log('\n【轉址】');
   check('/index.html 導向 /', (await get(w, env, '/index.html')).status, 308);
   const r = await w.fetch(new Request('https://weiyan.pages.dev/camp'), env);
   check('pages.dev 導回正式網域', r.status, 308);
+
+  const tracked = await get(w, env, '/camp?utm_source=google&srsltid=abc');
+  check('追蹤參數會轉到乾淨網址', tracked.status, 308);
+  check('追蹤參數已移除', tracked.headers.get('location'), ORIGIN + '/camp');
+
+  const mixed = await get(w, env, '/camp?preview=1&utm_campaign=summer');
+  check('非追蹤參數仍保留', mixed.headers.get('location'), ORIGIN + '/camp?preview=1');
+
+  const platformTracked = await w.fetch(
+    new Request('https://weiyan.pages.dev/camp?utm_medium=referral&preview=1'), env);
+  check('平台網域一次轉到乾淨正式網址',
+    platformTracked.headers.get('location'), ORIGIN + '/camp?preview=1');
+}
+
+// ---------------------------------------------------------------------------
+console.log('\n【前端網址清理】');
+{
+  check('站內切換不再攜帶 location.search',
+    INDEX.includes("this._pathFor(route, extra) + location.search"), false);
+  check('舊 hash 會換成真實路徑',
+    INDEX.includes("history.replaceState(null, '', this._pathFor(routeState.route, routeState))"), true);
 }
 
 // ---------------------------------------------------------------------------

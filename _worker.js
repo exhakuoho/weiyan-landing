@@ -191,6 +191,23 @@ function redirect(location, status = 308) {
   return new Response(null, { status, headers: { location } });
 }
 
+const TRACKING_QUERY_PARAMS = new Set([
+  'dclid', 'fbclid', 'gbraid', 'gclid', 'mc_cid', 'mc_eid',
+  'msclkid', 'srsltid', 'wbraid', '_gl',
+]);
+
+function cleanSearch(url) {
+  const params = new URLSearchParams(url.search);
+  for (const key of [...params.keys()]) {
+    if (key.toLowerCase().startsWith('utm_') ||
+        TRACKING_QUERY_PARAMS.has(key.toLowerCase())) {
+      params.delete(key);
+    }
+  }
+  const query = params.toString();
+  return query ? `?${query}` : '';
+}
+
 function notFound() {
   return new Response(
     '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>找不到頁面｜微研 WEIYAN</title></head><body><main><h1>找不到這個頁面</h1><p><a href="/">回到微研 WEIYAN 首頁</a></p></main></body></html>',
@@ -201,21 +218,27 @@ function notFound() {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const cleanedSearch = cleanSearch(url);
 
     if (url.hostname === 'weiyan.pages.dev') {
-      return redirect(`${CANONICAL_ORIGIN}${url.pathname}${url.search}`);
+      return redirect(`${CANONICAL_ORIGIN}${url.pathname}${cleanedSearch}`);
     }
 
     if (url.hostname === 'weiyan-camp.designjarvis.com') {
-      return redirect(`${CANONICAL_ORIGIN}/camp${url.search}`);
+      return redirect(`${CANONICAL_ORIGIN}/camp${cleanedSearch}`);
     }
 
     if (url.pathname === '/index.html') {
-      return redirect(`${url.origin}/${url.search}`);
+      return redirect(`${url.origin}/${cleanedSearch}`);
     }
 
     if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
-      return redirect(`${url.origin}${url.pathname.slice(0, -1)}${url.search}`);
+      return redirect(`${url.origin}${url.pathname.slice(0, -1)}${cleanedSearch}`);
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') &&
+        cleanedSearch !== url.search) {
+      return redirect(`${url.origin}${url.pathname}${cleanedSearch}`);
     }
 
     if (request.method !== 'GET' && request.method !== 'HEAD') {

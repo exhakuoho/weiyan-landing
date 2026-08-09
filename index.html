@@ -462,6 +462,27 @@
     </section>
     </sc-if>
 
+    <!-- 教學影片 / Videos -->
+    <sc-if value="{{ activeTool.hasVideos }}" hint-placeholder-val="{{ true }}">
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:14px;">教學影片 · VIDEOS</div>
+      <p style="font-size:15px;color:#8B8F98;margin:0 0 36px;max-width:560px;">影片由原廠東業創新提供。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+        <sc-for list="{{ activeTool.videos }}" as="v" hint-placeholder-count="5">
+          <div>
+            <div style="position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#101114;">
+              <iframe src="{{ v.src }}" title="{{ v.label }}" loading="lazy" allowfullscreen
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+            </div>
+            <div style="font-size:15px;font-weight:500;color:#111318;margin-top:12px;">{{ v.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
     <!-- Gallery -->
     <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:36px;">GALLERY</div>
@@ -1357,7 +1378,20 @@ class Component extends DCLogic {
         overview: 'MTC V2 是一台專為教學設計的模組化智慧自走車。學生從組裝、感測到程式控制，逐步建立完整的機器人系統概念，並能延伸到真實世界的自動化與工程應用。',
         learn: [{ n: '1', en: 'PROGRAMMING', zh: '程式設計' }, { n: '2', en: 'SENSORS', zh: '感測技術' }, { n: '3', en: 'CONTROL', zh: '控制系統' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
         features: ['60mm 麥克納姆輪，可橫移、斜向與原地旋轉', '4 組 1:90 編碼器 TT 馬達，速度與路徑控制', 'HC-SR04 超音波感測器，實作避障與距離偵測', 'TU:bit V2 控制板（ESP32），支援 Wi-Fi 與藍牙', 'TU:bitBlock 圖像化積木程式入門', 'Arduino C 進階開發，可擴充手臂、發射器與 AI 鏡頭'],
-        resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: 'CODE', label: '程式範例' }, { tag: '3D FILES', label: '3D 模型' }, { tag: 'MANUAL', label: '操作說明' }],
+        // 有 url 者開新分頁連到原廠資源；CODE 維持捲動到本頁下載區。
+        resources: [
+          { tag: 'WIKI', label: '技術文件 TU Wiki', url: 'https://trgreat.com/tu-wiki/' },
+          { tag: 'GUIDE', label: 'MTC V2 教學導覽中心', url: 'https://trgreat.com/mtc-v2-guide/' },
+          { tag: 'MANUAL', label: '套件組裝說明', url: 'https://trgreat.com/mtc-robot-m-kit/' },
+          { tag: 'CODE', label: '程式範例' },
+        ],
+        videos: [
+          { id: 'Dbqa8F4YrTg', label: 'MTC V2 介紹影片' },
+          { id: 'Py7wZGlo_Vo', label: '搭配 AI 鏡頭' },
+          { id: '9BaxVQMcIdo', label: '擴充陀螺儀' },
+          { id: 'EhogDu5YzuI', label: '擴充紅外線套件' },
+          { id: 'LRm4dvL3Dl4', label: '路徑移動' },
+        ],
         downloads: [
           { tag: 'V7RC 遙控', label: '手臂控制程式', url: '/downloads/mtc-v2/MTC_手臂_V7RC.tb' },
           { tag: 'PS3 手把', label: '手臂控制程式', url: '/downloads/mtc-v2/MTC_手臂_PS3.tb' },
@@ -1389,11 +1423,19 @@ class Component extends DCLogic {
     ].map(t => ({
       ...t,
       hasDownloads: Array.isArray(t.downloads) && t.downloads.length > 0,
+      hasVideos: Array.isArray(t.videos) && t.videos.length > 0,
+      videos: (t.videos || []).map(v => ({
+        ...v,
+        // 用 nocookie 網域，使用者未播放前不寫入 YouTube 追蹤 cookie
+        src: 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0',
+      })),
       resources: t.resources.map(r => ({
         ...r,
-        click: (Array.isArray(t.downloads) && t.downloads.length > 0 && r.tag === 'CODE')
-          ? () => { const el = document.getElementById('tool-code'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-          : () => this.go('resources'),
+        click: r.url
+          ? () => window.open(r.url, '_blank', 'noopener,noreferrer')
+          : (Array.isArray(t.downloads) && t.downloads.length > 0 && r.tag === 'CODE')
+            ? () => { const el = document.getElementById('tool-code'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            : () => this.go('resources'),
       })),
       cardImgId: 'tool-card-' + t.slug,
       listImgId: 'tool-list-' + t.slug,

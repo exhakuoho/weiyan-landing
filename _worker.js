@@ -236,7 +236,17 @@ export default {
     const meta = routeMeta(url.pathname, site);
     if (!meta) {
       if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) {
-        return env.ASSETS.fetch(request);
+        const asset = await env.ASSETS.fetch(request);
+        // 本站的 Pages 設定對找不到的檔案會回退到 SPA 首頁並回 200，
+        // 例如 /不存在的檔.html 會拿到首頁而不是 404，形成 soft 404。
+        // 用 SPA 專屬的標籤辨識這種情況，改回真正的 404。
+        if (asset.status === 200 &&
+            (asset.headers.get('content-type') || '').includes('text/html')) {
+          const body = await asset.text();
+          if (body.includes('<x-dc>')) return notFound();
+          return new Response(body, { status: 200, headers: asset.headers });
+        }
+        return asset;
       }
       // 解析 index.html 失敗時不判定 404：寧可放行讓 SPA 自己處理，
       // 也不要因為 worker 讀不到站台結構就把整站打成 404。

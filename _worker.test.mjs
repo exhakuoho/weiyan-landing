@@ -121,5 +121,30 @@ console.log('\n【轉址】');
   check('pages.dev 導回正式網域', r.status, 308);
 }
 
+// ---------------------------------------------------------------------------
+console.log('\n【有副檔名但不存在的路徑不可變成 soft 404】');
+{
+  // 模擬本站 Pages 的行為：找不到的檔案會回退到 SPA 首頁並回 200
+  const spaFallback = {
+    ASSETS: {
+      async fetch(req) {
+        const p = new URL(req.url).pathname;
+        if (p === '/robots.txt')
+          return new Response('User-agent: *', { headers: { 'content-type': 'text/plain' } });
+        if (p.startsWith('/photos/'))
+          return new Response('bin', { headers: { 'content-type': 'image/webp' } });
+        return new Response(INDEX, { headers: { 'content-type': 'text/html' } });
+      },
+    },
+  };
+  const w = await fresh();
+  check('/nope.html 回 404', (await get(w, spaFallback, '/nope.html')).status, 404);
+  check('已移除的驗證檔回 404',
+    (await get(w, spaFallback, '/google0532ec45ff7d4c3a.html')).status, 404);
+  check('真實圖片仍可取得',
+    (await get(w, spaFallback, '/photos/tools/mtc-v2.webp')).status, 200);
+  check('robots.txt 仍可取得', (await get(w, spaFallback, '/robots.txt')).status, 200);
+}
+
 console.log(`\n通過 ${pass} 項，失敗 ${fail} 項`);
 process.exit(fail ? 1 : 0);

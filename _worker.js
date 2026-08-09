@@ -136,6 +136,11 @@ export default {
       if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) {
         return env.ASSETS.fetch(request);
       }
+      // 無副檔名也可能是真實靜態檔：Cloudflare Pages 會把 /foo.html 這類檔案
+      // 對外供應在 /foo，並把 /foo.html 308 轉到 /foo。若這裡直接回 404，
+      // Google Search Console 的 googlexxxx.html 驗證檔會被擋死。
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status === 200) return asset;
       return notFound();
     }
 

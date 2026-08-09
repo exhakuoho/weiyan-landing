@@ -1307,10 +1307,11 @@ class Component extends DCLogic {
   }
 
   _writeHash(route, extra) {
-    // 站內路由不需要查詢參數；Google、Meta 等來源附加的追蹤參數
-    // 不應一路跟到每個頁面。pushState 同時會清掉舊版 hash。
-    const next = this._pathFor(route, extra);
-    if (next === location.pathname && !location.search && !location.hash) return;
+    // 查詢字串一律保留：utm_source、gclid 這類參數是日後裝 GA4 或投廣告時
+    // 唯一的歸因依據，在頁面上的追蹤碼讀到之前不可以被丟掉。
+    // 多判斷 location.hash，是為了讓殘留的舊版 #camp 能被 pushState 清掉。
+    const next = this._pathFor(route, extra) + location.search;
+    if (next === location.pathname + location.search && !location.hash) return;
     history.pushState(null, '', next);
     this._syncHead(route);
   }

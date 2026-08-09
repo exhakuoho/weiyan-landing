@@ -191,22 +191,12 @@ function redirect(location, status = 308) {
   return new Response(null, { status, headers: { location } });
 }
 
-const TRACKING_QUERY_PARAMS = new Set([
-  'dclid', 'fbclid', 'gbraid', 'gclid', 'mc_cid', 'mc_eid',
-  'msclkid', 'srsltid', 'wbraid', '_gl',
-]);
-
-function cleanSearch(url) {
-  const params = new URLSearchParams(url.search);
-  for (const key of [...params.keys()]) {
-    if (key.toLowerCase().startsWith('utm_') ||
-        TRACKING_QUERY_PARAMS.has(key.toLowerCase())) {
-      params.delete(key);
-    }
-  }
-  const query = params.toString();
-  return query ? `?${query}` : '';
-}
+// 刻意不在邊緣剝除 utm_*、gclid、fbclid、_gl 等追蹤參數。
+// canonical 已經忽略查詢字串（/camp?gclid=x 的 canonical 就是 /camp），
+// 剝除拿不到額外的 SEO 效益；但 308 會發生在頁面載入之前，
+// 會讓日後的 GA4／Google Ads／Meta Pixel 永遠讀不到歸因參數，
+// 而且失效時完全沒有錯誤訊息。若日後要讓網址看起來乾淨，
+// 正確做法是等追蹤碼讀完之後在前端用 history.replaceState 換掉。
 
 function notFound() {
   return new Response(
@@ -218,27 +208,21 @@ function notFound() {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const cleanedSearch = cleanSearch(url);
 
     if (url.hostname === 'weiyan.pages.dev') {
-      return redirect(`${CANONICAL_ORIGIN}${url.pathname}${cleanedSearch}`);
+      return redirect(`${CANONICAL_ORIGIN}${url.pathname}${url.search}`);
     }
 
     if (url.hostname === 'weiyan-camp.designjarvis.com') {
-      return redirect(`${CANONICAL_ORIGIN}/camp${cleanedSearch}`);
+      return redirect(`${CANONICAL_ORIGIN}/camp${url.search}`);
     }
 
     if (url.pathname === '/index.html') {
-      return redirect(`${url.origin}/${cleanedSearch}`);
+      return redirect(`${url.origin}/${url.search}`);
     }
 
     if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
-      return redirect(`${url.origin}${url.pathname.slice(0, -1)}${cleanedSearch}`);
-    }
-
-    if ((request.method === 'GET' || request.method === 'HEAD') &&
-        cleanedSearch !== url.search) {
-      return redirect(`${url.origin}${url.pathname}${cleanedSearch}`);
+      return redirect(`${url.origin}${url.pathname.slice(0, -1)}${url.search}`);
     }
 
     if (request.method !== 'GET' && request.method !== 'HEAD') {

@@ -136,11 +136,14 @@ export default {
       if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) {
         return env.ASSETS.fetch(request);
       }
-      // 無副檔名也可能是真實靜態檔：Cloudflare Pages 會把 /foo.html 這類檔案
-      // 對外供應在 /foo，並把 /foo.html 308 轉到 /foo。若這裡直接回 404，
-      // Google Search Console 的 googlexxxx.html 驗證檔會被擋死。
-      const asset = await env.ASSETS.fetch(request);
-      if (asset.status === 200) return asset;
+      // Cloudflare Pages 把 /foo.html 供應在 /foo，並將 /foo.html 308 轉到 /foo。
+      // Google Search Console 的驗證檔就是這種形狀，必須放行，否則驗證會 404。
+      // 這裡限定驗證檔的命名樣式，不做通用的 ASSETS 回退——因為本站的
+      // Pages 設定對任何未知路徑都會回退到 SPA 首頁並回 200，
+      // 通用回退會讓所有錯誤網址變成 soft 404。
+      if (/^\/google[0-9a-f]{8,32}$/i.test(url.pathname)) {
+        return env.ASSETS.fetch(request);
+      }
       return notFound();
     }
 

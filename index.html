@@ -1178,6 +1178,7 @@ class Component extends DCLogic {
 
     // 直接輸入 #camp 之類的網址進站時，開在對應頁面
     const initial = this._readHash();
+    this._normalizeLegacyHash(initial);
     this._syncHead(initial.route);
     if (initial.route !== 'home') {
       this.setState(initial);
@@ -1191,6 +1192,7 @@ class Component extends DCLogic {
 
     this._onHash = () => {
       const next = this._readHash();
+      this._normalizeLegacyHash(next);
       if (next.route !== this.state.route ||
           next.toolSlug !== undefined && next.toolSlug !== this.state.toolSlug ||
           next.resSlug !== undefined && next.resSlug !== this.state.resSlug) {
@@ -1305,10 +1307,20 @@ class Component extends DCLogic {
   }
 
   _writeHash(route, extra) {
+    // 查詢字串一律保留：utm_source、gclid 這類參數是日後裝 GA4 或投廣告時
+    // 唯一的歸因依據，在頁面上的追蹤碼讀到之前不可以被丟掉。
+    // 多判斷 location.hash，是為了讓殘留的舊版 #camp 能被 pushState 清掉。
     const next = this._pathFor(route, extra) + location.search;
-    if (next === location.pathname + location.search) return;
+    if (next === location.pathname + location.search && !location.hash) return;
     history.pushState(null, '', next);
     this._syncHead(route);
+  }
+
+  _normalizeLegacyHash(routeState) {
+    const raw = (location.hash || '').replace(/^#\/?/, '');
+    const name = raw.split('/')[0];
+    if (location.pathname !== '/' || !raw || this.routeNames.indexOf(name) < 0) return;
+    history.replaceState(null, '', this._pathFor(routeState.route, routeState));
   }
 
   /**

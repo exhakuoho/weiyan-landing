@@ -191,6 +191,13 @@ function redirect(location, status = 308) {
   return new Response(null, { status, headers: { location } });
 }
 
+// 刻意不在邊緣剝除 utm_*、gclid、fbclid、_gl 等追蹤參數。
+// canonical 已經忽略查詢字串（/camp?gclid=x 的 canonical 就是 /camp），
+// 剝除拿不到額外的 SEO 效益；但 308 會發生在頁面載入之前，
+// 會讓日後的 GA4／Google Ads／Meta Pixel 永遠讀不到歸因參數，
+// 而且失效時完全沒有錯誤訊息。若日後要讓網址看起來乾淨，
+// 正確做法是等追蹤碼讀完之後在前端用 history.replaceState 換掉。
+
 function notFound() {
   return new Response(
     '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>找不到頁面｜微研 WEIYAN</title></head><body><main><h1>找不到這個頁面</h1><p><a href="/">回到微研 WEIYAN 首頁</a></p></main></body></html>',

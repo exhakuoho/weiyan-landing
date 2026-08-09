@@ -82,9 +82,12 @@ function parseSite(html) {
     if (n !== 'home' && n !== 'tool' && n !== 'resource') pages.add('/' + n);
   }
 
-  const tools = pairs(section(html, 'get tools()', 'get categories()'),
+  // 注意：起點要用「定義處」而不是呼叫處。若寫成 '_rawResources()'，會先比對到
+  // 前面的 this._rawResources() 呼叫，區塊一路吃到 _rawProjects()，
+  // 把 4 筆專案誤判成教材，產生 /resource/nkust-camp 這種不存在的網址。
+  const tools = pairs(section(html, 'get tools() {', 'get categories()'),
     /slug: '([a-z0-9-]+)', name: '([^']*)'/g);
-  const resources = pairs(section(html, '_rawResources()', 'get resourceFilters()'),
+  const resources = pairs(section(html, '_rawResources() {', 'get resourceFilters()'),
     /slug: '([a-z0-9-]+)', title: '([^']*)'/g);
 
   // 解析結果明顯不合理時視為失敗，交由呼叫端退回寬鬆模式（寧可不擋，也不要整站 404）
@@ -97,11 +100,35 @@ async function readSite(env, url) {
   try {
     const res = await env.ASSETS.fetch(new Request(new URL('/index.html', url)));
     if (!res.ok) return null;
+    const lastModified = res.headers.get('last-modified');
     SITE = parseSite(await res.text());
+    if (SITE) {
+      // lastmod 取自 index.html 的實際修改時間。取不到就不寫這個欄位——
+      // 寧可省略，也不要每天填今天的日期去謊報「內容有更新」。
+      const d = lastModified ? new Date(lastModified) : null;
+      SITE.lastmod = d && !isNaN(d) ? d.toISOString().slice(0, 10) : null;
+    }
   } catch {
     SITE = null;
   }
   return SITE;
+}
+
+// sitemap 由站台結構直接產生，新增頁面不必再手動維護一份清單。
+function sitemapXml(site) {
+  const paths = [
+    ...site.pages,
+    ...Object.keys(site.tools).map((s) => '/tool/' + s),
+    ...Object.keys(site.resources).map((s) => '/resource/' + s),
+  ];
+  const body = paths
+    .map((p) => '  <url>\n    <loc>' + CANONICAL_ORIGIN + p + '</loc>' +
+      (site.lastmod ? '\n    <lastmod>' + site.lastmod + '</lastmod>' : '') +
+      '\n  </url>')
+    .join('\n');
+  return '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    body + '\n</urlset>\n';
 }
 
 function routeMeta(pathname, site) {
@@ -196,6 +223,16 @@ export default {
     }
 
     const site = await readSite(env, url);
+
+    if (url.pathname === '/sitemap.xml' && site) {
+      return new Response(sitemapXml(site), {
+        headers: {
+          'content-type': 'application/xml; charset=utf-8',
+          'cache-control': 'public, max-age=3600',
+        },
+      });
+    }
+
     const meta = routeMeta(url.pathname, site);
     if (!meta) {
       if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) {
@@ -210,14 +247,6 @@ export default {
           status: 200,
           headers: { 'content-type': 'text/html; charset=utf-8' },
         });
-      }
-      // Cloudflare Pages 把 /foo.html 供應在 /foo，並將 /foo.html 308 轉到 /foo。
-      // Google Search Console 的驗證檔就是這種形狀，必須放行，否則驗證會 404。
-      // 這裡限定驗證檔的命名樣式，不做通用的 ASSETS 回退——因為本站的
-      // Pages 設定對任何未知路徑都會回退到 SPA 首頁並回 200，
-      // 通用回退會讓所有錯誤網址變成 soft 404。
-      if (/^\/google[0-9a-f]{8,32}$/i.test(url.pathname)) {
-        return env.ASSETS.fetch(request);
       }
       return notFound();
     }

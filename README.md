@@ -16,8 +16,9 @@
 | `_worker.js` | Cloudflare Worker。依路由改寫 `<head>` 的 title／description／og／canonical，並處理轉址與 404 |
 | `photos/` | 相簿與教具照片（WebP） |
 | `downloads/` | 可下載的程式範例（`.tb`） |
-| `sitemap.xml` | 提交給搜尋引擎的網址清單 |
-| `google*.html` | Google Search Console 驗證檔，驗證成功後仍須保留 |
+| `_worker.test.mjs` | worker 的離線測試，執行 `node _worker.test.mjs` |
+| `sitemap.xml` | 退路用的靜態清單。正常情況由 `_worker.js` 動態產生並覆蓋 |
+| `CLAUDE.md` | 交給 Claude Code 維護時的工作說明 |
 
 ## 改內容要動哪裡
 
@@ -39,4 +40,11 @@
    （沒寫的話會自動產生一組通用的，不會壞）
 2. 新增網域轉址規則
 
-另外，`sitemap.xml` 目前是手動維護的，新增頁面時請記得補上，否則搜尋引擎不會主動收錄。
+`sitemap.xml` 由 worker 依同一份結構動態產生，新增頁面會自動收錄，不必手動維護。
+（repo 裡那份靜態 `sitemap.xml` 只是 worker 失效時的退路。）
+
+修改 `_worker.js` 或 `index.html` 的資料結構後，請執行測試確認沒弄壞東西：
+
+```bash
+node _worker.test.mjs
+```

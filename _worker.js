@@ -35,6 +35,9 @@ const ROUTE_META = {
   },
 };
 
+// 教具與教材的名稱只是 SEO 文案上的美化，實際「有哪些路由存在」一律
+// 從 index.html 推導（見 readSite）。這裡的對照表僅供覆寫用，
+// 沒列到的 slug 會自動採用 index.html 裡的名稱，不會 404。
 const TOOL_NAMES = {
   'mtc-v2': 'MTC V2 智慧自走車',
   'humanoid-robot': '人形機器人',
@@ -50,12 +53,73 @@ const RESOURCE_NAMES = {
   'eng-structure': '工程結構與穩定',
 };
 
-function routeMeta(pathname) {
+// ---------------------------------------------------------------------------
+// 站台結構一律從 index.html 推導，避免「新增頁面卻忘了改 worker → 404」。
+// 每個 deployment 的 isolate 只解析一次；重新部署會換新 isolate，不會讀到舊的。
+// ---------------------------------------------------------------------------
+let SITE = null;
+
+function section(html, from, to) {
+  const a = html.indexOf(from);
+  if (a < 0) return '';
+  const b = html.indexOf(to, a + from.length);
+  return b > a ? html.slice(a, b) : html.slice(a);
+}
+
+function pairs(text, re) {
+  const out = {};
+  for (const m of text.matchAll(re)) out[m[1]] = m[2];
+  return out;
+}
+
+function parseSite(html) {
+  // routeNames 是 app 自己的路由清單，新增頁面本來就得寫進去，等於零額外維護。
+  const names = section(html, 'get routeNames()', '}')
+    .match(/'([a-z]+)'/g) || [];
+  const pages = new Set(['/']);
+  for (const raw of names) {
+    const n = raw.slice(1, -1);
+    if (n !== 'home' && n !== 'tool' && n !== 'resource') pages.add('/' + n);
+  }
+
+  const tools = pairs(section(html, 'get tools()', 'get categories()'),
+    /slug: '([a-z0-9-]+)', name: '([^']*)'/g);
+  const resources = pairs(section(html, '_rawResources()', 'get resourceFilters()'),
+    /slug: '([a-z0-9-]+)', title: '([^']*)'/g);
+
+  // 解析結果明顯不合理時視為失敗，交由呼叫端退回寬鬆模式（寧可不擋，也不要整站 404）
+  const ok = pages.size > 1 && Object.keys(tools).length > 0;
+  return ok ? { pages, tools, resources } : null;
+}
+
+async function readSite(env, url) {
+  if (SITE !== null) return SITE;
+  try {
+    const res = await env.ASSETS.fetch(new Request(new URL('/index.html', url)));
+    if (!res.ok) return null;
+    SITE = parseSite(await res.text());
+  } catch {
+    SITE = null;
+  }
+  return SITE;
+}
+
+function routeMeta(pathname, site) {
   if (ROUTE_META[pathname]) return ROUTE_META[pathname];
+  if (!site) return null;
+
+  if (site.pages.has(pathname)) {
+    // 新頁面尚未在 ROUTE_META 寫專屬文案時，先給一組通用的，至少不會 404
+    const label = pathname.slice(1);
+    return {
+      title: `${label}｜微研 WEIYAN`,
+      description: ROUTE_META['/'].description,
+    };
+  }
 
   const toolMatch = pathname.match(/^\/tool\/([a-z0-9-]+)$/);
-  if (toolMatch && TOOL_NAMES[toolMatch[1]]) {
-    const name = TOOL_NAMES[toolMatch[1]];
+  if (toolMatch && site.tools[toolMatch[1]]) {
+    const name = TOOL_NAMES[toolMatch[1]] || site.tools[toolMatch[1]];
     return {
       title: `${name}｜科技教育教具｜微研 WEIYAN`,
       description: `了解微研 WEIYAN 的${name}教具、學習重點、功能特色與可用資源。`,
@@ -63,8 +127,8 @@ function routeMeta(pathname) {
   }
 
   const resourceMatch = pathname.match(/^\/resource\/([a-z0-9-]+)$/);
-  if (resourceMatch && RESOURCE_NAMES[resourceMatch[1]]) {
-    const name = RESOURCE_NAMES[resourceMatch[1]];
+  if (resourceMatch && site.resources[resourceMatch[1]]) {
+    const name = RESOURCE_NAMES[resourceMatch[1]] || site.resources[resourceMatch[1]];
     return {
       title: `${name}｜學習資源｜微研 WEIYAN`,
       description: `查看微研 WEIYAN 的${name}課程內容、學習目標與教材資源。`,
@@ -131,10 +195,21 @@ export default {
       return env.ASSETS.fetch(request);
     }
 
-    const meta = routeMeta(url.pathname);
+    const site = await readSite(env, url);
+    const meta = routeMeta(url.pathname, site);
     if (!meta) {
       if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) {
         return env.ASSETS.fetch(request);
+      }
+      // 解析 index.html 失敗時不判定 404：寧可放行讓 SPA 自己處理，
+      // 也不要因為 worker 讀不到站台結構就把整站打成 404。
+      if (!site) {
+        const fallback = await env.ASSETS.fetch(
+          new Request(new URL('/index.html', url), { headers: request.headers }));
+        if (fallback.ok) return new Response(await fallback.text(), {
+          status: 200,
+          headers: { 'content-type': 'text/html; charset=utf-8' },
+        });
       }
       // Cloudflare Pages 把 /foo.html 供應在 /foo，並將 /foo.html 308 轉到 /foo。
       // Google Search Console 的驗證檔就是這種形狀，必須放行，否則驗證會 404。

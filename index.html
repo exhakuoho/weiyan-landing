@@ -488,7 +488,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
         <sc-for list="{{ activeTool.gallery }}" as="g" hint-placeholder-count="4">
           <div style="position:relative;height:260px;border-radius:18px;overflow:hidden;background:#101114;">
-            <image-slot id="{{ g.id }}" shape="rect" placeholder="{{ g.hint }}" style="width:100%;height:100%;"></image-slot>
+            <image-slot id="{{ g.id }}" src="{{ g.src }}" shape="rect" placeholder="{{ g.hint }}" style="width:100%;height:100%;"></image-slot>
           </div>
         </sc-for>
       </div>
@@ -1395,6 +1395,17 @@ class Component extends DCLogic {
         img: '/photos/tools/mtc-v2.webp', imgHint: 'MTC V2 產品照',
         desc: '為程式設計、感測器與機器人控制教育打造的模組化智慧自走車平台。',
         overview: 'MTC V2 是一台專為教學設計的模組化智慧自走車。學生從組裝、感測到程式控制，逐步建立完整的機器人系統概念，並能延伸到真實世界的自動化與工程應用。',
+        gallery: [
+          { src: '/photos/tools/mtc-v2/real-01.webp', hint: 'MTC V2 實拍照片 1' },
+          { src: '/photos/tools/mtc-v2/real-02.webp', hint: 'MTC V2 實拍照片 2' },
+          { src: '/photos/tools/mtc-v2/real-03.webp', hint: 'MTC V2 實拍照片 3' },
+          { src: '/photos/tools/mtc-v2/real-04.webp', hint: 'MTC V2 實拍照片 4' },
+          { src: '/photos/tools/mtc-v2/real-05.webp', hint: 'MTC V2 實拍照片 5' },
+          { src: '/photos/tools/mtc-v2/real-06.webp', hint: 'MTC V2 實拍照片 6' },
+          { src: '/photos/tools/mtc-v2/real-07.webp', hint: 'MTC V2 實拍照片 7' },
+          { src: '/photos/tools/mtc-v2/real-08.webp', hint: 'MTC V2 實拍照片 8' },
+          { src: '/photos/tools/mtc-v2/real-09.webp', hint: 'MTC V2 實拍照片 9' },
+        ],
         learn: [{ n: '1', en: 'PROGRAMMING', zh: '程式設計' }, { n: '2', en: 'SENSORS', zh: '感測技術' }, { n: '3', en: 'CONTROL', zh: '控制系統' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
         features: ['60mm 麥克納姆輪，可橫移、斜向與原地旋轉', '4 組 1:90 編碼器 TT 馬達，速度與路徑控制', 'HC-SR04 超音波感測器，實作避障與距離偵測', 'TU:bit V2 控制板（ESP32），支援 Wi-Fi 與藍牙', 'TU:bitBlock 圖像化積木程式入門', 'Arduino C 進階開發，可擴充手臂、發射器與 AI 鏡頭'],
         // 有 url 者開新分頁連到原廠資源；CODE 維持捲動到本頁下載區。
@@ -1468,7 +1479,11 @@ class Component extends DCLogic {
       cardImgId: 'tool-card-' + t.slug,
       listImgId: 'tool-list-' + t.slug,
       heroImgId: 'tool-hero-' + t.slug,
-      gallery: [0, 1, 2, 3].map(i => ({ id: 'tool-gal-' + t.slug + '-' + i, hint: t.name + ' 圖 ' + (i + 1) })),
+      gallery: (Array.isArray(t.gallery) && t.gallery.length > 0 ? t.gallery : [null, null, null, null]).map((g, i) => ({
+        id: 'tool-gal-' + t.slug + '-' + i,
+        src: g && g.src ? g.src : '',
+        hint: g && g.hint ? g.hint : t.name + ' 圖 ' + (i + 1),
+      })),
       open: () => this.go('tool', { toolSlug: t.slug }),
     }));
   }

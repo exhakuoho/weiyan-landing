@@ -25,6 +25,10 @@ const ROUTE_META = {
     title: '科技教育專案實績｜微研 WEIYAN',
     description: '微研 WEIYAN 的校園課程、科技營隊、機器人教育與數位製造工作坊實績。',
   },
+  '/steam': {
+    title: 'STEAM 教育理念與教學方法｜微研 WEIYAN',
+    description: '微研 WEIYAN 的科技教育方法：問題導向學習（PBL）、引導式探究、設計思考、工程設計流程（EDP）、做中學、迭代式設計、運算思維與跨域 STEAM 學習，以及它們如何真正發生在課堂上。',
+  },
   '/about': {
     title: '關於微研 WEIYAN｜科學與科技教育團隊',
     description: '認識專注於科學、工程、機器人與科技教育的微研 WEIYAN。',

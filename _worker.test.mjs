@@ -45,7 +45,7 @@ const get = (w, env, path) => w.fetch(new Request(ORIGIN + path), env);
 console.log('\n【路由：既有頁面可達，不存在的回 404】');
 {
   const w = await fresh(), env = makeEnv();
-  for (const p of ['/', '/camp', '/gallery', '/tool/mtc-v2', '/resource/mtc-forward'])
+  for (const p of ['/', '/camp', '/gallery', '/steam', '/tool/mtc-v2', '/resource/mtc-forward'])
     check(p, (await get(w, env, p)).status, 200);
   for (const p of ['/totally-bogus', '/tool/nope', '/resource/nope'])
     check(p, (await get(w, env, p)).status, 404);
@@ -56,13 +56,13 @@ console.log('\n【每頁有自己的 title 與 canonical（社群分享與收錄
 {
   const w = await fresh(), env = makeEnv();
   const titles = new Set();
-  for (const p of ['/', '/camp', '/tool/mtc-v2', '/resource/mtc-forward']) {
+  for (const p of ['/', '/camp', '/steam', '/tool/mtc-v2', '/resource/mtc-forward']) {
     const html = await (await get(w, env, p)).text();
     titles.add((html.match(/<title>(.*?)<\/title>/s) || [])[1]);
     check(`${p} canonical 正確`,
       (html.match(/rel="canonical" href="(.*?)"/) || [])[1], ORIGIN + p);
   }
-  check('4 頁的 title 互不相同', titles.size, 4);
+  check('5 頁的 title 互不相同', titles.size, 5);
 }
 
 // ---------------------------------------------------------------------------
@@ -91,7 +91,9 @@ console.log('\n【sitemap 動態產生】');
   const xml = await res.text();
   const locs = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
-  check('網址數與站台結構一致', locs.length, 17);
+  // 頁面 9（/、tools、resources、projects、steam、about、camp、gallery、join）
+  // ＋教具 3 ＋教材 6 = 18
+  check('網址數與站台結構一致', locs.length, 18);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',

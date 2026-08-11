@@ -5,6 +5,7 @@
 - 正式網站：https://weiyan.designjarvis.com/
 - 營隊資訊：https://weiyan.designjarvis.com/camp
 - 教具與教材：https://weiyan.designjarvis.com/tools
+- STEAM 教育理念：https://weiyan.designjarvis.com/steam
 
 網站部署於 Cloudflare Pages。正式網域是 `weiyan.designjarvis.com`；`weiyan.pages.dev` 僅作為平台預設網域。
 
@@ -29,7 +30,10 @@
   記得同時更新輪播旁那兩行寫死的日期與說明文字
 - **新增營隊** — 加進 `_rawCamps()`
 - **新增教具／教材** — 加進 `get tools()` 或 `_rawResources()`
-- **新增頁面** — 路由名稱加進 `get routeNames()`
+- **改 STEAM 教育理念的文字** — 直接改 `index.html` 裡「STEAM 教育理念」那一段 HTML。
+  這一頁沒有用資料陣列，八個方法各是一張 `<article>`，複製一張改文字就能加第九個
+- **新增頁面** — 路由名稱加進 `get routeNames()`。若要出現在導覽列，
+  桌機導覽已有 8 項、寬度接近上限，加第 9 項前請先確認 960px 寬度下不會擠出去
 
 `_worker.js` 會在執行時從 `index.html` 讀出上述結構，自動得知有哪些網址存在。
 新增教具、教材或頁面**不必**同步修改 worker，也不會出現 404。

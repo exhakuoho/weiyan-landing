@@ -97,6 +97,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://weiyan.designjarvis.com/steam</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://weiyan.designjarvis.com/about</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>

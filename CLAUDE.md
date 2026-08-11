@@ -18,7 +18,7 @@
 
 ```bash
 git pull                 # 可能有其他 session 或 GPT 分支推過東西
-node _worker.test.mjs    # 26 項，全過才動手
+node _worker.test.mjs    # 39 項，全過才動手
 ```
 
 第三件：確認你要改的東西屬於哪一類（見下方「改東西要動哪裡」）。
@@ -46,6 +46,7 @@ node _worker.test.mjs    # 26 項，全過才動手
 | 新增／修改營隊 | `_rawCamps()` |
 | 新增教具 | `get tools()` |
 | 新增教材 | `_rawResources()` |
+| 改 STEAM 教育理念的文字 | `index.html` 的「STEAM 教育理念」區塊（純 HTML，沒有資料陣列） |
 | 新增頁面 | `get routeNames()` 加一個路由名 |
 
 worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪些網址存在，
@@ -58,6 +59,14 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
 
 CAMP 頁輪播取 `_rawAlbums()[0]`，但輪播旁的日期與說明文字是**寫死在 HTML 裡**的
 （搜尋 `ON SITE ·`）。新增相簿梯次時要一起改，否則會變成新照片配舊圖說。
+
+### 導覽列已接近寬度上限
+
+桌機導覽目前 8 項（TOOLS／RESOURCES／CAMP／GALLERY／PROJECTS／STEAM／ABOUT／JOIN），
+在最窄的桌機寬度 960px 只剩約 72px 餘裕；手機／平板斷點因此設在 `innerWidth < 960`
+（不是常見的 768）。要加第 9 個導覽項目前，先在 960px 量一次會不會擠出去，
+不然就得再縮 `gap` 或把斷點往上調。手機版全螢幕選單已加 `overflow-y:auto`，
+機身短的手機（667px 高以下）才滑得到最後一項。
 
 ## 照片處理慣例
 

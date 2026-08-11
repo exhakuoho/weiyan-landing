@@ -1541,7 +1541,11 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;">
             <span style="font-size:11px;letter-spacing:.16em;color:#585b63;margin-bottom:4px;">CONNECT</span>
-            <a href="mailto:randdlaboratary@gmail.com" style="cursor:pointer;color:#d3d5da;display:flex;flex-direction:column;gap:3px;">Email<span style="color:#585b63;font-size:13px;">randdlaboratary@gmail.com</span></a>
+            <!-- 信箱不寫死在 HTML 裡，改由程式在瀏覽器組出來（見 contactEmail）。
+                 原因：Cloudflare 的 Email Address Obfuscation 會把 HTML 裡的信箱換成
+                 「[email protected]」再靠它自己的 script 還原，但本站的畫面是 JS 重繪的，
+                 那支 script 還原完就被覆蓋掉，訪客只會看到 [email protected]。 -->
+            <a href="{{ contactEmailHref }}" style="cursor:pointer;color:#d3d5da;display:flex;flex-direction:column;gap:3px;">Email<span style="color:#585b63;font-size:13px;">{{ contactEmail }}</span></a>
             <a href="https://www.instagram.com/weiyan_aixsteam/" target="_blank" rel="noopener" style="cursor:pointer;color:#d3d5da;display:flex;flex-direction:column;gap:3px;">Instagram<span style="color:#585b63;font-size:13px;">@weiyan_aixsteam</span></a>
             <!-- Facebook 還沒有連結：使用者提供的帳號 weiyan_aixsteam 含底線，
                  而 Facebook 帳號網址只允許英文、數字與句點，所以 facebook.com/weiyan_aixsteam
@@ -2355,6 +2359,15 @@ class Component extends DCLogic {
     };
   }
 
+  /**
+   * 聯絡信箱。刻意拆成兩段再相接，讓 HTML 原始碼裡不存在完整的信箱字串——
+   * 這樣 Cloudflare 的 Email Address Obfuscation 就不會插手改寫（改寫後在本站會壞掉，
+   * 詳見 footer 裡的說明），順便也讓一般的爬蟲抓不到。
+   * 要換信箱只改這兩行。
+   */
+  get contactEmail() { return 'randdlaboratary' + '@' + 'gmail.com'; }
+  get contactEmailHref() { return 'mailto:' + this.contactEmail; }
+
   renderVals() {
     const r = this.state.route;
     const all = this._rawResources();
@@ -2376,6 +2389,7 @@ class Component extends DCLogic {
       goSteam: () => this.go('steam'),
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'), goGallery: () => this.go('gallery'),
       goJoin: () => this.go('join'),
+      contactEmail: this.contactEmail, contactEmailHref: this.contactEmailHref,
       tools: this.tools, categories: this.categories, keywords: this.keywords, pressItems: this.pressItems,
       ...this._campVals(),
       ...this._photoVals(),

@@ -68,6 +68,7 @@
     <a href="/camp">營隊 Camp</a>
     <a href="/gallery">相簿 Gallery</a>
     <a href="/projects">實績 Projects</a>
+    <a href="/steam">STEAM 教育理念</a>
     <a href="/about">關於 About</a>
     <a href="/join">加入我們 Join</a>
   </nav>
@@ -154,12 +155,13 @@
         <span style="width:9px;height:9px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 4px rgba(120,104,255,.16);"></span>WEIYAN
       </a>
       <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
-        <nav style="display:flex;align-items:center;gap:36px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;">
+        <nav style="display:flex;align-items:center;gap:28px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;">
           <a href="/tools" data-spa onClick="{{ goTools }}" style="cursor:pointer;color:#111318;">TOOLS</a>
           <a href="/resources" data-spa onClick="{{ goResources }}" style="cursor:pointer;color:#111318;">RESOURCES</a>
           <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;color:#111318;display:inline-flex;align-items:center;gap:7px;">CAMP<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></a>
           <a href="/gallery" data-spa onClick="{{ goGallery }}" style="cursor:pointer;color:#111318;">GALLERY</a>
           <a href="/projects" data-spa onClick="{{ goProjects }}" style="cursor:pointer;color:#111318;">PROJECTS</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;color:#111318;">STEAM</a>
           <a href="/about" data-spa onClick="{{ goAbout }}" style="cursor:pointer;color:#111318;">ABOUT</a>
           <a href="/join" data-spa onClick="{{ goJoin }}" style="cursor:pointer;color:#111318;">JOIN</a>
         </nav>
@@ -174,17 +176,20 @@
   </header>
 
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;z-index:60;background:#101114;color:#fff;display:flex;flex-direction:column;padding:clamp(20px,6vw,48px);">
+    <!-- overflow-y:auto 是必要的：選單有 8 個項目，機身較短的手機（例如 667px 高）
+         放不下，沒有這行最後一項會被切掉又滑不到。 -->
+    <div style="position:fixed;inset:0;z-index:60;background:#101114;color:#fff;display:flex;flex-direction:column;padding:clamp(20px,6vw,48px);overflow-y:auto;">
       <div style="display:flex;justify-content:space-between;align-items:center;height:32px;">
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.22em;font-size:20px;">WEIYAN</span>
         <button onClick="{{ closeMenu }}" aria-label="Close" style="border:none;background:none;cursor:pointer;color:#fff;font-size:28px;line-height:1;">×</button>
       </div>
-      <nav style="margin-top:14vh;display:flex;flex-direction:column;gap:28px;font-family:'Space Grotesk',sans-serif;">
+      <nav style="margin-top:10vh;display:flex;flex-direction:column;gap:24px;font-family:'Space Grotesk',sans-serif;">
         <a href="/tools" data-spa onClick="{{ goTools }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;letter-spacing:.02em;">Tools <span style="color:#8B8F98;font-size:15px;">教具</span></a>
         <a href="/resources" data-spa onClick="{{ goResources }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Resources <span style="color:#8B8F98;font-size:15px;">教材</span></a>
         <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Camp <span style="color:#8B8F98;font-size:15px;">營隊</span></a>
         <a href="/gallery" data-spa onClick="{{ goGallery }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Gallery <span style="color:#8B8F98;font-size:15px;">相簿</span></a>
         <a href="/projects" data-spa onClick="{{ goProjects }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Projects <span style="color:#8B8F98;font-size:15px;">實績</span></a>
+        <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">STEAM <span style="color:#8B8F98;font-size:15px;">教育理念</span></a>
         <a href="/about" data-spa onClick="{{ goAbout }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">About <span style="color:#8B8F98;font-size:15px;">關於</span></a>
         <a href="/join" data-spa onClick="{{ goJoin }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Join <span style="color:#8B8F98;font-size:15px;">加入我們</span></a>
       </nav>
@@ -282,6 +287,28 @@
         <div style="flex:1 1 320px;min-width:260px;">
           <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:#d3d5da;margin:0 0 22px;">我們相信真正的學習，不只是知道答案。</p>
           <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.85;color:#8B8F98;margin:0;">而是從觀察、動手、失敗與重新設計之中，找到自己的答案。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education approach 教育理念導引（詳細內容在 /steam） -->
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(64px,10vw,150px) clamp(20px,5vw,48px) 0;">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);">
+        <div style="flex:1 1 380px;min-width:280px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.28em;color:#7868FF;margin-bottom:16px;">EDUCATION APPROACH</div>
+          <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,4vw,46px);letter-spacing:-.02em;line-height:1.15;margin:0 0 20px;">不只教工具，<br>更教怎麼思考。</h2>
+          <p style="font-size:15px;line-height:1.9;color:#4a4d55;margin:0 0 28px;max-width:30em;">我們的課程融合八種現代教育方法，讓孩子從觀察與提問開始，一路走到設計、實作、驗證與創造。</p>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(17,19,24,.2);padding:13px 24px;border-radius:13px;color:#111318;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:14px;">STEAM 教育理念 <span>→</span></a>
+        </div>
+        <div style="flex:1 1 380px;min-width:280px;display:flex;flex-wrap:wrap;gap:9px;align-content:flex-start;">
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">問題導向學習</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">引導式探究學習</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">設計思考</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">工程設計流程</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">做中學</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">迭代式設計</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">運算思維</a>
+          <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;padding:11px 17px;border-radius:99px;background:#fff;border:1px solid rgba(17,19,24,.1);color:#111318;font-size:14px;">跨域 STEAM 學習</a>
         </div>
       </div>
     </section>
@@ -927,6 +954,360 @@
   </div>
   </sc-if>
 
+  <!-- ============ STEAM 教育理念 ============ -->
+  <!-- 這一頁的內容是純文字排版，直接寫在 HTML 裡（沒有用資料陣列），
+       要改文字就在這一段裡改，不需要動任何程式。八個方法各是一張 <article>，
+       複製一張改內容就能新增第九個方法。 -->
+  <sc-if value="{{ isSteam }}" hint-placeholder-val="{{ false }}">
+  <div>
+
+    <!-- Hero -->
+    <section style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px) clamp(32px,5vw,56px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#7868FF;margin-bottom:28px;">OUR STEAM APPROACH</div>
+      <h1 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(32px,5vw,64px);line-height:1.14;letter-spacing:-.02em;margin:0;max-width:16em;">我們的 STEAM 教育核心</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px);margin-top:clamp(32px,5vw,56px);border-top:1px solid rgba(17,19,24,.1);padding-top:clamp(32px,5vw,52px);">
+        <p style="flex:1 1 420px;min-width:280px;font-size:clamp(17px,2vw,22px);line-height:1.8;font-weight:500;letter-spacing:-.01em;margin:0;">我們不把科技教育定義為「學會操作工具」，而是希望孩子在一次次觀察、思考、設計、實作與修正的過程中，逐漸建立真正的問題解決能力。</p>
+        <p style="flex:1 1 320px;min-width:260px;font-size:15px;line-height:1.95;color:#4a4d55;margin:0;">課程融合多種現代教育方法，讓孩子不只是「聽懂」，而是能夠真正<b style="color:#111318;font-weight:600;">思考、動手、驗證與創造</b>。</p>
+      </div>
+    </section>
+
+    <!-- 八個教育方法 -->
+    <section style="max-width:1180px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(20px,5vw,48px) 0;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#8B8F98;margin-bottom:clamp(24px,4vw,40px);">EIGHT METHODS · 我們使用的八種教育方法</div>
+      <div style="display:flex;flex-direction:column;gap:clamp(20px,3vw,32px);">
+
+        <!-- 01 問題導向學習 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">01</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">問題導向學習</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Problem-Based Learning, PBL</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">問題導向學習（Problem-Based Learning）是一種以「問題」作為學習起點的教育方法。教師不直接提供完整答案，而是設計具有挑戰性的問題情境，引導學生分析問題、搜尋資訊、提出假設並尋找解決方案。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">我們不急著告訴孩子「這題應該怎麼做」，而是先讓孩子思考：</p>
+              <div style="border-left:2px solid rgba(120,104,255,.45);padding:2px 0 2px 14px;font-size:14.5px;line-height:1.9;color:#4a4d55;margin:0 0 16px;">
+                <span style="display:block;">「為什麼會這樣？」</span>
+                <span style="display:block;">「有沒有其他方法？」</span>
+                <span style="display:block;">「如果改變這個條件，結果會不會不同？」</span>
+              </div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">透過真實任務與工程問題，引導孩子從發現問題開始，逐步建立自己的解決方法。</p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">我們希望培養的不是記住答案的能力，而是面對未知問題時，知道如何開始思考的能力。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 引導式探究學習 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">02</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">引導式探究學習</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Guided Inquiry-Based Learning</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 14px;">引導式探究學習（Guided Inquiry-Based Learning）是一種介於教師直接教學與完全自主探索之間的學習方式。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">教師透過問題、提示、觀察方向與適當的學習工具，引導學生自行發現規律、驗證想法並形成理解。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">老師在課堂中的角色不只是「告訴答案的人」，更重要的是成為孩子思考過程中的引導者。當孩子遇到問題時，我們可能不會直接說：「這裡寫錯了。」而是問：</p>
+              <div style="border-left:2px solid rgba(120,104,255,.45);padding:2px 0 2px 14px;font-size:14.5px;line-height:1.9;color:#4a4d55;margin:0 0 16px;">
+                <span style="display:block;">「你覺得車子為什麼沒有停下來？」</span>
+                <span style="display:block;">「感測器現在看到的是什麼？」</span>
+                <span style="display:block;">「如果把這個數值改變，可能會發生什麼？」</span>
+              </div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">讓孩子透過觀察、推理與嘗試，自己找到答案。</p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">真正重要的不是老師解決了多少問題，而是孩子逐漸學會如何自己解決問題。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 設計思考 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">03</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">設計思考</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Design Thinking</span>
+          </div>
+          <div style="padding:clamp(22px,3vw,32px) clamp(22px,3vw,32px) 0;">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;">
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Empathize 同理</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Define 定義問題</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Ideate 發想</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Prototype 原型</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Test 測試</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 14px;">設計思考（Design Thinking）是一套以「人與需求」為核心的創新方法，常見流程為同理、定義問題、發想、原型與測試。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">重點不是第一次就找到完美答案，而是不斷理解問題、提出想法、快速製作並透過測試改善。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">在我們的課程中，孩子不只是接受一個既定答案，而會開始思考：</p>
+              <div style="border-left:2px solid rgba(120,104,255,.45);padding:2px 0 2px 14px;font-size:14.5px;line-height:1.9;color:#4a4d55;margin:0 0 16px;">
+                <span style="display:block;">「我要解決什麼問題？」</span>
+                <span style="display:block;">「使用這個作品的人需要什麼？」</span>
+                <span style="display:block;">「還有沒有更簡單的方法？」</span>
+                <span style="display:block;">「如果重新設計一次，我會改變哪裡？」</span>
+              </div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">從一台自走車、一個 3D 列印作品，到一個完整的工程專題，都可以成為設計思考的載體。</p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">好的作品，不只是能動，而是真的能解決問題。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 工程設計流程 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">04</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">工程設計流程</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Engineering Design Process, EDP</span>
+          </div>
+          <div style="padding:clamp(22px,3vw,32px) clamp(22px,3vw,32px) 0;">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;">
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Ask 提出問題</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Imagine 發想</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Plan 規劃</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Create 製作</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Test 測試</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Improve 改善</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 14px;">工程設計流程（Engineering Design Process）是工程師面對問題時常使用的一套系統化解題方法。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">工程設計並不是單純「把東西做出來」，而是透過設計、驗證與改善，使解決方案逐步成熟。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">孩子在課程中不只是按照步驟組裝完成作品，而是會真正經歷一次簡化版的工程開發流程：從理解任務、畫出構想、選擇材料，到程式撰寫、機構製作、測試及修改，每一個階段都是學習的一部分。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">當作品沒有按照預期運作時，我們不把它單純視為「做錯了」，反而會問：<b style="color:#111318;font-weight:600;">哪一個環節出了問題？</b></p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">因為真正的工程能力，就是能夠找到問題並持續改善。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 做中學 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">05</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">做中學</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Learning by Doing</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 14px;">做中學（Learning by Doing）強調透過實際操作與親身經驗建立知識，而不是只透過閱讀、聽講或記憶理解一個概念。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">學生在「做」的過程中遇到問題，再回頭理解相關知識，學習通常會更加深刻。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">科技與工程很難只靠課本真正理解，所以我們希望孩子能：</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;">
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">親手接上感測器</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">親手修改程式</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">親手設計模型</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">親手完成組裝</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">親眼看到作品產生不同結果</span>
+              </div>
+              <div style="border-left:2px solid rgba(120,104,255,.45);padding:2px 0 2px 14px;font-size:14.5px;line-height:1.9;color:#4a4d55;margin:0 0 16px;">「原來我修改這一段程式，馬達就會改變。」</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">當孩子真的看見這件事，抽象的程式邏輯便開始變成可以理解的真實經驗。</p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">真正理解一項科技最好的方式，就是親手使用它創造一次。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 迭代式設計 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">06</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">迭代式設計</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Iterative Design</span>
+          </div>
+          <div style="padding:clamp(22px,3vw,32px) clamp(22px,3vw,32px) 0;">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;">
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Build 製作</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Test 測試</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Learn 發現</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Improve 改善</span>
+              <span style="color:#7868FF;font-size:13px;">→</span>
+              <span style="display:inline-flex;padding:9px 15px;border-radius:99px;background:#f2f2f6;font-size:13px;font-weight:600;color:#111318;">Test Again 再測試</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 14px;">迭代式設計（Iterative Design）是一種透過反覆「製作、測試、分析、修改」逐步改善設計的方法。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">在工程與產品開發中，很少有設計能夠第一次就完全成功，因此「改善能力」本身就是非常重要的工程能力。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">我們希望孩子理解：<b style="color:#111318;font-weight:600;">第一次失敗，並不代表做錯了。</b>車子沒有按照預期前進、程式沒有正確執行、3D 模型尺寸不合、機構發生干涉，都可以成為下一次修改的重要資訊。</p>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 12px;">孩子會學習：</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;">
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">觀察發生什麼問題</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">找出可能的原因</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">提出修改方式</span>
+                <span style="display:inline-flex;padding:8px 14px;border-radius:99px;border:1px solid rgba(17,19,24,.12);font-size:13px;color:#111318;">重新測試</span>
+              </div>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">我們不是要求孩子「一次做對」，而是希望他們建立遇到失敗後，知道下一步該怎麼做的能力。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07 運算思維 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">07</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">運算思維</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Computational Thinking, CT</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">運算思維（Computational Thinking）並不等於單純「學寫程式」，而是一套將複雜問題轉化為可理解、可分析、可執行步驟的思考方式。常見的四個核心包括：</p>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;">
+                <div style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:13px;padding:15px 16px;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#7868FF;letter-spacing:.04em;margin-bottom:5px;">Decomposition</div>
+                  <b style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;">問題拆解</b>
+                  <span style="font-size:13px;line-height:1.8;color:#8B8F98;">將大型問題拆成較小的問題。</span>
+                </div>
+                <div style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:13px;padding:15px 16px;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#7868FF;letter-spacing:.04em;margin-bottom:5px;">Pattern Recognition</div>
+                  <b style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;">模式辨識</b>
+                  <span style="font-size:13px;line-height:1.8;color:#8B8F98;">找出問題中重複出現的規律。</span>
+                </div>
+                <div style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:13px;padding:15px 16px;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#7868FF;letter-spacing:.04em;margin-bottom:5px;">Abstraction</div>
+                  <b style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;">抽象化</b>
+                  <span style="font-size:13px;line-height:1.8;color:#8B8F98;">留下重要資訊，排除不必要的干擾。</span>
+                </div>
+                <div style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:13px;padding:15px 16px;">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#7868FF;letter-spacing:.04em;margin-bottom:5px;">Algorithmic Thinking</div>
+                  <b style="display:block;font-size:14px;font-weight:600;margin-bottom:6px;">演算法思考</b>
+                  <span style="font-size:13px;line-height:1.8;color:#8B8F98;">建立清楚、有順序的解決流程。</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">即使未來孩子不成為程式設計師，運算思維仍然是一項非常重要的能力。例如面對一台無法完成任務的自走車，我們不會只看到「車子失敗了」，而是開始拆解：</p>
+              <div style="border-left:2px solid rgba(120,104,255,.45);padding:2px 0 2px 14px;font-size:14.5px;line-height:1.9;color:#4a4d55;margin:0 0 16px;">
+                <span style="display:block;">是感測器？</span>
+                <span style="display:block;">是程式判斷？</span>
+                <span style="display:block;">是馬達控制？</span>
+                <span style="display:block;">還是機構本身？</span>
+              </div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">透過程式、機器人與工程任務，孩子逐漸學會把複雜問題拆開來思考。</p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">這才是學習程式設計背後真正重要的能力。</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08 跨域 STEAM 學習 -->
+        <article data-reveal style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;overflow:hidden;">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:clamp(20px,2.6vw,26px) clamp(22px,3vw,32px);border-bottom:1px solid rgba(17,19,24,.09);">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#7868FF;">08</span>
+            <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0;">跨域 STEAM 學習</h2>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#8B8F98;letter-spacing:.02em;">Interdisciplinary STEAM Learning</span>
+          </div>
+          <div style="padding:clamp(22px,3vw,32px) clamp(22px,3vw,32px) 0;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
+              <div style="border:1px solid rgba(17,19,24,.1);border-radius:14px;padding:18px 18px 20px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#7868FF;line-height:1;margin-bottom:10px;">S</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;">Science</b><span style="font-size:13px;color:#8B8F98;">科學</span></div>
+              <div style="border:1px solid rgba(17,19,24,.1);border-radius:14px;padding:18px 18px 20px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#7868FF;line-height:1;margin-bottom:10px;">T</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;">Technology</b><span style="font-size:13px;color:#8B8F98;">科技</span></div>
+              <div style="border:1px solid rgba(17,19,24,.1);border-radius:14px;padding:18px 18px 20px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#7868FF;line-height:1;margin-bottom:10px;">E</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;">Engineering</b><span style="font-size:13px;color:#8B8F98;">工程</span></div>
+              <div style="border:1px solid rgba(17,19,24,.1);border-radius:14px;padding:18px 18px 20px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#7868FF;line-height:1;margin-bottom:10px;">A</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;">Arts</b><span style="font-size:13px;color:#8B8F98;">藝術與設計</span></div>
+              <div style="border:1px solid rgba(17,19,24,.1);border-radius:14px;padding:18px 18px 20px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#7868FF;line-height:1;margin-bottom:10px;">M</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;">Mathematics</b><span style="font-size:13px;color:#8B8F98;">數學</span></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);padding:clamp(22px,3vw,32px);">
+            <div style="background:#f5f5f8;border-radius:16px;padding:clamp(20px,2.4vw,26px);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#a9acb4;margin-bottom:14px;">名詞解釋 · DEFINITION</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0;">跨域 STEAM 學習（Interdisciplinary STEAM Learning）的核心並不是分別教授五門學科，而是讓學生在解決一個真實問題時，自然運用不同領域的知識。</p>
+            </div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;color:#7868FF;margin-bottom:14px;">我們如何運用 · IN PRACTICE</div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 14px;">當孩子製作一台自走車時，他其實可能同時正在學習：</p>
+              <div style="border-left:2px solid rgba(120,104,255,.45);padding:2px 0 2px 14px;font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 16px;">
+                <span style="display:block;">感測器背後的<b style="color:#111318;font-weight:600;">科學原理</b></span>
+                <span style="display:block;">程式與電子設備的<b style="color:#111318;font-weight:600;">科技應用</b></span>
+                <span style="display:block;">機構與控制系統的<b style="color:#111318;font-weight:600;">工程設計</b></span>
+                <span style="display:block;">作品外型與使用方式的<b style="color:#111318;font-weight:600;">設計思考</b></span>
+                <span style="display:block;">距離、速度與角度相關的<b style="color:#111318;font-weight:600;">數學概念</b></span>
+              </div>
+              <p style="font-size:14.5px;line-height:1.95;color:#4a4d55;margin:0 0 18px;">孩子不需要一直被提醒「現在正在學數學」，因為知識會自然出現在解決問題的過程中。</p>
+              <p style="background:linear-gradient(180deg,rgba(120,104,255,.08),rgba(77,163,255,.05));border:1px solid rgba(120,104,255,.18);border-radius:14px;padding:17px 19px;font-size:14.5px;line-height:1.85;font-weight:600;color:#111318;margin:0;">不是把五個學科放在一起，而是讓孩子學會把不同知識拿來解決同一個問題。</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 從「知道」走向「創造」 -->
+    <section data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,120px) clamp(20px,5vw,48px) clamp(40px,6vw,72px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.28em;color:#7868FF;margin-bottom:18px;">FROM KNOWING TO CREATING</div>
+      <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,4.4vw,52px);line-height:1.16;letter-spacing:-.02em;margin:0 0 22px;">從「知道」走向「創造」</h2>
+      <p style="font-size:15px;line-height:1.95;color:#4a4d55;margin:0 0 clamp(28px,4vw,44px);max-width:44em;">我們希望建立的科技教育，不是讓孩子記住更多科技名詞，而是讓他們逐步經歷這八個階段：</p>
+      <!-- clamp 讓這八格在手機是 2 欄、平板與桌機是 4 欄（剛好 4+4 兩排） -->
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(clamp(140px,20vw,240px),1fr));gap:12px;">
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">01</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Observe</b><span style="font-size:14px;color:#8B8F98;">觀察</span></li>
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">02</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Question</b><span style="font-size:14px;color:#8B8F98;">提問</span></li>
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">03</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Think</b><span style="font-size:14px;color:#8B8F98;">思考</span></li>
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">04</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Design</b><span style="font-size:14px;color:#8B8F98;">設計</span></li>
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">05</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Build</b><span style="font-size:14px;color:#8B8F98;">實作</span></li>
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">06</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Test</b><span style="font-size:14px;color:#8B8F98;">驗證</span></li>
+        <li style="background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#7868FF;margin-bottom:10px;">07</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:3px;">Improve</b><span style="font-size:14px;color:#8B8F98;">改善</span></li>
+        <li style="background:#111318;border:1px solid #111318;border-radius:16px;padding:20px 20px 22px;"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#9a8dff;margin-bottom:10px;">08</span><b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#fff;margin-bottom:3px;">Create</b><span style="font-size:14px;color:#8B8F98;">創造</span></li>
+      </ol>
+    </section>
+
+    <!-- User → Creator -->
+    <section data-reveal style="position:relative;background:#101114;color:#fff;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(circle at 72% 50%,#000,transparent 70%);mask-image:radial-gradient(circle at 72% 50%,#000,transparent 70%);"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(64px,10vw,150px) clamp(20px,5vw,48px);">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.28em;color:#9a8dff;margin-bottom:26px;">THE GOAL</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,6vw,72px);line-height:1.06;letter-spacing:-.03em;margin:0;">TECHNOLOGY USER<br><span style="color:#7868FF;">↓</span><br>TECHNOLOGY CREATOR</h2>
+        <p style="font-size:clamp(15px,1.6vw,19px);line-height:1.85;color:#d3d5da;margin:clamp(28px,4vw,44px) 0 0;max-width:34em;">我們希望孩子從單純的科技使用者，逐漸成為具有思考能力、工程能力與創造能力的科技創造者。</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);text-align:center;">
+      <p style="font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,1.6vw,17px);letter-spacing:.14em;color:#8B8F98;margin:0 0 30px;">SEE IT IN THE CLASSROOM</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;background:#111318;color:#fff;padding:16px 32px;border-radius:14px;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:14px;display:inline-flex;gap:10px;align-items:center;">看營隊梯次 <span>→</span></a>
+        <a href="/tools" data-spa onClick="{{ goTools }}" style="cursor:pointer;border:1px solid rgba(17,19,24,.2);color:#111318;padding:16px 32px;border-radius:14px;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:14px;display:inline-flex;gap:10px;align-items:center;">看教具 <span>→</span></a>
+        <a href="/gallery" data-spa onClick="{{ goGallery }}" style="cursor:pointer;border:1px solid rgba(17,19,24,.2);color:#111318;padding:16px 32px;border-radius:14px;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:14px;display:inline-flex;gap:10px;align-items:center;">看現場照片 <span>→</span></a>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
   <!-- ============ ABOUT ============ -->
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
   <div>
@@ -947,6 +1328,17 @@
           </sc-for>
         </div>
       </div>
+    </section>
+    <!-- 教育理念導引（詳細內容在 /steam） -->
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,110px);">
+      <a href="/steam" data-spa onClick="{{ goSteam }}" data-hovercard style="cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;padding:clamp(26px,3.4vw,40px);color:#111318;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;">
+        <div style="flex:1 1 420px;min-width:260px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.28em;color:#7868FF;margin-bottom:14px;">OUR STEAM APPROACH</div>
+          <div style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(21px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px;">我們的 STEAM 教育核心</div>
+          <p style="font-size:15px;line-height:1.9;color:#4a4d55;margin:0;max-width:40em;">問題導向學習、引導式探究、設計思考、工程設計流程、做中學、迭代式設計、運算思維與跨域 STEAM 學習 — 八種方法如何真正發生在課堂上。</p>
+        </div>
+        <span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(17,19,24,.14);font-size:20px;flex-shrink:0;">→</span>
+      </a>
     </section>
     <section data-reveal style="background:#101114;color:#fff;">
       <div style="max-width:1280px;margin:0 auto;padding:clamp(64px,10vw,140px) clamp(20px,5vw,48px);text-align:center;">
@@ -1143,6 +1535,7 @@
             <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;color:#d3d5da;">Camp</a>
             <a href="/gallery" data-spa onClick="{{ goGallery }}" style="cursor:pointer;color:#d3d5da;">Gallery</a>
             <a href="/projects" data-spa onClick="{{ goProjects }}" style="cursor:pointer;color:#d3d5da;">Projects</a>
+            <a href="/steam" data-spa onClick="{{ goSteam }}" style="cursor:pointer;color:#d3d5da;">STEAM</a>
             <a href="/about" data-spa onClick="{{ goAbout }}" style="cursor:pointer;color:#d3d5da;">About</a>
             <a href="/join" data-spa onClick="{{ goJoin }}" style="cursor:pointer;color:#d3d5da;">Join</a>
           </div>
@@ -1170,7 +1563,8 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._onResize = () => {
-      const m = window.innerWidth < 860;
+      // 960：桌機導覽有 8 個項目，寬度再窄就會擠出去，因此比一般手機斷點寬一些。
+      const m = window.innerWidth < 960;
       if (m !== this.state.isMobile) this.setState({ isMobile: m });
     };
     this._onResize();
@@ -1294,7 +1688,7 @@ class Component extends DCLogic {
   // 網址與畫面同步：讓每一頁都有可分享、可加書籤的網址，
   // 上一頁／下一頁也能正常運作。
   get routeNames() {
-    return ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'about', 'camp', 'gallery', 'join'];
+    return ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'steam', 'about', 'camp', 'gallery', 'join'];
   }
 
   /** route -> 網址路徑。首頁為 /，其餘為 /camp、/tool/mtc-v2 這類真實路徑。 */
@@ -1352,6 +1746,7 @@ class Component extends DCLogic {
       tools: ['教具｜' + base, 'MTC V2 自走車等機器人與科技教育教具。'],
       resources: ['教材｜' + base, '機器人、程式與 3D 列印課程教材與程式範例下載。'],
       projects: ['實績｜' + base, '微研在真實教學現場的營隊、課程與學校合作實績。'],
+      steam: ['STEAM 教育理念｜' + base, '微研的科技教育方法：問題導向學習、引導式探究、設計思考、工程設計流程、做中學、迭代式設計、運算思維與跨域 STEAM 學習。'],
       about: ['關於微研｜' + base, '微研專注於科學、工程與科技教育，是營隊專家。'],
     };
     // 教具／教材的細頁也要有自己的 title、description 與 canonical，
@@ -1965,7 +2360,7 @@ class Component extends DCLogic {
     return {
       isHome: r === 'home', isTools: r === 'tools', isToolDetail: r === 'tool',
       isResources: r === 'resources', isResourceDetail: r === 'resource',
-      isProjects: r === 'projects', isAbout: r === 'about', isCamp: r === 'camp', isGallery: r === 'gallery',
+      isProjects: r === 'projects', isSteam: r === 'steam', isAbout: r === 'about', isCamp: r === 'camp', isGallery: r === 'gallery',
       isJoin: r === 'join',
       isMobile: this.state.isMobile, notMobile: !this.state.isMobile,
       menuOpen: this.state.menuOpen,
@@ -1973,6 +2368,7 @@ class Component extends DCLogic {
       closeMenu: () => this.setState({ menuOpen: false }),
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
+      goSteam: () => this.go('steam'),
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'), goGallery: () => this.go('gallery'),
       goJoin: () => this.go('join'),
       tools: this.tools, categories: this.categories, keywords: this.keywords, pressItems: this.pressItems,

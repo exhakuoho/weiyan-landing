@@ -48,6 +48,7 @@ node _worker.test.mjs    # 39 項，全過才動手
 | 新增教材 | `_rawResources()` |
 | 改 STEAM 教育理念的文字 | `index.html` 的「STEAM 教育理念」區塊（純 HTML，沒有資料陣列） |
 | 新增頁面 | `get routeNames()` 加一個路由名 |
+| 改常態課程頁 | `index.html` 的 `isCourses`／`isBrick`／`isMinecraft`／`isLaser` 四個區塊（純 HTML，無資料陣列） |
 
 worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪些網址存在，
 並據此產生 sitemap。**新增內容不必同步改 worker，也不會 404。**
@@ -62,11 +63,48 @@ CAMP 頁輪播取 `_rawAlbums()[0]`，但輪播旁的日期與說明文字是**�
 
 ### 導覽列已接近寬度上限
 
-桌機導覽目前 8 項（TOOLS／RESOURCES／CAMP／GALLERY／PROJECTS／STEAM／ABOUT／JOIN），
-在最窄的桌機寬度 960px 只剩約 72px 餘裕；手機／平板斷點因此設在 `innerWidth < 960`
-（不是常見的 768）。要加第 9 個導覽項目前，先在 960px 量一次會不會擠出去，
-不然就得再縮 `gap` 或把斷點往上調。手機版全螢幕選單已加 `overflow-y:auto`，
+桌機導覽目前 **9 項**（TOOLS／RESOURCES／COURSES／CAMP／GALLERY／PROJECTS／STEAM／
+ABOUT／JOIN）。2026-08-25 加入 COURSES 時實測：在原本的 960px 斷點下，
+logo 與導覽之間的間距被擠成 **0px**，所以同時做了兩件事——
+`gap` 從 28px 縮到 24px，斷點從 `innerWidth < 960` 調到 **`< 1040`**。
+1040px 時量到的餘裕是 88px。
+
+**要加第 10 個導覽項目前，先在 1040px 量一次**：
+
+```js
+// 在 DevTools console 執行，gap 至少要留 40px
+const h=document.querySelector('header'),n=h.querySelector('nav'),l=h.querySelector('a');
+Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
+```
+
+擠不下就再縮 `gap`、把斷點往上調，或把新頁面收進既有的分類頁（COURSES 就是
+這樣收了三個課程頁，只佔一格導覽）。手機版全螢幕選單已加 `overflow-y:auto`，
 機身短的手機（667px 高以下）才滑得到最後一項。
+
+## 常態課程頁（2026-08-25 新增）
+
+`/courses` 是分類頁，底下三個課程頁：`/brick`（積木機器人）、`/minecraft`
+（Minecraft 科技探索）、`/laser`（雷切科學課）。
+
+- 四頁都是**純 HTML 寫在 `index.html` 裡**，沒有資料陣列，直接改文字就好。
+- 樣式集中在 `<style>` 裡的 `.wc-*` 類別（`wc` = weiyan course）。大字、圓角、
+  每條課程線一個主色：積木 `#2F7DE1`、Minecraft `#3FAE68`、雷切 `#F2803C`。
+- **`.wc-hero` 與 `.wc-sec` 只能設 `padding-top`／`padding-bottom`**，
+  不要用 `padding` 簡寫——簡寫會把 `.wc` 的左右內距歸零，內容會貼到螢幕邊緣。
+  （這個坑已經踩過一次。）
+- 路由名只能用**純小寫英文字母**：`_worker.js` 解析 `routeNames` 的正則是
+  `/'([a-z]+)'/g`，帶連字號或數字的路由名會整個抓不到，sitemap 就會漏掉那一頁。
+- 新增課程頁要同時改三個地方，`node _worker.test.mjs` 的「課程頁」區塊會擋住漏改：
+  1. `index.html` 的 `get routeNames()`
+  2. `index.html` 的 `renderVals()`（`isXxx` 旗標 ＋ `goXxx` 跳轉）與 `_syncHead()`
+  3. `_worker.js` 的 `ROUTE_META`（沒寫就只有通用 SEO 文案）
+
+### 課程頁還沒填完的東西
+
+頁面上橘底 `待填` 的欄位（搜尋 `wc-todo`）：三頁的上課時間與費用、積木課的堂數。
+另外七個 `PHOTO 0X` 虛線框是等實拍照片的位置，放法見
+`01_課程體系/積木教案/網站/README_怎麼放照片.md`。**照片一定要用自己拍的**，
+不要從網路抓——這是營利性招生頁。
 
 ## 照片處理慣例
 

@@ -52,6 +52,30 @@ console.log('\n【路由：既有頁面可達，不存在的回 404】');
 }
 
 // ---------------------------------------------------------------------------
+// 2026-08-25 新增的常態課程頁。這四條路由必須同時存在於 index.html 的
+// routeNames 與 worker 的 ROUTE_META，缺一邊就會變成沒有專屬 SEO 文案的通用頁。
+console.log('\n【課程頁：四條路由可達且各有專屬 SEO 文案】');
+{
+  const w = await fresh(), env = makeEnv();
+  const coursePaths = ['/courses', '/brick', '/minecraft', '/laser'];
+  const titles = new Set();
+  for (const p of coursePaths) {
+    const res = await get(w, env, p);
+    check(`${p} 可達`, res.status, 200);
+    const html = await res.text();
+    const title = (html.match(/<title>(.*?)<\/title>/s) || [])[1] || '';
+    titles.add(title);
+    check(`${p} 有專屬 title`, title.includes('微研 WEIYAN') && !title.includes('營隊專家｜科學'), true);
+    check(`${p} canonical 正確`,
+      (html.match(/rel="canonical" href="(.*?)"/) || [])[1], ORIGIN + p);
+  }
+  check('四頁 title 互不相同', titles.size, 4);
+  const xml = await (await get(w, env, '/sitemap.xml')).text();
+  check('四頁都進了 sitemap',
+    coursePaths.every((p) => xml.includes('<loc>' + ORIGIN + p + '</loc>')), true);
+}
+
+// ---------------------------------------------------------------------------
 console.log('\n【每頁有自己的 title 與 canonical（社群分享與收錄靠這個）】');
 {
   const w = await fresh(), env = makeEnv();
@@ -91,9 +115,10 @@ console.log('\n【sitemap 動態產生】');
   const xml = await res.text();
   const locs = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
-  // 頁面 9（/、tools、resources、projects、steam、about、camp、gallery、join）
-  // ＋教具 3 ＋教材 6 = 18
-  check('網址數與站台結構一致', locs.length, 18);
+  // 頁面 13（/、tools、resources、courses、brick、minecraft、laser、
+  //          projects、steam、about、camp、gallery、join）
+  // ＋教具 3 ＋教材 6 = 22
+  check('網址數與站台結構一致', locs.length, 22);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',

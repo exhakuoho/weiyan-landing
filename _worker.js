@@ -13,6 +13,22 @@ const ROUTE_META = {
     title: '科學與工程學習資源｜微研 WEIYAN',
     description: '機器人、人工智慧、程式設計、3D 列印與工程教育的課程教材與學習資源。',
   },
+  '/courses': {
+    title: '常態課程｜積木機器人・Minecraft・雷切科學｜微研 WEIYAN',
+    description: '微研 WEIYAN 的三條常態課程線：積木機器人、Minecraft 科技探索與雷切科學課，依年齡分級，從動手實作到程式控制與競賽。',
+  },
+  '/brick': {
+    title: '積木機器人課程｜四階段學習路徑｜微研 WEIYAN',
+    description: '從動力機械到程式控制的四階段機器人課程：SPM 動力機械、WeDo 入門程式、SPIKE Prime 程式控制與 VEX IQ 競賽實戰，國小低年級至國中依能力分級。',
+  },
+  '/minecraft': {
+    title: 'Minecraft 科技探索課程｜紅石電路與工程思維｜微研 WEIYAN',
+    description: '在 Minecraft 方塊世界裡教紅石電路、機械結構、程式邏輯與工程設計，七個主題世界各有不同的物理限制與任務挑戰。',
+  },
+  '/laser': {
+    title: '雷切科學課｜小怪獸科學群島與 GRID-8 案件簿｜微研 WEIYAN',
+    description: '八件雷射切割教具、兩套分齡世界觀：國小 3–4 年級的小怪獸科學群島，與 5–6 年級的 GRID-8 城市科學案件簿，用探究式學習認識平衡、光、電與能源。',
+  },
   '/camp': {
     title: '科技營隊與報名｜微研 WEIYAN 營隊專家',
     description: '查看微研 WEIYAN 與國立高雄科技大學及在地學校合作辦理的科技營隊、課程內容、日期與報名資訊。',

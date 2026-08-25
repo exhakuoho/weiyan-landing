@@ -14,7 +14,7 @@
 | 檔案 | 用途 |
 |---|---|
 | `index.html` | 整個網站。版面、樣式與所有內容資料都在這一個檔案裡 |
-| `_worker.js` | Cloudflare Worker。依路由改寫 `<head>` 的 title／description／og／canonical，並處理轉址與 404 |
+| `_worker.js` | Cloudflare Worker。依路由改寫 title／description／社群分享標籤／canonical，產生 JSON-LD 與非 JavaScript 摘要，並處理轉址與 404 |
 | `photos/` | 相簿與教具照片（WebP） |
 | `downloads/` | 可下載的程式範例（`.tb`） |
 | `_worker.test.mjs` | worker 的離線測試，執行 `node _worker.test.mjs` |
@@ -52,3 +52,10 @@
 ```bash
 node _worker.test.mjs
 ```
+
+## SEO 與 AI 搜尋
+
+- `_worker.js` 會為每個網址產生獨立的 WebPage、BreadcrumbList 與教育機構 JSON-LD；教具及教材詳細頁會再加入 LearningResource。
+- Open Graph 與 Twitter 標題／描述會跟著目前頁面更新，不要在 `index.html` 另加第二組 canonical 或 JSON-LD。
+- `robots.txt` 允許一般搜尋引擎及 OAI-SearchBot，並指向動態 sitemap。
+- 主要頁面的 H1 與開頭文字需保留具體主題及高雄教學場域；不要只換回抽象英文標語。

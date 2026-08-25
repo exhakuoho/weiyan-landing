@@ -10,6 +10,7 @@ import { readFileSync } from 'node:fs';
 
 const INDEX = readFileSync('./index.html', 'utf8');
 const STATIC_SITEMAP = readFileSync('./sitemap.xml', 'utf8');
+const ROBOTS = readFileSync('./robots.txt', 'utf8');
 const ORIGIN = 'https://weiyan.designjarvis.com';
 
 let pass = 0, fail = 0;
@@ -29,7 +30,9 @@ function makeEnv(indexHtml = INDEX, lastModified = 'Sat, 09 Aug 2026 03:00:00 GM
         if (lastModified) h['last-modified'] = lastModified;
         if (p === '/index.html' || p === '/') return new Response(indexHtml, { headers: h });
         if (p === '/sitemap.xml') return new Response(STATIC_SITEMAP);
-        if (p === '/robots.txt') return new Response('User-agent: *');
+        if (p === '/robots.txt') return new Response(ROBOTS, {
+          headers: { 'content-type': 'text/plain; charset=utf-8' },
+        });
         if (p.startsWith('/photos/') || p.startsWith('/downloads/')) return new Response('bin');
         return new Response('not found', { status: 404 });
       },
@@ -63,6 +66,41 @@ console.log('\n【每頁有自己的 title 與 canonical（社群分享與收錄
       (html.match(/rel="canonical" href="(.*?)"/) || [])[1], ORIGIN + p);
   }
   check('5 頁的 title 互不相同', titles.size, 5);
+}
+
+// ---------------------------------------------------------------------------
+console.log('\n【SEO 與 AI 搜尋：每頁語意、分享資訊與非 JS 摘要】');
+{
+  const w = await fresh(), env = makeEnv();
+  const campRes = await get(w, env, '/camp');
+  const campHtml = await campRes.text();
+  const title = (campHtml.match(/<title>(.*?)<\/title>/s) || [])[1] || '';
+  const twitter = (campHtml.match(/<meta name="twitter:title" content="(.*?)">/) || [])[1] || '';
+  check('Twitter 標題跟著目前頁面', twitter, title);
+  check('非 JS 摘要是營隊頁而非首頁',
+    /<noscript>[\s\S]*?<h1>高雄科技營隊與夏令營<\/h1>/.test(campHtml), true);
+  check('允許完整搜尋摘要與圖片預覽',
+    campHtml.includes('max-snippet:-1') && campHtml.includes('max-image-preview:large'), true);
+  check('HTML 語言回應標頭正確', campRes.headers.get('content-language'), 'zh-Hant-TW');
+  check('HTTP 索引規則與 HTML 一致', campRes.headers.get('x-robots-tag')?.includes('index, follow'), true);
+
+  const json = (campHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1];
+  const graph = JSON.parse(json)['@graph'];
+  check('結構化資料包含教育機構', graph.some((x) => x['@type'] === 'EducationalOrganization'), true);
+  check('結構化資料包含營隊集合頁',
+    graph.some((x) => x['@type'] === 'CollectionPage' && x.url === ORIGIN + '/camp'), true);
+  check('結構化資料包含麵包屑', graph.some((x) => x['@type'] === 'BreadcrumbList'), true);
+
+  const toolHtml = await (await get(w, env, '/tool/mtc-v2')).text();
+  const toolJson = (toolHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1];
+  const toolGraph = JSON.parse(toolJson)['@graph'];
+  check('教具詳細頁標成 LearningResource',
+    toolGraph.some((x) => x['@type'] === 'LearningResource' && x.name.includes('MTC V2')), true);
+  const crumbs = toolGraph.find((x) => x['@type'] === 'BreadcrumbList');
+  check('教具頁麵包屑有三層', crumbs.itemListElement.length, 3);
+
+  const robots = await (await get(w, env, '/robots.txt')).text();
+  check('robots 明確允許 OAI-SearchBot', robots.includes('User-agent: OAI-SearchBot'), true);
 }
 
 // ---------------------------------------------------------------------------

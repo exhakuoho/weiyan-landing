@@ -2,42 +2,65 @@ const CANONICAL_ORIGIN = 'https://weiyan.designjarvis.com';
 
 const ROUTE_META = {
   '/': {
-    title: '微研 WEIYAN｜營隊專家｜科學・工程・機器人科技教育｜營隊與教材教具',
-    description: '微研 WEIYAN 是營隊專家，與國立高雄科技大學及在地學校合作辦理科技營隊，並提供機器人、人工智慧與程式、3D 列印、工程結構等教材教具與課程資源。',
+    title: '高雄 STEAM 科技教育｜機器人・AI・3D 列印課程與營隊｜微研 WEIYAN',
+    description: '微研 WEIYAN 以高雄為主要教學現場，與國立高雄科技大學及在地學校合作辦理科技營隊，並提供機器人、AI 程式、3D 列印與工程教育的教材教具及課程資源。',
   },
   '/tools': {
-    title: '科技教育教具｜微研 WEIYAN',
-    description: '探索微研 WEIYAN 的機器人、自走車、程式設計與 3D 列印科技教育教具。',
+    title: 'STEAM 科技教育教具｜機器人・自走車・3D 列印｜微研 WEIYAN',
+    description: '探索微研 WEIYAN 的機器人、MTC V2 智慧自走車、程式設計與 3D 列印科技教育教具，了解學習重點、功能特色與可用教材。',
   },
   '/resources': {
-    title: '科學與工程學習資源｜微研 WEIYAN',
-    description: '機器人、人工智慧、程式設計、3D 列印與工程教育的課程教材與學習資源。',
+    title: '機器人・AI・3D 列印學習資源與教材｜微研 WEIYAN',
+    description: '瀏覽微研 WEIYAN 的機器人、人工智慧、程式設計、3D 列印與工程教育課程教材、程式範例及學習資源。',
   },
   '/camp': {
-    title: '科技營隊與報名｜微研 WEIYAN 營隊專家',
-    description: '查看微研 WEIYAN 與國立高雄科技大學及在地學校合作辦理的科技營隊、課程內容、日期與報名資訊。',
+    title: '高雄科技營隊與夏令營｜機器人・AI・3D 列印｜微研 WEIYAN',
+    description: '查看微研 WEIYAN 與國立高雄科技大學及在地學校合作辦理的高雄科技營隊、夏令營課程、適合年齡、日期、費用與報名資訊。',
   },
   '/gallery': {
-    title: '科技營隊活動相簿｜微研 WEIYAN',
-    description: '瀏覽微研 WEIYAN 科技營隊與實作課程的真實活動照片及學習成果。',
+    title: '高雄科技營隊活動相簿｜真實課堂與學習成果｜微研 WEIYAN',
+    description: '瀏覽微研 WEIYAN 在高雄辦理的科技營隊、機器人與實作課程真實活動照片、團隊挑戰及學生學習成果。',
   },
   '/projects': {
-    title: '科技教育專案實績｜微研 WEIYAN',
-    description: '微研 WEIYAN 的校園課程、科技營隊、機器人教育與數位製造工作坊實績。',
+    title: '高雄科技教育專案實績｜校園課程與營隊合作｜微研 WEIYAN',
+    description: '查看微研 WEIYAN 在高雄的校園課程、科技營隊、機器人教育與數位製造工作坊實績，以及與大學和在地學校的合作紀錄。',
   },
   '/steam': {
     title: 'STEAM 教育理念與教學方法｜微研 WEIYAN',
     description: '微研 WEIYAN 的科技教育方法：問題導向學習（PBL）、引導式探究、設計思考、工程設計流程（EDP）、做中學、迭代式設計、運算思維與跨域 STEAM 學習，以及它們如何真正發生在課堂上。',
   },
   '/about': {
-    title: '關於微研 WEIYAN｜科學與科技教育團隊',
-    description: '認識專注於科學、工程、機器人與科技教育的微研 WEIYAN。',
+    title: '關於微研 WEIYAN｜高雄 STEAM 科技教育團隊',
+    description: '認識以高雄為主要教學現場、專注於科學、工程、機器人、AI 與 STEAM 科技教育的微研 WEIYAN 團隊、理念與合作方向。',
   },
   '/join': {
-    title: '合作與人才招募｜微研 WEIYAN',
-    description: '與微研 WEIYAN 合作設計科技營隊與課程，或加入講師、內容與影像製作團隊。',
+    title: '高雄科技營隊講師招募與課程合作｜微研 WEIYAN',
+    description: '與微研 WEIYAN 合作設計高雄科技營隊與 STEAM 課程，或加入營隊講師、內容企劃與影像製作團隊；常態收件。',
   },
 };
+
+const PAGE_TYPES = {
+  '/tools': 'CollectionPage',
+  '/resources': 'CollectionPage',
+  '/camp': 'CollectionPage',
+  '/gallery': 'CollectionPage',
+  '/projects': 'CollectionPage',
+  '/steam': 'WebPage',
+  '/about': 'AboutPage',
+  '/join': 'WebPage',
+};
+
+const NAV_LINKS = [
+  ['/', '首頁'],
+  ['/tools', '科技教育教具'],
+  ['/resources', '學習資源'],
+  ['/camp', '科技營隊'],
+  ['/gallery', '活動相簿'],
+  ['/projects', '專案實績'],
+  ['/steam', 'STEAM 教育理念'],
+  ['/about', '關於微研'],
+  ['/join', '合作與招募'],
+];
 
 // 教具與教材的名稱只是 SEO 文案上的美化，實際「有哪些路由存在」一律
 // 從 index.html 推導（見 readSite）。這裡的對照表僅供覆寫用，
@@ -177,10 +200,129 @@ function escapeHtml(value) {
     .replaceAll('>', '&gt;');
 }
 
-function rewriteHead(html, pathname, meta) {
+function routeLabel(pathname, meta, site) {
+  if (pathname === '/') return '首頁';
+  const toolMatch = pathname.match(/^\/tool\/([a-z0-9-]+)$/);
+  if (toolMatch) return TOOL_NAMES[toolMatch[1]] || site?.tools?.[toolMatch[1]] || meta.title.split('｜')[0];
+  const resourceMatch = pathname.match(/^\/resource\/([a-z0-9-]+)$/);
+  if (resourceMatch) return RESOURCE_NAMES[resourceMatch[1]] || site?.resources?.[resourceMatch[1]] || meta.title.split('｜')[0];
+  return meta.title.split('｜')[0];
+}
+
+function breadcrumbData(pathname, label) {
+  if (pathname === '/') return null;
+  const canonical = CANONICAL_ORIGIN + pathname;
+  const items = [{ name: '首頁', url: CANONICAL_ORIGIN + '/' }];
+  if (pathname.startsWith('/tool/')) {
+    items.push({ name: '科技教育教具', url: CANONICAL_ORIGIN + '/tools' });
+  } else if (pathname.startsWith('/resource/')) {
+    items.push({ name: '學習資源', url: CANONICAL_ORIGIN + '/resources' });
+  }
+  items.push({ name: label, url: canonical });
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': canonical + '#breadcrumb',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+function structuredData(pathname, meta, site) {
+  const canonical = CANONICAL_ORIGIN + (pathname === '/' ? '/' : pathname);
+  const organizationId = CANONICAL_ORIGIN + '/#organization';
+  const websiteId = CANONICAL_ORIGIN + '/#website';
+  const webpageId = canonical + '#webpage';
+  const label = routeLabel(pathname, meta, site);
+  const graph = [
+    {
+      '@type': 'EducationalOrganization',
+      '@id': organizationId,
+      name: '微研 WEIYAN',
+      alternateName: ['微研', 'WEIYAN', 'weiyan'],
+      url: CANONICAL_ORIGIN + '/',
+      logo: {
+        '@type': 'ImageObject',
+        url: CANONICAL_ORIGIN + '/og-image.png',
+        width: 1200,
+        height: 630,
+      },
+      description: '微研 WEIYAN 以高雄為主要教學現場，專注於科學、工程、機器人與 STEAM 科技教育。',
+      areaServed: 'TW',
+      sameAs: ['https://www.instagram.com/weiyan_aixsteam/'],
+      knowsAbout: ['科學教育', '機器人教學', '智慧自走車', '人工智慧', '程式設計', '3D 列印', '工程教育', 'STEAM'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: CANONICAL_ORIGIN + '/',
+      name: '微研 WEIYAN',
+      inLanguage: 'zh-Hant-TW',
+      publisher: { '@id': organizationId },
+    },
+  ];
+
+  const breadcrumb = breadcrumbData(pathname, label);
+  const page = {
+    '@type': PAGE_TYPES[pathname] || (pathname.startsWith('/tool/') || pathname.startsWith('/resource/') ? 'ItemPage' : 'WebPage'),
+    '@id': webpageId,
+    url: canonical,
+    name: meta.title,
+    description: meta.description,
+    inLanguage: 'zh-Hant-TW',
+    isPartOf: { '@id': websiteId },
+    about: { '@id': organizationId },
+    publisher: { '@id': organizationId },
+  };
+  if (site?.lastmod) page.dateModified = site.lastmod;
+  if (breadcrumb) page.breadcrumb = { '@id': breadcrumb['@id'] };
+
+  const isTool = pathname.startsWith('/tool/');
+  const isResource = pathname.startsWith('/resource/');
+  if (isTool || isResource) {
+    const entityId = canonical + '#learning-resource';
+    page.mainEntity = { '@id': entityId };
+    graph.push({
+      '@type': 'LearningResource',
+      '@id': entityId,
+      url: canonical,
+      name: label,
+      description: meta.description,
+      inLanguage: 'zh-Hant-TW',
+      learningResourceType: isTool ? 'STEAM 科技教育教具' : '課程教材與學習資源',
+      educationalUse: isTool ? '課堂實作與工程探究' : '課程學習與自主練習',
+      provider: { '@id': organizationId },
+    });
+  } else if (pathname === '/' || pathname === '/about') {
+    page.mainEntity = { '@id': organizationId };
+  }
+
+  graph.push(page);
+  if (breadcrumb) graph.push(breadcrumb);
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c');
+}
+
+function noscriptContent(pathname, meta, site) {
+  const canonical = CANONICAL_ORIGIN + (pathname === '/' ? '/' : pathname);
+  const label = routeLabel(pathname, meta, site);
+  const links = NAV_LINKS.map(([href, text]) =>
+    `<a href="${href}">${escapeHtml(text)}</a>`).join(' · ');
+  return '<noscript><main aria-label="頁面摘要" style="max-width:960px;margin:32px auto;padding:0 20px;font-family:system-ui,sans-serif;">' +
+    `<h1>${escapeHtml(label)}</h1>` +
+    `<p>${escapeHtml(meta.description)}</p>` +
+    `<p><a href="${canonical}">此頁永久網址</a></p>` +
+    `<nav aria-label="網站主要頁面">${links}</nav>` +
+    '</main></noscript>';
+}
+
+function rewriteHead(html, pathname, meta, site) {
   const canonical = `${CANONICAL_ORIGIN}${pathname === '/' ? '/' : pathname}`;
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description);
+  const schema = structuredData(pathname, meta, site);
 
   return html
     .replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
@@ -188,7 +330,12 @@ function rewriteHead(html, pathname, meta) {
     .replace(/<meta property="og:title"[^>]*>/i, `<meta property="og:title" content="${title}">`)
     .replace(/<meta property="og:description"[^>]*>/i, `<meta property="og:description" content="${description}">`)
     .replace(/<meta property="og:url"[^>]*>/i, `<meta property="og:url" content="${canonical}">`)
-    .replace(/(<meta name="robots"[^>]*>)/i, `$1\n<link rel="canonical" href="${canonical}">`);
+    .replace(/<meta name="twitter:title"[^>]*>/i, `<meta name="twitter:title" content="${title}">`)
+    .replace(/<meta name="twitter:description"[^>]*>/i, `<meta name="twitter:description" content="${description}">`)
+    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/i,
+      `<script type="application/ld+json">${schema}</script>`)
+    .replace(/(<meta name="robots"[^>]*>)/i, `$1\n<link rel="canonical" href="${canonical}">`)
+    .replace(/<noscript>[\s\S]*?<\/noscript>/i, noscriptContent(pathname, meta, site));
 }
 
 function redirect(location, status = 308) {
@@ -277,10 +424,12 @@ export default {
     const assetResponse = await env.ASSETS.fetch(assetRequest);
     if (!assetResponse.ok) return assetResponse;
 
-    const html = rewriteHead(await assetResponse.text(), url.pathname, meta);
+    const html = rewriteHead(await assetResponse.text(), url.pathname, meta, site);
     const headers = new Headers(assetResponse.headers);
     headers.set('content-type', 'text/html; charset=utf-8');
+    headers.set('content-language', 'zh-Hant-TW');
     headers.set('link', `<${CANONICAL_ORIGIN}${url.pathname === '/' ? '/' : url.pathname}>; rel="canonical"`);
+    headers.set('x-robots-tag', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
 
     return new Response(request.method === 'HEAD' ? null : html, {
       status: 200,

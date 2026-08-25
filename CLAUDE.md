@@ -45,10 +45,10 @@ node _worker.test.mjs    # 39 項，全過才動手
 | 新增相簿梯次 | `_rawAlbums()` 陣列**最前面**加一本 |
 | 新增／修改營隊 | `_rawCamps()` |
 | 新增教具 | `get tools()` |
-| 新增教材 | `_rawResources()` |
+| 新增教材 | `_rawResources()`。要放封面照就加一行 `img: '/photos/...webp'`，卡片與詳細頁會自動吃，沒填就顯示佔位框 |
 | 改 STEAM 教育理念的文字 | `index.html` 的「STEAM 教育理念」區塊（純 HTML，沒有資料陣列） |
 | 新增頁面 | `get routeNames()` 加一個路由名 |
-| 改常態課程頁 | `index.html` 的 `isCourses`／`isBrick`／`isMinecraft`／`isLaser` 四個區塊（純 HTML，無資料陣列） |
+| 改常態課程頁 | `index.html` 的 `isCourses`／`isBrick`／`isCar`／`isLaser`／`isPrinting`／`isHumanoid`／`isMinecraft` 七個區塊（純 HTML，無資料陣列） |
 
 worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪些網址存在，
 並據此產生 sitemap。**新增內容不必同步改 worker，也不會 404。**
@@ -78,7 +78,7 @@ Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
 ```
 
 擠不下就再縮 `gap`、把斷點往上調，或把新頁面收進既有的分類頁（COURSES 就是
-這樣收了三個課程頁，只佔一格導覽）。手機版全螢幕選單已加 `overflow-y:auto`，
+這樣收了六個課程頁，只佔一格導覽）。手機版全螢幕選單已加 `overflow-y:auto`，
 機身短的手機（667px 高以下）才滑得到最後一項。
 
 ## 常態課程頁（2026-08-25 新增）
@@ -87,7 +87,7 @@ Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
 `/laser`（雷切科學課）、`/printing`（3D 列印）、`/humanoid`（AI 人形機器人）、
 `/minecraft`（Minecraft 科技探索）。分類頁的卡片順序＝資料完整度由高到低。
 
-- 四頁都是**純 HTML 寫在 `index.html` 裡**，沒有資料陣列，直接改文字就好。
+- 六頁都是**純 HTML 寫在 `index.html` 裡**，沒有資料陣列，直接改文字就好。
 - 樣式集中在 `<style>` 裡的 `.wc-*` 類別（`wc` = weiyan course）。大字、圓角、
   每條課程線一個主色：積木 `#2F7DE1`、自走車 `#7A4DE8`、雷切 `#F2803C`、
   3D列印 `#D4491F`、人形機器人 `#1B7FA8`、Minecraft `#3FAE68`。

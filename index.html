@@ -145,8 +145,8 @@
     .wy-lb-nav.p { left:8px; } .wy-lb-nav.n { right:8px; }
   }
 
-  /* ---------- 課程頁（/courses /brick /minecraft /laser）----------
-     大字、圓角、圖像化。三條課程線各有一個主色，紫色 #7868FF 仍是全站主色。 */
+  /* ---------- 課程頁（/courses /brick /car /laser /printing /humanoid /minecraft）----------
+     大字、圓角、圖像化。六條課程線各有一個主色，紫色 #7868FF 仍是全站主色。 */
   .wc { max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,48px); }
   .wc-hero { padding-top:clamp(50px,8vw,108px); padding-bottom:clamp(28px,5vw,52px); }
   .wc-eyebrow { font-family:'Space Grotesk',sans-serif; font-size:12px; letter-spacing:.3em; margin-bottom:22px; }
@@ -648,7 +648,7 @@
         <sc-for list="{{ visibleResources }}" as="r" hint-placeholder-count="6">
           <a href="/resource/{{ r.slug }}" data-spa onClick="{{ r.open }}" data-hovercard style="cursor:pointer;display:flex;flex-direction:column;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:20px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;">
             <div style="position:relative;height:170px;overflow:hidden;background:#101114;">
-              <image-slot id="{{ r.cardImgId }}" shape="rect" placeholder="{{ r.imgHint }}" style="width:100%;height:100%;"></image-slot>
+              <image-slot id="{{ r.cardImgId }}" src="{{ r.img }}" shape="rect" placeholder="{{ r.imgHint }}" style="width:100%;height:100%;"></image-slot>
             </div>
             <div style="padding:24px;flex:1;display:flex;flex-direction:column;">
               <div style="display:flex;gap:8px;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.12em;">
@@ -680,7 +680,7 @@
     </section>
     <section style="max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(32px,5vw,56px);">
       <div style="position:relative;height:clamp(240px,34vw,420px);border-radius:22px;overflow:hidden;background:#101114;">
-        <image-slot id="{{ activeResource.heroImgId }}" shape="rect" placeholder="{{ activeResource.imgHint }}" style="width:100%;height:100%;"></image-slot>
+        <image-slot id="{{ activeResource.heroImgId }}" src="{{ activeResource.img }}" shape="rect" placeholder="{{ activeResource.imgHint }}" style="width:100%;height:100%;"></image-slot>
       </div>
     </section>
 
@@ -1573,8 +1573,8 @@
   <div>
     <section class="wc wc-hero">
       <div class="wc-eyebrow" style="color:#7868FF;">OUR COURSES · 常態課程</div>
-      <h1 class="wc-h1">三條課程線<br>從動手到動腦</h1>
-      <p class="wc-lede">營隊是三天的火花，常態課是一年的養成。我們把課程拆成三條路線，讓孩子依年齡與興趣，找到自己的那一條。</p>
+      <h1 class="wc-h1">六條課程線<br>從動手到動腦</h1>
+      <p class="wc-lede">營隊是三天的火花，常態課是一年的養成。我們把課程拆成六條路線，讓孩子依年齡與興趣，找到自己的那一條。</p>
     </section>
 
     <section class="wc wc-sec" style="padding-top:0;">
@@ -2632,10 +2632,9 @@ class Component extends DCLogic {
     window.addEventListener('touchend', this._onTouchEnd, { passive: true });
 
     this._reveal();
-    this._syncResourceImages();
     this._syncToolVideos();
   }
-  componentDidUpdate() { this._reveal(); this._syncResourceImages(); this._syncToolVideos(); }
+  componentDidUpdate() { this._reveal(); this._syncToolVideos(); }
   componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('hashchange', this._onHash); window.removeEventListener('popstate', this._onHash); clearInterval(this._photoTimer); window.removeEventListener('keydown', this._onKey); window.removeEventListener('touchstart', this._onTouchStart); window.removeEventListener('touchend', this._onTouchEnd); }
 
   _reveal() {
@@ -2658,16 +2657,6 @@ class Component extends DCLogic {
         el.style.transform = 'translateY(28px)';
         el.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)';
         this._io.observe(el);
-      });
-    });
-  }
-
-  _syncResourceImages() {
-    requestAnimationFrame(() => {
-      const src = '/photos/tools/humanoid-robot/real-02.webp?v=20260826';
-      ['res-card-humanoid-basic', 'res-hero-humanoid-basic'].forEach(id => {
-        const slot = document.getElementById(id);
-        if (slot && slot.getAttribute('src') !== src) slot.setAttribute('src', src);
       });
     });
   }
@@ -2750,7 +2739,7 @@ class Component extends DCLogic {
       join: ['加入我們｜' + base, '徵求營隊講師、剪輯師與合作夥伴，把你的專長變成一堂營隊課程。'],
       tools: ['教具｜' + base, 'MTC V2 自走車等機器人與科技教育教具。'],
       resources: ['教材｜' + base, '機器人、程式與 3D 列印課程教材與程式範例下載。'],
-      courses: ['常態課程｜' + base, '積木機器人、Minecraft 科技探索與雷切科學課三條常態課程線，依年齡分級教學。'],
+      courses: ['常態課程｜' + base, '積木機器人、AI 自走車、雷切科學課、3D 列印、AI 人形機器人與 Minecraft 科技探索六條常態課程線，依年齡分級教學。'],
       brick: ['積木機器人課程｜' + base, '從動力機械到程式控制的四階段學習路徑：SPM、WeDo、SPIKE Prime 與 VEX IQ 競賽實戰。'],
       minecraft: ['Minecraft 科技探索課程｜' + base, '在方塊世界裡學紅石電路、機械結構與工程思維，七個主題世界。'],
       laser: ['雷切科學課｜' + base, '八件雷射切割教具、兩套分齡世界觀：小怪獸科學群島（3–4年級）與 GRID-8 城市科學案件簿（5–6年級）。'],
@@ -3319,7 +3308,9 @@ class Component extends DCLogic {
       const lv = L[r.level] || L.BEGINNER;
       return { ...r, levelBg: lv.bg, levelColor: lv.color,
         cardImgId: 'res-card-' + r.slug, heroImgId: 'res-hero-' + r.slug,
-        imgHint: r.title + ' 封面', open: () => this.go('resource', { resSlug: r.slug }) };
+        // 沒填 img 的教材給空字串，image-slot 會顯示佔位框（跟教具的行為一致）
+        img: r.img || '',
+        imgHint: r.imgHint || (r.title + ' 封面'), open: () => this.go('resource', { resSlug: r.slug }) };
     });
   }
 

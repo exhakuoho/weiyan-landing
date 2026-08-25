@@ -14,8 +14,8 @@ const ROUTE_META = {
     description: '機器人、人工智慧、程式設計、3D 列印與工程教育的課程教材與學習資源。',
   },
   '/courses': {
-    title: '常態課程｜積木機器人・Minecraft・雷切科學｜微研 WEIYAN',
-    description: '微研 WEIYAN 的三條常態課程線：積木機器人、Minecraft 科技探索與雷切科學課，依年齡分級，從動手實作到程式控制與競賽。',
+    title: '常態課程｜積木機器人・AI 自走車・3D 列印・Minecraft｜微研 WEIYAN',
+    description: '微研 WEIYAN 的六條常態課程線：積木機器人、AI 自走車、雷切科學課、3D 列印、AI 人形機器人與 Minecraft 科技探索，依年齡分級，從動手實作到程式控制與競賽。',
   },
   '/brick': {
     title: '積木機器人課程｜四階段學習路徑｜微研 WEIYAN',

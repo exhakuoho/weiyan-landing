@@ -28,7 +28,7 @@ node _worker.test.mjs    # 39 項，全過才動手
 | 檔案 | 說明 |
 |---|---|
 | `index.html` | **整個網站**。版面、樣式、所有內容資料都在這一個檔案裡（約 150 KB） |
-| `_worker.js` | Cloudflare Worker。依路由改寫 `<head>` 的 meta、產生 sitemap、處理轉址與 404 |
+| `_worker.js` | Cloudflare Worker。依路由改寫 meta、產生 JSON-LD／非 JS 摘要與 sitemap、處理轉址及 404 |
 | `_worker.test.mjs` | worker 的離線測試，`node _worker.test.mjs` |
 | `photos/` | 相簿與教具照片，WebP |
 | `downloads/` | 可下載的程式範例 `.tb` |
@@ -55,6 +55,17 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
 
 只有兩種情況要動 `_worker.js`：想替某頁寫專屬 SEO 文案（加進 `ROUTE_META`），
 或新增網域轉址規則。
+
+### SEO 與 AI 搜尋的自動化
+
+- worker 會依目前網址產生獨立的 title、description、Open Graph、Twitter、canonical、
+  WebPage 與 BreadcrumbList；教具及教材詳細頁會再產生 LearningResource。
+- body 裡的 `<noscript>` 也會改成目前頁面的摘要，讓不執行 JavaScript 的搜尋服務不會把
+  每個網址都誤認成首頁。不要把它改回寫死的首頁文案。
+- `robots.txt` 的 `User-agent: *` 允許一般搜尋引擎，並明確允許 OAI-SearchBot。
+  Cloudflare 的 Bot／WAF 是否另行封鎖爬蟲仍要在後台確認，不能用假 User-Agent 的 curl 判定。
+- 本站不靠額外的 `llms.txt` 排名；主要頁面要保留具體、可見的 H1、場域、課程主題與實績文字。
+- `node _worker.test.mjs` 會驗證 JSON-LD、Twitter meta、非 JS 摘要、語言標頭與 OAI-SearchBot 規則。
 
 ### 唯一還沒自動化的地方
 

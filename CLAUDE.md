@@ -83,12 +83,16 @@ Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
 
 ## 常態課程頁（2026-08-25 新增）
 
-`/courses` 是分類頁，底下三個課程頁：`/brick`（積木機器人）、`/minecraft`
-（Minecraft 科技探索）、`/laser`（雷切科學課）。
+`/courses` 是分類頁，底下**六個**課程頁：`/brick`（積木機器人）、`/car`（AI自走車）、
+`/laser`（雷切科學課）、`/printing`（3D 列印）、`/humanoid`（AI 人形機器人）、
+`/minecraft`（Minecraft 科技探索）。分類頁的卡片順序＝資料完整度由高到低。
 
 - 四頁都是**純 HTML 寫在 `index.html` 裡**，沒有資料陣列，直接改文字就好。
 - 樣式集中在 `<style>` 裡的 `.wc-*` 類別（`wc` = weiyan course）。大字、圓角、
-  每條課程線一個主色：積木 `#2F7DE1`、Minecraft `#3FAE68`、雷切 `#F2803C`。
+  每條課程線一個主色：積木 `#2F7DE1`、自走車 `#7A4DE8`、雷切 `#F2803C`、
+  3D列印 `#D4491F`、人形機器人 `#1B7FA8`、Minecraft `#3FAE68`。
+- 放照片用 `.wc-photo`（外層設 `aspect-ratio`，裡面放 `<img loading="lazy">`）。
+  產品照或教學圖卡要完整顯示時，在 `<img>` 加 `style="object-fit:contain;"`。
 - **`.wc-hero` 與 `.wc-sec` 只能設 `padding-top`／`padding-bottom`**，
   不要用 `padding` 簡寫——簡寫會把 `.wc` 的左右內距歸零，內容會貼到螢幕邊緣。
   （這個坑已經踩過一次。）
@@ -99,10 +103,28 @@ Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
   2. `index.html` 的 `renderVals()`（`isXxx` 旗標 ＋ `goXxx` 跳轉）與 `_syncHead()`
   3. `_worker.js` 的 `ROUTE_META`（沒寫就只有通用 SEO 文案）
 
+### 課程頁的照片來源
+
+`photos/courses/` 底下：
+
+| 檔案 | 來源 | 用在 |
+|---|---|---|
+| `humanoid-01`～`10.webp` | `01_課程體系/自研發教案教材/九軸人形機器人/AI人形機器人課程圖片集.pdf` 抽出的十張教學圖卡 | `/humanoid` |
+| `print-01`～`05.webp` | `02_夏令營與營隊/空氣品質夏令營/照片/`（2025 年營隊實拍） | `/printing` |
+
+`/car` 沒有另存新檔，直接引用站上既有的 `photos/camp-2026-07/`、
+`photos/camp-2026-07-29/`、`photos/tools/mtc-v2/`——那批本來就是自走車營隊的照片。
+
+**`print-01`～`05` 裡有學生正面入鏡**，且這批照片先前沒有公開在站上過。
+正式上線前需確認家長肖像權同意，不確定就換成只有手部與螢幕的那幾張。
+
 ### 課程頁還沒填完的東西
 
-頁面上橘底 `待填` 的欄位（搜尋 `wc-todo`）：三頁的上課時間與費用、積木課的堂數。
-另外七個 `PHOTO 0X` 虛線框是等實拍照片的位置，放法見
+頁面上橘底 `待填` 的欄位（搜尋 `wc-todo`）。`/car` 是資料最完整的一頁
+（堂數、時段、費用 4,800／早鳥 4,200 都已確定），只差上課地點。
+`/brick`、`/laser`、`/printing`、`/humanoid` 的時間與費用都還沒定。
+
+`/brick` 與 `/laser` 還有 `PHOTO 0X` 虛線框在等實拍照片，放法見
 `01_課程體系/積木教案/網站/README_怎麼放照片.md`。**照片一定要用自己拍的**，
 不要從網路抓——這是營利性招生頁。
 

@@ -72,7 +72,7 @@ const ROUTE_META = {
 // 沒列到的 slug 會自動採用 index.html 裡的名稱，不會 404。
 const TOOL_NAMES = {
   'mtc-v2': 'MTC V2 智慧自走車',
-  'humanoid-robot': 'PANDA 九軸互動式機器人',
+  'humanoid-robot': '九軸PANDA互動式機器人',
   '3d-printing': '3D 列印與數位製造',
   'micro-injection-molding': '微型射出機',
 };

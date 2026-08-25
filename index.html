@@ -503,6 +503,43 @@
       </div>
     </section>
 
+    <!-- Product Variants -->
+    <sc-if value="{{ activeTool.hasVariants }}" hint-placeholder-val="{{ false }}">
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:18px;">PRODUCT VERSIONS</div>
+      <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;margin:0 0 36px;">產品版本</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;">
+        <sc-for list="{{ activeTool.variants }}" as="v" hint-placeholder-count="3">
+          <article style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;padding:30px 28px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;margin-bottom:24px;">VERSION 0{{ v.n }}</div>
+            <h3 style="font-family:'Noto Sans TC',sans-serif;font-size:21px;margin:0 0 14px;">{{ v.name }}</h3>
+            <p style="font-size:15px;line-height:1.8;color:#60636B;margin:0;">{{ v.desc }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- Product Specs -->
+    <sc-if value="{{ activeTool.hasSpecs }}" hint-placeholder-val="{{ false }}">
+    <section data-reveal style="background:#101114;color:#fff;">
+      <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:48px;">
+        <div style="flex:1 1 280px;min-width:240px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#9A8DFF;margin-bottom:20px;">PRODUCT SPECS</div>
+          <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;margin:0;">產品規格</h2>
+        </div>
+        <div style="flex:1 1 520px;min-width:min(100%,300px);">
+          <sc-for list="{{ activeTool.specs }}" as="s" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:minmax(110px,150px) 1fr;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14);">
+              <span style="font-size:14px;color:#9A8DFF;font-weight:700;">{{ s.label }}</span>
+              <span style="font-size:16px;line-height:1.75;color:#E5E6EA;">{{ s.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
     <!-- Resources -->
     <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,120px) clamp(20px,5vw,48px);">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:36px;">RESOURCES</div>
@@ -2801,11 +2838,11 @@ class Component extends DCLogic {
         ],
       },
       {
-        slug: 'humanoid-robot', name: 'PANDA 9-Axis Robot', subtitle: 'Interactive Humanoid Platform', category: 'ROBOTICS',
+        slug: 'humanoid-robot', name: '九軸PANDA互動式機器人', subtitle: '9-Axis Interactive Robot', category: 'ROBOTICS',
         tagline: ['Move.', 'Balance.', 'Think.'],
         img: '/photos/tools/humanoid-robot/real-02.webp?v=20260826', imgHint: '9 軸人形機器人實拍照',
-        desc: '從九軸舵機組裝、90° 校正到紅外線、超音波與語音互動，建立完整的機器人系統概念。',
-        overview: '九軸 PANDA 互動式機器人由上半身 5 顆舵機與下半身 4 顆舵機組成，搭配 ESP32 主控制板與 RGB 超音波感測器。學生能從零件辨識、舵機校正、腳位接線一路完成整機組裝，再透過紅外線遙控、超音波感測或語音控制實作前進、後退、擺手與擺頭。紅外線遙控版 NT$6,600、超音波感測版 NT$7,700、語音控制版 NT$8,800。',
+        desc: '九軸 STEAM 機器人教具，結合 3D 列印外殼與豐富的感測控制能力，外型可愛、動作靈活。',
+        overview: '九軸 STEAM 機器人教具，結合了 3D 列印外殼與豐富的感測控制能力，不僅外型可愛、動作靈活，更是絕佳的 STEM／STEAM 程式教育與創客學習利器！無論是學校社團、創客教學、個人專題還是親子共學都非常適合。',
         gallery: [
           { src: '/photos/tools/humanoid-robot/real-01.webp?v=20260826', hint: '9 軸人形機器人正面實拍' },
           { src: '/photos/tools/humanoid-robot/real-02.webp?v=20260826', hint: '9 軸人形機器人側面實拍' },
@@ -2816,7 +2853,17 @@ class Component extends DCLogic {
           { src: '/photos/tools/humanoid-robot/real-07.webp?v=20260826', hint: '9 軸人形機器人肩部關節特寫' },
         ],
         learn: [{ n: '1', en: 'ASSEMBLY', zh: '結構組裝' }, { n: '2', en: 'SERVO', zh: '舵機校正' }, { n: '3', en: 'WIRING', zh: '腳位接線' }, { n: '4', en: 'CONTROL', zh: '互動控制' }],
-        features: ['九軸結構：7 顆 SG90 與 2 顆 MG90S 舵機', 'ESP32 主控制板與 Type-C 連線校正', 'RGB 超音波感測器，可實作距離觸發動作', '紅外線遙控、超音波感測與語音控制三種版本', '舵機 90° 校正、腳位接線與安全操作流程', '45 頁圖解組裝教材與 9 段動作示範'],
+        features: ['搭載九軸伺服馬達，能解鎖多種複雜的仿生動作與姿態', '配備超音波感測器，具備障礙物偵測與避障功能', '相容主流開源 Arduino 架構，支援圖像化積木程式或 C／C++ 撰寫', '從機構組合、線材整理到程式燒錄，培養邏輯思維與解決問題的能力', '採用 3D 列印外殼結構，自由度高，能自行改裝零件'],
+        variants: [
+          { n: '1', name: '超音波感測版', desc: '配備超音波「雙眼」感測器，讓機器人具備障礙物偵測與避障功能，賦予它自主探索環境的生命力！' },
+          { n: '2', name: '紅外線遙控版', desc: '搭載紅外線接收模組與遙控器，可以輕鬆指揮機器人做出前進、後退、轉彎等各種生動動作，適合初學遠端遙控互動。' },
+          { n: '3', name: '語音控制版', desc: '內建語音辨識控制模組，可以直接用口令聲控機器人執行指定動作，體驗最酷炫的人機互動科技！' },
+        ],
+        specs: [
+          { label: '尺寸', value: '約長 8 cm × 寬 13 cm × 高 18 cm' },
+          { label: '套件包含', value: '3D 列印結構件、ESP32 控制板及擴展板、7.4V 電池、開關、SG90 馬達、螺絲、超音波模組等' },
+          { label: '組裝說明書', value: '採電子檔方式提供' },
+        ],
         resources: [
           { tag: 'MANUAL', label: '45 頁組裝教學', url: '/downloads/humanoid-robot/panda-lumi-9-axis-assembly-guide.pdf' },
           { tag: 'IR CONTROL', label: '紅外線遙控動作', section: 'tool-videos' },
@@ -2876,6 +2923,8 @@ class Component extends DCLogic {
       ...t,
       hasDownloads: Array.isArray(t.downloads) && t.downloads.length > 0,
       hasVideos: Array.isArray(t.videos) && t.videos.length > 0,
+      hasVariants: Array.isArray(t.variants) && t.variants.length > 0,
+      hasSpecs: Array.isArray(t.specs) && t.specs.length > 0,
       downloadHeading: t.downloadHeading || '程式範例 · SOURCE CODE',
       downloadNote: t.downloadNote || '點選即可下載對應的控制程式（.tb 檔）。',
       videoHeading: t.videoHeading || '教學影片 · VIDEOS',

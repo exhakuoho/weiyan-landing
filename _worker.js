@@ -13,6 +13,34 @@ const ROUTE_META = {
     title: '機器人・AI・3D 列印學習資源與教材｜微研 WEIYAN',
     description: '瀏覽微研 WEIYAN 的機器人、人工智慧、程式設計、3D 列印與工程教育課程教材、程式範例及學習資源。',
   },
+  '/courses': {
+    title: '常態課程｜積木機器人・AI 自走車・3D 列印・Minecraft｜微研 WEIYAN',
+    description: '微研 WEIYAN 的六條常態課程線：積木機器人、AI 自走車、雷切科學課、3D 列印、AI 人形機器人與 Minecraft 科技探索，依年齡分級，從動手實作到程式控制與競賽。',
+  },
+  '/brick': {
+    title: '積木機器人課程｜四階段學習路徑｜微研 WEIYAN',
+    description: '從動力機械到程式控制的四階段機器人課程：SPM 動力機械、WeDo 入門程式、SPIKE Prime 程式控制與 VEX IQ 競賽實戰，國小低年級至國中依能力分級。',
+  },
+  '/minecraft': {
+    title: 'Minecraft 科技探索課程｜紅石電路與工程思維｜微研 WEIYAN',
+    description: '在 Minecraft 方塊世界裡教紅石電路、機械結構、程式邏輯與工程設計，七個主題世界各有不同的物理限制與任務挑戰。',
+  },
+  '/laser': {
+    title: '雷切科學課｜小怪獸科學群島與 GRID-8 案件簿｜微研 WEIYAN',
+    description: '八件雷射切割教具、兩套分齡世界觀：國小 3–4 年級的小怪獸科學群島，與 5–6 年級的 GRID-8 城市科學案件簿，用探究式學習認識平衡、光、電與能源。',
+  },
+  '/car': {
+    title: 'AI 自走車常態班｜八堂課從程式到自動駕駛｜微研 WEIYAN',
+    description: '八堂 AI 自走車課程，從馬達控制、感測器、速度量測到條件判斷與 AI 自動駕駛入門。不計分、不比賽，對應 108 課綱，國小中高年級至國中。',
+  },
+  '/printing': {
+    title: '3D 列印課程｜建模、切片到實機列印｜微研 WEIYAN',
+    description: '兒童與青少年 3D 列印課程：Tinkercad 建模、切片參數、實機列印與後處理，基礎班與進階班，作品可帶回家。',
+  },
+  '/humanoid': {
+    title: 'AI 人形機器人課程｜體驗課與八堂培訓營｜微研 WEIYAN',
+    description: '一小時體驗課帶孩子拆解「AI 的身體」：舵機、關節、自由度與重心；八堂培訓營整合 3D 列印、Arduino 程式與機構組裝，做出會動的機械手臂。',
+  },
   '/camp': {
     title: '高雄科技營隊與夏令營｜機器人・AI・3D 列印｜微研 WEIYAN',
     description: '查看微研 WEIYAN 與國立高雄科技大學及在地學校合作辦理的高雄科技營隊、夏令營課程、適合年齡、日期、費用與報名資訊。',
@@ -45,6 +73,7 @@ const PAGE_TYPES = {
   '/camp': 'CollectionPage',
   '/gallery': 'CollectionPage',
   '/projects': 'CollectionPage',
+  '/courses': 'CollectionPage',
   '/steam': 'WebPage',
   '/about': 'AboutPage',
   '/join': 'WebPage',
@@ -54,6 +83,7 @@ const NAV_LINKS = [
   ['/', '首頁'],
   ['/tools', '科技教育教具'],
   ['/resources', '學習資源'],
+  ['/courses', '常態課程'],
   ['/camp', '科技營隊'],
   ['/gallery', '活動相簿'],
   ['/projects', '專案實績'],
@@ -67,8 +97,9 @@ const NAV_LINKS = [
 // 沒列到的 slug 會自動採用 index.html 裡的名稱，不會 404。
 const TOOL_NAMES = {
   'mtc-v2': 'MTC V2 智慧自走車',
-  'humanoid-robot': '人形機器人',
+  'humanoid-robot': '九軸PANDA互動式機器人',
   '3d-printing': '3D 列印與數位製造',
+  'micro-injection-molding': '微型射出機',
 };
 
 const RESOURCE_NAMES = {

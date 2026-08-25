@@ -88,8 +88,8 @@
 </head>
 <body>
 <noscript>
-  <h1>微研 WEIYAN — 科學・工程・機器人科技教育</h1>
-  <p>微研 WEIYAN 專注於科學、工程與科技教育，提供機器人（自走車 MTC V2）、人工智慧與程式、3D 列印、工程結構等教材教具與課程資源。本站需啟用 JavaScript 以取得完整體驗。</p>
+  <h1>高雄 STEAM 教育｜微研 WEIYAN</h1>
+  <p>微研 WEIYAN 是高雄 STEAM 教育團隊，提供科學探究、工程設計、AI 程式、機器人、3D 列印與雷射切割課程、科技營隊、教材教具及學校合作。本站需啟用 JavaScript 以取得完整體驗。</p>
   <nav>
     <a href="/">首頁</a>
     <a href="/tools">教具 Tools</a>
@@ -106,7 +106,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <script src="/image-slot.js"></script>
 <style>
   * { box-sizing: border-box; }
@@ -173,6 +173,48 @@
     .wy-lb-nav { width:40px; height:40px; font-size:17px; }
     .wy-lb-nav.p { left:8px; } .wy-lb-nav.n { right:8px; }
   }
+
+  /* ---------- 課程頁（/courses /brick /car /laser /printing /humanoid /minecraft）----------
+     大字、圓角、圖像化。六條課程線各有一個主色，紫色 #7868FF 仍是全站主色。 */
+  .wc { max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,48px); }
+  .wc-hero { padding-top:clamp(50px,8vw,108px); padding-bottom:clamp(28px,5vw,52px); }
+  .wc-eyebrow { font-family:'Space Grotesk',sans-serif; font-size:12px; letter-spacing:.3em; margin-bottom:22px; }
+  .wc-h1 { font-family:'Noto Sans TC','Space Grotesk',sans-serif; font-weight:900;
+           font-size:clamp(40px,8vw,88px); line-height:1.18; letter-spacing:-.035em; margin:0 0 22px; }
+  .wc-h2 { font-family:'Noto Sans TC','Space Grotesk',sans-serif; font-weight:900;
+           font-size:clamp(28px,4.8vw,54px); line-height:1.28; letter-spacing:-.03em; margin:0 0 18px; }
+  .wc-h3 { font-family:'Noto Sans TC','Space Grotesk',sans-serif; font-weight:700;
+           font-size:clamp(20px,2.6vw,30px); line-height:1.35; letter-spacing:-.02em; margin:0 0 10px; }
+  .wc-lede { font-size:clamp(17px,2.1vw,25px); line-height:1.75; font-weight:500; color:#3a3d45; max-width:22em; margin:0; }
+  .wc-sec { padding-top:clamp(34px,6vw,80px); padding-bottom:clamp(34px,6vw,80px); }
+  .wc-card { background:#fff; border:1px solid rgba(17,19,24,.09); border-radius:28px;
+             padding:clamp(24px,3.4vw,40px); }
+  .wc-grid { display:grid; gap:clamp(16px,2.4vw,24px); }
+  .wc-g2 { grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); }
+  .wc-g3 { grid-template-columns:repeat(auto-fit,minmax(min(100%,258px),1fr)); }
+  .wc-g4 { grid-template-columns:repeat(auto-fit,minmax(min(100%,196px),1fr)); }
+  .wc-pill { display:inline-block; border-radius:999px; padding:7px 18px; font-size:15px; font-weight:700; }
+  .wc-chip { display:inline-block; background:#f2f2f6; border-radius:13px; padding:8px 17px;
+             font-size:15.5px; font-weight:500; color:#111318; margin:0 8px 8px 0; }
+  .wc-num { font-family:'Space Grotesk',sans-serif; font-weight:700; line-height:1; letter-spacing:-.04em; }
+  .wc-body { font-size:clamp(15.5px,1.5vw,18px); line-height:1.9; color:#4a4d55; margin:0; }
+  .wc-slot { position:relative; border-radius:24px; border:2px dashed rgba(17,19,24,.16); background:#f5f5f8;
+             display:flex; flex-direction:column; align-items:center; justify-content:center;
+             text-align:center; padding:24px; color:#8B8F98; overflow:hidden; }
+  .wc-slot img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .wc-slot .k { font-family:'Space Grotesk',sans-serif; font-size:11px; letter-spacing:.18em; margin-bottom:8px; }
+  .wc-slot .d { font-size:14px; line-height:1.65; max-width:86%; font-weight:500; }
+  .wc-photo { position:relative; border-radius:24px; overflow:hidden; background:#f5f5f8; }
+  .wc-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .wc-figure { margin:0; }
+  .wc-figure figcaption { font-size:14.5px; line-height:1.8; color:#4a4d55; margin-top:12px; }
+  .wc-cta { border-radius:34px; padding:clamp(34px,5vw,68px); text-align:center; color:#fff; background:#101114; }
+  .wc-btn { display:inline-flex; align-items:center; gap:10px; border-radius:16px; padding:16px 32px;
+            font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; }
+  .wc-todo { background:#FFF0E6; color:#B0491F; border-radius:9px; padding:2px 11px; font-weight:700; font-size:.88em; }
+  .wc-note { background:#FFF8F2; border:1px solid rgba(176,73,31,.2); border-radius:20px;
+             padding:clamp(18px,2.4vw,26px); font-size:15px; line-height:1.85; color:#7A4526; }
+
 </style>
 </helmet>
 
@@ -184,9 +226,10 @@
         <span style="width:9px;height:9px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 4px rgba(120,104,255,.16);"></span>WEIYAN
       </a>
       <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
-        <nav style="display:flex;align-items:center;gap:28px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;">
+        <nav style="display:flex;align-items:center;gap:24px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;">
           <a href="/tools" data-spa onClick="{{ goTools }}" style="cursor:pointer;color:#111318;">TOOLS</a>
           <a href="/resources" data-spa onClick="{{ goResources }}" style="cursor:pointer;color:#111318;">RESOURCES</a>
+          <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#111318;">COURSES</a>
           <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;color:#111318;display:inline-flex;align-items:center;gap:7px;">CAMP<span style="width:6px;height:6px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 3px rgba(120,104,255,.18);"></span></a>
           <a href="/gallery" data-spa onClick="{{ goGallery }}" style="cursor:pointer;color:#111318;">GALLERY</a>
           <a href="/projects" data-spa onClick="{{ goProjects }}" style="cursor:pointer;color:#111318;">PROJECTS</a>
@@ -205,7 +248,7 @@
   </header>
 
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <!-- overflow-y:auto 是必要的：選單有 8 個項目，機身較短的手機（例如 667px 高）
+    <!-- overflow-y:auto 是必要的：選單有 9 個項目，機身較短的手機（例如 667px 高）
          放不下，沒有這行最後一項會被切掉又滑不到。 -->
     <div style="position:fixed;inset:0;z-index:60;background:#101114;color:#fff;display:flex;flex-direction:column;padding:clamp(20px,6vw,48px);overflow-y:auto;">
       <div style="display:flex;justify-content:space-between;align-items:center;height:32px;">
@@ -215,6 +258,7 @@
       <nav style="margin-top:10vh;display:flex;flex-direction:column;gap:24px;font-family:'Space Grotesk',sans-serif;">
         <a href="/tools" data-spa onClick="{{ goTools }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;letter-spacing:.02em;">Tools <span style="color:#8B8F98;font-size:15px;">教具</span></a>
         <a href="/resources" data-spa onClick="{{ goResources }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Resources <span style="color:#8B8F98;font-size:15px;">教材</span></a>
+        <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Courses <span style="color:#8B8F98;font-size:15px;">課程</span></a>
         <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Camp <span style="color:#8B8F98;font-size:15px;">營隊</span></a>
         <a href="/gallery" data-spa onClick="{{ goGallery }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Gallery <span style="color:#8B8F98;font-size:15px;">相簿</span></a>
         <a href="/projects" data-spa onClick="{{ goProjects }}" style="cursor:pointer;color:#fff;font-size:34px;font-weight:600;">Projects <span style="color:#8B8F98;font-size:15px;">實績</span></a>
@@ -489,6 +533,43 @@
       </div>
     </section>
 
+    <!-- Product Variants -->
+    <sc-if value="{{ activeTool.hasVariants }}" hint-placeholder-val="{{ false }}">
+    <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:18px;">PRODUCT VERSIONS</div>
+      <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;margin:0 0 36px;">產品版本</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;">
+        <sc-for list="{{ activeTool.variants }}" as="v" hint-placeholder-count="3">
+          <article style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;padding:30px 28px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#7868FF;margin-bottom:24px;">VERSION 0{{ v.n }}</div>
+            <h3 style="font-family:'Noto Sans TC',sans-serif;font-size:21px;margin:0 0 14px;">{{ v.name }}</h3>
+            <p style="font-size:15px;line-height:1.8;color:#60636B;margin:0;">{{ v.desc }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- Product Specs -->
+    <sc-if value="{{ activeTool.hasSpecs }}" hint-placeholder-val="{{ false }}">
+    <section data-reveal style="background:#101114;color:#fff;">
+      <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:48px;">
+        <div style="flex:1 1 280px;min-width:240px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#9A8DFF;margin-bottom:20px;">PRODUCT SPECS</div>
+          <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;margin:0;">產品規格</h2>
+        </div>
+        <div style="flex:1 1 520px;min-width:min(100%,300px);">
+          <sc-for list="{{ activeTool.specs }}" as="s" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:minmax(110px,150px) 1fr;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14);">
+              <span style="font-size:14px;color:#9A8DFF;font-weight:700;">{{ s.label }}</span>
+              <span style="font-size:16px;line-height:1.75;color:#E5E6EA;">{{ s.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
     <!-- Resources -->
     <section data-reveal style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,120px) clamp(20px,5vw,48px);">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:36px;">RESOURCES</div>
@@ -505,8 +586,8 @@
     <!-- 程式範例 / Source Code Downloads -->
     <sc-if value="{{ activeTool.hasDownloads }}" hint-placeholder-val="{{ true }}">
     <section id="tool-code" data-reveal style="scroll-margin-top:90px;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:14px;">程式範例 · SOURCE CODE</div>
-      <p style="font-size:15px;color:#8B8F98;margin:0 0 36px;max-width:560px;">點選即可下載對應的控制程式（.tb 檔）。</p>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:14px;">{{ activeTool.downloadHeading }}</div>
+      <p style="font-size:15px;color:#8B8F98;margin:0 0 36px;max-width:560px;">{{ activeTool.downloadNote }}</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
         <sc-for list="{{ activeTool.downloads }}" as="d" hint-placeholder-count="5">
           <a href="{{ d.url }}" download style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid rgba(17,19,24,.1);border-radius:16px;padding:22px 24px;" data-hovercard>
@@ -520,17 +601,23 @@
 
     <!-- 教學影片 / Videos -->
     <sc-if value="{{ activeTool.hasVideos }}" hint-placeholder-val="{{ true }}">
-    <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:14px;">教學影片 · VIDEOS</div>
-      <p style="font-size:15px;color:#8B8F98;margin:0 0 36px;max-width:560px;">影片由原廠東業創新提供。</p>
+    <section id="tool-videos" data-reveal style="scroll-margin-top:90px;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(56px,8vw,120px);">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:14px;">{{ activeTool.videoHeading }}</div>
+      <p style="font-size:15px;color:#8B8F98;margin:0 0 36px;max-width:560px;">{{ activeTool.videoNote }}</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
         <sc-for list="{{ activeTool.videos }}" as="v" hint-placeholder-count="5">
           <div>
             <div style="position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#101114;">
+              <sc-if value="{{ v.isLocal }}" hint-placeholder-val="{{ true }}">
+              <video data-video-src="{{ v.src }}" data-video-poster="{{ v.poster }}" controls preload="metadata" playsinline aria-label="{{ v.label }}"
+                style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#101114;"></video>
+              </sc-if>
+              <sc-if value="{{ v.isEmbed }}" hint-placeholder-val="{{ false }}">
               <iframe src="{{ v.src }}" title="{{ v.label }}" loading="lazy" allowfullscreen
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 referrerpolicy="strict-origin-when-cross-origin"
                 style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+              </sc-if>
             </div>
             <div style="font-size:15px;font-weight:500;color:#111318;margin-top:12px;">{{ v.label }}</div>
           </div>
@@ -591,7 +678,7 @@
         <sc-for list="{{ visibleResources }}" as="r" hint-placeholder-count="6">
           <a href="/resource/{{ r.slug }}" data-spa onClick="{{ r.open }}" data-hovercard style="cursor:pointer;display:flex;flex-direction:column;background:#fff;border:1px solid rgba(17,19,24,.08);border-radius:20px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;">
             <div style="position:relative;height:170px;overflow:hidden;background:#101114;">
-              <image-slot id="{{ r.cardImgId }}" shape="rect" placeholder="{{ r.imgHint }}" style="width:100%;height:100%;"></image-slot>
+              <image-slot id="{{ r.cardImgId }}" src="{{ r.img }}" shape="rect" placeholder="{{ r.imgHint }}" style="width:100%;height:100%;"></image-slot>
             </div>
             <div style="padding:24px;flex:1;display:flex;flex-direction:column;">
               <div style="display:flex;gap:8px;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.12em;">
@@ -623,7 +710,7 @@
     </section>
     <section style="max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(32px,5vw,56px);">
       <div style="position:relative;height:clamp(240px,34vw,420px);border-radius:22px;overflow:hidden;background:#101114;">
-        <image-slot id="{{ activeResource.heroImgId }}" shape="rect" placeholder="{{ activeResource.imgHint }}" style="width:100%;height:100%;"></image-slot>
+        <image-slot id="{{ activeResource.heroImgId }}" src="{{ activeResource.img }}" shape="rect" placeholder="{{ activeResource.imgHint }}" style="width:100%;height:100%;"></image-slot>
       </div>
     </section>
 
@@ -996,8 +1083,27 @@
       <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#7868FF;margin-bottom:28px;">OUR STEAM APPROACH</div>
       <h1 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(32px,5vw,64px);line-height:1.14;letter-spacing:-.02em;margin:0;max-width:16em;">STEAM 教育理念與教學方法</h1>
       <div style="display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px);margin-top:clamp(32px,5vw,56px);border-top:1px solid rgba(17,19,24,.1);padding-top:clamp(32px,5vw,52px);">
-        <p style="flex:1 1 420px;min-width:280px;font-size:clamp(17px,2vw,22px);line-height:1.8;font-weight:500;letter-spacing:-.01em;margin:0;">我們不把科技教育定義為「學會操作工具」，而是希望孩子在一次次觀察、思考、設計、實作與修正的過程中，逐漸建立真正的問題解決能力。</p>
-        <p style="flex:1 1 320px;min-width:260px;font-size:15px;line-height:1.95;color:#4a4d55;margin:0;">課程融合多種現代教育方法，讓孩子不只是「聽懂」，而是能夠真正<b style="color:#111318;font-weight:600;">思考、動手、驗證與創造</b>。</p>
+        <p style="flex:1 1 420px;min-width:280px;font-size:clamp(17px,2vw,22px);line-height:1.8;font-weight:500;letter-spacing:-.01em;margin:0;">微研 WEIYAN 以高雄為主要服務區域。我們不把科技教育定義為「學會操作工具」，而是讓孩子在觀察、思考、設計、實作與修正的過程中，逐漸建立真正的問題解決能力。</p>
+        <p style="flex:1 1 320px;min-width:260px;font-size:15px;line-height:1.95;color:#4a4d55;margin:0;">課程整合科學、科技、工程、藝術與數學，並將 AI 程式、機器人、3D 列印與雷射切割轉化成學生能夠<b style="color:#111318;font-weight:600;">思考、動手、驗證與創造</b>的學習任務。</p>
+      </div>
+    </section>
+
+    <!-- 高雄在地 STEAM 服務：提供搜尋引擎與家長／學校清楚的服務說明 -->
+    <section data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(20px,5vw,48px) clamp(36px,6vw,72px);">
+      <div style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:22px;padding:clamp(24px,4vw,44px);">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:16px;">KAOHSIUNG STEAM EDUCATION</div>
+        <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(24px,3.2vw,38px);font-weight:700;line-height:1.25;letter-spacing:-.02em;margin:0 0 18px;">高雄的 STEAM 課程與科技教育合作</h2>
+        <p style="font-size:15px;line-height:1.95;color:#4a4d55;margin:0;max-width:54em;">微研為高雄的學生、家長、學校與教育單位規劃 STEAM 課程、科技營隊及實作活動。課程不是照著步驟完成成品，而是從真實問題出發，讓學生運用科學原理、程式控制、工程設計、數學分析與創意表達，完成可以測試、說明與持續改良的作品。</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;margin-top:28px;">
+          <div style="background:#f5f5f8;border-radius:16px;padding:20px;"><b style="display:block;font-size:16px;margin-bottom:8px;">家長與學生</b><span style="font-size:14px;line-height:1.8;color:#4a4d55;">可從科技營隊、機器人、AI程式、3D列印及科學實作課程開始探索。</span></div>
+          <div style="background:#f5f5f8;border-radius:16px;padding:20px;"><b style="display:block;font-size:16px;margin-bottom:8px;">學校與教育單位</b><span style="font-size:14px;line-height:1.8;color:#4a4d55;">可合作規劃校園課程、營隊、工作坊、教材教具與客製化科技教育專案。</span></div>
+          <div style="background:#f5f5f8;border-radius:16px;padding:20px;"><b style="display:block;font-size:16px;margin-bottom:8px;">學習成果</b><span style="font-size:14px;line-height:1.8;color:#4a4d55;">學生會經歷提問、設計、製作、測試、除錯、改良與成果分享，而不只學會操作設備。</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;">
+          <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;background:#111318;color:#fff;padding:13px 22px;border-radius:12px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">查看高雄科技營隊 <span>→</span></a>
+          <a href="/projects" data-spa onClick="{{ goProjects }}" style="cursor:pointer;border:1px solid rgba(17,19,24,.18);color:#111318;padding:13px 22px;border-radius:12px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">查看學校合作實績 <span>→</span></a>
+          <a href="/tools" data-spa onClick="{{ goTools }}" style="cursor:pointer;border:1px solid rgba(17,19,24,.18);color:#111318;padding:13px 22px;border-radius:12px;font-size:14px;display:inline-flex;gap:8px;align-items:center;">查看科技教育教具 <span>→</span></a>
+        </div>
       </div>
     </section>
 
@@ -1325,6 +1431,19 @@
       </div>
     </section>
 
+    <!-- 常見問題：對應家長與學校常用的搜尋問句 -->
+    <section data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,48px) 0;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#7868FF;margin-bottom:16px;">FAQ · 常見問題</div>
+      <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:clamp(26px,3.8vw,46px);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin:0 0 28px;">高雄 STEAM 教育常見問題</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <details style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:16px;padding:18px 20px;"><summary style="cursor:pointer;font-size:16px;font-weight:600;">STEAM 教育是什麼？</summary><p style="font-size:14.5px;line-height:1.9;color:#4a4d55;margin:14px 0 0;">STEAM 是科學、科技、工程、藝術與數學的跨域學習。重點不是把五門學科分開教授，而是讓學生在解決真實問題時，自然運用不同領域的知識與方法。</p></details>
+        <details style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:16px;padding:18px 20px;"><summary style="cursor:pointer;font-size:16px;font-weight:600;">微研的 STEAM 課程和一般程式或機器人課有什麼不同？</summary><p style="font-size:14.5px;line-height:1.9;color:#4a4d55;margin:14px 0 0;">程式與機器人是學習工具，不是唯一目標。微研會讓學生先理解問題與科學原理，再進行設計、製作、程式控制、實際測試與修改，最後說明自己的解決方法。</p></details>
+        <details style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:16px;padding:18px 20px;"><summary style="cursor:pointer;font-size:16px;font-weight:600;">哪些年齡可以參加微研的科技課程？</summary><p style="font-size:14.5px;line-height:1.9;color:#4a4d55;margin:14px 0 0;">不同課程與營隊會依內容設定適合年級，目前涵蓋國小、國中及部分高中生。實際招生對象、日期與地點請以各梯次頁面的公告為準。</p></details>
+        <details style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:16px;padding:18px 20px;"><summary style="cursor:pointer;font-size:16px;font-weight:600;">高雄的學校或教育單位可以邀請微研合作嗎？</summary><p style="font-size:14.5px;line-height:1.9;color:#4a4d55;margin:14px 0 0;">可以。微研可依年級、人數、時間與場地需求，合作規劃科技營隊、校園課程、工作坊、教材教具及客製化 STEAM 教育專案。</p></details>
+        <details style="background:#fff;border:1px solid rgba(17,19,24,.09);border-radius:16px;padding:18px 20px;"><summary style="cursor:pointer;font-size:16px;font-weight:600;">高雄哪裡可以參加微研的 STEAM 課程？</summary><p style="font-size:14.5px;line-height:1.9;color:#4a4d55;margin:14px 0 0;">微研的營隊與合作課程會在高雄不同學校及合作場域辦理，沒有把所有活動限定在單一教室。請查看營隊頁公布的地點，或透過官方聯絡方式詢問近期課程。</p></details>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,48px);text-align:center;">
       <p style="font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,1.6vw,17px);letter-spacing:.14em;color:#8B8F98;margin:0 0 30px;">SEE IT IN THE CLASSROOM</p>
@@ -1510,6 +1629,890 @@
     </div>
   </sc-if>
 
+
+  <!-- ===================== 課程總覽 /courses ===================== -->
+  <sc-if value="{{ isCourses }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc wc-hero">
+      <div class="wc-eyebrow" style="color:#7868FF;">OUR COURSES · 常態課程</div>
+      <h1 class="wc-h1">六條課程線<br>從動手到動腦</h1>
+      <p class="wc-lede">營隊是三天的火花，常態課是一年的養成。我們把課程拆成六條路線，讓孩子依年齡與興趣，找到自己的那一條。</p>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g3">
+
+        <a href="/brick" data-spa onClick="{{ goBrick }}" data-reveal class="wc-card" style="cursor:pointer;color:#111318;display:block;">
+          <svg viewBox="0 0 120 90" style="width:100%;height:auto;margin-bottom:22px;" aria-hidden="true">
+            <rect x="6" y="58" width="30" height="26" rx="7" fill="#2F7DE1" opacity=".22"/>
+            <rect x="34" y="44" width="30" height="40" rx="7" fill="#2F7DE1" opacity=".42"/>
+            <rect x="62" y="30" width="30" height="54" rx="7" fill="#2F7DE1" opacity=".68"/>
+            <rect x="90" y="14" width="24" height="70" rx="7" fill="#2F7DE1"/>
+            <circle cx="14" cy="52" r="3" fill="#2F7DE1"/><circle cx="26" cy="52" r="3" fill="#2F7DE1"/>
+            <circle cx="42" cy="38" r="3" fill="#2F7DE1"/><circle cx="54" cy="38" r="3" fill="#2F7DE1"/>
+            <circle cx="70" cy="24" r="3" fill="#2F7DE1"/><circle cx="82" cy="24" r="3" fill="#2F7DE1"/>
+            <circle cx="97" cy="8" r="3" fill="#2F7DE1"/><circle cx="107" cy="8" r="3" fill="#2F7DE1"/>
+          </svg>
+          <span class="wc-pill" style="background:rgba(47,125,225,.12);color:#2F7DE1;">國小低年級 ～ 國中</span>
+          <h2 class="wc-h3" style="margin-top:16px;">積木機器人</h2>
+          <p class="wc-body">從齒輪與槓桿開始，一路走到程式控制與正式賽制。四個階段，每一階都有明確的作品。</p>
+          <div style="margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#2F7DE1;">四階段學習路徑 →</div>
+        </a>
+
+        <a href="/car" data-spa onClick="{{ goCar }}" data-reveal class="wc-card" style="cursor:pointer;color:#111318;display:block;">
+          <svg viewBox="0 0 120 90" style="width:100%;height:auto;margin-bottom:22px;" aria-hidden="true">
+            <rect x="14" y="40" width="92" height="26" rx="10" fill="#7A4DE8" opacity=".85"/>
+            <path d="M34 40 L46 24 H80 L92 40 Z" fill="#7A4DE8" opacity=".45"/>
+            <circle cx="36" cy="70" r="11" fill="#111318" opacity=".82"/>
+            <circle cx="84" cy="70" r="11" fill="#111318" opacity=".82"/>
+            <circle cx="36" cy="70" r="4" fill="#fff"/><circle cx="84" cy="70" r="4" fill="#fff"/>
+            <circle cx="60" cy="16" r="5" fill="#7A4DE8"/>
+            <path d="M48 12q12-10 24 0" fill="none" stroke="#7A4DE8" stroke-width="2.5" opacity=".5"/>
+          </svg>
+          <span class="wc-pill" style="background:rgba(122,77,232,.13);color:#7A4DE8;">國小中高年級 ～ 國中</span>
+          <h2 class="wc-h3" style="margin-top:16px;">AI 自走車</h2>
+          <p class="wc-body">八堂課，從「我叫車子動」走到「車子自己判斷該怎麼動」。不計分、不比賽。</p>
+          <div style="margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#7A4DE8;">小小駕訓班 →</div>
+        </a>
+
+        <a href="/laser" data-spa onClick="{{ goLaser }}" data-reveal class="wc-card" style="cursor:pointer;color:#111318;display:block;">
+          <svg viewBox="0 0 120 90" style="width:100%;height:auto;margin-bottom:22px;" aria-hidden="true">
+            <circle cx="60" cy="48" r="30" fill="none" stroke="#F2803C" stroke-width="2" opacity=".3"/>
+            <rect x="52" y="30" width="16" height="36" rx="5" fill="#F2803C"/>
+            <circle cx="60" cy="18" r="7" fill="#F2803C" opacity=".9"/>
+            <circle cx="90" cy="48" r="5.5" fill="#F2803C" opacity=".75"/>
+            <circle cx="81" cy="69" r="5.5" fill="#F2803C" opacity=".6"/>
+            <circle cx="60" cy="78" r="5.5" fill="#F2803C" opacity=".5"/>
+            <circle cx="39" cy="69" r="5.5" fill="#F2803C" opacity=".6"/>
+            <circle cx="30" cy="48" r="5.5" fill="#F2803C" opacity=".75"/>
+            <circle cx="39" cy="27" r="5.5" fill="#F2803C" opacity=".85"/>
+            <circle cx="81" cy="27" r="5.5" fill="#F2803C" opacity=".85"/>
+          </svg>
+          <span class="wc-pill" style="background:rgba(242,128,60,.14);color:#C55E1E;">國小 3 ～ 6 年級</span>
+          <h2 class="wc-h3" style="margin-top:16px;">雷切科學課</h2>
+          <p class="wc-body">八件雷射切割教具，兩套世界觀。中年級去闖科學群島，高年級當技術調查員。</p>
+          <div style="margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#C55E1E;">兩種分齡世界觀 →</div>
+        </a>
+
+        <a href="/printing" data-spa onClick="{{ goPrinting }}" data-reveal class="wc-card" style="cursor:pointer;color:#111318;display:block;">
+          <svg viewBox="0 0 120 90" style="width:100%;height:auto;margin-bottom:22px;" aria-hidden="true">
+            <rect x="20" y="12" width="80" height="52" rx="10" fill="none" stroke="#D4491F" stroke-width="3"/>
+            <rect x="46" y="26" width="28" height="10" rx="4" fill="#D4491F" opacity=".8"/>
+            <path d="M60 36v10" stroke="#D4491F" stroke-width="3" stroke-linecap="round"/>
+            <rect x="44" y="46" width="32" height="18" rx="4" fill="#D4491F" opacity=".35"/>
+            <rect x="30" y="72" width="60" height="8" rx="4" fill="#D4491F" opacity=".55"/>
+          </svg>
+          <span class="wc-pill" style="background:rgba(212,73,31,.13);color:#D4491F;">待確認年齡</span>
+          <h2 class="wc-h3" style="margin-top:16px;">3D 列印</h2>
+          <p class="wc-body">今天在螢幕上畫的，下週可以拿在手上。從建模、切片到實機列印，作品帶回家。</p>
+          <div style="margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#D4491F;">基礎班・進階班 →</div>
+        </a>
+
+        <a href="/humanoid" data-spa onClick="{{ goHumanoid }}" data-reveal class="wc-card" style="cursor:pointer;color:#111318;display:block;">
+          <svg viewBox="0 0 120 90" style="width:100%;height:auto;margin-bottom:22px;" aria-hidden="true">
+            <circle cx="60" cy="20" r="13" fill="#1B7FA8" opacity=".85"/>
+            <circle cx="55" cy="19" r="2.6" fill="#fff"/><circle cx="65" cy="19" r="2.6" fill="#fff"/>
+            <rect x="48" y="37" width="24" height="26" rx="8" fill="#1B7FA8"/>
+            <rect x="30" y="39" width="12" height="9" rx="4.5" fill="#1B7FA8" opacity=".5"/>
+            <rect x="78" y="39" width="12" height="9" rx="4.5" fill="#1B7FA8" opacity=".5"/>
+            <rect x="48" y="68" width="9" height="14" rx="4.5" fill="#1B7FA8" opacity=".7"/>
+            <rect x="63" y="68" width="9" height="14" rx="4.5" fill="#1B7FA8" opacity=".7"/>
+          </svg>
+          <span class="wc-pill" style="background:rgba(27,127,168,.14);color:#1B7FA8;">低年級體驗課起</span>
+          <h2 class="wc-h3" style="margin-top:16px;">AI 人形機器人</h2>
+          <p class="wc-body">AI 很聰明，但它有身體嗎？一小時體驗課拆解機器人，八堂培訓營做出機械手臂。</p>
+          <div style="margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#1B7FA8;">體驗課＋培訓營 →</div>
+        </a>
+
+        <a href="/minecraft" data-spa onClick="{{ goMinecraft }}" data-reveal class="wc-card" style="cursor:pointer;color:#111318;display:block;">
+          <svg viewBox="0 0 120 90" style="width:100%;height:auto;margin-bottom:22px;" aria-hidden="true">
+            <rect x="10" y="12" width="24" height="24" rx="5" fill="#3FAE68" opacity=".85"/>
+            <rect x="38" y="12" width="24" height="24" rx="5" fill="#3FAE68" opacity=".38"/>
+            <rect x="66" y="12" width="24" height="24" rx="5" fill="#3FAE68" opacity=".62"/>
+            <rect x="10" y="40" width="24" height="24" rx="5" fill="#3FAE68" opacity=".45"/>
+            <rect x="38" y="40" width="24" height="24" rx="5" fill="#3FAE68"/>
+            <rect x="66" y="40" width="24" height="24" rx="5" fill="#3FAE68" opacity=".3"/>
+            <rect x="94" y="40" width="18" height="24" rx="5" fill="#3FAE68" opacity=".55"/>
+            <rect x="38" y="68" width="24" height="16" rx="5" fill="#3FAE68" opacity=".22"/>
+          </svg>
+          <span class="wc-pill" style="background:rgba(63,174,104,.13);color:#2E8A50;">待確認年齡</span>
+          <h2 class="wc-h3" style="margin-top:16px;">Minecraft 科技探索</h2>
+          <p class="wc-body">在孩子最熟悉的方塊世界裡，教紅石電路、機械結構與工程思維。七個主題世界，七種挑戰。</p>
+          <div style="margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#2E8A50;">七個主題世界 →</div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;">
+        <h2 class="wc-h2" style="font-size:clamp(24px,3.4vw,38px);">常態課和營隊差在哪？</h2>
+        <div class="wc-grid wc-g2" style="margin-top:26px;">
+          <div>
+            <div class="wc-eyebrow" style="color:#7868FF;">CAMP · 營隊</div>
+            <p class="wc-body">兩到三天密集完成一個作品。適合想先試試看、或利用寒暑假體驗的孩子。</p>
+            <a href="/camp" data-spa onClick="{{ goCamp }}" style="cursor:pointer;display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#111318;">看營隊梯次 <span>→</span></a>
+          </div>
+          <div>
+            <div class="wc-eyebrow" style="color:#7868FF;">COURSE · 常態課</div>
+            <p class="wc-body">每週固定上課，一期八堂起。能力是慢慢疊上去的，適合真的想學下去的孩子。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ===================== 積木機器人 /brick ===================== -->
+  <sc-if value="{{ isBrick }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc" style="padding-top:clamp(28px,5vw,52px);">
+      <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#8B8F98;font-family:'Space Grotesk',sans-serif;font-size:13px;display:inline-flex;gap:8px;align-items:center;">← Courses</a>
+    </section>
+
+    <section class="wc wc-hero" style="padding-top:clamp(24px,4vw,44px);">
+      <div class="wc-eyebrow" style="color:#2F7DE1;">BRICK ROBOTICS · 積木機器人</div>
+      <h1 class="wc-h1">先讓它會動<br>再讓它會想</h1>
+      <p class="wc-lede">從動力機械到程式控制，一條完整的機器人學習路徑。四個階段，依年齡分級，最後能帶著機器人上場比賽。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span class="wc-chip">四階段分級</span><span class="wc-chip">小班教學</span>
+        <span class="wc-chip">動手實作</span><span class="wc-chip">可銜接機器人競賽</span>
+      </div>
+    </section>
+
+    <!-- 階梯圖 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;padding-bottom:clamp(18px,2.4vw,26px);">
+        <div class="wc-eyebrow" style="color:#8B8F98;">LEARNING PATH · 四階段學習路徑</div>
+        <svg viewBox="0 0 720 250" style="width:100%;height:auto;margin-top:10px;" role="img" aria-label="四階段學習路徑：SPM 動力機械、WeDo 入門程式、SPIKE Prime 程式控制、VEX IQ 競賽實戰，難度逐階提升">
+          <line x1="40" y1="212" x2="690" y2="212" stroke="#111318" stroke-opacity=".12" stroke-width="2"/>
+          <g>
+            <rect x="42" y="150" width="146" height="62" rx="16" fill="#2F7DE1" opacity=".28"/>
+            <text x="115" y="178" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#1B4E8E">STAGE 1</text>
+            <text x="115" y="197" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#1B4E8E">SPM 動力機械</text>
+            <text x="115" y="138" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#5c6068">齒輪・槓桿・結構</text>
+          </g>
+          <g>
+            <rect x="208" y="118" width="146" height="94" rx="16" fill="#2F7DE1" opacity=".46"/>
+            <text x="281" y="150" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#123F78">STAGE 2</text>
+            <text x="281" y="169" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#123F78">WeDo 入門程式</text>
+            <text x="281" y="106" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#5c6068">感測器・迴圈</text>
+          </g>
+          <g>
+            <rect x="374" y="82" width="146" height="130" rx="16" fill="#2F7DE1" opacity=".72"/>
+            <text x="447" y="118" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#fff">STAGE 3</text>
+            <text x="447" y="138" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#fff">SPIKE Prime</text>
+            <text x="447" y="157" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="14" fill="#fff" opacity=".9">程式控制</text>
+            <text x="447" y="70" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#5c6068">整合・除錯</text>
+          </g>
+          <g>
+            <rect x="540" y="42" width="150" height="170" rx="16" fill="#16386B"/>
+            <text x="615" y="82" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#fff">STAGE 4</text>
+            <text x="615" y="102" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#fff">VEX IQ</text>
+            <text x="615" y="121" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="14" fill="#fff" opacity=".9">競賽實戰</text>
+            <text x="615" y="30" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#5c6068">賽制・策略</text>
+          </g>
+          <text x="42" y="238" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#8B8F98">國小低中年級</text>
+          <text x="690" y="238" text-anchor="end" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#8B8F98">國小高年級 ～ 國中</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 四階段細節 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div style="display:flex;flex-direction:column;gap:clamp(18px,2.6vw,26px);">
+
+        <article data-reveal class="wc-card">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:18px;">
+            <span class="wc-num" style="font-size:clamp(34px,4.6vw,56px);color:rgba(47,125,225,.34);">01</span>
+            <h2 class="wc-h3" style="margin:0;">SPM 動力機械</h2>
+            <span class="wc-pill" style="background:rgba(47,125,225,.12);color:#2F7DE1;">國小低中年級</span>
+          </div>
+          <p class="wc-body" style="margin-bottom:20px;">還不碰程式。這一階讓孩子先弄懂「力量怎麼從馬達傳到輪子」，以及為什麼有些結構一推就垮。</p>
+          <div class="wc-grid wc-g2">
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">學什麼</div><p class="wc-body">齒輪比與轉速、槓桿與施力點、連桿運動、結構穩定與配重</p></div>
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">代表作品</div>
+              <div><span class="wc-chip">旋轉木馬</span><span class="wc-chip">動力直升機</span><span class="wc-chip">動態陀螺球</span><span class="wc-chip">雨刷器</span><span class="wc-chip">六足機器人</span><span class="wc-chip">毛毛蟲</span><span class="wc-chip">秤重盤</span></div>
+            </div>
+          </div>
+          <div class="wc-slot" style="aspect-ratio:16/7;margin-top:24px;">
+            <div class="k">PHOTO 02</div><div class="d">低年級孩子組裝旋轉木馬或六足機器人的實拍</div>
+          </div>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:18px;">
+            <span class="wc-num" style="font-size:clamp(34px,4.6vw,56px);color:rgba(47,125,225,.34);">02</span>
+            <h2 class="wc-h3" style="margin:0;">WeDo 入門程式</h2>
+            <span class="wc-pill" style="background:rgba(47,125,225,.12);color:#2F7DE1;">國小中年級</span>
+          </div>
+          <p class="wc-body" style="margin-bottom:20px;">第一次讓積木「看見環境、做出反應」。用拖拉式的圖形化程式，不需要打字也能寫出邏輯。</p>
+          <div class="wc-grid wc-g2">
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">學什麼</div><p class="wc-body">感測器輸入、馬達輸出、順序與重複、簡單條件判斷</p></div>
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">代表作品</div><div><span class="wc-chip">機械鱷魚</span></div></div>
+          </div>
+          <div class="wc-slot" style="aspect-ratio:16/7;margin-top:24px;">
+            <div class="k">PHOTO 03</div><div class="d">孩子在平板上拖積木程式、旁邊放著機械鱷魚的實拍</div>
+          </div>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:18px;">
+            <span class="wc-num" style="font-size:clamp(34px,4.6vw,56px);color:rgba(47,125,225,.34);">03</span>
+            <h2 class="wc-h3" style="margin:0;">SPIKE Prime 程式控制</h2>
+            <span class="wc-pill" style="background:rgba(47,125,225,.12);color:#2F7DE1;">國小高年級 ～ 國中</span>
+          </div>
+          <p class="wc-body" style="margin-bottom:20px;">機構跟程式要一起想。這一階開始出現「明明程式是對的，但車就是走歪」這種真實工程問題。</p>
+          <div class="wc-grid wc-g2">
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">學什麼</div><p class="wc-body">馬達精準控制、多感測器整合、條件與迴圈、任務拆解與除錯</p></div>
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">代表作品</div>
+              <div><span class="wc-chip">電子鋼琴</span><span class="wc-chip">自助泊車</span><span class="wc-chip">機械蠍子</span><span class="wc-chip">電子吉他</span></div>
+            </div>
+          </div>
+          <div class="wc-slot" style="aspect-ratio:16/7;margin-top:24px;">
+            <div class="k">PHOTO 04</div><div class="d">SPIKE 電子鋼琴或自助泊車的完成品特寫（含孩子的手）</div>
+          </div>
+        </article>
+
+        <article data-reveal class="wc-card" style="background:#101114;border-color:rgba(255,255,255,.1);">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:18px;">
+            <span class="wc-num" style="font-size:clamp(34px,4.6vw,56px);color:rgba(255,255,255,.28);">04</span>
+            <h2 class="wc-h3" style="margin:0;color:#fff;">VEX IQ 競賽實戰</h2>
+            <span class="wc-pill" style="background:rgba(255,255,255,.14);color:#fff;">國小高年級 ～ 國中</span>
+          </div>
+          <p class="wc-body" style="margin-bottom:20px;color:#c9ccd4;">把技術帶進賽場。除了會做機器人，還要學會看規則、分工、在時間內把問題解決。</p>
+          <div class="wc-grid wc-g2">
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">學什麼</div><p class="wc-body" style="color:#c9ccd4;">賽制規則解讀、機構設計取捨、隊內分工、現場調校與心理素質</p></div>
+            <div><div class="wc-eyebrow" style="color:#8B8F98;">代表作品</div>
+              <div><span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">機械手臂競賽機</span><span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">Bottle Sumo 對抗機種</span><span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">輪型軌道挑戰車</span></div>
+            </div>
+          </div>
+          <div class="wc-slot" style="aspect-ratio:16/7;margin-top:24px;background:#17181d;border-color:rgba(255,255,255,.14);">
+            <div class="k">PHOTO 05</div><div class="d">比賽現場：孩子在賽道旁調機器人，或頒獎合照</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 五大學習成果 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <h2 class="wc-h2">孩子會帶走什麼</h2>
+      <p class="wc-body" style="max-width:34em;margin-bottom:32px;">不只是「做出一台機器人」，而是可以帶去下一個階段、下一個科目的能力。</p>
+      <div class="wc-grid wc-g4">
+        <div class="wc-card" style="text-align:center;padding:clamp(22px,2.6vw,30px) 14px;">
+          <svg viewBox="0 0 48 48" style="width:52px;height:52px;margin:0 auto 14px;display:block;" aria-hidden="true"><path d="M24 6 L40 38 H8 Z" fill="none" stroke="#2F7DE1" stroke-width="3" stroke-linejoin="round"/><path d="M16 27h16" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-h3" style="font-size:18px;margin-bottom:6px;">結構力學</div>
+          <p class="wc-body" style="font-size:14px;">知道為什麼會垮、怎麼補強</p>
+        </div>
+        <div class="wc-card" style="text-align:center;padding:clamp(22px,2.6vw,30px) 14px;">
+          <svg viewBox="0 0 48 48" style="width:52px;height:52px;margin:0 auto 14px;display:block;" aria-hidden="true"><path d="M18 16 L9 24 L18 32" fill="none" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 16 L39 24 L30 32" fill="none" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="wc-h3" style="font-size:18px;margin-bottom:6px;">程式邏輯</div>
+          <p class="wc-body" style="font-size:14px;">順序、條件、迴圈的實際應用</p>
+        </div>
+        <div class="wc-card" style="text-align:center;padding:clamp(22px,2.6vw,30px) 14px;">
+          <svg viewBox="0 0 48 48" style="width:52px;height:52px;margin:0 auto 14px;display:block;" aria-hidden="true"><circle cx="24" cy="24" r="4" fill="#2F7DE1"/><path d="M16 16a11 11 0 0 0 0 16M32 16a11 11 0 0 1 0 16" fill="none" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-h3" style="font-size:18px;margin-bottom:6px;">感測器應用</div>
+          <p class="wc-body" style="font-size:14px;">讓機器讀懂環境並做判斷</p>
+        </div>
+        <div class="wc-card" style="text-align:center;padding:clamp(22px,2.6vw,30px) 14px;">
+          <svg viewBox="0 0 48 48" style="width:52px;height:52px;margin:0 auto 14px;display:block;" aria-hidden="true"><circle cx="18" cy="19" r="5" fill="none" stroke="#2F7DE1" stroke-width="3"/><circle cx="31" cy="19" r="5" fill="none" stroke="#2F7DE1" stroke-width="3"/><path d="M9 35c0-5 4-8 9-8s9 3 9 8M22 35c0-5 4-8 9-8s9 3 9 8" fill="none" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-h3" style="font-size:18px;margin-bottom:6px;">團隊合作</div>
+          <p class="wc-body" style="font-size:14px;">分工、溝通、一起收尾</p>
+        </div>
+        <div class="wc-card" style="text-align:center;padding:clamp(22px,2.6vw,30px) 14px;">
+          <svg viewBox="0 0 48 48" style="width:52px;height:52px;margin:0 auto 14px;display:block;" aria-hidden="true"><path d="M15 9h18v11a9 9 0 0 1-18 0z" fill="none" stroke="#2F7DE1" stroke-width="3" stroke-linejoin="round"/><path d="M24 29v7M17 39h14" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-h3" style="font-size:18px;margin-bottom:6px;">競賽經驗</div>
+          <p class="wc-body" style="font-size:14px;">在規則與時間壓力下解題</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 一堂課 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;">
+        <h2 class="wc-h2" style="font-size:clamp(24px,3.6vw,42px);">一堂課長什麼樣子</h2>
+        <p class="wc-body" style="margin-bottom:30px;">以 90 分鐘為例。重點不是把作品做完，而是每一次測試都問一次「為什麼」。</p>
+        <svg viewBox="0 0 720 66" style="width:100%;height:auto;margin-bottom:26px;" role="img" aria-label="90分鐘課堂時間配置：情境導入10分、原理拆解20分、實作與測試35分、問題排除15分、成果分享10分">
+          <rect x="0"   y="8" width="76"  height="30" rx="10" fill="#2F7DE1" opacity=".25"/>
+          <rect x="82"  y="8" width="154" height="30" rx="10" fill="#2F7DE1" opacity=".45"/>
+          <rect x="242" y="8" width="270" height="30" rx="10" fill="#2F7DE1"/>
+          <rect x="518" y="8" width="116" height="30" rx="10" fill="#2F7DE1" opacity=".55"/>
+          <rect x="640" y="8" width="76"  height="30" rx="10" fill="#2F7DE1" opacity=".25"/>
+          <text x="38"  y="58" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" fill="#5c6068">10′</text>
+          <text x="159" y="58" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" fill="#5c6068">20′</text>
+          <text x="377" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#fff">35′</text>
+          <text x="576" y="58" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" fill="#5c6068">15′</text>
+          <text x="678" y="58" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" fill="#5c6068">10′</text>
+        </svg>
+        <div class="wc-grid wc-g3">
+          <div><div class="wc-h3" style="font-size:17px;">情境導入</div><p class="wc-body" style="font-size:14.5px;">從生活裡的機器出發：掃地機器人怎麼知道要轉彎？</p></div>
+          <div><div class="wc-h3" style="font-size:17px;">原理拆解</div><p class="wc-body" style="font-size:14.5px;">老師示範關鍵機構或程式概念，先做一個最小可動版本。</p></div>
+          <div><div class="wc-h3" style="font-size:17px;">實作與測試</div><p class="wc-body" style="font-size:14.5px;">照任務目標組裝、測試、修改。老師走動個別指導，不趕進度。</p></div>
+          <div><div class="wc-h3" style="font-size:17px;">問題排除</div><p class="wc-body" style="font-size:14.5px;">把「不會動」的原因找出來——機構鬆了、還是程式順序寫反了。</p></div>
+          <div><div class="wc-h3" style="font-size:17px;">成果分享</div><p class="wc-body" style="font-size:14.5px;">每組說明自己改了什麼、為什麼要改。收拾教具，下課。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 競賽 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <h2 class="wc-h2">想比賽的孩子，有路可以走</h2>
+      <p class="wc-body" style="max-width:34em;margin-bottom:30px;">STAGE 4 的學生可依意願參加正式賽事。比賽不是必修，但想去的孩子我們會陪著練。</p>
+      <div class="wc-grid wc-g2">
+        <div class="wc-card">
+          <div class="wc-eyebrow" style="color:#2F7DE1;">2026</div>
+          <div class="wc-h3">第 38 屆 AERC<br>亞洲智慧型機器人大賽</div>
+          <p class="wc-body">B06 輪型機器人軌道挑戰項目。學生於 2026 年 5 月參賽，賽制與練習用軌道皆已納入課程。</p>
+        </div>
+        <div class="wc-card">
+          <div class="wc-eyebrow" style="color:#2F7DE1;">2026</div>
+          <div class="wc-h3">Bottle Sumo<br>台灣賽</div>
+          <p class="wc-body">依 2026 台灣賽正式規則練習對抗機種，訓練機構強度、推進策略與現場應變。</p>
+        </div>
+      </div>
+      <div class="wc-slot" style="aspect-ratio:21/8;margin-top:24px;">
+        <div class="k">PHOTO 06</div><div class="d">競賽區橫幅：比賽現場、賽道，或學生與獎狀的合照</div>
+      </div>
+    </section>
+
+    <!-- 課程資訊 + CTA -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g4" style="margin-bottom:28px;">
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">適合年齡</div><div class="wc-h3" style="font-size:19px;margin:0;">國小低年級～國中</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程堂數</div><div class="wc-h3" style="font-size:19px;margin:0;">8 堂</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時間</div><div class="wc-h3" style="font-size:19px;margin:0;">歡迎 LINE 諮詢</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程費用</div><div class="wc-h3" style="font-size:19px;margin:0;">NT$ 4,800</div></div>
+      </div>
+      <div class="wc-cta">
+        <h2 class="wc-h2" style="color:#fff;">想先帶孩子來試一堂？</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">加 LINE 告訴我們孩子的年級，我們會安排體驗時間。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+      </div>
+      <p class="wc-body" style="font-size:13px;color:#8B8F98;margin-top:26px;">LEGO®、WeDo、SPIKE™ 為樂高集團之商標；VEX® IQ 為 VEX Robotics, Inc. 之商標。本課程使用上述教具進行教學，與各商標權利人並無合作、贊助或代理關係。</p>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ===================== Minecraft /minecraft ===================== -->
+  <sc-if value="{{ isMinecraft }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc" style="padding-top:clamp(28px,5vw,52px);">
+      <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#8B8F98;font-family:'Space Grotesk',sans-serif;font-size:13px;display:inline-flex;gap:8px;align-items:center;">← Courses</a>
+    </section>
+
+    <section class="wc wc-hero" style="padding-top:clamp(24px,4vw,44px);">
+      <div class="wc-eyebrow" style="color:#2E8A50;">MINECRAFT · 方塊世界科技課</div>
+      <h1 class="wc-h1">在他最熟的世界裡<br>學最難的東西</h1>
+      <p class="wc-lede">孩子早就會蓋房子了。我們要做的是把紅石電路、機械結構與工程思維，接到他已經投入的那個世界裡。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span class="wc-chip">七個主題世界</span><span class="wc-chip">紅石電路</span>
+        <span class="wc-chip">工程設計</span><span class="wc-chip">團隊任務</span>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <h2 class="wc-h2">七個主題世界</h2>
+      <p class="wc-body" style="max-width:34em;margin-bottom:32px;">每個世界有自己的限制與任務。不是自由創造，而是在條件下解題。</p>
+      <div class="wc-grid wc-g3">
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><circle cx="17" cy="22" r="11" fill="none" stroke="#3FAE68" stroke-width="3"/><circle cx="41" cy="22" r="7" fill="none" stroke="#3FAE68" stroke-width="3"/><path d="M17 8v-5M17 41v-5M3 22h-0M31 22h3" stroke="#3FAE68" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 01</div>
+          <div class="wc-h3">STEAMPUNK 蒸汽龐克</div>
+          <p class="wc-body" style="font-size:15px;">齒輪、蒸汽動力與機械結構</p>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><path d="M4 30q8-7 16 0t16 0 16 0" fill="none" stroke="#3FAE68" stroke-width="3" stroke-linecap="round"/><path d="M4 38q8-7 16 0t16 0 16 0" fill="none" stroke="#3FAE68" stroke-width="3" stroke-linecap="round" opacity=".5"/><circle cx="30" cy="14" r="8" fill="none" stroke="#3FAE68" stroke-width="3"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 02</div>
+          <div class="wc-h3">異星水世界</div>
+          <p class="wc-body" style="font-size:15px;">水下生存、資源循環與環境工程</p>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><path d="M14 34 L30 6 L46 34 Z" fill="none" stroke="#3FAE68" stroke-width="3" stroke-linejoin="round"/><path d="M22 34h16" stroke="#3FAE68" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 03</div>
+          <div class="wc-h3">TINKER 匠魂</div>
+          <p class="wc-body" style="font-size:15px;">材料合成、工具製作與冶金概念</p>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><path d="M30 4c7 6 10 14 10 22l-10 8-10-8c0-8 3-16 10-22z" fill="none" stroke="#3FAE68" stroke-width="3" stroke-linejoin="round"/><circle cx="30" cy="19" r="4" fill="#3FAE68"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 04</div>
+          <div class="wc-h3">BEYOND EARTH 星際拓荒</div>
+          <p class="wc-body" style="font-size:15px;">太空、行星環境與能源</p>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><path d="M30 6v32M18 14l24 16M42 14L18 30" stroke="#3FAE68" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 05</div>
+          <div class="wc-h3">THE WINTER RESCUE 極地救援</div>
+          <p class="wc-body" style="font-size:15px;">低溫、保溫與物資運送</p>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><rect x="10" y="12" width="40" height="22" rx="6" fill="none" stroke="#3FAE68" stroke-width="3"/><path d="M20 12V6M40 12V6M22 23h6M32 23h6" stroke="#3FAE68" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 06</div>
+          <div class="wc-h3">TECH 殲滅攻城戰</div>
+          <p class="wc-body" style="font-size:15px;">機關設計、紅石電路與策略對抗</p>
+        </article>
+
+        <article data-reveal class="wc-card">
+          <svg viewBox="0 0 60 44" style="width:76px;height:auto;margin-bottom:16px;" aria-hidden="true"><ellipse cx="30" cy="22" rx="24" ry="9" fill="none" stroke="#3FAE68" stroke-width="3"/><circle cx="30" cy="22" r="7" fill="#3FAE68"/></svg>
+          <div class="wc-eyebrow" style="color:#8B8F98;">WORLD 07</div>
+          <div class="wc-h3">AD ASTRA 星辰之路</div>
+          <p class="wc-body" style="font-size:15px;">火箭、軌道與長程太空任務</p>
+        </article>
+
+        <div class="wc-card" style="background:#f5f5f8;border:none;display:flex;flex-direction:column;justify-content:center;">
+          <div class="wc-num" style="font-size:clamp(38px,5vw,60px);color:#3FAE68;">07</div>
+          <p class="wc-body" style="font-size:15px;margin-top:10px;">個世界，每個都有自己的物理規則與工程限制。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;">
+        <h2 class="wc-h2" style="font-size:clamp(24px,3.6vw,42px);">孩子會學到什麼</h2>
+        <div class="wc-grid wc-g3" style="margin-top:26px;">
+          <div><div class="wc-h3" style="font-size:18px;">程式邏輯</div><p class="wc-body" style="font-size:15px;">用指令與命令方塊，把想法變成會自己執行的流程。</p></div>
+          <div><div class="wc-h3" style="font-size:18px;">紅石電路</div><p class="wc-body" style="font-size:15px;">訊號、延遲、邏輯閘——這是真的數位電路，只是長得像方塊。</p></div>
+          <div><div class="wc-h3" style="font-size:18px;">工程設計</div><p class="wc-body" style="font-size:15px;">在材料與空間限制下做取捨，然後測試、改良。</p></div>
+          <div><div class="wc-h3" style="font-size:18px;">團隊合作</div><p class="wc-body" style="font-size:15px;">多人同一個世界，要分工、要溝通，也要處理衝突。</p></div>
+          <div><div class="wc-h3" style="font-size:18px;">問題解決</div><p class="wc-body" style="font-size:15px;">每個世界都有一個「做不到」的關卡，過關的方法不只一種。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-note">
+        <b>課程資訊整理中。</b>這條課程線的年齡分級、堂數與費用尚未定案，
+        七個主題世界的詳細教學內容也還在編寫。想先了解或預約，歡迎直接與我們聯絡。
+      </div>
+      <div class="wc-cta" style="margin-top:26px;">
+        <h2 class="wc-h2" style="color:#fff;">想先聊聊嗎？</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">告訴我們孩子的年齡與程度，我們會建議適合的起點。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+      </div>
+      <p class="wc-body" style="font-size:13px;color:#8B8F98;margin-top:26px;">Minecraft® 為 Mojang Synergies AB 之商標。本課程為獨立教學服務，與 Mojang 及 Microsoft 並無合作、贊助或代理關係。</p>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ===================== 雷切科學課 /laser ===================== -->
+  <sc-if value="{{ isLaser }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc" style="padding-top:clamp(28px,5vw,52px);">
+      <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#8B8F98;font-family:'Space Grotesk',sans-serif;font-size:13px;display:inline-flex;gap:8px;align-items:center;">← Courses</a>
+    </section>
+
+    <section class="wc wc-hero" style="padding-top:clamp(24px,4vw,44px);">
+      <div class="wc-eyebrow" style="color:#C55E1E;">LASER SCIENCE · 雷切科學課</div>
+      <h1 class="wc-h1">同一套教具<br>兩種世界觀</h1>
+      <p class="wc-lede">八件雷射切割教具，八個物理原理。中年級的孩子去闖科學群島，高年級的孩子當技術調查員——教具一樣，故事不一樣。</p>
+    </section>
+
+    <!-- 分齡雙軌圖 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;">
+        <svg viewBox="0 0 720 240" style="width:100%;height:auto;" role="img" aria-label="同樣八件教具，3到4年級走小怪獸科學群島世界觀，5到6年級走 GRID-8 城市科學案件簿世界觀">
+          <rect x="215" y="94" width="290" height="56" rx="16" fill="#111318"/>
+          <text x="360" y="118" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#fff">八件雷切教具</text>
+          <text x="360" y="137" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-size="10.5" fill="#9aa0ab">平衡・飛行・推進・磁力・光・電・太陽能・發電</text>
+
+          <path d="M215 110 Q160 110 160 62 L160 54" fill="none" stroke="#F2803C" stroke-width="2.5" opacity=".6"/>
+          <path d="M505 134 Q560 134 560 180 L560 188" fill="none" stroke="#F2803C" stroke-width="2.5" opacity=".6"/>
+
+          <rect x="40" y="12" width="300" height="42" rx="14" fill="#F2803C" opacity=".16"/>
+          <text x="60" y="32" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#C55E1E">小怪獸科學群島</text>
+          <text x="60" y="48" font-family="Noto Sans TC,sans-serif" font-size="12.5" fill="#8a5a33">國小 3–4 年級｜八座島嶼・原理晶核</text>
+
+          <rect x="380" y="186" width="300" height="42" rx="14" fill="#16386B" opacity=".14"/>
+          <text x="400" y="206" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="700" fill="#16386B">GRID-8 城市科學案件簿</text>
+          <text x="400" y="222" font-family="Noto Sans TC,sans-serif" font-size="12.5" fill="#4a5a72">國小 5–6 年級｜八件案件・證據調查</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 小怪獸 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px;margin-bottom:14px;">
+        <h2 class="wc-h2" style="margin:0;">小怪獸科學群島</h2>
+        <span class="wc-pill" style="background:rgba(242,128,60,.14);color:#C55E1E;">國小 3–4 年級</span>
+      </div>
+      <p class="wc-body" style="max-width:36em;margin-bottom:14px;">「看起來像魔法的事情，其實都能用科學找到原因。」原理塔失控了，八顆原理晶核飛散到八座島。孩子以<b style="color:#111318;">小小原理探險員</b>的身份，一島一島把它們找回來。</p>
+      <p class="wc-body" style="max-width:36em;margin-bottom:32px;">導航機器人 PICO 刻意不給答案，只給線索——「我把重量移到左邊後，它好像更容易倒了。」剩下的，由孩子自己提出假設、動手驗證。</p>
+
+      <div class="wc-grid wc-g4">
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 1 章</div><div class="wc-h3" style="font-size:18px;">搖搖島</div><p class="wc-body" style="font-size:14.5px;">《怎麼推都不倒？！》<br>平衡機器人</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 2 章</div><div class="wc-h3" style="font-size:18px;">飛飛島</div><p class="wc-body" style="font-size:14.5px;">《飛吧！紙上飛行員》<br>滑行飛機</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 3 章</div><div class="wc-h3" style="font-size:18px;">噗通島</div><p class="wc-body" style="font-size:14.5px;">《小船不用槳也會跑？》<br>明輪船</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 4 章</div><div class="wc-h3" style="font-size:18px;">磁磁山</div><p class="wc-body" style="font-size:14.5px;">《看不見的超能力！》<br>磁力小車</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 5 章</div><div class="wc-h3" style="font-size:18px;">幻光城</div><p class="wc-body" style="font-size:14.5px;">《空中出現幽靈？！》<br>全息投影教材</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 6 章</div><div class="wc-h3" style="font-size:18px;">霹靂城</div><p class="wc-body" style="font-size:14.5px;">《電力賽車 GO！》<br>電動賽車</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#C55E1E;">第 7 章</div><div class="wc-h3" style="font-size:18px;">太陽谷</div><p class="wc-body" style="font-size:14.5px;">《抓住太陽來開車！》<br>太陽能賽車</p></div>
+        <div class="wc-card" style="background:#111318;border-color:#111318;"><div class="wc-eyebrow" style="color:#F2803C;">第 8 章</div><div class="wc-h3" style="font-size:18px;color:#fff;">發電島</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">《我的手竟然可以發電！》<br>手搖發電機</p></div>
+      </div>
+
+      <div class="wc-card" style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px;">
+        <svg viewBox="0 0 120 120" style="width:96px;height:96px;flex:none;" aria-hidden="true">
+          <rect x="48" y="34" width="24" height="58" rx="8" fill="#F2803C"/>
+          <circle cx="60" cy="22" r="10" fill="#F2803C"/>
+          <circle cx="60" cy="22" r="4" fill="#fff" opacity=".8"/>
+          <g fill="#F2803C"><circle cx="98" cy="60" r="6"/><circle cx="87" cy="87" r="6" opacity=".85"/><circle cx="60" cy="102" r="6" opacity=".7"/><circle cx="33" cy="87" r="6" opacity=".85"/><circle cx="22" cy="60" r="6"/><circle cx="33" cy="33" r="6" opacity=".85"/><circle cx="87" cy="33" r="6" opacity=".85"/><circle cx="60" cy="10" r="0"/></g>
+        </svg>
+        <div style="flex:1 1 300px;">
+          <div class="wc-h3" style="font-size:19px;">八顆原理晶核</div>
+          <p class="wc-body" style="font-size:15px;">每完成一座島，就找回一顆晶核，原理塔亮起一格。八顆集滿，科學群島重新啟動——這是孩子看得見的進度條。晶核為雷切與 3D 列印實體，孩子帶得回家。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID-8 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#101114;border-color:#101114;">
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px;margin-bottom:14px;">
+          <h2 class="wc-h2" style="margin:0;color:#fff;">GRID-8 城市科學案件簿</h2>
+          <span class="wc-pill" style="background:rgba(255,255,255,.14);color:#fff;">國小 5–6 年級</span>
+        </div>
+        <p class="wc-body" style="color:#c9ccd4;max-width:36em;margin-bottom:14px;">城市即將啟動「CITY NEXT」科技展示計畫，八個展示區在開幕前陸續出狀況。設備沒有明顯損壞，但測試結果就是不對——一般維修查不出原因。</p>
+        <p class="wc-body" style="color:#c9ccd4;max-width:36em;margin-bottom:8px;">學生以 <b style="color:#fff;">GRID-8 見習技術調查員</b> 的身份加入。整季只有一句核心台詞：</p>
+        <p style="font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(19px,2.6vw,28px);line-height:1.5;color:#fff;border-left:3px solid #F2803C;padding-left:18px;margin:0 0 32px;">「不要告訴我你覺得是哪裡壞了，給我證據。」</p>
+
+        <div class="wc-grid wc-g4">
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 01</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">一台怎麼推都不倒的機器？<br><span style="color:#8B8F98;">平衡機器人</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 02</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">一直偏離航線的滑翔機？<br><span style="color:#8B8F98;">滑行飛機</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 03</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">馬達明明在轉，船為什麼走不快？<br><span style="color:#8B8F98;">明輪船</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 04</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">沒有人碰，車為什麼自己動了？<br><span style="color:#8B8F98;">磁力小車</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 05</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">監視器拍到了一個不存在的人影？<br><span style="color:#8B8F98;">全息投影教材</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 06</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">車有電，為什麼完全不動？<br><span style="color:#8B8F98;">故障車診斷教材</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 07</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">同樣的太陽，為什麼這台比較慢？<br><span style="color:#8B8F98;">太陽能賽車</span></p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:22px;"><div class="wc-eyebrow" style="color:#F2803C;">CASE 08</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">開幕前一小時，全區停電！<br><span style="color:#8B8F98;">手搖發電機</span></p></div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px 32px;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);">
+          <div><div class="wc-eyebrow" style="color:#8B8F98;">核心體驗</div><p class="wc-body" style="font-size:15px;color:#c9ccd4;margin:0;">接案 → 提出假設 → 操作教材 → 收集證據 → 提交結論 → CASE CLOSED</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 為什麼有兩套 -->
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g2">
+        <div>
+          <h2 class="wc-h2" style="font-size:clamp(24px,3.6vw,42px);">為什麼要做兩套？</h2>
+          <p class="wc-body">同樣是「平衡機器人」，三年級要的是「怎麼推都不倒，好神奇」，六年級要的是「給我證據，說明重心在哪裡」。</p>
+          <p class="wc-body" style="margin-top:14px;">教具不變、原理不變，變的是提問的方式與要求的證據強度。這讓弟弟妹妹跟哥哥姐姐可以在同一間教室上課，卻各自被推到剛好的難度。</p>
+        </div>
+        <div class="wc-slot" style="aspect-ratio:4/3;">
+          <div class="k">PHOTO 07</div><div class="d">雷切教具實拍：八件教具排在一起，或孩子操作其中一件的畫面</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g4" style="margin-bottom:28px;">
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">適合年齡</div><div class="wc-h3" style="font-size:19px;margin:0;">國小 3–6 年級</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程堂數</div><div class="wc-h3" style="font-size:19px;margin:0;">8 堂</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時間</div><div class="wc-h3" style="font-size:19px;margin:0;">歡迎 LINE 諮詢</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程費用</div><div class="wc-h3" style="font-size:19px;margin:0;">NT$ 4,800</div></div>
+      </div>
+      <div class="wc-cta">
+        <h2 class="wc-h2" style="color:#fff;">想知道孩子適合哪一套？</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">告訴我們孩子的年級，我們會建議從科學群島還是 GRID-8 開始。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+
+
+  <!-- ===================== AI自走車常態班 /car ===================== -->
+  <sc-if value="{{ isCar }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc" style="padding-top:clamp(28px,5vw,52px);">
+      <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#8B8F98;font-family:'Space Grotesk',sans-serif;font-size:13px;display:inline-flex;gap:8px;align-items:center;">← Courses</a>
+    </section>
+
+    <section class="wc wc-hero" style="padding-top:clamp(24px,4vw,44px);">
+      <div class="wc-eyebrow" style="color:#7A4DE8;">AI SELF-DRIVING CAR · 小小駕訓班</div>
+      <h1 class="wc-h1">這台車不會自己走<br>要孩子教會它</h1>
+      <p class="wc-lede">寫一行程式、按下執行、看車子跑出去——然後發現它歪掉了。八堂課，孩子會從「我叫車子動」一路走到「車子自己判斷該怎麼動」。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span class="wc-chip">8 堂・共 12 小時</span><span class="wc-chip">國小中高年級 ～ 國中</span>
+        <span class="wc-chip">不計分・不比賽</span><span class="wc-chip">對應 108 課綱</span>
+      </div>
+      <div class="wc-photo" style="aspect-ratio:16/8;margin-top:36px;">
+        <img src="/photos/camp-2026-07/photo-08.webp" alt="孩子蹲在賽道旁調整自走車" loading="lazy">
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g2" style="align-items:center;">
+        <div>
+          <h2 class="wc-h2">為什麼是自走車？</h2>
+          <p class="wc-body" style="font-size:clamp(16px,1.7vw,19px);">因為它會<b style="color:#111318;">誠實回答</b>。</p>
+          <p class="wc-body" style="margin-top:14px;">程式寫錯了，車子不會給你紅字錯誤訊息，它會直接撞牆、轉太多、或原地打轉。孩子看得到、笑得出來，然後回頭去改那一行。</p>
+          <p class="wc-body" style="margin-top:14px;">這就是我們要的循環：<b style="color:#111318;">觀察問題 → 拆解任務 → 寫程式 → 實車測試 → 找出差異 → 改參數 → 再驗證</b>。八堂課跑二十次以上。</p>
+        </div>
+        <div class="wc-photo" style="aspect-ratio:4/3;">
+          <img src="/photos/camp-2026-07-29/photo-04.webp" alt="老師在旁協助孩子調整自走車" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <h2 class="wc-h2">八堂課，一堂比一堂更像真的</h2>
+      <p class="wc-body" style="max-width:36em;margin-bottom:34px;">從硬體與運動，到校正與物理，再到感測、量測、程式邏輯，最後整合成一台會自己判斷的車。</p>
+      <div class="wc-grid wc-g2">
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">1</span><div><div class="wc-h3" style="font-size:20px;">機器人為什麼會動？</div><p class="wc-body" style="font-size:15px;">先看懂這台車由什麼組成，再寫第一段控制程式：前進、停止、後退。</p></div></div></article>
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">2</span><div><div class="wc-h3" style="font-size:20px;">為什麼車子會跑歪？</div><p class="wc-body" style="font-size:15px;">左右馬達其實不一樣快。孩子第一次體會到「理論值」和「實際值」的差距。</p></div></div></article>
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">3</span><div><div class="wc-h3" style="font-size:20px;">機器人長眼睛了</div><p class="wc-body" style="font-size:15px;">裝上超音波感測器，讓車子知道前面有東西。輸入、處理、輸出的概念從這裡開始。</p></div></div></article>
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">4</span><div><div class="wc-h3" style="font-size:20px;">誰才是真的快？</div><p class="wc-body" style="font-size:15px;">量距離、算時間、比速度。把自然課裡的公式，變成賽道上真的能吵起來的數據。</p></div></div></article>
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">5</span><div><div class="wc-h3" style="font-size:20px;">自走車操控基礎</div><p class="wc-body" style="font-size:15px;">前進、轉彎、停止排成一串。孩子開始知道程式是有「順序」的。</p></div></div></article>
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">6</span><div><div class="wc-h3" style="font-size:20px;">機器人會自己判斷</div><p class="wc-body" style="font-size:15px;">If／Else 與迴圈上場。車子第一次在沒有人操控的情況下閃過障礙物。</p></div></div></article>
+        <article class="wc-card"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(122,77,232,.32);">7</span><div><div class="wc-h3" style="font-size:20px;">自走車駕駛任務練習</div><p class="wc-body" style="font-size:15px;">路邊停車、倒車入庫、九十度轉彎、停等。真的很像在考駕照。</p></div></div></article>
+        <article class="wc-card" style="background:#101114;border-color:#101114;"><div style="display:flex;gap:16px;align-items:baseline;"><span class="wc-num" style="font-size:36px;color:rgba(255,255,255,.34);">8</span><div><div class="wc-h3" style="font-size:20px;color:#fff;">AI 自動駕駛入門</div><p class="wc-body" style="font-size:15px;color:#c9ccd4;">感知 → 判斷 → 行動，三件事串起來，完成一趟簡單的自動駕駛任務。</p></div></div></article>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;">
+        <div class="wc-grid wc-g2" style="align-items:center;">
+          <div>
+            <div class="wc-eyebrow" style="color:#7A4DE8;">課堂現場</div>
+            <h2 class="wc-h2" style="font-size:clamp(24px,3.4vw,40px);">一半的時間<br>孩子是趴在地上的</h2>
+            <p class="wc-body">因為車子在地上。我們的教室不是排排坐看投影片——測試的時候，孩子會蹲下來、趴下去，盯著自己的車看它到底哪裡不對。</p>
+          </div>
+          <div class="wc-grid" style="grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="wc-photo" style="aspect-ratio:1/1;"><img src="/photos/camp-2026-07/photo-13.webp" alt="孩子在賽道上測試自走車" loading="lazy"></div>
+            <div class="wc-photo" style="aspect-ratio:1/1;"><img src="/photos/camp-2026-07/photo-14.webp" alt="孩子圍在賽道旁觀察自走車" loading="lazy"></div>
+            <div class="wc-photo" style="aspect-ratio:1/1;"><img src="/photos/camp-2026-07/photo-03.webp" alt="課堂上進行程式教學" loading="lazy"></div>
+            <div class="wc-photo" style="aspect-ratio:1/1;"><img src="/photos/camp-2026-07-29/photo-01.webp" alt="營隊競賽賽道全景" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g2" style="align-items:center;">
+        <div class="wc-photo" style="aspect-ratio:4/3;background:#fff;">
+          <img src="/photos/tools/mtc-v2/real-03.webp" alt="MTC V2 自走車教具" loading="lazy" style="object-fit:contain;">
+        </div>
+        <div>
+          <div class="wc-eyebrow" style="color:#7A4DE8;">上課用的車</div>
+          <h2 class="wc-h2" style="font-size:clamp(24px,3.4vw,40px);">不是玩具車</h2>
+          <p class="wc-body">課堂使用 MTC V2 自走車：麥克納姆輪、可換感測器、可接電腦寫程式。同一台車，從第一堂的「前進三秒」用到第八堂的「自動避障」。</p>
+          <a href="/tool/mtc-v2" data-spa onClick="{{ goTools }}" style="cursor:pointer;display:inline-flex;gap:8px;align-items:center;margin-top:18px;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#111318;">看教具詳細規格 <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#101114;border-color:#101114;">
+        <div class="wc-eyebrow" style="color:#7868FF;">給家長的一段話</div>
+        <h2 class="wc-h2" style="color:#fff;font-size:clamp(23px,3.2vw,38px);">這一期不排名、不比賽</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:38em;">很多科技課一開始就把孩子推進競賽，贏的人繼續，輸的人就默默不來了。我們把這八堂設計成純養成：沒有分數、沒有名次，每一次測試失敗都只是下一次修改的理由。</p>
+        <p class="wc-body" style="color:#c9ccd4;max-width:38em;margin-top:14px;">想比賽的孩子，之後有 <a href="/brick" data-spa onClick="{{ goBrick }}" style="color:#fff;text-decoration:underline;cursor:pointer;">積木機器人 STAGE 4</a> 的競賽線可以接。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;">
+          <span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">A2 系統思考與解決問題</span>
+          <span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">A3 規劃執行與創新應變</span>
+          <span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">B2 科技資訊與媒體素養</span>
+          <span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">資E1・資E2・資E3</span>
+          <span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">科E1・科E2・科E4</span>
+          <span class="wc-chip" style="background:rgba(255,255,255,.1);color:#fff;">自然科學第三學習階段</span>
+        </div>
+        <p class="wc-body" style="color:#8B8F98;font-size:13.5px;margin-top:18px;">課綱代碼不是拿來裝飾的——每一堂的實作內容都對得上，需要詳細對照表可以跟我們索取。</p>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g3" style="margin-bottom:20px;">
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程堂數</div><div class="wc-h3" style="font-size:20px;margin:0;">8 堂／期</div><p class="wc-body" style="font-size:14px;">每堂 90 分鐘，共 12 小時</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時段</div><div class="wc-h3" style="font-size:20px;margin:0;">16:30–18:00</div><p class="wc-body" style="font-size:14px;">每週一、三、五（依開班安排）</p></div>
+        <div class="wc-card" style="border-color:rgba(122,77,232,.4);"><div class="wc-eyebrow" style="color:#7A4DE8;">課程費用</div><div class="wc-h3" style="font-size:20px;margin:0;">NT$ 4,800<span style="font-size:15px;font-weight:500;color:#8B8F98;">／期</span></div><p class="wc-body" style="font-size:14px;">早鳥優惠價 <b style="color:#7A4DE8;">NT$ 4,200</b></p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">適合對象</div><div class="wc-h3" style="font-size:20px;margin:0;">國小中高年級～國中</div><p class="wc-body" style="font-size:14px;">可依程式基礎調整難度</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">需要準備</div><div class="wc-h3" style="font-size:20px;margin:0;">自備筆電</div><p class="wc-body" style="font-size:14px;">自走車與感測器由教室提供</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課地點</div><div class="wc-h3" style="font-size:20px;margin:0;">高科大建工校區</div><p class="wc-body" style="font-size:14px;">國立高雄科技大學</p></div>
+      </div>
+      <div class="wc-cta">
+        <h2 class="wc-h2" style="color:#fff;">想讓孩子試試看？</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">告訴我們孩子的年級與程式基礎，我們會建議合適的梯次。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ===================== 3D列印 /printing ===================== -->
+  <sc-if value="{{ isPrinting }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc" style="padding-top:clamp(28px,5vw,52px);">
+      <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#8B8F98;font-family:'Space Grotesk',sans-serif;font-size:13px;display:inline-flex;gap:8px;align-items:center;">← Courses</a>
+    </section>
+
+    <section class="wc wc-hero" style="padding-top:clamp(24px,4vw,44px);">
+      <div class="wc-eyebrow" style="color:#D4491F;">3D PRINTING · 3D 列印課程</div>
+      <h1 class="wc-h1">今天在螢幕上畫的<br>下週可以拿在手上</h1>
+      <p class="wc-lede">從一個想法，到一個真的能握住的東西，中間只隔著一次列印。這是孩子第一次體會到「設計」不是空談。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span class="wc-chip">基礎班・進階班</span><span class="wc-chip">作品帶回家</span>
+        <span class="wc-chip">從建模到出圖</span><span class="wc-chip">小班教學</span>
+      </div>
+      <div class="wc-photo" style="aspect-ratio:16/8;margin-top:36px;">
+        <img src="/photos/courses/print-04.webp" alt="孩子在 3D 印表機旁觀察列印過程" loading="lazy">
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <h2 class="wc-h2">一件作品要經過的四關</h2>
+      <p class="wc-body" style="max-width:36em;margin-bottom:34px;">每一關都有可能失敗，而失敗會很具體：印歪了、支撐拆不掉、尺寸差 2mm 裝不上去。這些都是課程的一部分。</p>
+      <div class="wc-grid wc-g4">
+        <div class="wc-card"><div class="wc-num" style="font-size:44px;color:rgba(212,73,31,.3);">01</div><div class="wc-h3" style="font-size:19px;margin-top:10px;">想</div><p class="wc-body" style="font-size:15px;">先決定要做什麼、給誰用、要多大。這一步最花時間。</p></div>
+        <div class="wc-card"><div class="wc-num" style="font-size:44px;color:rgba(212,73,31,.3);">02</div><div class="wc-h3" style="font-size:19px;margin-top:10px;">畫</div><p class="wc-body" style="font-size:15px;">用 Tinkercad 建模。加、減、對齊——其實就是立體的積木。</p></div>
+        <div class="wc-card"><div class="wc-num" style="font-size:44px;color:rgba(212,73,31,.3);">03</div><div class="wc-h3" style="font-size:19px;margin-top:10px;">切</div><p class="wc-body" style="font-size:15px;">切片參數決定成敗：層高、填充、支撐。這是最像工程的一關。</p></div>
+        <div class="wc-card"><div class="wc-num" style="font-size:44px;color:rgba(212,73,31,.3);">04</div><div class="wc-h3" style="font-size:19px;margin-top:10px;">印</div><p class="wc-body" style="font-size:15px;">印出來、拆支撐、打磨、上色。拿到手上那一刻最有成就感。</p></div>
+      </div>
+      <div class="wc-grid wc-g3" style="margin-top:24px;">
+        <div class="wc-photo" style="aspect-ratio:3/2;"><img src="/photos/courses/print-02.webp" alt="學生在筆電上進行 3D 建模" loading="lazy"></div>
+        <div class="wc-photo" style="aspect-ratio:3/2;"><img src="/photos/courses/print-03.webp" alt="螢幕上的 3D 模型" loading="lazy"></div>
+        <div class="wc-photo" style="aspect-ratio:3/2;"><img src="/photos/courses/print-05.webp" alt="學生在工作檯上進行實作" loading="lazy"></div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#f5f5f8;border:none;">
+        <div class="wc-eyebrow" style="color:#D4491F;">基礎班</div>
+        <h2 class="wc-h2" style="font-size:clamp(24px,3.6vw,42px);">孩子實際做過的東西</h2>
+        <p class="wc-body" style="margin-bottom:26px;">不是每堂都做同一個範例。基礎班的題目會依孩子的興趣調整，下面是實際上過的單元。</p>
+        <div>
+          <span class="wc-chip">專屬名牌</span><span class="wc-chip">客製桌面收納盒</span>
+          <span class="wc-chip">圖像鑰匙圈</span><span class="wc-chip">AI 生圖轉 3D 模型</span>
+          <span class="wc-chip">照片轉立體公仔</span><span class="wc-chip">NFC 感應卡座</span>
+          <span class="wc-chip">桌燈設計</span><span class="wc-chip">向量圖轉浮雕</span>
+          <span class="wc-chip">模型下載與切片練習</span><span class="wc-chip">列印參數比較實驗</span>
+        </div>
+        <div class="wc-grid wc-g2" style="margin-top:30px;align-items:center;">
+          <div>
+            <div class="wc-eyebrow" style="color:#D4491F;">進階班</div>
+            <div class="wc-h3">會開始「為了裝得上去」而重畫</div>
+            <p class="wc-body">進階班做的是有配合件的東西——要對得上孔位、要塞得進去、要轉得動。這時候公差、間隙、收縮率才會變成真的要懂的事。</p>
+          </div>
+          <div class="wc-photo" style="aspect-ratio:4/3;"><img src="/photos/courses/print-01.webp" alt="學生操作圖形化程式與建模軟體" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g3">
+        <div class="wc-card"><div class="wc-h3" style="font-size:19px;">🖐️ 完全沒基礎可以嗎</div><p class="wc-body" style="font-size:15px;">可以。Tinkercad 是瀏覽器就能開的建模工具，操作邏輯接近堆積木，第一堂就能做出成品。</p></div>
+        <div class="wc-card"><div class="wc-h3" style="font-size:19px;">🎒 作品可以帶回家嗎</div><p class="wc-body" style="font-size:15px;">可以，每個單元的成品都是孩子自己的。這也是孩子最願意跟家人講課程內容的時候。</p></div>
+        <div class="wc-card"><div class="wc-h3" style="font-size:19px;">💻 要自備電腦嗎</div><p class="wc-body" style="font-size:15px;">要，請讓孩子自備筆電。建模與切片都在自己的電腦上操作，回家才能接著練習。</p></div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-grid wc-g4" style="margin-bottom:28px;">
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">適合年齡</div><div class="wc-h3" style="font-size:19px;margin:0;">國小中高年級～高中三年級</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程堂數</div><div class="wc-h3" style="font-size:19px;margin:0;">8 堂</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時間</div><div class="wc-h3" style="font-size:19px;margin:0;">歡迎 LINE 諮詢</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程費用</div><div class="wc-h3" style="font-size:19px;margin:0;">NT$ 8,000</div></div>
+      </div>
+      <div class="wc-cta">
+        <h2 class="wc-h2" style="color:#fff;">想看孩子做出第一個作品嗎？</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">告訴我們孩子的年級，我們會安排合適的班別。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ===================== AI人形機器人 /humanoid ===================== -->
+  <sc-if value="{{ isHumanoid }}" hint-placeholder-val="{{ false }}">
+  <div>
+    <section class="wc" style="padding-top:clamp(28px,5vw,52px);">
+      <a href="/courses" data-spa onClick="{{ goCourses }}" style="cursor:pointer;color:#8B8F98;font-family:'Space Grotesk',sans-serif;font-size:13px;display:inline-flex;gap:8px;align-items:center;">← Courses</a>
+    </section>
+
+    <section class="wc wc-hero" style="padding-top:clamp(24px,4vw,44px);">
+      <div class="wc-eyebrow" style="color:#1B7FA8;">AI HUMANOID ROBOT · AI 人形機器人</div>
+      <h1 class="wc-h1">AI 很聰明<br>但它有身體嗎？</h1>
+      <p class="wc-lede">孩子每天都在用 AI 聊天、畫圖、查資料。但 AI 可以自己走過來，把桌上的東西拿給你嗎？這堂課從這個問題開始。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span class="wc-chip">一小時體驗課</span><span class="wc-chip">八堂培訓營</span>
+        <span class="wc-chip">3D 列印＋程式＋機構</span><span class="wc-chip">作品可帶回</span>
+      </div>
+      <div class="wc-photo" style="aspect-ratio:16/9;margin-top:36px;background:#fff;">
+        <img src="/photos/courses/humanoid-01.webp" alt="AI 的身體：人形機器人拆解課教學圖卡" loading="lazy" style="object-fit:contain;">
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-eyebrow" style="color:#1B7FA8;">LEVEL 1 · 一小時體驗課</div>
+      <h2 class="wc-h2">人形機器人拆解課</h2>
+      <p class="wc-body" style="max-width:38em;margin-bottom:16px;">低年級也能上。一小時，用十張圖把「機器人為什麼能動」講完，中間搭配實體組裝說明與動態展示。</p>
+      <p class="wc-body" style="max-width:38em;margin-bottom:34px;">下面就是課堂上實際用的教學圖卡——我們把它整套放上來，你可以先看看孩子會學到什麼。</p>
+
+      <div class="wc-grid wc-g2">
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-02.webp" alt="你聽過 AI 嗎" loading="lazy" style="object-fit:contain;"></div><figcaption>先確認孩子已經知道的：AI 會聊天、畫圖、回答問題、找資料。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-03.webp" alt="現在很多 AI 像是只有大腦" loading="lazy" style="object-fit:contain;"></div><figcaption>然後戳破它：現在的 AI 像是只有大腦，沒有身體就走不進現實世界。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-04.webp" alt="如果 AI 走進現實世界" loading="lazy" style="object-fit:contain;"></div><figcaption>機械手臂、自走車、無人機、人形機器人——AI 的身體有很多種。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-05.webp" alt="人形機器人 Humanoid Robot" loading="lazy" style="object-fit:contain;"></div><figcaption>站立、揮手、點頭、蹲下、走路——像人一樣有身體、手腳，或動作像人的機器人。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-06.webp" alt="機器人的大腦、骨頭、肌肉" loading="lazy" style="object-fit:contain;"></div><figcaption>用人體比喻拆解：大腦是控制板、骨頭是 3D 列印件、肌肉是舵機、能量是電池。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-07.webp" alt="舵機 Servo Motor 是小肌肉" loading="lazy" style="object-fit:contain;"></div><figcaption>一般馬達像電風扇會一直轉，舵機可以停在指定位置——所以它才是「肌肉」。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-08.webp" alt="關節 Joint 是會彎的地方" loading="lazy" style="object-fit:contain;"></div><figcaption>肩膀、手肘、膝蓋、腳踝。沒有關節，機器人只是一個不能動的模型。</figcaption></figure>
+        <figure class="wc-figure"><div class="wc-photo" style="aspect-ratio:16/9;background:#fff;"><img src="/photos/courses/humanoid-09.webp" alt="自由度 DOF 是可以動的方向" loading="lazy" style="object-fit:contain;"></div><figcaption>門只有一個方向、頭可以左右轉、手臂可以抬也可以放。方向越多，動作越靈活。</figcaption></figure>
+      </div>
+
+      <figure class="wc-figure" style="margin-top:24px;">
+        <div class="wc-photo" style="aspect-ratio:21/9;background:#fff;"><img src="/photos/courses/humanoid-10.webp" alt="為什麼機器人走路很難：重心" loading="lazy" style="object-fit:contain;"></div>
+        <figcaption>最後一張是重點：走路不只是有腳就好。重心跑出腳掌外面，就會跌倒——這是整堂課孩子最有感的一段。</figcaption>
+      </figure>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-card" style="background:#101114;border-color:#101114;">
+        <div class="wc-eyebrow" style="color:#4FC3E8;">LEVEL 2 · 八堂培訓營</div>
+        <h2 class="wc-h2" style="color:#fff;">從零打造一支<br>會動的機械手臂</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:38em;margin-bottom:32px;">體驗課講的是觀念，培訓營是真的做出來。八堂課涵蓋 3D 列印、Arduino 程式、電子元件與機構組裝，最後整合成一支能執行多軸動作的機械手臂。</p>
+        <div class="wc-grid wc-g2">
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 1 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">3D 列印入門</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">打造你的專屬名牌。認識列印原理、切片設定與操作流程。</p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 2 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">3D 列印應用</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">機器人結構剖析。認識機械手臂結構與自由度，列印關鍵結構件。</p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 3 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">基礎程式入門</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">點亮你的第一行程式。認識 Arduino 開發環境，完成 LED 控制。</p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 4 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">基礎程式應用</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">學會機器人的大腦。條件判斷與控制邏輯，完成按鈕互動控制。</p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 5 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">電子元件入門</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">打造機器人的感官。認識常見電子元件，完成基礎感測控制。</p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 6 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">電子元件應用</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">打造機器人的手與腳。舵機控制原理與 PWM，完成單軸動作。</p></div>
+          <div style="background:rgba(255,255,255,.05);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 7 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">機構組裝實戰</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">機構與元件整合。完成機械手臂結構組裝，整合舵機與機構。</p></div>
+          <div style="background:rgba(79,195,232,.14);border:1px solid rgba(79,195,232,.4);border-radius:20px;padding:24px;"><div class="wc-eyebrow" style="color:#4FC3E8;">第 8 堂</div><div class="wc-h3" style="font-size:19px;color:#fff;">程式撰寫實戰</div><p class="wc-body" style="font-size:14.5px;color:#c9ccd4;">多軸控制與動作設計，完成編譯上傳，展示成果作品。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wc wc-sec" style="padding-top:0;">
+      <div class="wc-note">
+        <b>開課資訊確認中。</b>體驗課與培訓營的開課時間、費用與最低開班人數尚在調整，
+        本頁的課程內容為實際教材，資訊部分請以聯絡後的回覆為準。
+      </div>
+      <div class="wc-grid wc-g4" style="margin:26px 0 28px;">
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">體驗課</div><div class="wc-h3" style="font-size:19px;margin:0;">1 小時</div><p class="wc-body" style="font-size:14px;">低年級可上</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">常態課</div><div class="wc-h3" style="font-size:19px;margin:0;">8 堂</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">培訓營</div><div class="wc-h3" style="font-size:19px;margin:0;">8 堂</div><p class="wc-body" style="font-size:14px;">含 3D 列印與程式</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時間</div><div class="wc-h3" style="font-size:19px;margin:0;">歡迎 LINE 諮詢</div></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程費用</div><div class="wc-h3" style="font-size:19px;margin:0;">NT$ 4,800</div><p class="wc-body" style="font-size:14px;">常態課 8 堂；培訓營分開計價</p></div>
+      </div>
+      <div class="wc-cta">
+        <h2 class="wc-h2" style="color:#fff;">想先讓孩子上一小時看看？</h2>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">體驗課適合完全沒接觸過機器人的孩子，一小時就能理解「機器人為什麼會動」。</p>
+        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+
   </main>
 
   <!-- ============ 真實營隊紀錄（全站共用，出現在每一頁） ============ -->
@@ -1602,8 +2605,10 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._onResize = () => {
-      // 960：桌機導覽有 8 個項目，寬度再窄就會擠出去，因此比一般手機斷點寬一些。
-      const m = window.innerWidth < 960;
+      // 1040：桌機導覽有 9 個項目（2026-08-25 加入 COURSES）。實測 960px 時
+      // logo 與導覽之間的間距會被擠成 0，因此把斷點往上調到 1040，
+      // 讓不夠寬的視窗直接切換成漢堡選單。要再加第 10 項前請先重新量一次。
+      const m = window.innerWidth < 1040;
       if (m !== this.state.isMobile) this.setState({ isMobile: m });
     };
     this._onResize();
@@ -1690,8 +2695,9 @@ class Component extends DCLogic {
     window.addEventListener('touchend', this._onTouchEnd, { passive: true });
 
     this._reveal();
+    this._syncToolVideos();
   }
-  componentDidUpdate() { this._reveal(); }
+  componentDidUpdate() { this._reveal(); this._syncToolVideos(); }
   componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('hashchange', this._onHash); window.removeEventListener('popstate', this._onHash); clearInterval(this._photoTimer); window.removeEventListener('keydown', this._onKey); window.removeEventListener('touchstart', this._onTouchStart); window.removeEventListener('touchend', this._onTouchEnd); }
 
   _reveal() {
@@ -1718,6 +2724,18 @@ class Component extends DCLogic {
     });
   }
 
+  _syncToolVideos() {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('video[data-video-src]').forEach(video => {
+        const src = video.getAttribute('data-video-src');
+        const poster = video.getAttribute('data-video-poster');
+        if (src && video.getAttribute('src') !== src) video.setAttribute('src', src);
+        if (poster && video.getAttribute('poster') !== poster) video.setAttribute('poster', poster);
+        if (!video.hasAttribute('controls')) video.setAttribute('controls', 'controls');
+      });
+    });
+  }
+
   go(route, extra) {
     this.setState({ route, menuOpen: false, ...(extra || {}) });
     this._writeHash(route, extra);
@@ -1727,7 +2745,7 @@ class Component extends DCLogic {
   // 網址與畫面同步：讓每一頁都有可分享、可加書籤的網址，
   // 上一頁／下一頁也能正常運作。
   get routeNames() {
-    return ['home', 'tools', 'tool', 'resources', 'resource', 'projects', 'steam', 'about', 'camp', 'gallery', 'join'];
+    return ['home', 'tools', 'tool', 'resources', 'resource', 'courses', 'brick', 'minecraft', 'laser', 'car', 'printing', 'humanoid', 'projects', 'steam', 'about', 'camp', 'gallery', 'join'];
   }
 
   /** route -> 網址路徑。首頁為 /，其餘為 /camp、/tool/mtc-v2 這類真實路徑。 */
@@ -1784,6 +2802,13 @@ class Component extends DCLogic {
       join: ['高雄科技營隊講師招募與課程合作｜' + base, '與微研 WEIYAN 合作設計高雄科技營隊與 STEAM 課程，或加入營隊講師、內容企劃與影像製作團隊；常態收件。'],
       tools: ['STEAM 科技教育教具｜機器人・自走車・3D 列印｜' + base, '探索微研 WEIYAN 的機器人、MTC V2 智慧自走車、程式設計與 3D 列印科技教育教具，了解學習重點、功能特色與可用教材。'],
       resources: ['機器人・AI・3D 列印學習資源與教材｜' + base, '瀏覽微研 WEIYAN 的機器人、人工智慧、程式設計、3D 列印與工程教育課程教材、程式範例及學習資源。'],
+      courses: ['常態課程｜積木機器人・AI 自走車・3D 列印・Minecraft｜微研 WEIYAN', '微研 WEIYAN 的六條常態課程線：積木機器人、AI 自走車、雷切科學課、3D 列印、AI 人形機器人與 Minecraft 科技探索，依年齡分級，從動手實作到程式控制與競賽。'],
+      brick: ['積木機器人課程｜四階段學習路徑｜微研 WEIYAN', '從動力機械到程式控制的四階段機器人課程：SPM 動力機械、WeDo 入門程式、SPIKE Prime 程式控制與 VEX IQ 競賽實戰，國小低年級至國中依能力分級。'],
+      minecraft: ['Minecraft 科技探索課程｜紅石電路與工程思維｜微研 WEIYAN', '在 Minecraft 方塊世界裡教紅石電路、機械結構、程式邏輯與工程設計，七個主題世界各有不同的物理限制與任務挑戰。'],
+      laser: ['雷切科學課｜小怪獸科學群島與 GRID-8 案件簿｜微研 WEIYAN', '八件雷射切割教具、兩套分齡世界觀：國小 3–4 年級的小怪獸科學群島，與 5–6 年級的 GRID-8 城市科學案件簿，用探究式學習認識平衡、光、電與能源。'],
+      car: ['AI 自走車常態班｜八堂課從程式到自動駕駛｜微研 WEIYAN', '八堂 AI 自走車課程，從馬達控制、感測器、速度量測到條件判斷與 AI 自動駕駛入門。不計分、不比賽，對應 108 課綱，國小中高年級至國中。'],
+      printing: ['3D 列印課程｜建模、切片到實機列印｜微研 WEIYAN', '兒童與青少年 3D 列印課程：Tinkercad 建模、切片參數、實機列印與後處理，基礎班與進階班，作品可帶回家。'],
+      humanoid: ['AI 人形機器人課程｜體驗課與八堂培訓營｜微研 WEIYAN', '一小時體驗課帶孩子拆解「AI 的身體」：舵機、關節、自由度與重心；八堂培訓營整合 3D 列印、Arduino 程式與機構組裝，做出會動的機械手臂。'],
       projects: ['高雄科技教育專案實績｜校園課程與營隊合作｜' + base, '查看微研 WEIYAN 在高雄的校園課程、科技營隊、機器人教育與數位製造工作坊實績，以及與大學和在地學校的合作紀錄。'],
       steam: ['STEAM 教育理念與教學方法｜' + base, '微研 WEIYAN 的科技教育方法：問題導向學習（PBL）、引導式探究、設計思考、工程設計流程（EDP）、做中學、迭代式設計、運算思維與跨域 STEAM 學習，以及它們如何真正發生在課堂上。'],
       about: ['關於微研 WEIYAN｜高雄 STEAM 科技教育團隊', '認識以高雄為主要教學現場、專注於科學、工程、機器人、AI 與 STEAM 科技教育的微研 WEIYAN 團隊、理念與合作方向。'],
@@ -1857,7 +2882,7 @@ class Component extends DCLogic {
       {
         slug: 'mtc-v2', name: 'MTC V2', subtitle: 'Smart Robot Platform', category: 'ROBOTICS',
         tagline: ['Learn.', 'Build.', 'Control.'],
-        img: '/photos/tools/mtc-v2.webp', imgHint: 'MTC V2 產品照',
+        img: '/photos/tools/mtc-v2/cover.webp?v=20260826b', imgHint: 'MTC V2 自走車正面實拍照',
         desc: '為程式設計、感測器與機器人控制教育打造的模組化智慧自走車平台。',
         overview: 'MTC V2 是一台專為教學設計的模組化智慧自走車。學生從組裝、感測到程式控制，逐步建立完整的機器人系統概念，並能延伸到真實世界的自動化與工程應用。',
         gallery: [
@@ -1896,14 +2921,56 @@ class Component extends DCLogic {
         ],
       },
       {
-        slug: 'humanoid-robot', name: 'Humanoid Robot', subtitle: 'Motion & Robotics Platform', category: 'ROBOTICS',
+        slug: 'humanoid-robot', name: '九軸PANDA互動式機器人', subtitle: '9-Axis Interactive Robot', category: 'ROBOTICS',
         tagline: ['Move.', 'Balance.', 'Think.'],
-        img: '', imgHint: '人形機器人照',
-        desc: '從關節控制、伺服馬達到機器人動作邏輯，建立完整的機器人概念。',
-        overview: '人形機器人平台讓學生理解多軸關節、伺服馬達與動作序列。從單一關節控制到完整步態設計，建立機構、控制與程式整合的系統性思維。',
-        learn: [{ n: '1', en: 'SERVO', zh: '伺服控制' }, { n: '2', en: 'MOTION', zh: '動作設計' }, { n: '3', en: 'BALANCE', zh: '平衡邏輯' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
-        features: ['多軸伺服關節結構', '可編程動作序列', '姿態與平衡感測', '動作錄製與回放', '圖像化動作編輯', '進階程式控制介面'],
-        resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: 'CODE', label: '程式範例' }, { tag: '3D FILES', label: '3D 模型' }, { tag: 'MANUAL', label: '操作說明' }],
+        img: '/photos/tools/humanoid-robot/real-02.webp?v=20260826', imgHint: '9 軸人形機器人實拍照',
+        desc: '九軸 STEAM 機器人教具，結合 3D 列印外殼與豐富的感測控制能力，外型可愛、動作靈活。',
+        overview: '九軸 STEAM 機器人教具，結合了 3D 列印外殼與豐富的感測控制能力，不僅外型可愛、動作靈活，更是絕佳的 STEM／STEAM 程式教育與創客學習利器！無論是學校社團、創客教學、個人專題還是親子共學都非常適合。',
+        gallery: [
+          { src: '/photos/tools/humanoid-robot/real-01.webp?v=20260826', hint: '9 軸人形機器人正面實拍' },
+          { src: '/photos/tools/humanoid-robot/real-02.webp?v=20260826', hint: '9 軸人形機器人側面實拍' },
+          { src: '/photos/tools/humanoid-robot/real-03.webp?v=20260826', hint: '9 軸人形機器人背面實拍' },
+          { src: '/photos/tools/humanoid-robot/real-04.webp?v=20260826', hint: '9 軸人形機器人內部控制板實拍' },
+          { src: '/photos/tools/humanoid-robot/real-05.webp?v=20260826', hint: '9 軸人形機器人控制板特寫' },
+          { src: '/photos/tools/humanoid-robot/real-06.webp?v=20260826', hint: '9 軸人形機器人伺服關節特寫' },
+          { src: '/photos/tools/humanoid-robot/real-07.webp?v=20260826', hint: '9 軸人形機器人肩部關節特寫' },
+        ],
+        learn: [{ n: '1', en: 'ASSEMBLY', zh: '結構組裝' }, { n: '2', en: 'SERVO', zh: '舵機校正' }, { n: '3', en: 'WIRING', zh: '腳位接線' }, { n: '4', en: 'CONTROL', zh: '互動控制' }],
+        features: ['搭載九軸伺服馬達，能解鎖多種複雜的仿生動作與姿態', '配備超音波感測器，具備障礙物偵測與避障功能', '相容主流開源 Arduino 架構，支援圖像化積木程式或 C／C++ 撰寫', '從機構組合、線材整理到程式燒錄，培養邏輯思維與解決問題的能力', '採用 3D 列印外殼結構，自由度高，能自行改裝零件'],
+        variants: [
+          { n: '1', name: '超音波感測版', desc: '配備超音波「雙眼」感測器，讓機器人具備障礙物偵測與避障功能，賦予它自主探索環境的生命力！' },
+          { n: '2', name: '紅外線遙控版', desc: '搭載紅外線接收模組與遙控器，可以輕鬆指揮機器人做出前進、後退、轉彎等各種生動動作，適合初學遠端遙控互動。' },
+          { n: '3', name: '語音控制版', desc: '內建語音辨識控制模組，可以直接用口令聲控機器人執行指定動作，體驗最酷炫的人機互動科技！' },
+        ],
+        specs: [
+          { label: '尺寸', value: '約長 8 cm × 寬 13 cm × 高 18 cm' },
+          { label: '套件包含', value: '3D 列印結構件、ESP32 控制板及擴展板、7.4V 電池、開關、SG90 馬達、螺絲、超音波模組等' },
+          { label: '組裝說明書', value: '採電子檔方式提供' },
+        ],
+        resources: [
+          { tag: 'MANUAL', label: '45 頁組裝教學', url: '/downloads/humanoid-robot/panda-lumi-9-axis-assembly-guide.pdf' },
+          { tag: 'IR CONTROL', label: '紅外線遙控動作', section: 'tool-videos' },
+          { tag: 'ULTRASONIC', label: '超音波感測動作', section: 'tool-videos' },
+          { tag: 'VOICE', label: '語音控制動作', section: 'tool-videos' },
+        ],
+        downloadHeading: '組裝教材 · ASSEMBLY GUIDE',
+        downloadNote: '下載 45 頁圖解教材，依序完成材料確認、九顆舵機校正、身體與四肢組裝、感測器接線及全機檢查。',
+        downloads: [
+          { tag: 'PDF · 45 PAGES', label: '九軸機器人組裝教學', url: '/downloads/humanoid-robot/panda-lumi-9-axis-assembly-guide.pdf' },
+        ],
+        videoHeading: '動作示範 · MOTION DEMOS',
+        videoNote: '實機示範紅外線遙控、語音控制與超音波距離感測的互動動作。',
+        videos: [
+          { file: '/videos/tools/humanoid-robot/ir-forward.mp4', poster: '/photos/tools/humanoid-robot/videos/ir-forward.webp', label: '紅外線遙控：向前移動' },
+          { file: '/videos/tools/humanoid-robot/ir-backward.mp4', poster: '/photos/tools/humanoid-robot/videos/ir-backward.webp', label: '紅外線遙控：向後移動' },
+          { file: '/videos/tools/humanoid-robot/ir-hands.mp4', poster: '/photos/tools/humanoid-robot/videos/ir-hands.webp', label: '紅外線遙控：雙手上下揮動' },
+          { file: '/videos/tools/humanoid-robot/ir-head.mp4', poster: '/photos/tools/humanoid-robot/videos/ir-head.webp', label: '紅外線遙控：頭部左右擺動' },
+          { file: '/videos/tools/humanoid-robot/voice-forward.mp4', poster: '/photos/tools/humanoid-robot/videos/voice-forward.webp', label: '語音控制：向前移動' },
+          { file: '/videos/tools/humanoid-robot/voice-backward.mp4', poster: '/photos/tools/humanoid-robot/videos/voice-backward.webp', label: '語音控制：向後移動' },
+          { file: '/videos/tools/humanoid-robot/voice-hand.mp4', poster: '/photos/tools/humanoid-robot/videos/voice-hand.webp', label: '語音控制：擺手' },
+          { file: '/videos/tools/humanoid-robot/voice-head.mp4', poster: '/photos/tools/humanoid-robot/videos/voice-head.webp', label: '語音控制：擺頭' },
+          { file: '/videos/tools/humanoid-robot/ultrasonic-distance.mp4', poster: '/photos/tools/humanoid-robot/videos/ultrasonic-distance.webp', label: '超音波感測：距離變化動作' },
+        ],
       },
       {
         slug: '3d-printing', name: '3D Printing', subtitle: 'Digital Fabrication', category: 'MAKER',
@@ -1915,14 +2982,42 @@ class Component extends DCLogic {
         features: ['參數化建模入門', '切片軟體與參數設定', '材料與結構認識', '支撐與列印品質優化', '從草圖到成品流程', '工程原型製作應用'],
         resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: '3D FILES', label: '3D 模型' }, { tag: 'MANUAL', label: '操作說明' }, { tag: 'CODE', label: '設計檔案' }],
       },
+      {
+        slug: 'micro-injection-molding', name: 'Micro Injection Molding', subtitle: 'Manufacturing Process Model', category: 'MAKER',
+        tagline: ['Feed.', 'Mold.', 'Make.'],
+        img: '/photos/tools/micro-injection-molding/real-08.webp?v=20260826', imgHint: '微型射出機教具側面實拍',
+        desc: '把料斗、推送、模具開合與成型流程縮小到桌上，認識射出成型機構與製造思維。',
+        overview: '微型射出機教具以桌上型模型呈現射出成型設備的主要結構。學生可從料斗、注射單元、模具與開合機構之間的關係，理解塑膠製品從原料進入、充填模穴到脫模的基本流程，並觀察機構設計如何影響製程動作。',
+        gallery: [
+          { src: '/photos/tools/micro-injection-molding/real-01.webp?v=20260826', hint: '微型射出機料斗與注射單元特寫' },
+          { src: '/photos/tools/micro-injection-molding/real-02.webp?v=20260826', hint: '微型射出機前側俯視實拍' },
+          { src: '/photos/tools/micro-injection-molding/real-03.webp?v=20260826', hint: '微型射出機後側俯視實拍' },
+          { src: '/photos/tools/micro-injection-molding/real-04.webp?v=20260826', hint: '微型射出機模具區實拍' },
+          { src: '/photos/tools/micro-injection-molding/real-05.webp?v=20260826', hint: '微型射出機推送機構特寫一' },
+          { src: '/photos/tools/micro-injection-molding/real-06.webp?v=20260826', hint: '微型射出機推送機構特寫二' },
+          { src: '/photos/tools/micro-injection-molding/real-07.webp?v=20260826', hint: '微型射出機模具開合機構特寫' },
+          { src: '/photos/tools/micro-injection-molding/real-08.webp?v=20260826', hint: '微型射出機完整側面實拍' },
+        ],
+        learn: [{ n: '1', en: 'MECHANISM', zh: '機構認識' }, { n: '2', en: 'MATERIAL', zh: '材料流程' }, { n: '3', en: 'MOLDING', zh: '模具成型' }, { n: '4', en: 'PROCESS', zh: '製程思維' }],
+        features: ['桌上型射出成型機構模型', '辨識料斗、注射單元與模具區', '觀察推送與模具開合關係', '串連原料、充填、冷卻與脫模概念', '適合製造流程與機構課程', '延伸產品設計與模具討論'],
+        resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: 'PROCESS', label: '製程觀察單' }, { tag: 'MOLD', label: '模具設計' }, { tag: 'MANUAL', label: '操作說明' }],
+      },
     ].map(t => ({
       ...t,
       hasDownloads: Array.isArray(t.downloads) && t.downloads.length > 0,
       hasVideos: Array.isArray(t.videos) && t.videos.length > 0,
+      hasVariants: Array.isArray(t.variants) && t.variants.length > 0,
+      hasSpecs: Array.isArray(t.specs) && t.specs.length > 0,
+      downloadHeading: t.downloadHeading || '程式範例 · SOURCE CODE',
+      downloadNote: t.downloadNote || '點選即可下載對應的控制程式（.tb 檔）。',
+      videoHeading: t.videoHeading || '教學影片 · VIDEOS',
+      videoNote: t.videoNote || '影片由原廠東業創新提供。',
       videos: (t.videos || []).map(v => ({
         ...v,
         // 用 nocookie 網域，使用者未播放前不寫入 YouTube 追蹤 cookie
-        src: 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0',
+        src: v.file || ('https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0'),
+        isLocal: Boolean(v.file),
+        isEmbed: Boolean(v.id),
       })),
       resources: t.resources.map(r => ({
         ...r,
@@ -1930,12 +3025,15 @@ class Component extends DCLogic {
         // 不掛 click（掛了會與 href 同時生效，變成開兩次）。
         // 其餘維持站內行為：CODE 捲到本頁下載區，其他導向 /resources。
         url: r.url
+          || (r.section ? '/tool/' + t.slug : '')
           || ((Array.isArray(t.downloads) && t.downloads.length > 0 && r.tag === 'CODE')
             ? '#tool-code'
             : '/resources'),
         target: r.url ? '_blank' : '',
         rel: r.url ? 'noopener noreferrer' : '',
-        click: r.url
+        click: r.section
+          ? () => { const el = document.getElementById(r.section); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+          : r.url
           ? () => {}
           : (Array.isArray(t.downloads) && t.downloads.length > 0 && r.tag === 'CODE')
             ? () => { const el = document.getElementById('tool-code'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
@@ -2260,6 +3358,7 @@ class Component extends DCLogic {
         ],
         downloads: [{ tag: 'COURSE PDF', label: '課程教材' }, { tag: 'SOURCE CODE', label: '程式範例' }, { tag: 'WORKSHEET', label: '學習單' }] },
       { slug: 'humanoid-basic', title: '人形機器人：關節與第一個動作', level: 'BEGINNER', category: 'Robotics', duration: '40 MIN',
+        img: '/photos/tools/humanoid-robot/real-02.webp?v=20260826',
         desc: '認識伺服馬達與關節，設計並執行機器人的第一個動作序列。',
         goals: ['理解伺服馬達的角度控制', '認識多關節結構', '完成第一個動作序列'],
         materials: [{ name: 'Humanoid Robot', qty: '×1' }, { name: 'Computer', qty: '×1' }],
@@ -2303,7 +3402,9 @@ class Component extends DCLogic {
       const lv = L[r.level] || L.BEGINNER;
       return { ...r, levelBg: lv.bg, levelColor: lv.color,
         cardImgId: 'res-card-' + r.slug, heroImgId: 'res-hero-' + r.slug,
-        imgHint: r.title + ' 封面', open: () => this.go('resource', { resSlug: r.slug }) };
+        // 沒填 img 的教材給空字串，image-slot 會顯示佔位框（跟教具的行為一致）
+        img: r.img || '',
+        imgHint: r.imgHint || (r.title + ' 封面'), open: () => this.go('resource', { resSlug: r.slug }) };
     });
   }
 
@@ -2438,6 +3539,8 @@ class Component extends DCLogic {
     return {
       isHome: r === 'home', isTools: r === 'tools', isToolDetail: r === 'tool',
       isResources: r === 'resources', isResourceDetail: r === 'resource',
+      isCourses: r === 'courses', isBrick: r === 'brick', isMinecraft: r === 'minecraft', isLaser: r === 'laser',
+      isCar: r === 'car', isPrinting: r === 'printing', isHumanoid: r === 'humanoid',
       isProjects: r === 'projects', isSteam: r === 'steam', isAbout: r === 'about', isCamp: r === 'camp', isGallery: r === 'gallery',
       isJoin: r === 'join',
       isMobile: this.state.isMobile, notMobile: !this.state.isMobile,
@@ -2446,6 +3549,10 @@ class Component extends DCLogic {
       closeMenu: () => this.setState({ menuOpen: false }),
       goHome: () => this.go('home'), goTools: () => this.go('tools'),
       goResources: () => this.go('resources'), goProjects: () => this.go('projects'),
+      goCourses: () => this.go('courses'), goBrick: () => this.go('brick'),
+      goMinecraft: () => this.go('minecraft'), goLaser: () => this.go('laser'),
+      goCar: () => this.go('car'), goPrinting: () => this.go('printing'),
+      goHumanoid: () => this.go('humanoid'),
       goSteam: () => this.go('steam'),
       goAbout: () => this.go('about'), goCamp: () => this.go('camp'), goGallery: () => this.go('gallery'),
       goJoin: () => this.go('join'),

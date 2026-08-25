@@ -1776,36 +1776,67 @@ class Component extends DCLogic {
 
   /** 依頁面更新 title / description / canonical，讓各分頁在搜尋結果有各自的樣貌。 */
   _syncHead(route) {
-    const base = '微研 WEIYAN｜營隊專家';
+    const base = '微研 WEIYAN';
     const meta = {
       home: [null, null],
-      camp: ['營隊與報名｜' + base, '微研與國立高雄科技大學合辦的科技營隊梯次、課程內容、費用與報名方式。'],
-      gallery: ['營隊相簿｜' + base, '歷屆營隊的現場實拍紀錄，真實課堂、實作與競賽照片。'],
-      join: ['加入我們｜' + base, '徵求營隊講師、剪輯師與合作夥伴，把你的專長變成一堂營隊課程。'],
-      tools: ['教具｜' + base, 'MTC V2 自走車等機器人與科技教育教具。'],
-      resources: ['教材｜' + base, '機器人、程式與 3D 列印課程教材與程式範例下載。'],
-      projects: ['實績｜' + base, '微研在真實教學現場的營隊、課程與學校合作實績。'],
-      steam: ['STEAM 教育理念｜' + base, '微研的科技教育方法：問題導向學習、引導式探究、設計思考、工程設計流程、做中學、迭代式設計、運算思維與跨域 STEAM 學習。'],
-      about: ['關於微研｜' + base, '微研專注於科學、工程與科技教育，是營隊專家。'],
+      camp: ['高雄科技營隊與夏令營｜機器人・AI・3D 列印｜' + base, '查看微研 WEIYAN 與國立高雄科技大學及在地學校合作辦理的高雄科技營隊、夏令營課程、適合年齡、日期、費用與報名資訊。'],
+      gallery: ['高雄科技營隊活動相簿｜真實課堂與學習成果｜' + base, '瀏覽微研 WEIYAN 在高雄辦理的科技營隊、機器人與實作課程真實活動照片、團隊挑戰及學生學習成果。'],
+      join: ['高雄科技營隊講師招募與課程合作｜' + base, '與微研 WEIYAN 合作設計高雄科技營隊與 STEAM 課程，或加入營隊講師、內容企劃與影像製作團隊；常態收件。'],
+      tools: ['STEAM 科技教育教具｜機器人・自走車・3D 列印｜' + base, '探索微研 WEIYAN 的機器人、MTC V2 智慧自走車、程式設計與 3D 列印科技教育教具，了解學習重點、功能特色與可用教材。'],
+      resources: ['機器人・AI・3D 列印學習資源與教材｜' + base, '瀏覽微研 WEIYAN 的機器人、人工智慧、程式設計、3D 列印與工程教育課程教材、程式範例及學習資源。'],
+      projects: ['高雄科技教育專案實績｜校園課程與營隊合作｜' + base, '查看微研 WEIYAN 在高雄的校園課程、科技營隊、機器人教育與數位製造工作坊實績，以及與大學和在地學校的合作紀錄。'],
+      steam: ['STEAM 教育理念與教學方法｜' + base, '微研 WEIYAN 的科技教育方法：問題導向學習（PBL）、引導式探究、設計思考、工程設計流程（EDP）、做中學、迭代式設計、運算思維與跨域 STEAM 學習，以及它們如何真正發生在課堂上。'],
+      about: ['關於微研 WEIYAN｜高雄 STEAM 科技教育團隊', '認識以高雄為主要教學現場、專注於科學、工程、機器人、AI 與 STEAM 科技教育的微研 WEIYAN 團隊、理念與合作方向。'],
     };
     // 教具／教材的細頁也要有自己的 title、description 與 canonical，
     // 否則 Google 會把它們當成首頁的重複內容而不收錄。
     const detailSlug = (location.pathname.split('/')[2] || '').trim();
     if (route === 'tool') {
       const dt = this.tools.find((x) => x.slug === detailSlug);
-      if (dt) meta.tool = [dt.name + '｜教具｜' + base, dt.desc || dt.subtitle || ''];
+      const toolSeoNames = {
+        'mtc-v2': 'MTC V2 智慧自走車',
+        'humanoid-robot': '人形機器人',
+        '3d-printing': '3D 列印與數位製造',
+      };
+      if (dt) {
+        const name = toolSeoNames[detailSlug] || dt.name;
+        meta.tool = [name + '｜科技教育教具｜' + base, '了解微研 WEIYAN 的' + name + '教具、學習重點、功能特色與可用資源。'];
+      }
     } else if (route === 'resource') {
       const dr = this._rawResources().find((x) => x.slug === detailSlug);
-      if (dr) meta.resource = [dr.title + '｜教材｜' + base, dr.desc || ''];
+      const resourceSeoNames = {
+        'mtc-forward': 'MTC V2 自走車前進控制',
+        'mtc-sensor': 'MTC V2 感測器應用',
+        'humanoid-basic': '人形機器人基礎控制',
+        'ai-intro': '人工智慧入門',
+        '3d-first-model': '第一個 3D 模型',
+        'eng-structure': '工程結構與穩定',
+      };
+      if (dr) {
+        const name = resourceSeoNames[detailSlug] || dr.title;
+        meta.resource = [name + '｜學習資源｜' + base, '查看微研 WEIYAN 的' + name + '課程內容、學習目標與教材資源。'];
+      }
     }
     const m = meta[route];
     if (!m) return;
     const origTitle = this._origTitle || (this._origTitle = document.title);
     const origDesc = this._origDesc || (this._origDesc =
       (document.querySelector('meta[name="description"]') || {}).content || '');
-    document.title = m[0] || origTitle;
+    const nextTitle = m[0] || origTitle;
+    const nextDesc = m[1] || origDesc;
+    document.title = nextTitle;
     const d = document.querySelector('meta[name="description"]');
-    if (d) d.content = m[1] || origDesc;
+    if (d) d.content = nextDesc;
+    const shareMeta = [
+      ['meta[property="og:title"]', nextTitle],
+      ['meta[property="og:description"]', nextDesc],
+      ['meta[name="twitter:title"]', nextTitle],
+      ['meta[name="twitter:description"]', nextDesc],
+    ];
+    shareMeta.forEach(([selector, value]) => {
+      const el = document.querySelector(selector);
+      if (el) el.content = value;
+    });
     const canonicalUrl = 'https://weiyan.designjarvis.com' +
       ((route === 'tool' || route === 'resource') && detailSlug
         ? '/' + route + '/' + detailSlug

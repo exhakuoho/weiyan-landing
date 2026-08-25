@@ -101,6 +101,11 @@ console.log('\n【SEO 與 AI 搜尋：每頁語意、分享資訊與非 JS 摘�
 
   const robots = await (await get(w, env, '/robots.txt')).text();
   check('robots 明確允許 OAI-SearchBot', robots.includes('User-agent: OAI-SearchBot'), true);
+  check('前端站內切換沿用營隊 SEO 標題',
+    INDEX.includes("camp: ['高雄科技營隊與夏令營｜機器人・AI・3D 列印｜' + base"), true);
+  check('前端站內切換同步 Open Graph 與 Twitter',
+    INDEX.includes("['meta[property=\"og:title\"]', nextTitle]") &&
+      INDEX.includes("['meta[name=\"twitter:title\"]', nextTitle]"), true);
 }
 
 // ---------------------------------------------------------------------------

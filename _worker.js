@@ -74,6 +74,7 @@ const TOOL_NAMES = {
   'mtc-v2': 'MTC V2 智慧自走車',
   'humanoid-robot': '人形機器人',
   '3d-printing': '3D 列印與數位製造',
+  'micro-injection-molding': '微型射出機',
 };
 
 const RESOURCE_NAMES = {

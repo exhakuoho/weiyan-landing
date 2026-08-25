@@ -117,8 +117,8 @@ console.log('\n【sitemap 動態產生】');
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
   // 頁面 16（/、tools、resources、courses、brick、minecraft、laser、
   //          car、printing、humanoid、projects、steam、about、camp、gallery、join）
-  // ＋教具 3 ＋教材 6 = 25
-  check('網址數與站台結構一致', locs.length, 25);
+  // ＋教具 4 ＋教材 6 = 26
+  check('網址數與站台結構一致', locs.length, 26);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',

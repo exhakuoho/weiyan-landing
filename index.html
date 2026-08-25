@@ -1660,8 +1660,9 @@ class Component extends DCLogic {
     window.addEventListener('touchend', this._onTouchEnd, { passive: true });
 
     this._reveal();
+    this._syncResourceImages();
   }
-  componentDidUpdate() { this._reveal(); }
+  componentDidUpdate() { this._reveal(); this._syncResourceImages(); }
   componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('hashchange', this._onHash); window.removeEventListener('popstate', this._onHash); clearInterval(this._photoTimer); window.removeEventListener('keydown', this._onKey); window.removeEventListener('touchstart', this._onTouchStart); window.removeEventListener('touchend', this._onTouchEnd); }
 
   _reveal() {
@@ -1684,6 +1685,16 @@ class Component extends DCLogic {
         el.style.transform = 'translateY(28px)';
         el.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)';
         this._io.observe(el);
+      });
+    });
+  }
+
+  _syncResourceImages() {
+    requestAnimationFrame(() => {
+      const src = '/photos/tools/humanoid-robot/real-02.webp?v=20260826';
+      ['res-card-humanoid-basic', 'res-hero-humanoid-basic'].forEach(id => {
+        const slot = document.getElementById(id);
+        if (slot && slot.getAttribute('src') !== src) slot.setAttribute('src', src);
       });
     });
   }
@@ -1796,7 +1807,7 @@ class Component extends DCLogic {
       {
         slug: 'mtc-v2', name: 'MTC V2', subtitle: 'Smart Robot Platform', category: 'ROBOTICS',
         tagline: ['Learn.', 'Build.', 'Control.'],
-        img: '/photos/tools/mtc-v2.webp', imgHint: 'MTC V2 產品照',
+        img: '/photos/tools/mtc-v2/cover.webp?v=20260826', imgHint: 'MTC V2 自走車實拍照',
         desc: '為程式設計、感測器與機器人控制教育打造的模組化智慧自走車平台。',
         overview: 'MTC V2 是一台專為教學設計的模組化智慧自走車。學生從組裝、感測到程式控制，逐步建立完整的機器人系統概念，並能延伸到真實世界的自動化與工程應用。',
         gallery: [
@@ -1837,9 +1848,18 @@ class Component extends DCLogic {
       {
         slug: 'humanoid-robot', name: 'Humanoid Robot', subtitle: 'Motion & Robotics Platform', category: 'ROBOTICS',
         tagline: ['Move.', 'Balance.', 'Think.'],
-        img: '', imgHint: '人形機器人照',
+        img: '/photos/tools/humanoid-robot/real-02.webp?v=20260826', imgHint: '9 軸人形機器人實拍照',
         desc: '從關節控制、伺服馬達到機器人動作邏輯，建立完整的機器人概念。',
         overview: '人形機器人平台讓學生理解多軸關節、伺服馬達與動作序列。從單一關節控制到完整步態設計，建立機構、控制與程式整合的系統性思維。',
+        gallery: [
+          { src: '/photos/tools/humanoid-robot/real-01.webp?v=20260826', hint: '9 軸人形機器人正面實拍' },
+          { src: '/photos/tools/humanoid-robot/real-02.webp?v=20260826', hint: '9 軸人形機器人側面實拍' },
+          { src: '/photos/tools/humanoid-robot/real-03.webp?v=20260826', hint: '9 軸人形機器人背面實拍' },
+          { src: '/photos/tools/humanoid-robot/real-04.webp?v=20260826', hint: '9 軸人形機器人內部控制板實拍' },
+          { src: '/photos/tools/humanoid-robot/real-05.webp?v=20260826', hint: '9 軸人形機器人控制板特寫' },
+          { src: '/photos/tools/humanoid-robot/real-06.webp?v=20260826', hint: '9 軸人形機器人伺服關節特寫' },
+          { src: '/photos/tools/humanoid-robot/real-07.webp?v=20260826', hint: '9 軸人形機器人肩部關節特寫' },
+        ],
         learn: [{ n: '1', en: 'SERVO', zh: '伺服控制' }, { n: '2', en: 'MOTION', zh: '動作設計' }, { n: '3', en: 'BALANCE', zh: '平衡邏輯' }, { n: '4', en: 'ENGINEERING', zh: '工程思維' }],
         features: ['多軸伺服關節結構', '可編程動作序列', '姿態與平衡感測', '動作錄製與回放', '圖像化動作編輯', '進階程式控制介面'],
         resources: [{ tag: 'COURSE', label: '課程教材' }, { tag: 'CODE', label: '程式範例' }, { tag: '3D FILES', label: '3D 模型' }, { tag: 'MANUAL', label: '操作說明' }],
@@ -2199,6 +2219,7 @@ class Component extends DCLogic {
         ],
         downloads: [{ tag: 'COURSE PDF', label: '課程教材' }, { tag: 'SOURCE CODE', label: '程式範例' }, { tag: 'WORKSHEET', label: '學習單' }] },
       { slug: 'humanoid-basic', title: '人形機器人：關節與第一個動作', level: 'BEGINNER', category: 'Robotics', duration: '40 MIN',
+        img: '/photos/tools/humanoid-robot/real-02.webp?v=20260826',
         desc: '認識伺服馬達與關節，設計並執行機器人的第一個動作序列。',
         goals: ['理解伺服馬達的角度控制', '認識多關節結構', '完成第一個動作序列'],
         materials: [{ name: 'Humanoid Robot', qty: '×1' }, { name: 'Computer', qty: '×1' }],

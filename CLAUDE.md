@@ -31,6 +31,7 @@ node _worker.test.mjs    # 39 項，全過才動手
 | `_worker.js` | Cloudflare Worker。依路由改寫 meta、產生 JSON-LD／非 JS 摘要與 sitemap、處理轉址及 404 |
 | `_worker.test.mjs` | worker 的離線測試，`node _worker.test.mjs` |
 | `photos/` | 相簿與教具照片，WebP |
+| `photos/brand/weiyan-logo.jpg` | 微研原始 Logo；頁首與手機選單以 CSS 裁出上方星球圖形，保留原檔不另做變形 |
 | `downloads/` | 可下載的程式範例 `.tb` |
 | `sitemap.xml` | **退路用的靜態檔**。正常情況由 worker 動態產生並覆蓋它 |
 | `robots.txt` | 允許全部，並宣告 sitemap |
@@ -83,6 +84,7 @@ logo 與導覽之間的間距被擠成 **0px**，所以同時做了兩件事—�
 2026-08-29 頁首品牌區改為 Logo ＋「微研 Weiyan」＋「白空科研有限公司」後寬度增加，
 斷點再提高為 **`< 1120`**。實際預覽在 1120px 量得品牌與導覽間距 139px，1119px 會切換為漢堡選單。
 修改品牌文字時，頁首與手機全螢幕選單的品牌區要一起更新。
+兩處使用同一張 `photos/brand/weiyan-logo.jpg`，並以相同的尺寸與定位顯示星球圖形；若未來更換不同構圖的 Logo，兩處裁切定位也要一起調整。
 
 **要加第 10 個導覽項目前，先在 1120px 量一次**：
 

@@ -221,9 +221,18 @@
 <div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;">
 
   <header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(247,248,250,.82);border-bottom:1px solid rgba(17,19,24,.07);">
-    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:72px;display:flex;align-items:center;justify-content:space-between;">
-      <a href="/" data-spa onClick="{{ goHome }}" style="cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:.22em;color:#111318;display:flex;align-items:center;gap:10px;">
-        <span style="width:9px;height:9px;border-radius:50%;background:#7868FF;display:inline-block;box-shadow:0 0 0 4px rgba(120,104,255,.16);"></span>WEIYAN
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:78px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="/" data-spa onClick="{{ goHome }}" aria-label="微研 Weiyan 首頁" style="cursor:pointer;color:#111318;display:flex;align-items:center;gap:11px;">
+        <span aria-hidden="true" style="width:40px;height:40px;display:block;flex:0 0 auto;border-radius:11px;background:#fff;box-shadow:0 0 0 1px rgba(17,19,24,.06);">
+          <img src="/photos/brand/weiyan-symbol-160.webp" alt="" width="40" height="40" style="width:40px;height:40px;display:block;object-fit:contain;border-radius:11px;">
+        </span>
+        <span style="display:flex;flex-direction:column;line-height:1;">
+          <span style="display:flex;align-items:baseline;gap:6px;white-space:nowrap;">
+            <span style="font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:18px;letter-spacing:.08em;">微研</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;">Weiyan</span>
+          </span>
+          <span style="font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:9.5px;line-height:1.2;letter-spacing:.08em;color:#8B8F98;margin-top:5px;white-space:nowrap;">白空科研有限公司</span>
+        </span>
       </a>
       <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
         <nav style="display:flex;align-items:center;gap:24px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;">
@@ -251,8 +260,16 @@
     <!-- overflow-y:auto 是必要的：選單有 9 個項目，機身較短的手機（例如 667px 高）
          放不下，沒有這行最後一項會被切掉又滑不到。 -->
     <div style="position:fixed;inset:0;z-index:60;background:#101114;color:#fff;display:flex;flex-direction:column;padding:clamp(20px,6vw,48px);overflow-y:auto;">
-      <div style="display:flex;justify-content:space-between;align-items:center;height:32px;">
-        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.22em;font-size:20px;">WEIYAN</span>
+      <div style="display:flex;justify-content:space-between;align-items:center;min-height:38px;">
+        <span style="display:flex;align-items:center;gap:11px;">
+          <span aria-hidden="true" style="width:40px;height:40px;display:block;flex:0 0 auto;border-radius:11px;background:#fff;">
+            <img src="/photos/brand/weiyan-symbol-160.webp" alt="" width="40" height="40" style="width:40px;height:40px;display:block;object-fit:contain;border-radius:11px;">
+          </span>
+          <span style="display:flex;flex-direction:column;line-height:1;">
+            <span style="display:flex;align-items:baseline;gap:6px;"><span style="font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:19px;letter-spacing:.08em;">微研</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:.03em;">Weiyan</span></span>
+            <span style="font-family:'Noto Sans TC',sans-serif;font-size:9.5px;line-height:1.2;letter-spacing:.08em;color:#8B8F98;margin-top:5px;">白空科研有限公司</span>
+          </span>
+        </span>
         <button onClick="{{ closeMenu }}" aria-label="Close" style="border:none;background:none;cursor:pointer;color:#fff;font-size:28px;line-height:1;">×</button>
       </div>
       <nav style="margin-top:10vh;display:flex;flex-direction:column;gap:24px;font-family:'Space Grotesk',sans-serif;">
@@ -2555,7 +2572,7 @@
     <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,90px) clamp(20px,5vw,48px) clamp(36px,5vw,48px);">
       <div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;">
         <div style="flex:1 1 300px;min-width:240px;">
-          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:.2em;margin-bottom:16px;">WEIYAN</div>
+          <div style="font-family:'Noto Sans TC','Space Grotesk',sans-serif;font-weight:700;font-size:26px;letter-spacing:.08em;margin-bottom:16px;">微研 <span style="font-family:'Space Grotesk',sans-serif;font-size:21px;letter-spacing:.04em;">Weiyan</span></div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.2em;color:#8B8F98;">SCIENCE · ENGINEERING · EDUCATION · <span style="color:#7868FF;">CAMP EXPERTS</span></div>
           <div style="font-size:13px;color:#d3d5da;margin-top:12px;">營隊專家｜與國立高雄科技大學及在地學校合作辦理科技營隊</div>
           <div style="font-size:14px;color:#8B8F98;margin-top:28px;">Kaohsiung, Taiwan</div>
@@ -2590,8 +2607,9 @@
           </div>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,.1);margin-top:clamp(40px,6vw,72px);padding-top:28px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:'Space Grotesk',sans-serif;font-size:12px;color:#585b63;letter-spacing:.08em;">
-        <span>© 2026 WEIYAN</span>
+      <div style="border-top:1px solid rgba(255,255,255,.1);margin-top:clamp(40px,6vw,72px);padding-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-size:12px;color:#585b63;letter-spacing:.06em;">
+        <span>© 2026 微研 Weiyan</span>
+        <span style="color:#8B8F98;">營運單位：白空科研有限公司｜統一編號：00188991</span>
         <span>Explore · Build · Discover</span>
       </div>
     </div>
@@ -2605,10 +2623,10 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._onResize = () => {
-      // 1040：桌機導覽有 9 個項目（2026-08-25 加入 COURSES）。實測 960px 時
-      // logo 與導覽之間的間距會被擠成 0，因此把斷點往上調到 1040，
-      // 讓不夠寬的視窗直接切換成漢堡選單。要再加第 10 項前請先重新量一次。
-      const m = window.innerWidth < 1040;
+      // 桌機導覽有 9 個項目（2026-08-25 加入 COURSES）。
+      // 2026-08-29 品牌區改為「Logo ＋微研 Weiyan ＋營運公司」後，斷點提高到 1120。
+      // 實際預覽在 1120px 量得品牌與導覽間距 139px；再加導覽項目前請重測。
+      const m = window.innerWidth < 1120;
       if (m !== this.state.isMobile) this.setState({ isMobile: m });
     };
     this._onResize();

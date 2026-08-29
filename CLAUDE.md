@@ -18,7 +18,7 @@
 
 ```bash
 git pull                 # 可能有其他 session 或 GPT 分支推過東西
-node _worker.test.mjs    # 39 項，全過才動手
+node _worker.test.mjs    # 75 項，全過才動手
 ```
 
 第三件：確認你要改的東西屬於哪一類（見下方「改東西要動哪裡」）。
@@ -31,6 +31,9 @@ node _worker.test.mjs    # 39 項，全過才動手
 | `_worker.js` | Cloudflare Worker。依路由改寫 meta、產生 JSON-LD／非 JS 摘要與 sitemap、處理轉址及 404 |
 | `_worker.test.mjs` | worker 的離線測試，`node _worker.test.mjs` |
 | `photos/` | 相簿與教具照片，WebP |
+| `photos/brand/weiyan-logo.jpg` | 微研原始完整 Logo，包含品牌文字與標語；保留作為原始素材 |
+| `photos/brand/weiyan-symbol.png` | 純圖標版本的**原始高解析素材**（1254×1254，882 KB）。已移除下方文字，完整保留星球、軌道與星星，不做裁切。**頁面不引用它**，換圖時從這張重新壓 |
+| `photos/brand/weiyan-symbol-160.webp` | **頁首與手機選單實際使用的圖檔**（160×160，4 KB）。顯示尺寸只有 40×40，換圖一定要壓過再放——直接掛原始 PNG 等於每個訪客白下載 882 KB |
 | `downloads/` | 可下載的程式範例 `.tb` |
 | `sitemap.xml` | **退路用的靜態檔**。正常情況由 worker 動態產生並覆蓋它 |
 | `robots.txt` | 允許全部，並宣告 sitemap |
@@ -80,7 +83,12 @@ logo 與導覽之間的間距被擠成 **0px**，所以同時做了兩件事—�
 `gap` 從 28px 縮到 24px，斷點從 `innerWidth < 960` 調到 **`< 1040`**。
 1040px 時量到的餘裕是 88px。
 
-**要加第 10 個導覽項目前，先在 1040px 量一次**：
+2026-08-29 頁首品牌區改為 Logo ＋「微研 Weiyan」＋「白空科研有限公司」後寬度增加，
+斷點再提高為 **`< 1120`**。實際預覽在 1120px 量得品牌與導覽間距 139px，1119px 會切換為漢堡選單。
+修改品牌文字時，頁首與手機全螢幕選單的品牌區要一起更新。
+兩處使用同一張 `photos/brand/weiyan-symbol-160.webp`，都以 `object-fit:contain` 完整顯示，不做 CSS 裁切；未來更換圖標時，頁首與手機選單要一起更新。
+
+**要加第 10 個導覽項目前，先在 1120px 量一次**：
 
 ```js
 // 在 DevTools console 執行，gap 至少要留 40px

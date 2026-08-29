@@ -274,6 +274,7 @@ function structuredData(pathname, meta, site) {
       '@id': organizationId,
       name: '微研 WEIYAN',
       alternateName: ['微研', 'WEIYAN', 'weiyan'],
+      legalName: '白空科研有限公司',
       url: CANONICAL_ORIGIN + '/',
       logo: {
         '@type': 'ImageObject',

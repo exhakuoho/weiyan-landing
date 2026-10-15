@@ -889,6 +889,7 @@
                 <a href="{{ c.url }}" target="_blank" rel="noopener" aria-label="open camp info" style="flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,19,24,.14);color:#111318;font-size:17px;cursor:pointer;">&#8599;</a>
               </div>
 
+              <sc-if value="{{ c.hasSeats }}">
               <div style="margin-top:26px;">
                 <div style="height:4px;border-radius:99px;background:rgba(17,19,24,.08);overflow:hidden;">
                   <div style="width:{{ c.pct }};height:100%;background:#7868FF;border-radius:99px;"></div>
@@ -897,6 +898,7 @@
                   <span>ENROLLED {{ c.taken }} / {{ c.total }}</span><span>{{ c.seatsNote }}</span>
                 </div>
               </div>
+              </sc-if>
 
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:26px;border:1px solid rgba(17,19,24,.09);border-radius:14px;overflow:hidden;">
                 <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.09);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">DATE</span><b style="font-size:13px;font-weight:600;">{{ c.date }}</b></div>
@@ -963,6 +965,7 @@
                 <a href="{{ c.url }}" target="_blank" rel="noopener" aria-label="open camp info" style="flex-shrink:0;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,19,24,.14);color:#111318;font-size:17px;cursor:pointer;">&#8599;</a>
               </div>
 
+              <sc-if value="{{ c.hasSeats }}">
               <div style="margin-top:26px;">
                 <div style="height:4px;border-radius:99px;background:rgba(17,19,24,.08);overflow:hidden;">
                   <div style="width:{{ c.pct }};height:100%;background:#c3c5cc;border-radius:99px;"></div>
@@ -971,6 +974,7 @@
                   <span>ENROLLED {{ c.taken }} / {{ c.total }}</span><span>{{ c.seatsNote }}</span>
                 </div>
               </div>
+              </sc-if>
 
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:26px;border:1px solid rgba(17,19,24,.08);border-radius:14px;overflow:hidden;">
                 <div style="padding:16px 18px;border-right:1px solid rgba(17,19,24,.08);"><span style="display:block;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;color:#a9acb4;margin-bottom:6px;">DATE</span><b style="font-size:13px;font-weight:600;">{{ c.date }}</b></div>
@@ -2349,7 +2353,7 @@
     <section class="wc wc-sec" style="padding-top:0;">
       <div class="wc-grid wc-g3" style="margin-bottom:20px;">
         <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">課程堂數</div><div class="wc-h3" style="font-size:20px;margin:0;">8 堂／期</div><p class="wc-body" style="font-size:14px;">每堂 90 分鐘，共 12 小時</p></div>
-        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時段</div><div class="wc-h3" style="font-size:20px;margin:0;">16:30–18:00</div><p class="wc-body" style="font-size:14px;">每週一、三、五（依開班安排）</p></div>
+        <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">上課時段</div><div class="wc-h3" style="font-size:20px;margin:0;">每週三 17:00–18:30</div><p class="wc-body" style="font-size:14px;">開班日另行公告</p></div>
         <div class="wc-card" style="border-color:rgba(122,77,232,.4);"><div class="wc-eyebrow" style="color:#7A4DE8;">課程費用</div><div class="wc-h3" style="font-size:20px;margin:0;">NT$ 4,800<span style="font-size:15px;font-weight:500;color:#8B8F98;">／期</span></div><p class="wc-body" style="font-size:14px;">早鳥優惠價 <b style="color:#7A4DE8;">NT$ 4,200</b></p></div>
         <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">適合對象</div><div class="wc-h3" style="font-size:20px;margin:0;">國小中高年級～國中</div><p class="wc-body" style="font-size:14px;">可依程式基礎調整難度</p></div>
         <div class="wc-card"><div class="wc-eyebrow" style="color:#8B8F98;">需要準備</div><div class="wc-h3" style="font-size:20px;margin:0;">自備筆電</div><p class="wc-body" style="font-size:14px;">自走車與感測器由教室提供</p></div>
@@ -2357,8 +2361,12 @@
       </div>
       <div class="wc-cta">
         <h2 class="wc-h2" style="color:#fff;">想讓孩子試試看？</h2>
-        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">告訴我們孩子的年級與程式基礎，我們會建議合適的梯次。</p>
-        <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+        <p class="wc-body" style="color:#c9ccd4;max-width:26em;margin:0 auto 30px;">告訴我們孩子的年級與程式基礎，我們會建議合適的梯次。也可以直接線上報名，或先試聽 1 堂。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <a href="https://weiyan-aicar-2026.pages.dev/#register" target="_blank" rel="noopener" class="wc-btn" style="background:#F7B21A;color:#111318;">線上報名・試聽 <span>→</span></a>
+          <a href="https://weiyan-aicar-2026.pages.dev/story" target="_blank" rel="noopener" class="wc-btn" style="background:rgba(255,255,255,.12);color:#fff;">《曙城重啟》課程世界觀 <span>→</span></a>
+          <a href="https://lin.ee/rZW93KN" target="_blank" rel="noopener" class="wc-btn" style="background:#7868FF;color:#fff;">用 LINE 諮詢 <span>→</span></a>
+        </div>
       </div>
     </section>
   </div>
@@ -3084,14 +3092,36 @@ class Component extends DCLogic {
   _rawCamps() {
     return [
       {
-        slug: 'mooncake-2026', no: 'CAMP 05', status: 'OPEN', isOpen: true,
+        slug: 'aicar-weekly-2026', no: 'CLASS 01', status: 'OPEN', isOpen: true,
+        en: 'AI ROBOT CAR WEEKLY CLASS', zh: 'AI 自走車常態班｜小小駕訓班',
+        sum: '每週三一堂、一期 8 堂的常態班。以《曙城重啟》故事串起 8 個城市任務，用積木式程式學會馬達、感測器與條件判斷，最後完成 AI 自動駕駛入門。不計分、不比賽，零基礎可報名，也可以先試聽 1 堂。',
+        topics: ['自走車', 'AI 程式'], ages: ['國小', '國中'],
+        date: '每週三・一期 8 堂（開班日另行公告）', time: '17:00 — 18:30',
+        place: '國立高雄科技大學 建工校區', forWho: '國小中高年級至國中（零基礎可）',
+        fee: 'NT$4,800／8 堂（11/30 前早鳥 NT$4,200）', note: '報名中｜可先試聽 1 堂', days: '8 WEEKS',
+        taken: 0, total: 0, seatsNote: '',
+        url: 'https://weiyan-aicar-2026.pages.dev/', cta: '查看課程網站與世界觀',
+        regUrl: 'https://weiyan-aicar-2026.pages.dev/#register',
+        schedule: [
+          { d: 'WEEK 01', t: '甦醒｜機器人為什麼會動？', items: ['電池、控制器與馬達', '前進／停止／後退'] },
+          { d: 'WEEK 02', t: '歪掉的補給線｜車子為什麼會跑歪？', items: ['摩擦力與馬達差速', '參數校正'] },
+          { d: 'WEEK 03', t: '霧中的回聲眼｜機器人長眼睛了', items: ['距離感測器', '輸入 → 處理 → 輸出'] },
+          { d: 'WEEK 04', t: '嵐與鐵的爭論｜誰才是真的快？', items: ['距離、時間與速度', '量測與資料比較'] },
+          { d: 'WEEK 05', t: '一張紙上的路線｜操控基礎', items: ['問題拆解', '循序與演算法'] },
+          { d: 'WEEK 06', t: '落石雨中的判斷｜自己做判斷', items: ['如果／否則與迴圈', '簡易避障'] },
+          { d: 'WEEK 07', t: '交通恢復日｜駕駛任務練習', items: ['路邊停車、倒車入庫', '90° 轉彎與停等'] },
+          { d: 'WEEK 08', t: '第二次風暴｜AI 自動駕駛入門', items: ['感知 → 判斷 → 行動', '自主巡航'] },
+        ],
+      },
+      {
+        slug: 'mooncake-2026', no: 'CAMP 05', status: 'CLOSED', isOpen: false,
         en: 'NAME MOONCAKE WORKSHOP', zh: '3D 客製月餅工作坊',
         sum: '中秋連假限定。現場畫下自己的名字或圖案，3D 列印成專屬月餅模，再親手壓出 4 顆造型月餅；禮盒與模具一起帶回家。',
         topics: ['3D 列印'], ages: ['國小'],
         date: '2026.09.25 — 09.28', time: '上午 09:00 — 12:00／下午 13:00 — 16:00',
         place: '國立高雄科技大學 建工校區', forWho: '國小二年級至六年級',
-        fee: 'NT$650', note: '中秋連假四天｜每日上、下午各 1 梯', days: '3 HRS',
-        taken: 0, total: 120, seatsNote: '每場限 15 組，額滿為止',
+        fee: 'NT$650', note: '已結束｜中秋連假四天', days: '3 HRS',
+        taken: 0, total: 120, hideSeats: true, seatsNote: '已結束',
         url: 'https://2026mooncake.designjarvis.com/', cta: '查看活動網站',
         regUrl: 'https://2026mooncake.designjarvis.com/#register',
         schedule: [
@@ -3528,7 +3558,8 @@ class Component extends DCLogic {
 
     const decorate = (c) => ({
       ...c,
-      pct: Math.round((c.taken / c.total) * 100) + '%',
+      pct: c.total ? Math.round((c.taken / c.total) * 100) + '%' : '0%',
+      hasSeats: c.total > 0 && !c.hideSeats,
       expanded: this.state.campExpanded === c.slug,
       toggle: () => this.setState({ campExpanded: this.state.campExpanded === c.slug ? '' : c.slug }),
     });

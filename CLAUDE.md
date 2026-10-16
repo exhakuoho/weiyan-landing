@@ -152,8 +152,13 @@ Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
 | `/minecraft` | 未定案 | 未定案 | — | 頁面上有「課程資訊整理中」說明，這是刻意的，不是漏填 |
 
 六個課程頁的 CTA 按鈕已全部改為 LINE（`https://lin.ee/rZW93KN`），
-不再用 Email。站上 LINE 連結共 8 處（6 個課程頁 CTA ＋ `/camp` 按鈕 ＋ footer），
+不再用 Email。站上 LINE 連結共 9 處（6 個課程頁 CTA ＋ `/laser` 頂部報名區 ＋ `/camp` 按鈕 ＋ footer），
 **全部是同一個網址**，換帳號時要一起換，不要只改 footer。
+
+`/laser` 標題下方有置頂「報名中」區塊（2026-10-17 加），兩個入口連到
+`weiyan-laser-2026.pages.dev/?style=cute#register`（3–4 年級）與 `?style=tech#register`（5–6 年級），
+跟紙本傳單上的 QR 是同一組網址；改報名網址時傳單 QR 也要重做
+（`01_課程體系/初階 雷切教案/傳單_v3_QR與錯字修正.py`）。早鳥截止後記得改這塊的「早鳥 NT$ 4,200」字樣。
 
 **唯一還沒補的是照片**：`/brick` 有 `PHOTO 02`～`06`、`/laser` 有 `PHOTO 07`，
 共 6 張虛線框在等實拍照。放法見

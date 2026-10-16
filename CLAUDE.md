@@ -146,7 +146,7 @@ Math.round(n.getBoundingClientRect().left - l.getBoundingClientRect().right)
 |---|---|---|---|---|
 | `/car` | 8 堂／期 | 4,800（早鳥 4,200，11/30 前） | 每週三 17:00–18:30 | 地點：確定後公告（2026-10-15 使用者確認尚未定案）；報名走 weiyan-aicar-2026.pages.dev |
 | `/brick` | 8 堂 | 4,800 | 歡迎 LINE 諮詢 | |
-| `/laser` | 8 堂 | 4,800 | 歡迎 LINE 諮詢 | |
+| `/laser` | 8 堂／期 | 4,800（早鳥 4,200，11/30 前） | 每週三 13:30–15:00 | 地點：高科大旁強納森美語教室；每班限 12 人；報名走 weiyan-laser-2026.pages.dev（repo `exhakuoho/weiyan-laser-2026`）；CAMP 頁卡片 `laser-weekly-2026` |
 | `/printing` | 8 堂 | 8,000 | 歡迎 LINE 諮詢 | 年齡：國小中高年級～高中三年級；要自備筆電 |
 | `/humanoid` | 常態課 8 堂／培訓營 8 堂 | 4,800（培訓營分開計價） | 歡迎 LINE 諮詢 | 體驗課 1 小時 |
 | `/minecraft` | 未定案 | 未定案 | — | 頁面上有「課程資訊整理中」說明，這是刻意的，不是漏填 |

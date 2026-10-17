@@ -1,3 +1,5 @@
+import { BLOG_PAGES } from './blog/content.js';
+
 const CANONICAL_ORIGIN = 'https://weiyan.designjarvis.com';
 
 const ROUTE_META = {
@@ -178,6 +180,7 @@ function sitemapXml(site) {
     ...site.pages,
     ...Object.keys(site.tools).map((s) => '/tool/' + s),
     ...Object.keys(site.resources).map((s) => '/resource/' + s),
+    ...Object.keys(BLOG_PAGES),
   ];
   const body = paths
     .map((p) => '  <url>\n    <loc>' + CANONICAL_ORIGIN + p + '</loc>' +
@@ -419,6 +422,19 @@ export default {
         headers: {
           'content-type': 'application/xml; charset=utf-8',
           'cache-control': 'public, max-age=3600',
+        },
+      });
+    }
+
+    if (Object.hasOwn(BLOG_PAGES, url.pathname)) {
+      return new Response(request.method === 'HEAD' ? null : BLOG_PAGES[url.pathname], {
+        status: 200,
+        headers: {
+          'content-type': 'text/html; charset=utf-8',
+          'content-language': 'zh-Hant-TW',
+          'cache-control': 'public, max-age=300',
+          'link': `<${CANONICAL_ORIGIN}${url.pathname}>; rel="canonical"`,
+          'x-robots-tag': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
         },
       });
     }

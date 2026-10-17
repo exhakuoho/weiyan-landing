@@ -7,6 +7,7 @@
  * 全部顯示 ✓ 才可以 push。
  */
 import { readFileSync } from 'node:fs';
+import { BLOG_PAGES } from './blog/content.js';
 
 const INDEX = readFileSync('./index.html', 'utf8');
 const STATIC_SITEMAP = readFileSync('./sitemap.xml', 'utf8');
@@ -160,8 +161,8 @@ console.log('\n【sitemap 動態產生】');
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
   // 頁面 16（/、tools、resources、courses、brick、minecraft、laser、
   //          car、printing、humanoid、projects、steam、about、camp、gallery、join）
-  // ＋教具 4 ＋教材 6 = 26
-  check('網址數與站台結構一致', locs.length, 26);
+  // ＋教具 4 ＋教材 6 ＋日常科學部落格（列表與文章）
+  check('網址數與站台結構一致', locs.length, 26 + Object.keys(BLOG_PAGES).length);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',
@@ -169,6 +170,24 @@ console.log('\n【sitemap 動態產生】');
 }
 
 // ---------------------------------------------------------------------------
+console.log('\n【部落格：完整文章與搜尋收錄】');
+{
+  const w = await fresh(), env = makeEnv();
+  const sitemap = await (await get(w, env, '/sitemap.xml')).text();
+  for (const [p, expected] of Object.entries(BLOG_PAGES)) {
+    const res = await get(w, env, p);
+    const html = await res.text();
+    check(p + ' 可達', res.status, 200);
+    check(p + ' 完整 HTML', html, expected);
+    check(p + ' canonical', html.includes('href="' + ORIGIN + p + '"'), true);
+    check(p + ' 進入 sitemap', sitemap.includes('<loc>' + ORIGIN + p + '</loc>'), true);
+    if (p !== '/blog') check(p + ' 含 BlogPosting', html.includes('"@type":"BlogPosting"'), true);
+  }
+  check('未知文章為 404', (await get(w, env, '/blog/no-such-article')).status, 404);
+  check('HEAD 文章無回應本文', await (await w.fetch(new Request(ORIGIN + '/blog/bicycle-gears', {method:'HEAD'}), env)).text(), '');
+  check('學習資源頁有文章入口', INDEX.includes('href="/blog"'), true);
+}
+
 console.log('\n【降級行為：壞掉時不要把整站弄爛】');
 {
   const w = await fresh(), env = makeEnv('<html>壞掉的 index</html>');

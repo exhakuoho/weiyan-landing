@@ -7,7 +7,6 @@
  * 全部顯示 ✓ 才可以 push。
  */
 import { readFileSync } from 'node:fs';
-import { BLOG_PAGES } from './blog/content.js';
 
 const INDEX = readFileSync('./index.html', 'utf8');
 const STATIC_SITEMAP = readFileSync('./sitemap.xml', 'utf8');
@@ -161,8 +160,8 @@ console.log('\n【sitemap 動態產生】');
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
   // 頁面 16（/、tools、resources、courses、brick、minecraft、laser、
   //          car、printing、humanoid、projects、steam、about、camp、gallery、join）
-  // ＋教具 4 ＋教材 6 ＋日常科學部落格（列表與文章）
-  check('網址數與站台結構一致', locs.length, 26 + Object.keys(BLOG_PAGES).length);
+  // ＋教具 4 ＋教材 6；日常科學直接放 Resources，沒有新增路由。
+  check('網址數與站台結構一致', locs.length, 26);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',
@@ -170,22 +169,32 @@ console.log('\n【sitemap 動態產生】');
 }
 
 // ---------------------------------------------------------------------------
-console.log('\n【部落格：完整文章與搜尋收錄】');
+console.log('\n【日常科學：直接整合 Resources】');
 {
   const w = await fresh(), env = makeEnv();
   const sitemap = await (await get(w, env, '/sitemap.xml')).text();
-  for (const [p, expected] of Object.entries(BLOG_PAGES)) {
-    const res = await get(w, env, p);
-    const html = await res.text();
-    check(p + ' 可達', res.status, 200);
-    check(p + ' 完整 HTML', html, expected);
-    check(p + ' canonical', html.includes('href="' + ORIGIN + p + '"'), true);
-    check(p + ' 進入 sitemap', sitemap.includes('<loc>' + ORIGIN + p + '</loc>'), true);
-    if (p !== '/blog') check(p + ' 含 BlogPosting', html.includes('"@type":"BlogPosting"'), true);
+  const res = await get(w, env, '/resources');
+  const html = await res.text();
+  check('Resources 可達', res.status, 200);
+  check('Resources canonical 不變', html.includes('href="' + ORIGIN + '/resources"'), true);
+  check('五篇在頁內展開閱讀', (INDEX.match(/<details class="wy-science-card"/g) || []).length, 5);
+  check('五篇有完整文章', (INDEX.match(/<article class="wy-science-body"/g) || []).length, 5);
+  check('沒有 Blog 入口', /href="\/blog(?:\/|")/.test(INDEX), false);
+  check('沒有 Blog sitemap', sitemap.includes('<loc>' + ORIGIN + '/blog'), false);
+  const slugs = ['bicycle-gears', 'why-ships-float', 'bricks-tolerance-measurement', 'plastic-parting-lines', 'helmet-mold-science'];
+  for (const slug of slugs) {
+    check(slug + ' 在 Resources 內', html.includes('id="science-' + slug + '"'), true);
+    check(slug + ' 有主圖', html.includes('src="/photos/blog/' + slug + '.webp"'), true);
+  }
+  for (const p of ['/blog', ...slugs.map(s => '/blog/' + s)]) {
+    const old = await get(w, env, p);
+    check(p + ' 轉到現有 Resources', old.status, 308);
+    check(p + ' 目標正確', old.headers.get('location'), ORIGIN + '/resources');
   }
   check('未知文章為 404', (await get(w, env, '/blog/no-such-article')).status, 404);
   check('HEAD 文章無回應本文', await (await w.fetch(new Request(ORIGIN + '/blog/bicycle-gears', {method:'HEAD'}), env)).text(), '');
-  check('學習資源頁有文章入口', INDEX.includes('href="/blog"'), true);
+  const tagged = await get(w, env, '/blog?utm_source=ig');
+  check('舊分享連結保留追蹤參數', tagged.headers.get('location'), ORIGIN + '/resources?utm_source=ig');
 }
 
 console.log('\n【降級行為：壞掉時不要把整站弄爛】');

@@ -65,6 +65,13 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
   WebPage 與 BreadcrumbList；教具及教材詳細頁會再產生 LearningResource。
 - body 裡的 `<noscript>` 也會改成目前頁面的摘要，讓不執行 JavaScript 的搜尋服務不會把
   每個網址都誤認成首頁。不要把它改回寫死的首頁文案。
+- 日常科普文章現在是既有 `/resource/<slug>` 教材子頁，不是同頁展開，也不是獨立 Blog。
+  五篇資料集中在 `index.html` 的 `<script id="daily-science-data" type="application/json">`；
+  標題、摘要、主圖、關鍵主題、學習目標、材料、內文、比較表、FAQ、參考來源只需在這裡修改。
+  前端 `_scienceResources()` 與 worker 都讀取同一份 JSON，會自動生成教材卡片、分類、
+  獨立 meta/canonical、Article/LearningResource、sitemap，以及不執行 JS 也能閱讀的完整內文。
+  新增同格式資料不用再修改 worker；原本六份教材仍保留在 `_rawResources()`。
+  教材卡片使用真實 href 正常跳頁，直接開啟、重新整理與分享網址都會取得該篇的搜尋資訊。
 - `robots.txt` 的 `User-agent: *` 允許一般搜尋引擎，並明確允許 OAI-SearchBot。
   Cloudflare 的 Bot／WAF 是否另行封鎖爬蟲仍要在後台確認，不能用假 User-Agent 的 curl 判定。
 - 本站不靠額外的 `llms.txt` 排名；主要頁面要保留具體、可見的 H1、場域、課程主題與實績文字。

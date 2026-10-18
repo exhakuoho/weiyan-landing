@@ -160,8 +160,8 @@ console.log('\n【sitemap 動態產生】');
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
   // 頁面 16（/、tools、resources、courses、brick、minecraft、laser、
   //          car、printing、humanoid、projects、steam、about、camp、gallery、join）
-  // ＋教具 4 ＋教材 6；日常科學直接放 Resources，沒有新增路由。
-  check('網址數與站台結構一致', locs.length, 26);
+  // ＋教具 4 ＋原教材 6 ＋日常科學教材 5。
+  check('網址數與站台結構一致', locs.length, 31);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',
@@ -169,32 +169,57 @@ console.log('\n【sitemap 動態產生】');
 }
 
 // ---------------------------------------------------------------------------
-console.log('\n【日常科學：直接整合 Resources】');
+console.log('\n【日常科學：獨立教材子頁與可讀取的內容】');
 {
   const w = await fresh(), env = makeEnv();
   const sitemap = await (await get(w, env, '/sitemap.xml')).text();
-  const res = await get(w, env, '/resources');
-  const html = await res.text();
-  check('Resources 可達', res.status, 200);
-  check('Resources canonical 不變', html.includes('href="' + ORIGIN + '/resources"'), true);
-  check('五篇在頁內展開閱讀', (INDEX.match(/<details class="wy-science-card"/g) || []).length, 5);
-  check('五篇有完整文章', (INDEX.match(/<article class="wy-science-body"/g) || []).length, 5);
-  check('沒有 Blog 入口', /href="\/blog(?:\/|")/.test(INDEX), false);
-  check('沒有 Blog sitemap', sitemap.includes('<loc>' + ORIGIN + '/blog'), false);
-  const slugs = ['bicycle-gears', 'why-ships-float', 'bricks-tolerance-measurement', 'plastic-parting-lines', 'helmet-mold-science'];
-  for (const slug of slugs) {
-    check(slug + ' 在 Resources 內', html.includes('id="science-' + slug + '"'), true);
-    check(slug + ' 有主圖', html.includes('src="/photos/blog/' + slug + '.webp"'), true);
+  const resourcesHtml = await (await get(w, env, '/resources')).text();
+  const data = JSON.parse(INDEX.match(/<script id="daily-science-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  const titles = new Set();
+  check('五篇資料來源', data.length, 5);
+  check('不再同頁展開', INDEX.includes('wy-science-card'), false);
+  check('沿用教材卡片的實際網址', INDEX.includes('href="/resource/{{ r.slug }}"'), true);
+  check('日常科學分類', INDEX.includes("'ALL', '日常科學'"), true);
+  for (const r of data) {
+    const path = '/resource/' + r.slug;
+    const res = await get(w, env, path);
+    const html = await res.text();
+    const noJs = html.match(/<noscript>([\s\S]*?)<\/noscript>/)[1];
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    const article = schema['@graph'].find(x => x['@type'] === 'Article');
+    const title = html.match(/<title>(.*?)<\/title>/)[1];
+    titles.add(title);
+    check(path + ' 200', res.status, 200);
+    check(path + ' 獨立標題', title, r.title + '｜學習資源｜微研 WEIYAN');
+    check(path + ' 獨立摘要', html.includes('name="description" content="' + r.desc + '"'), true);
+    check(path + ' 唯一 canonical', (html.match(/<link[^>]+rel="canonical"/g)||[]).length, 1);
+    check(path + ' canonical 正確', html.includes('href="' + ORIGIN + path + '"'), true);
+    check(path + ' 進入 sitemap', sitemap.includes('<loc>' + ORIGIN + path + '</loc>'), true);
+    check(path + ' 列表可爬取的連結', resourcesHtml.includes('href="' + path + '"'), true);
+    check(path + ' 不執行 JS 也有完整內文', r.content.every(c => noJs.includes(c.p.split('\n\n')[0])), true);
+    check(path + ' FAQ 與來源', noJs.includes('家長常問') && noJs.includes(r.sources[0].url), true);
+    check(path + ' Article 結構資料', article?.headline, r.title);
+    check(path + ' 具體主題關鍵詞', article?.keywords, r.keywords.join(', '));
+    check(path + ' 可機讀全文', article?.articleBody.includes(r.content[0].p), true);
+    check(path + ' 分享圖', html.includes('property="og:image" content="' + ORIGIN + r.img + '"'), true);
+    check(path + ' 允許收錄', res.headers.get('x-robots-tag').startsWith('index, follow'), true);
+    const old = await get(w, env, '/blog/' + r.slug);
+    check(path + ' 舊連結轉到正確子頁', old.headers.get('location'), ORIGIN + path);
+    check(path + ' HEAD 無本文', await (await w.fetch(new Request(ORIGIN + path, {method:'HEAD'}), env)).text(), '');
   }
-  for (const p of ['/blog', ...slugs.map(s => '/blog/' + s)]) {
-    const old = await get(w, env, p);
-    check(p + ' 轉到現有 Resources', old.status, 308);
-    check(p + ' 目標正確', old.headers.get('location'), ORIGIN + '/resources');
-  }
-  check('未知文章為 404', (await get(w, env, '/blog/no-such-article')).status, 404);
-  check('HEAD 文章無回應本文', await (await w.fetch(new Request(ORIGIN + '/blog/bicycle-gears', {method:'HEAD'}), env)).text(), '');
+  check('五個標題互不相同', titles.size, 5);
+  check('不收錄 Blog 網址', sitemap.includes('<loc>' + ORIGIN + '/blog'), false);
+  check('未知教材為 404', (await get(w, env, '/resource/no-such-lesson')).status, 404);
   const tagged = await get(w, env, '/blog?utm_source=ig');
-  check('舊分享連結保留追蹤參數', tagged.headers.get('location'), ORIGIN + '/resources?utm_source=ig');
+  check('舊列表連結保留參數', tagged.headers.get('location'), ORIGIN + '/resources?utm_source=ig');
+  const extra = {...data[0], slug:'science-auto-test', title:'新增的科普教材'};
+  const expanded = INDEX.replace(/(<script id="daily-science-data" type="application\/json">)[\s\S]*?(<\/script>)/,
+    (_, before, after) => before + JSON.stringify([...data,extra]) + after);
+  const w2 = await fresh();
+  check('新增 JSON 教材不必改 worker', (await get(w2, makeEnv(expanded), '/resource/science-auto-test')).status, 200);
+  const broken = INDEX.replace(/(<script id="daily-science-data" type="application\/json">)[\s\S]*?(<\/script>)/, '$1not-json$2');
+  const w3 = await fresh();
+  check('科普 JSON 損毀不影響原教材', (await get(w3, makeEnv(broken), '/resource/mtc-forward')).status, 200);
 }
 
 console.log('\n【降級行為：壞掉時不要把整站弄爛】');

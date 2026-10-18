@@ -130,6 +130,21 @@ function pairs(text, re) {
   return out;
 }
 
+function scienceResources(html) {
+  // Read plain JSON, never execute the website's scripts at the edge.
+  const match = html.match(/<script id="daily-science-data" type="application\/json">([\s\S]*?)<\/script>/);
+  if (!match) return {};
+  try {
+    const records = JSON.parse(match[1]);
+    if (!Array.isArray(records)) return {};
+    return Object.fromEntries(records.filter(r =>
+      r && /^[a-z0-9-]+$/.test(r.slug) && typeof r.title === 'string' &&
+      typeof r.desc === 'string' && typeof r.img === 'string' &&
+      ['content', 'keywords', 'goals', 'materials', 'faq', 'sources'].every(key => Array.isArray(r[key]))
+    ).map(r => [r.slug, r]));
+  } catch { return {}; }
+}
+
 function parseSite(html) {
   // routeNames 是 app 自己的路由清單，新增頁面本來就得寫進去，等於零額外維護。
   const names = section(html, 'get routeNames()', '}')
@@ -147,10 +162,12 @@ function parseSite(html) {
     /slug: '([a-z0-9-]+)', name: '([^']*)'/g);
   const resources = pairs(section(html, '_rawResources() {', 'get resourceFilters()'),
     /slug: '([a-z0-9-]+)', title: '([^']*)'/g);
+  const resourceDetails = scienceResources(html);
+  for (const [slug, r] of Object.entries(resourceDetails)) resources[slug] = r.title;
 
   // 解析結果明顯不合理時視為失敗，交由呼叫端退回寬鬆模式（寧可不擋，也不要整站 404）
   const ok = pages.size > 1 && Object.keys(tools).length > 0;
-  return ok ? { pages, tools, resources } : null;
+  return ok ? { pages, tools, resources, resourceDetails } : null;
 }
 
 async function readSite(env, url) {
@@ -214,9 +231,10 @@ function routeMeta(pathname, site) {
   const resourceMatch = pathname.match(/^\/resource\/([a-z0-9-]+)$/);
   if (resourceMatch && site.resources[resourceMatch[1]]) {
     const name = RESOURCE_NAMES[resourceMatch[1]] || site.resources[resourceMatch[1]];
+    const detail = site.resourceDetails?.[resourceMatch[1]];
     return {
       title: `${name}｜學習資源｜微研 WEIYAN`,
-      description: `查看微研 WEIYAN 的${name}課程內容、學習目標與教材資源。`,
+      description: detail?.desc || `查看微研 WEIYAN 的${name}課程內容、學習目標與教材資源。`,
     };
   }
 
@@ -268,6 +286,7 @@ function structuredData(pathname, meta, site) {
   const websiteId = CANONICAL_ORIGIN + '/#website';
   const webpageId = canonical + '#webpage';
   const label = routeLabel(pathname, meta, site);
+  const detail = pathname.startsWith('/resource/') ? site?.resourceDetails?.[pathname.split('/')[2]] : null;
   const graph = [
     {
       '@type': 'EducationalOrganization',
@@ -327,6 +346,29 @@ function structuredData(pathname, meta, site) {
       learningResourceType: isTool ? 'STEAM 科技教育教具' : '課程教材與學習資源',
       educationalUse: isTool ? '課堂實作與工程探究' : '課程學習與自主練習',
       provider: { '@id': organizationId },
+      ...(detail ? {
+        image: CANONICAL_ORIGIN + detail.img,
+        keywords: detail.keywords.join(', '),
+        teaches: detail.goals,
+        learningResourceType: '親子科普文章與實作教材',
+        isAccessibleForFree: true,
+      } : {}),
+    });
+    if (detail) graph.push({
+      '@type': 'Article',
+      '@id': canonical + '#article',
+      mainEntityOfPage: { '@id': webpageId },
+      headline: detail.title,
+      description: detail.desc,
+      image: CANONICAL_ORIGIN + detail.img,
+      inLanguage: 'zh-Hant-TW',
+      articleSection: detail.subject,
+      keywords: detail.keywords.join(', '),
+      datePublished: detail.datePublished,
+      dateModified: site?.lastmod || detail.datePublished,
+      author: { '@id': organizationId },
+      publisher: { '@id': organizationId },
+      articleBody: detail.content.map(c => c.h + '\n' + c.p).join('\n\n'),
     });
   } else if (pathname === '/' || pathname === '/about') {
     page.mainEntity = { '@id': organizationId };
@@ -342,9 +384,27 @@ function noscriptContent(pathname, meta, site) {
   const label = routeLabel(pathname, meta, site);
   const links = NAV_LINKS.map(([href, text]) =>
     `<a href="${href}">${escapeHtml(text)}</a>`).join(' · ');
+  const detail = pathname.startsWith('/resource/') ? site?.resourceDetails?.[pathname.split('/')[2]] : null;
+  const lessons = detail ? (
+    `<img src="${escapeHtml(detail.img)}" alt="${escapeHtml(detail.imgHint)}" style="max-width:100%;height:auto">` +
+    '<p>AI 概念示意插畫，非實物照片或製造圖面。</p>' +
+    '<h2>學習目標</h2><ul>' + detail.goals.map(g => `<li>${escapeHtml(g)}</li>`).join('') + '</ul>' +
+    '<h2>準備材料</h2><ul>' + detail.materials.map(m => `<li>${escapeHtml(m.name)}：${escapeHtml(m.qty)}</li>`).join('') + '</ul>' +
+    detail.content.map(c => `<section><h2>${escapeHtml(c.h)}</h2>` +
+      c.p.split('\n\n').map(p => `<p>${escapeHtml(p)}</p>`).join('') +
+      (c.table ? '<table><thead><tr>' + c.table.headers.map(h => `<th scope="col">${escapeHtml(h)}</th>`).join('') +
+        '</tr></thead><tbody>' + c.table.rows.map(row => '<tr>' + row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('') + '</tr>').join('') +
+        '</tbody></table>' : '') + '</section>').join('') +
+    '<h2>家長常問</h2>' + detail.faq.map(f => `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.answer)}</p>`).join('') +
+    '<h2>參考資料</h2><ul>' + detail.sources.map(s => `<li><a href="${escapeHtml(s.url)}">${escapeHtml(s.label)}</a></li>`).join('') + '</ul>' +
+    '<h2>繼續探索日常科學</h2><ul>' + Object.values(site.resourceDetails).filter(r => r.slug !== detail.slug)
+      .map(r => `<li><a href="/resource/${r.slug}">${escapeHtml(r.title)}</a></li>`).join('') + '</ul>'
+  ) : pathname === '/resources' ? '<h2>學習資源</h2><ul>' +
+    Object.entries(site?.resources || {}).map(([slug, title]) => `<li><a href="/resource/${slug}">${escapeHtml(title)}</a></li>`).join('') + '</ul>' : '';
   return '<noscript><main aria-label="頁面摘要" style="max-width:960px;margin:32px auto;padding:0 20px;font-family:system-ui,sans-serif;">' +
     `<h1>${escapeHtml(label)}</h1>` +
     `<p>${escapeHtml(meta.description)}</p>` +
+    lessons +
     `<p><a href="${canonical}">此頁永久網址</a></p>` +
     `<nav aria-label="網站主要頁面">${links}</nav>` +
     '</main></noscript>';
@@ -355,6 +415,15 @@ function rewriteHead(html, pathname, meta, site) {
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description);
   const schema = structuredData(pathname, meta, site);
+  const detail = pathname.startsWith('/resource/') ? site?.resourceDetails?.[pathname.split('/')[2]] : null;
+  if (detail) html = html
+    .replace(/<meta property="og:type"[^>]*>/i, '<meta property="og:type" content="article">')
+    .replace(/<meta property="og:image"[^>]*>/i, `<meta property="og:image" content="${CANONICAL_ORIGIN}${escapeHtml(detail.img)}">`)
+    .replace(/<meta name="twitter:image"[^>]*>/i, `<meta name="twitter:image" content="${CANONICAL_ORIGIN}${escapeHtml(detail.img)}">`)
+    .replace(/<meta property="og:image:alt"[^>]*>/i, `<meta property="og:image:alt" content="${escapeHtml(detail.imgHint)}">`)
+    .replace(/<meta name="twitter:image:alt"[^>]*>/i, `<meta name="twitter:image:alt" content="${escapeHtml(detail.imgHint)}">`)
+    .replace(/<meta property="og:image:width"[^>]*>/i, '<meta property="og:image:width" content="1536">')
+    .replace(/<meta property="og:image:height"[^>]*>/i, '<meta property="og:image:height" content="1024">');
 
   return html
     .replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
@@ -412,14 +481,15 @@ export default {
       return env.ASSETS.fetch(request);
     }
 
-    // Articles now live inside Resources. Keep already-shared links usable.
-    const oldSciencePaths = ['/blog', '/blog/bicycle-gears', '/blog/why-ships-float',
-      '/blog/bricks-tolerance-measurement', '/blog/plastic-parting-lines', '/blog/helmet-mold-science'];
-    if (oldSciencePaths.includes(url.pathname)) {
+    const site = await readSite(env, url);
+    // Legacy Blog links lead to their matching native resource detail page.
+    if (url.pathname === '/blog') {
       return redirect(`${url.origin}/resources${url.search}`);
     }
-
-    const site = await readSite(env, url);
+    const oldArticle = url.pathname.match(/^\/blog\/([a-z0-9-]+)$/);
+    if (oldArticle && Object.hasOwn(site?.resourceDetails || {}, oldArticle[1])) {
+      return redirect(`${url.origin}/resource/${oldArticle[1]}${url.search}`);
+    }
 
     if (url.pathname === '/sitemap.xml' && site) {
       return new Response(sitemapXml(site), {

@@ -10,8 +10,8 @@ const ROUTE_META = {
     description: '探索微研 WEIYAN 的機器人、MTC V2 智慧自走車、程式設計與 3D 列印科技教育教具，了解學習重點、功能特色與可用教材。',
   },
   '/resources': {
-    title: '機器人・AI・3D 列印學習資源與教材｜微研 WEIYAN',
-    description: '瀏覽微研 WEIYAN 的機器人、人工智慧、程式設計、3D 列印與工程教育課程教材、程式範例及學習資源。',
+    title: '日常科學文章・機器人・AI 學習資源與教材｜微研 WEIYAN',
+    description: '在微研 WEIYAN 學習資源頁閱讀齒輪、浮力、公差、分模線與安全帽除黴科普文章，也可瀏覽機器人、人工智慧、3D 列印課程教材與程式範例。',
   },
   '/courses': {
     title: '常態課程｜積木機器人・AI 自走車・3D 列印・Minecraft｜微研 WEIYAN',
@@ -410,6 +410,13 @@ export default {
 
     if (request.method !== 'GET' && request.method !== 'HEAD') {
       return env.ASSETS.fetch(request);
+    }
+
+    // Articles now live inside Resources. Keep already-shared links usable.
+    const oldSciencePaths = ['/blog', '/blog/bicycle-gears', '/blog/why-ships-float',
+      '/blog/bricks-tolerance-measurement', '/blog/plastic-parting-lines', '/blog/helmet-mold-science'];
+    if (oldSciencePaths.includes(url.pathname)) {
+      return redirect(`${url.origin}/resources${url.search}`);
     }
 
     const site = await readSite(env, url);

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="腳踏車前齒盤與後齒片的齒數比示意圖">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+
+  <text x="40" y="52" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">齒數比：踩一圈，後輪轉幾圈？</text>
+  <line x1="40" y1="68" x2="760" y2="68" stroke="#585B63" stroke-width="1"/>
+
+  <!-- ========== 第一列：36 齒 ÷ 12 齒 ========== -->
+  <text x="40" y="104" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">高檔位 · 適合平路</text>
+
+  <!-- 前齒盤 36 齒 -->
+  <circle cx="150" cy="170" r="54" fill="none" stroke="#2F7DE1" stroke-width="4"/>
+  <circle cx="150" cy="170" r="46" fill="none" stroke="#2F7DE1" stroke-width="7" stroke-dasharray="5 7"/>
+  <circle cx="150" cy="170" r="9" fill="#2F7DE1"/>
+  <text x="150" y="248" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">前齒盤 36 齒</text>
+
+  <!-- 鏈條 -->
+  <line x1="150" y1="116" x2="420" y2="146" stroke="#585B63" stroke-width="3"/>
+  <line x1="150" y1="224" x2="420" y2="194" stroke="#585B63" stroke-width="3"/>
+  <text x="285" y="186" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">鏈條</text>
+
+  <!-- 後齒片 12 齒 -->
+  <circle cx="420" cy="170" r="24" fill="none" stroke="#F2803C" stroke-width="4"/>
+  <circle cx="420" cy="170" r="17" fill="none" stroke="#F2803C" stroke-width="6" stroke-dasharray="4 6"/>
+  <circle cx="420" cy="170" r="6" fill="#F2803C"/>
+  <text x="420" y="248" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">後齒片 12 齒</text>
+
+  <text x="500" y="163" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="26">→</text>
+  <text x="545" y="163" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17">36 ÷ 12 ＝ 3</text>
+  <text x="545" y="192" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">後輪約轉 3 圈</text>
+  <text x="545" y="218" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">走得遠，但踩起來比較重</text>
+
+  <line x1="40" y1="272" x2="760" y2="272" stroke="#585B63" stroke-width="1" stroke-dasharray="4 5"/>
+
+  <!-- ========== 第二列：36 齒 ÷ 24 齒 ========== -->
+  <text x="40" y="304" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">低檔位 · 適合上坡</text>
+
+  <!-- 前齒盤 36 齒 -->
+  <circle cx="150" cy="368" r="54" fill="none" stroke="#2F7DE1" stroke-width="4"/>
+  <circle cx="150" cy="368" r="46" fill="none" stroke="#2F7DE1" stroke-width="7" stroke-dasharray="5 7"/>
+  <circle cx="150" cy="368" r="9" fill="#2F7DE1"/>
+  <text x="150" y="438" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">前齒盤 36 齒</text>
+
+  <!-- 鏈條 -->
+  <line x1="150" y1="314" x2="420" y2="330" stroke="#585B63" stroke-width="3"/>
+  <line x1="150" y1="422" x2="420" y2="406" stroke="#585B63" stroke-width="3"/>
+  <text x="285" y="384" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">鏈條</text>
+
+  <!-- 後齒片 24 齒 -->
+  <circle cx="420" cy="368" r="38" fill="none" stroke="#F2803C" stroke-width="4"/>
+  <circle cx="420" cy="368" r="30" fill="none" stroke="#F2803C" stroke-width="7" stroke-dasharray="5 7"/>
+  <circle cx="420" cy="368" r="8" fill="#F2803C"/>
+  <text x="420" y="438" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">後齒片 24 齒</text>
+
+  <text x="500" y="361" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="26">→</text>
+  <text x="545" y="361" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17">36 ÷ 24 ＝ 1.5</text>
+  <text x="545" y="390" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">後輪約轉 1.5 圈</text>
+  <text x="545" y="416" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">走得近，但每一下比較好踩</text>
+</svg>

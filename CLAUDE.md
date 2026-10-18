@@ -18,7 +18,7 @@
 
 ```bash
 git pull                 # 可能有其他 session 或 GPT 分支推過東西
-node _worker.test.mjs    # 75 項，全過才動手
+node _worker.test.mjs    # 183 項，全過才動手
 ```
 
 第三件：確認你要改的東西屬於哪一類（見下方「改東西要動哪裡」）。
@@ -72,6 +72,25 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
   獨立 meta/canonical、Article/LearningResource、sitemap，以及不執行 JS 也能閱讀的完整內文。
   新增同格式資料不用再修改 worker；原本六份教材仍保留在 `_rawResources()`。
   教材卡片使用真實 href 正常跳頁，直接開啟、重新整理與分享網址都會取得該篇的搜尋資訊。
+
+### 每日科普專欄（2026-10-18 起）
+
+每天 08:30 由雲端排程任務產一篇新文章並開 PR 審稿，merge 後才上架。
+主題輪替與已發布清單在 `science/進度.md`，排程任務每次都會讀它避免重複。
+
+文章一樣寫進 `daily-science-data` 陣列（放**最前面**＝最新），除了原本的欄位，
+排程產出的文章會多四個**選填**欄位。舊文章沒有這些欄位完全不影響，頁面會自動跳過：
+
+| 欄位 | 內容 |
+|---|---|
+| `type` | `A`（科學新知）／`B`（工程視角）／`weekend`（週末動手玩），只給選題用，頁面不顯示 |
+| `diagram` | 原理示意圖路徑 `/photos/blog/<slug>-diagram.svg`。viewBox 800×450、深色底 `#101114`，只能用基本圖形與文字，**不可有 `<script>`、`on*` 屬性或外部連結** |
+| `diagramCaption` | 示意圖的圖說，同時當作 `alt` 文字 |
+| `brainTeaser` | 文末「動動腦」問題，純文字，用 `\n\n` 分段 |
+| `slides` | 課堂簡報文案 8–10 張 `{no, title, bullets[], notes}`。每張最多 4 點、每點 20 字內、`notes` 講稿 50–120 字。顯示在文章頁可展開的「課堂簡報文案」區塊，附「複製全部」按鈕 |
+
+`_worker.test.mjs` 的「每日科普」區塊會驗證上述格式；改這幾個欄位前先跑一次測試。
+`slides` **不會**進非 JS 摘要與 sitemap，那是給老師用的，不是給搜尋引擎的。
 - `robots.txt` 的 `User-agent: *` 允許一般搜尋引擎，並明確允許 OAI-SearchBot。
   Cloudflare 的 Bot／WAF 是否另行封鎖爬蟲仍要在後台確認，不能用假 User-Agent 的 curl 判定。
 - 本站不靠額外的 `llms.txt` 排名；主要頁面要保留具體、可見的 H1、場域、課程主題與實績文字。

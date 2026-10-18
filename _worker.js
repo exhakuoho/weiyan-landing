@@ -368,7 +368,8 @@ function structuredData(pathname, meta, site) {
       dateModified: site?.lastmod || detail.datePublished,
       author: { '@id': organizationId },
       publisher: { '@id': organizationId },
-      articleBody: detail.content.map(c => c.h + '\n' + c.p).join('\n\n'),
+      articleBody: detail.content.map(c => c.h + '\n' + c.p).join('\n\n') +
+        (detail.brainTeaser ? '\n\n動動腦\n' + detail.brainTeaser : ''),
     });
   } else if (pathname === '/' || pathname === '/about') {
     page.mainEntity = { '@id': organizationId };
@@ -395,6 +396,9 @@ function noscriptContent(pathname, meta, site) {
       (c.table ? '<table><thead><tr>' + c.table.headers.map(h => `<th scope="col">${escapeHtml(h)}</th>`).join('') +
         '</tr></thead><tbody>' + c.table.rows.map(row => '<tr>' + row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('') + '</tr>').join('') +
         '</tbody></table>' : '') + '</section>').join('') +
+    (detail.diagram ? `<h2>原理示意圖</h2><img src="${escapeHtml(detail.diagram)}" alt="${escapeHtml(detail.diagramCaption || detail.title + ' 原理示意圖')}" style="max-width:100%;height:auto">` +
+      (detail.diagramCaption ? `<p>${escapeHtml(detail.diagramCaption)}</p>` : '') : '') +
+    (detail.brainTeaser ? `<h2>動動腦</h2><p>${escapeHtml(detail.brainTeaser)}</p>` : '') +
     '<h2>家長常問</h2>' + detail.faq.map(f => `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.answer)}</p>`).join('') +
     '<h2>參考資料</h2><ul>' + detail.sources.map(s => `<li><a href="${escapeHtml(s.url)}">${escapeHtml(s.label)}</a></li>`).join('') + '</ul>' +
     '<h2>繼續探索日常科學</h2><ul>' + Object.values(site.resourceDetails).filter(r => r.slug !== detail.slug)

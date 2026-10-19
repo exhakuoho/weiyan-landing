@@ -18,7 +18,7 @@
 
 ```bash
 git pull                 # 可能有其他 session 或 GPT 分支推過東西
-node _worker.test.mjs    # 183 項，全過才動手
+node _worker.test.mjs    # 要「失敗 0 項」才動手（總項數會隨科普文章增加，不看總數）
 ```
 
 第三件：確認你要改的東西屬於哪一類（見下方「改東西要動哪裡」）。
@@ -27,7 +27,7 @@ node _worker.test.mjs    # 183 項，全過才動手
 
 | 檔案 | 說明 |
 |---|---|
-| `index.html` | **整個網站**。版面、樣式、所有內容資料都在這一個檔案裡（約 150 KB） |
+| `index.html` | **整個網站**。版面、樣式、所有內容資料都在這一個檔案裡（2026-10-19 約 380 KB；每日科普每多一篇約增加 13 KB，文章累積到上百篇前要規劃把文章資料拆出去） |
 | `_worker.js` | Cloudflare Worker。依路由改寫 meta、產生 JSON-LD／非 JS 摘要與 sitemap、處理轉址及 404 |
 | `_worker.test.mjs` | worker 的離線測試，`node _worker.test.mjs` |
 | `photos/` | 相簿與教具照片，WebP |
@@ -66,12 +66,16 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
 - body 裡的 `<noscript>` 也會改成目前頁面的摘要，讓不執行 JavaScript 的搜尋服務不會把
   每個網址都誤認成首頁。不要把它改回寫死的首頁文案。
 - 日常科普文章現在是既有 `/resource/<slug>` 教材子頁，不是同頁展開，也不是獨立 Blog。
-  五篇資料集中在 `index.html` 的 `<script id="daily-science-data" type="application/json">`；
+  所有文章資料集中在 `index.html` 的 `<script id="daily-science-data" type="application/json">`；
   標題、摘要、主圖、關鍵主題、學習目標、材料、內文、比較表、FAQ、參考來源只需在這裡修改。
   前端 `_scienceResources()` 與 worker 都讀取同一份 JSON，會自動生成教材卡片、分類、
   獨立 meta/canonical、Article/LearningResource、sitemap，以及不執行 JS 也能閱讀的完整內文。
   新增同格式資料不用再修改 worker；原本六份教材仍保留在 `_rawResources()`。
   教材卡片使用真實 href 正常跳頁，直接開啟、重新整理與分享網址都會取得該篇的搜尋資訊。
+- `robots.txt` 的 `User-agent: *` 允許一般搜尋引擎，並明確允許 OAI-SearchBot。
+  Cloudflare 的 Bot／WAF 是否另行封鎖爬蟲仍要在後台確認，不能用假 User-Agent 的 curl 判定。
+- 本站不靠額外的 `llms.txt` 排名；主要頁面要保留具體、可見的 H1、場域、課程主題與實績文字。
+- `node _worker.test.mjs` 會驗證 JSON-LD、Twitter meta、非 JS 摘要、語言標頭與 OAI-SearchBot 規則。
 
 ### 每日科普專欄（2026-10-18 起）
 
@@ -90,6 +94,7 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
 | `slides` | 課堂簡報文案 8–10 張 `{no, title, bullets[], notes}`。每張最多 4 點、每點 20 字內、`notes` 講稿 50–120 字。顯示在文章頁可展開的「課堂簡報文案」區塊，附「複製全部」按鈕 |
 
 `_worker.test.mjs` 的「每日科普」區塊會驗證上述格式；改這幾個欄位前先跑一次測試。
+`slides` **不會**進非 JS 摘要與 sitemap，那是給老師用的，不是給搜尋引擎的。
 
 #### 每次開 PR 都要附「線上預覽」連結
 
@@ -121,11 +126,12 @@ curl -s -o /dev/null -w "%{http_code}\n" "$U/photos/blog/<slug>.webp"
 `node _worker.test.mjs` 的總項數**不是固定的**，每多一篇文章就多約 25 項
 （5 篇時 183 項，6 篇時 208 項）。**判斷標準是「失敗 0 項」，不是總數。**
 測試裡不可以再寫死篇數或 sitemap 筆數，要由 `daily-science-data` 的實際長度推算。
-`slides` **不會**進非 JS 摘要與 sitemap，那是給老師用的，不是給搜尋引擎的。
-- `robots.txt` 的 `User-agent: *` 允許一般搜尋引擎，並明確允許 OAI-SearchBot。
-  Cloudflare 的 Bot／WAF 是否另行封鎖爬蟲仍要在後台確認，不能用假 User-Agent 的 curl 判定。
-- 本站不靠額外的 `llms.txt` 排名；主要頁面要保留具體、可見的 H1、場域、課程主題與實績文字。
-- `node _worker.test.mjs` 會驗證 JSON-LD、Twitter meta、非 JS 摘要、語言標頭與 OAI-SearchBot 規則。
+
+#### 主視覺需要 Cloudflare 金鑰
+
+排程任務用 Cloudflare Workers AI 產生主視覺，排程環境要設定 `CF_ACCOUNT_ID` 與 `CF_AI_TOKEN`。
+2026-10-19 首次執行時兩者都沒設，主視覺改用手繪向量暫代圖，PR 說明會標註「主視覺未產生」。
+金鑰補上之前，每天的主視覺都會是暫代圖。
 
 ### 唯一還沒自動化的地方
 

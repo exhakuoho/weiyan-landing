@@ -1774,10 +1774,10 @@
     <section data-reveal style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px) clamp(48px,7vw,80px);">
       <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end;margin-bottom:22px;">
         <div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:14px;">ON SITE &middot; 2026.07.29&ndash;31</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.22em;color:#7868FF;margin-bottom:14px;">ON SITE &middot; 2026.09.25&ndash;28</div>
           <h2 style="font-family:'Space Grotesk','Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1.2;letter-spacing:-.02em;margin:0;">營隊現場，沒有修飾。</h2>
         </div>
-        <p style="font-size:13px;line-height:1.8;color:#8B8F98;margin:0;max-width:22em;">AI &times; STEAM 科技探索營（高科大 第二梯）活動實拍。</p>
+        <p style="font-size:13px;line-height:1.8;color:#8B8F98;margin:0;max-width:22em;">3D 客製月餅工作坊（中秋連假限定）活動實拍。</p>
       </div>
 
       <div class="wy-carousel" id="wy-carousel" onMouseEnter="{{ photoPause }}" onMouseLeave="{{ photoResume }}">
@@ -4236,6 +4236,31 @@ class Component extends DCLogic {
   // 相簿資料。之後新增梯次，在陣列最前面加一本即可，其餘程式不用動。
   _rawAlbums() {
     return [
+      {
+        slug: 'mooncake-2026-09',
+        title: '3D 客製月餅工作坊',
+        batch: '中秋連假限定',
+        date: '2026.09.25 — 09.28',
+        place: '國立高雄科技大學 建工校區',
+        note: '學員現場畫下自己的名字或圖案，3D 列印成專屬月餅模，再親手包餡、壓出造型月餅帶回家。',
+        dir: '/photos/camp-2026-09/',
+        shots: [
+          ['photo-01', '活動結束大合照，學員手持自己壓出的月餅與 3D 列印月餅模'],
+          ['photo-02', '學員在平板上畫出自己的設計，桌上放著列印好的月餅模'],
+          ['photo-03', '助教陪兩位學員在平板上設計月餅圖案'],
+          ['photo-04', '家長陪孩子在平板上描繪月餅模的圖案'],
+          ['photo-05', '助教在旁協助學員用平板完成設計'],
+          ['photo-06', '助教與學員圍著平板討論設計細節'],
+          ['photo-07', '學員站在 3D 印表機前觀看月餅模列印'],
+          ['photo-08', '學員在 3D 印表機旁等待自己的模具完成'],
+          ['photo-09', '一整排 3D 印表機同時列印，學員在旁觀察'],
+          ['photo-10', '助教協助學員用 3D 列印模具壓出月餅'],
+          ['photo-11', '家長與學員一起用模具壓製月餅'],
+          ['photo-12', '學員戴著手套包餡，桌上排著準備好的餡料'],
+          ['photo-13', '學員戴著手套揉捏月餅皮'],
+          ['photo-14', '壓好的月餅成品，表面印著學員自己設計的圖案'],
+        ],
+      },
       {
         slug: 'aisteam-2026-07',
         title: 'AI × STEAM 科技探索營',

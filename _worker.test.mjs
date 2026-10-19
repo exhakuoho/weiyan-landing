@@ -222,6 +222,59 @@ console.log('\n【日常科學：獨立教材子頁與可讀取的內容】');
   check('科普 JSON 損毀不影響原教材', (await get(w3, makeEnv(broken), '/resource/mtc-forward')).status, 200);
 }
 
+// ---------------------------------------------------------------------------
+// 每日排程產出的新欄位：示意圖、動動腦、課堂簡報文案。
+// 這些欄位是選填的——舊文章沒有也不能壞，有的文章則要出現在頁面與非 JS 摘要裡。
+console.log('\n【每日科普：示意圖、動動腦與課堂簡報文案】');
+{
+  const w = await fresh(), env = makeEnv();
+  const data = JSON.parse(INDEX.match(/<script id="daily-science-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+
+  check('樣板有示意圖區塊', INDEX.includes('{{ activeResource.hasDiagram }}'), true);
+  check('樣板有動動腦區塊', INDEX.includes('{{ activeResource.hasBrainTeaser }}'), true);
+  check('樣板有簡報文案區塊', INDEX.includes('{{ activeResource.hasSlides }}'), true);
+  check('簡報文案有複製按鈕', INDEX.includes('onClick="{{ copySlides }}"'), true);
+  check('複製文字由 _slidesToText 產生', INDEX.includes('slidesText: this._slidesToText('), true);
+  check('downloads 缺漏不會炸', INDEX.includes('hasDownloads: Array.isArray(r.downloads)'), true);
+
+  const withExtras = data.filter(r => r.diagram || r.brainTeaser || r.slides);
+  check('至少一篇示範了新欄位', withExtras.length > 0, true);
+  for (const r of withExtras) {
+    const path = '/resource/' + r.slug;
+    const html = await (await get(w, env, path)).text();
+    const noJs = html.match(/<noscript>([\s\S]*?)<\/noscript>/)[1];
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    const article = schema['@graph'].find(x => x['@type'] === 'Article');
+    if (r.diagram) {
+      check(path + ' 非 JS 摘要有示意圖', noJs.includes(r.diagram), true);
+      check(path + ' 示意圖有圖說', noJs.includes('原理示意圖'), true);
+    }
+    if (r.brainTeaser) {
+      check(path + ' 非 JS 摘要有動動腦', noJs.includes('動動腦'), true);
+      check(path + ' 動動腦進入可機讀全文', article.articleBody.includes(r.brainTeaser.split('\n\n')[0]), true);
+    }
+    if (r.slides) {
+      check(path + ' 簡報張數 8-10', r.slides.length >= 8 && r.slides.length <= 10, true);
+      check(path + ' 每張最多 4 點', r.slides.every(s => s.bullets.length <= 4), true);
+      check(path + ' 每點 20 字內', r.slides.every(s => s.bullets.every(b => b.length <= 20)), true);
+      check(path + ' 講稿 50-120 字', r.slides.every(s => s.notes.length >= 50 && s.notes.length <= 120), true);
+      check(path + ' 簡報文案不進非 JS 摘要', noJs.includes(r.slides[0].notes), false);
+    }
+  }
+
+  // 新欄位全缺的文章要照舊運作，排程第一天若漏掉某個欄位不會整頁壞掉
+  const bare = { ...data[0], slug: 'science-bare-test' };
+  delete bare.diagram; delete bare.diagramCaption; delete bare.brainTeaser;
+  delete bare.slides; delete bare.downloads;
+  const expanded = INDEX.replace(/(<script id="daily-science-data" type="application\/json">)[\s\S]*?(<\/script>)/,
+    (_, before, after) => before + JSON.stringify([...data, bare]) + after);
+  const w2 = await fresh();
+  const bareRes = await get(w2, makeEnv(expanded), '/resource/science-bare-test');
+  const bareHtml = await bareRes.text();
+  check('缺新欄位的文章仍 200', bareRes.status, 200);
+  check('缺新欄位不會輸出空示意圖', bareHtml.includes('原理示意圖'), false);
+}
+
 console.log('\n【降級行為：壞掉時不要把整站弄爛】');
 {
   const w = await fresh(), env = makeEnv('<html>壞掉的 index</html>');

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="火衛一與火星的脫離速度對比示意圖">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+
+  <text x="400" y="40" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="24" font-weight="700">要離開一個星球，需要多快？</text>
+  <text x="400" y="64" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">箭頭長度 ＝ 脫離速度（不是星球的大小比例）</text>
+
+  <line x1="40" y1="372" x2="760" y2="372" stroke="#585B63" stroke-width="2"/>
+
+  <!-- 火星：長箭頭（左側起點，標籤在箭頭尖端右方） -->
+  <line x1="150" y1="352" x2="150" y2="124" stroke="#F2803C" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="150,96 133,132 167,132" fill="#F2803C"/>
+  <text x="178" y="122" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="26" font-weight="700">5.03 公里／秒</text>
+  <text x="178" y="150" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18" font-weight="700">≈ 時速 18,100 公里</text>
+  <text x="178" y="174" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">目前還沒有人從火星表面帶東西回地球</text>
+  <path d="M 100 372 A 50 50 0 0 1 200 372 Z" fill="#F2803C" opacity="0.30"/>
+  <path d="M 100 372 A 50 50 0 0 1 200 372" fill="none" stroke="#F2803C" stroke-width="2.5"/>
+  <circle cx="132" cy="350" r="5" fill="#101114" opacity="0.45"/>
+  <circle cx="166" cy="358" r="3" fill="#101114" opacity="0.45"/>
+  <text x="150" y="398" text-anchor="middle" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">火星</text>
+  <text x="150" y="421" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">25 公斤的車 → 約 9.5 公斤</text>
+
+  <!-- 火衛一：短箭頭 -->
+  <line x1="470" y1="352" x2="470" y2="326" stroke="#2F7DE1" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="470,300 453,334 487,334" fill="#2F7DE1"/>
+  <text x="500" y="320" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="26" font-weight="700">11.39 公尺／秒</text>
+  <text x="500" y="348" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18" font-weight="700">≈ 時速 41 公里</text>
+  <polygon points="470,338 452,344 442,356 446,366 470,372 496,369 501,357 491,344" fill="#2F7DE1" opacity="0.30"/>
+  <polygon points="470,338 452,344 442,356 446,366 470,372 496,369 501,357 491,344" fill="none" stroke="#2F7DE1" stroke-width="2.5"/>
+  <text x="470" y="398" text-anchor="middle" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">火衛一</text>
+  <text x="470" y="421" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">25 公斤的車 → 約 15 公克</text>
+
+  <!-- 中段對比 -->
+  <rect x="440" y="196" width="296" height="40" rx="20" fill="#9A8DFF" opacity="0.16"/>
+  <text x="588" y="223" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">速度差約 440 倍</text>
+  <text x="588" y="262" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700">能量差將近 20 萬倍</text>
+  <text x="588" y="284" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">因為動能與速度的平方成正比</text>
+</svg>

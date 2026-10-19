@@ -160,8 +160,11 @@ console.log('\n【sitemap 動態產生】');
   check('content-type 為 XML', res.headers.get('content-type').includes('xml'), true);
   // 頁面 16（/、tools、resources、courses、brick、minecraft、laser、
   //          car、printing、humanoid、projects、steam、about、camp、gallery、join）
-  // ＋教具 4 ＋原教材 6 ＋日常科學教材 5。
-  check('網址數與站台結構一致', locs.length, 31);
+  // ＋教具 4 ＋原教材 6 ＝ 26 個固定網址，再加上日常科學教材 N 篇。
+  // N 每天會增加，所以這裡用實際資料推算，不可寫死總數。
+  const scienceCount = JSON.parse(
+    INDEX.match(/<script id="daily-science-data" type="application\/json">([\s\S]*?)<\/script>/)[1]).length;
+  check('網址數與站台結構一致', locs.length, 26 + scienceCount);
   check('沒有重複網址', new Set(locs).size, locs.length);
   // 專案（_rawProjects）不是路由，不可出現在 /resource/ 底下
   check('專案 slug 未被誤判為教材',
@@ -176,7 +179,8 @@ console.log('\n【日常科學：獨立教材子頁與可讀取的內容】');
   const resourcesHtml = await (await get(w, env, '/resources')).text();
   const data = JSON.parse(INDEX.match(/<script id="daily-science-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
   const titles = new Set();
-  check('五篇資料來源', data.length, 5);
+  // 每天排程會新增一篇，所以只檢查「至少有原本那五篇」，不寫死篇數。
+  check('日常科學資料至少五篇', data.length >= 5, true);
   check('不再同頁展開', INDEX.includes('wy-science-card'), false);
   check('沿用教材卡片的實際網址', INDEX.includes('href="/resource/{{ r.slug }}"'), true);
   check('日常科學分類', INDEX.includes("'ALL', '日常科學'"), true);
@@ -207,7 +211,7 @@ console.log('\n【日常科學：獨立教材子頁與可讀取的內容】');
     check(path + ' 舊連結轉到正確子頁', old.headers.get('location'), ORIGIN + path);
     check(path + ' HEAD 無本文', await (await w.fetch(new Request(ORIGIN + path, {method:'HEAD'}), env)).text(), '');
   }
-  check('五個標題互不相同', titles.size, 5);
+  check('每篇標題互不相同', titles.size, data.length);
   check('不收錄 Blog 網址', sitemap.includes('<loc>' + ORIGIN + '/blog'), false);
   check('未知教材為 404', (await get(w, env, '/resource/no-such-lesson')).status, 404);
   const tagged = await get(w, env, '/blog?utm_source=ig');

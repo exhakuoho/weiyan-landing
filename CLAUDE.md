@@ -90,6 +90,37 @@ worker 會在執行時從 `index.html` 讀出上述結構，自動得知有哪�
 | `slides` | 課堂簡報文案 8–10 張 `{no, title, bullets[], notes}`。每張最多 4 點、每點 20 字內、`notes` 講稿 50–120 字。顯示在文章頁可展開的「課堂簡報文案」區塊，附「複製全部」按鈕 |
 
 `_worker.test.mjs` 的「每日科普」區塊會驗證上述格式；改這幾個欄位前先跑一次測試。
+
+#### 每次開 PR 都要附「線上預覽」連結
+
+Haku 要的是**可以直接點開看的畫面**，不是截圖、不是模擬。
+Cloudflare Pages 會自動為每個分支開一個預覽站，網址規則是把分支名的 `/` 換成 `-`：
+
+```
+分支  claude/science-2026-10-19
+預覽  https://claude-science-2026-10-19.weiyan-landing.pages.dev
+文章  https://claude-science-2026-10-19.weiyan-landing.pages.dev/resource/<slug>
+```
+
+**PR 說明的第一段就要放這個連結**，而且要先用 curl 確認回 200、標題正確、
+主視覺與示意圖都抓得到，再把連結寫進去——不要貼一個沒驗證過的網址給他點。
+
+```bash
+U="https://claude-science-$(date +%F).weiyan-landing.pages.dev"
+curl -sL "$U/resource/<slug>" | grep -o "<title>[^<]*"
+curl -s -o /dev/null -w "%{http_code}\n" "$U/photos/blog/<slug>.webp"
+```
+
+推上去之後要等 1–2 分鐘 Cloudflare 才建好，第一次抓到 404 是正常的，重試即可。
+
+**注意**：`_worker.js` 只把 `weiyan.pages.dev` 這一個網域導回正式站，
+`*.weiyan-landing.pages.dev` 的分支預覽**不會**被導走，所以預覽站可以正常使用。
+
+#### 測試項數會隨篇數成長
+
+`node _worker.test.mjs` 的總項數**不是固定的**，每多一篇文章就多約 25 項
+（5 篇時 183 項，6 篇時 208 項）。**判斷標準是「失敗 0 項」，不是總數。**
+測試裡不可以再寫死篇數或 sitemap 筆數，要由 `daily-science-data` 的實際長度推算。
 `slides` **不會**進非 JS 摘要與 sitemap，那是給老師用的，不是給搜尋引擎的。
 - `robots.txt` 的 `User-agent: *` 允許一般搜尋引擎，並明確允許 OAI-SearchBot。
   Cloudflare 的 Bot／WAF 是否另行封鎖爬蟲仍要在後台確認，不能用假 User-Agent 的 curl 判定。

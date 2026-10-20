@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<rect x="0" y="0" width="800" height="450" fill="#101114"/>
+<text x="400" y="44" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="25" font-weight="700" text-anchor="middle">懸空角度決定要不要支撐材</text>
+<text x="400" y="72" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" text-anchor="middle">同一台機器：層高 0.2 公釐、線寬 0.4 公釐</text>
+<line x1="270" y1="100" x2="270" y2="392" stroke="#585B63" stroke-width="1" stroke-dasharray="3 6" opacity="0.55"/>
+<line x1="520" y1="100" x2="520" y2="392" stroke="#585B63" stroke-width="1" stroke-dasharray="3 6" opacity="0.55"/>
+<line x1="70.0" y1="292" x2="70.0" y2="186" stroke="#585B63" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="70.0" y1="292" x2="139.3" y2="196.0" stroke="#9A8DFF" stroke-width="1.6" stroke-dasharray="6 4" opacity="0.9"/>
+<rect x="70.0" y="252" width="100" height="40" rx="4" fill="#2F7DE1" opacity="0.55" stroke="#2F7DE1" stroke-width="1.5"/>
+<rect x="98.9" y="212" width="100" height="40" rx="4" fill="#2F7DE1" opacity="0.95" stroke="#FFFFFF" stroke-width="1.2"/>
+<line x1="98.9" y1="252" x2="170.0" y2="252" stroke="#9A8DFF" stroke-width="7" stroke-linecap="butt"/>
+<line x1="70.0" y1="198" x2="98.9" y2="198" stroke="#FFFFFF" stroke-width="1.4"/>
+<line x1="70.0" y1="194" x2="70.0" y2="202" stroke="#FFFFFF" stroke-width="1.4"/>
+<line x1="98.9" y1="194" x2="98.9" y2="202" stroke="#FFFFFF" stroke-width="1.4"/>
+<text x="84.4" y="188" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.115 公釐</text>
+<text x="145" y="162" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="middle">傾斜 30 度</text>
+<text x="145" y="334" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" text-anchor="middle">壓住下一層 71%</text>
+<text x="145" y="360" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">穩，不用支撐</text>
+<line x1="320.0" y1="292" x2="320.0" y2="186" stroke="#585B63" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="320.0" y1="292" x2="440.0" y2="196.0" stroke="#9A8DFF" stroke-width="1.6" stroke-dasharray="6 4" opacity="0.9"/>
+<rect x="320.0" y="252" width="100" height="40" rx="4" fill="#2F7DE1" opacity="0.55" stroke="#2F7DE1" stroke-width="1.5"/>
+<rect x="370.0" y="212" width="100" height="40" rx="4" fill="#2F7DE1" opacity="0.95" stroke="#FFFFFF" stroke-width="1.2"/>
+<line x1="370.0" y1="252" x2="420.0" y2="252" stroke="#9A8DFF" stroke-width="7" stroke-linecap="butt"/>
+<line x1="320.0" y1="198" x2="370.0" y2="198" stroke="#FFFFFF" stroke-width="1.4"/>
+<line x1="320.0" y1="194" x2="320.0" y2="202" stroke="#FFFFFF" stroke-width="1.4"/>
+<line x1="370.0" y1="194" x2="370.0" y2="202" stroke="#FFFFFF" stroke-width="1.4"/>
+<text x="345.0" y="188" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.200 公釐</text>
+<text x="395" y="162" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="middle">傾斜 45 度</text>
+<text x="395" y="334" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" text-anchor="middle">壓住下一層 50%</text>
+<text x="395" y="360" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">剛好的界線</text>
+<line x1="570.0" y1="292" x2="570.0" y2="186" stroke="#585B63" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="570.0" y1="292" x2="773.0" y2="210.8" stroke="#9A8DFF" stroke-width="1.6" stroke-dasharray="6 4" opacity="0.9"/>
+<rect x="570.0" y="252" width="100" height="40" rx="4" fill="#F2803C" opacity="0.55" stroke="#F2803C" stroke-width="1.5"/>
+<rect x="670.0" y="212" width="100" height="40" rx="4" fill="#F2803C" opacity="0.95" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="670.0" cy="252" r="5" fill="#F2803C" stroke="#FFFFFF" stroke-width="1.2"/>
+<line x1="570.0" y1="198" x2="670.0" y2="198" stroke="#FFFFFF" stroke-width="1.4"/>
+<line x1="570.0" y1="194" x2="570.0" y2="202" stroke="#FFFFFF" stroke-width="1.4"/>
+<line x1="670.0" y1="194" x2="670.0" y2="202" stroke="#FFFFFF" stroke-width="1.4"/>
+<text x="620.0" y="188" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.400 公釐</text>
+<text x="645" y="162" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="middle">傾斜 63.4 度</text>
+<text x="645" y="334" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" text-anchor="middle">壓住下一層 0%</text>
+<text x="645" y="360" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">要加支撐材</text>
+<text x="400" y="410" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" text-anchor="middle">每層往外跑的距離 ＝ 層高 × tan（傾斜角）</text>
+<text x="400" y="434" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13.5" text-anchor="middle">跑的距離超過線寬 0.4 公釐，這一層就完全踩不到下一層 — 紫色虛線是牆面的斜度</text>
+</svg>

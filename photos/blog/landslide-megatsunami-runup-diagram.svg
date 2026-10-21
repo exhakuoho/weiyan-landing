@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="山崩海嘯示意圖：岩石落海推出高約 101 公尺的浪，速度換算可爬 228 公尺，實際爬高 481 公尺">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+
+  <text x="36" y="40" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700">山崩海嘯：為什麼水能爬得比浪還高</text>
+  <text x="36" y="64" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">阿拉斯加 Tracy Arm 峽灣，2025 年 8 月</text>
+
+  <!-- 左側山體 -->
+  <polygon points="0,450 0,180 58,132 250,362 250,450" fill="#1b1d22" stroke="#585B63" stroke-width="1.5"/>
+  <!-- 崩落岩體與路徑 -->
+  <polygon points="72,158 114,150 152,212 118,226" fill="#F2803C" opacity="0.9"/>
+  <path d="M140 218 L212 328" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="226,348 200,330 214,318" fill="#F2803C"/>
+  <text x="36" y="104" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700">6,400 萬 m³ 岩石落海</text>
+
+  <!-- 水體與海平面 -->
+  <rect x="250" y="362" width="325" height="88" fill="#2F7DE1" opacity="0.28"/>
+  <line x1="250" y1="362" x2="700" y2="362" stroke="#585B63" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="256" y="382" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">海平面</text>
+
+  <!-- 浪與浪速 -->
+  <path d="M380 362 Q450 338 500 324 Q545 314 575 362 Z" fill="#2F7DE1" opacity="0.9"/>
+  <text x="298" y="332" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">浪速 241 km/h</text>
+  <line x1="300" y1="348" x2="362" y2="348" stroke="#2F7DE1" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="376,348 356,339 356,357" fill="#2F7DE1"/>
+
+  <!-- 右側陡壁 -->
+  <polygon points="575,362 700,60 800,60 800,450 575,450" fill="#1b1d22" stroke="#585B63" stroke-width="1.5"/>
+
+  <!-- 481 公尺：實際爬高 -->
+  <line x1="320" y1="93" x2="686" y2="93" stroke="#9A8DFF" stroke-width="2" stroke-dasharray="7 5"/>
+  <circle cx="686" cy="93" r="5" fill="#9A8DFF"/>
+  <text x="310" y="88" fill="#9A8DFF" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700">481 公尺</text>
+  <text x="310" y="108" fill="#9A8DFF" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">實際量到的刮痕</text>
+
+  <!-- 228 公尺：速度換算 -->
+  <line x1="320" y1="234" x2="628" y2="234" stroke="#585B63" stroke-width="2" stroke-dasharray="7 5"/>
+  <circle cx="628" cy="234" r="5" fill="#585B63"/>
+  <text x="310" y="229" fill="#585B63" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700">228 公尺</text>
+  <text x="310" y="249" fill="#585B63" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">只用速度換算</text>
+
+  <!-- 101 公尺：浪高 -->
+  <line x1="320" y1="305" x2="599" y2="305" stroke="#2F7DE1" stroke-width="2" stroke-dasharray="7 5"/>
+  <circle cx="599" cy="305" r="5" fill="#2F7DE1"/>
+  <text x="310" y="300" fill="#2F7DE1" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700">101 公尺</text>
+  <text x="310" y="320" fill="#2F7DE1" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">浪本身的高度</text>
+
+  <!-- 差距標註 -->
+  <line x1="714" y1="93" x2="714" y2="234" stroke="#9A8DFF" stroke-width="2"/>
+  <polygon points="714,93 708,107 720,107" fill="#9A8DFF"/>
+  <polygon points="714,234 708,220 720,220" fill="#9A8DFF"/>
+  <text x="730" y="152" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">多出來</text>
+  <text x="730" y="172" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">253 公尺</text>
+  <text x="730" y="192" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">是地形</text>
+  <text x="730" y="212" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">給的</text>
+
+  <text x="36" y="410" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">h = v² ÷ (2g)，v = 241 km/h ≈ 66.9 m/s</text>
+  <text x="36" y="432" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">又窄、又深、又陡的峽灣，把浪的能量往上擠</text>
+</svg>

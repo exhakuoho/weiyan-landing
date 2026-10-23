@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+
+  <!-- 分隔線 -->
+  <line x1="400" y1="20" x2="400" y2="300" stroke="#585B63" stroke-width="1" stroke-dasharray="4 6"/>
+
+  <!-- 標頭 -->
+  <rect x="60" y="22" width="280" height="34" rx="17" fill="none" stroke="#585B63" stroke-width="1.5"/>
+  <text x="200" y="45" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#585B63">一般會以為</text>
+  <rect x="460" y="22" width="280" height="34" rx="17" fill="#2F7DE1"/>
+  <text x="600" y="45" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">實際上</text>
+
+  <!-- 左：大石頭 + 摩擦起火 -->
+  <ellipse cx="122" cy="82" rx="11" ry="6" transform="rotate(-45 122 82)" fill="#F2803C" opacity="0.28"/>
+  <ellipse cx="143" cy="103" rx="14" ry="8" transform="rotate(-45 143 103)" fill="#F2803C" opacity="0.5"/>
+  <ellipse cx="166" cy="126" rx="18" ry="10" transform="rotate(-45 166 126)" fill="#F2803C" opacity="0.75"/>
+  <circle cx="200" cy="160" r="40" fill="#585B63"/>
+  <circle cx="186" cy="150" r="7" fill="#101114" opacity="0.35"/>
+  <circle cx="212" cy="172" r="5" fill="#101114" opacity="0.3"/>
+
+  <text x="200" y="238" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">一顆大石頭掉下來</text>
+  <text x="200" y="268" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#F2803C">跟空氣「摩擦」生熱</text>
+
+  <!-- 右：沙粒 + 前方空氣被壓縮 -->
+  <path d="M 540 100 L 592 152" stroke="#9A8DFF" stroke-width="7" stroke-linecap="round" opacity="0.45"/>
+  <path d="M 516 76 L 548 108" stroke="#9A8DFF" stroke-width="3" stroke-linecap="round" opacity="0.22"/>
+  <circle cx="600" cy="160" r="26" fill="none" stroke="#585B63" stroke-width="1" stroke-dasharray="3 4"/>
+  <circle cx="600" cy="160" r="5" fill="#FFFFFF"/>
+
+  <path d="M 637 151 Q 636 196 592 197" fill="none" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 651 161 Q 650 210 600 211" fill="none" stroke="#F2803C" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+
+  <line x1="655" y1="212" x2="636" y2="194" stroke="#585B63" stroke-width="1"/>
+  <text x="660" y="218" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#F2803C">空氣擠在這裡</text>
+
+  <line x1="626" y1="146" x2="664" y2="118" stroke="#585B63" stroke-width="1"/>
+  <text x="668" y="115" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#FFFFFF">1 公釐以下</text>
+
+  <text x="600" y="258" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">一粒沙衝進空氣</text>
+  <text x="600" y="286" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#F2803C">前方空氣被壓縮到 1600°C 以上</text>
+
+  <!-- 下方：高度帶 -->
+  <text x="400" y="340" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#FFFFFF">每秒 66 公里，從發光到燒完大約 1 秒</text>
+  <rect x="100" y="356" width="600" height="14" rx="7" fill="#585B63" opacity="0.3"/>
+  <rect x="100" y="356" width="300" height="14" rx="7" fill="#2F7DE1"/>
+  <text x="104" y="394" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">高度 75–120 公里開始發光</text>
+  <text x="696" y="394" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">50–95 公里就燒完</text>
+  <text x="400" y="426" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">沒有一顆碰得到地面</text>
+</svg>

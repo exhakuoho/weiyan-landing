@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">喝飲料的時候，是誰把水送上來的？</text>
+
+  <rect x="30" y="60" width="360" height="340" rx="14" fill="none" stroke="#585B63" stroke-width="1.5"/>
+  <rect x="410" y="60" width="360" height="340" rx="14" fill="none" stroke="#585B63" stroke-width="1.5"/>
+
+  <text x="50" y="94" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" fill="#F2803C">一般人會以為</text>
+  <text x="430" y="94" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" fill="#2F7DE1">實際上是</text>
+
+  <rect x="150" y="210" width="120" height="150" rx="6" fill="none" stroke="#585B63" stroke-width="2.5"/>
+  <rect x="152" y="265" width="116" height="93" fill="#2F7DE1" opacity="0.28"/>
+  <line x1="152" y1="265" x2="268" y2="265" stroke="#2F7DE1" stroke-width="2"/>
+  <rect x="203" y="120" width="14" height="225" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="205" y="186" width="10" height="157" fill="#2F7DE1" opacity="0.32"/>
+  <line x1="210" y1="325" x2="210" y2="178" stroke="#F2803C" stroke-width="5"/>
+  <polygon points="210,160 201,182 219,182" fill="#F2803C"/>
+  <text x="232" y="190" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#F2803C">一股「吸力」</text>
+  <text x="232" y="214" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#F2803C">把水往上拉</text>
+  <text x="210" y="390" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#F2803C">× 吸管裡並沒有拉力</text>
+
+  <rect x="530" y="210" width="120" height="150" rx="6" fill="none" stroke="#585B63" stroke-width="2.5"/>
+  <rect x="532" y="265" width="116" height="93" fill="#2F7DE1" opacity="0.28"/>
+  <line x1="532" y1="265" x2="648" y2="265" stroke="#2F7DE1" stroke-width="2"/>
+  <rect x="583" y="120" width="14" height="225" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="585" y="186" width="10" height="157" fill="#2F7DE1" opacity="0.55"/>
+  <text x="606" y="128" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#9A8DFF">嘴裡壓力變小</text>
+  <line x1="548" y1="152" x2="548" y2="188" stroke="#2F7DE1" stroke-width="4"/>
+  <polygon points="548,202 540,182 556,182" fill="#2F7DE1"/>
+  <line x1="632" y1="152" x2="632" y2="188" stroke="#2F7DE1" stroke-width="4"/>
+  <polygon points="632,202 624,182 640,182" fill="#2F7DE1"/>
+  <text x="524" y="172" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#2F7DE1">大氣壓</text>
+  <text x="590" y="390" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#2F7DE1">○ 空氣從水面把水推進管子</text>
+
+  <text x="400" y="430" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">空氣的力氣有上限：最多只能把水推到約 10.3 公尺高，再長的吸管也沒用</text>
+</svg>

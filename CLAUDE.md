@@ -150,6 +150,20 @@ curl -s -o /dev/null -w "%{http_code}\n" "$U/photos/blog/<slug>.webp"
 **注意**：`_worker.js` 只把 `weiyan.pages.dev` 這一個網域導回正式站，
 `*.weiyan-landing.pages.dev` 的分支預覽**不會**被導走，所以預覽站可以正常使用。
 
+#### 寫回 daily-science-data 要用 1 空格縮排
+
+這段 JSON 在 `index.html` 裡是**每層 1 個空格**的縮排。用程式讀出來改完再寫回去時，
+`json.dumps(..., indent=2)` 會把整段重新格式化——既有文章每一行都算成「改過」，
+diff 變成上千行刪除，等於沒辦法審稿。正確寫法：
+
+```python
+'\n' + json.dumps(data, ensure_ascii=False, indent=1) + '\n'
+```
+
+（前後各補一個換行，對齊原檔的 `>\n[` 與 `]\n<`。）
+改完用 `git diff main -- index.html | grep -c '^-[^-]'` 確認**刪除行數是 0**，
+只有新增，才表示沒有動到既有文章。2026-10-21 踩過一次。
+
 #### 測試項數會隨篇數成長
 
 `node _worker.test.mjs` 的總項數**不是固定的**，每多一篇文章就多約 25 項

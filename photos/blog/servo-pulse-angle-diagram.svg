@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<rect x="0" y="0" width="800" height="450" fill="#101114"/>
+<text x="40" y="46" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="25" font-weight="700">同一條訊號線，只差脈衝的長度</text>
+<text x="40" y="74" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">週期固定 20 毫秒（每秒 50 次）；真正決定角度的是脈衝本身有多長</text>
+<text x="85" y="112" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">訊號線上的脈衝</text>
+<text x="645" y="112" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">手臂停的位置</text>
+<line x1="85" y1="170" x2="530" y2="170" stroke="#585B63" stroke-width="1.5"/>
+<polyline points="85,170 85,126 105.0,126 105.0,170" fill="none" stroke="#2F7DE1" stroke-width="3.5" stroke-linejoin="round"/>
+<rect x="85" y="126" width="20.0" height="44" fill="#2F7DE1" opacity="0.28"/>
+<polyline points="485,170 485,126 505.0,126 505.0,170" fill="none" stroke="#585B63" stroke-width="2" stroke-linejoin="round"/>
+<text x="119.0" y="142" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="700">1.0 毫秒</text>
+<line x1="556" y1="156" x2="582" y2="156" stroke="#585B63" stroke-width="2"/>
+<polyline points="576,151 583,156 576,161" fill="none" stroke="#585B63" stroke-width="2"/>
+<path d="M 601 170 A 44 44 0 0 1 689 170" fill="none" stroke="#585B63" stroke-width="1.5" stroke-dasharray="4 4"/>
+<line x1="645" y1="170" x2="601.0" y2="170.0" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+<circle cx="645" cy="170" r="5" fill="#FFFFFF"/>
+<text x="645" y="196" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">0 度</text>
+<line x1="85" y1="265" x2="530" y2="265" stroke="#585B63" stroke-width="1.5"/>
+<polyline points="85,265 85,221 115.0,221 115.0,265" fill="none" stroke="#2F7DE1" stroke-width="3.5" stroke-linejoin="round"/>
+<rect x="85" y="221" width="30.0" height="44" fill="#2F7DE1" opacity="0.28"/>
+<polyline points="485,265 485,221 515.0,221 515.0,265" fill="none" stroke="#585B63" stroke-width="2" stroke-linejoin="round"/>
+<text x="129.0" y="237" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="700">1.5 毫秒</text>
+<line x1="556" y1="251" x2="582" y2="251" stroke="#585B63" stroke-width="2"/>
+<polyline points="576,246 583,251 576,256" fill="none" stroke="#585B63" stroke-width="2"/>
+<path d="M 601 265 A 44 44 0 0 1 689 265" fill="none" stroke="#585B63" stroke-width="1.5" stroke-dasharray="4 4"/>
+<line x1="645" y1="265" x2="645.0" y2="221.0" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+<circle cx="645" cy="265" r="5" fill="#FFFFFF"/>
+<text x="645" y="291" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">90 度</text>
+<line x1="85" y1="360" x2="530" y2="360" stroke="#585B63" stroke-width="1.5"/>
+<polyline points="85,360 85,316 125.0,316 125.0,360" fill="none" stroke="#2F7DE1" stroke-width="3.5" stroke-linejoin="round"/>
+<rect x="85" y="316" width="40.0" height="44" fill="#2F7DE1" opacity="0.28"/>
+<polyline points="485,360 485,316 525.0,316 525.0,360" fill="none" stroke="#585B63" stroke-width="2" stroke-linejoin="round"/>
+<text x="139.0" y="332" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="700">2.0 毫秒</text>
+<line x1="556" y1="346" x2="582" y2="346" stroke="#585B63" stroke-width="2"/>
+<polyline points="576,341 583,346 576,351" fill="none" stroke="#585B63" stroke-width="2"/>
+<path d="M 601 360 A 44 44 0 0 1 689 360" fill="none" stroke="#585B63" stroke-width="1.5" stroke-dasharray="4 4"/>
+<line x1="645" y1="360" x2="689.0" y2="360.0" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+<circle cx="645" cy="360" r="5" fill="#FFFFFF"/>
+<text x="645" y="386" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">180 度</text>
+<line x1="85" y1="400" x2="485" y2="400" stroke="#585B63" stroke-width="1.5"/>
+<line x1="85" y1="394" x2="85" y2="406" stroke="#585B63" stroke-width="1.5"/>
+<line x1="485" y1="394" x2="485" y2="406" stroke="#585B63" stroke-width="1.5"/>
+<text x="285.0" y="422" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">20 毫秒（一個週期，下一個脈衝在這裡）</text>
+<text x="645" y="422" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">每 0.1 毫秒 ≈ 18 度</text>
+</svg>

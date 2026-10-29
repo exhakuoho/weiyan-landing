@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="左邊是想像中粗細一樣的雷射光，右邊是實際被透鏡壓成沙漏狀的光束，焦點只有約 0.1 公釐、焦深約 1.5 公釐">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <g font-family="system-ui, 'Noto Sans TC', sans-serif">
+  <text x="400" y="34" fill="#FFFFFF" font-size="20" font-weight="700" text-anchor="middle">雷射切不斷，常常不是功率不夠，是焦點沒對準</text>
+  <line x1="400" y1="56" x2="400" y2="372" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5"/>
+
+  <text x="205" y="82" fill="#FFFFFF" font-size="19" font-weight="700" text-anchor="middle">一般以為</text>
+  <text x="205" y="105" fill="#585B63" font-size="14" text-anchor="middle">一條從上到下一樣細的光</text>
+  <text x="145" y="133" fill="#585B63" font-size="12" text-anchor="end">透鏡</text>
+  <ellipse cx="205" cy="128" rx="52" ry="8" fill="#585B63" fill-opacity="0.55"/>
+  <rect x="115" y="220" width="180" height="56" fill="none" stroke="#585B63" stroke-width="2"/>
+  <text x="305" y="252" fill="#585B63" font-size="12" text-anchor="start">木板 6 mm</text>
+  <rect x="202" y="136" width="6" height="224" fill="#2F7DE1"/>
+  <text x="205" y="390" fill="#585B63" font-size="13" text-anchor="middle">上下一樣寬，功率夠就該切斷</text>
+
+  <text x="600" y="82" fill="#FFFFFF" font-size="19" font-weight="700" text-anchor="middle">實際上</text>
+  <text x="600" y="105" fill="#585B63" font-size="14" text-anchor="middle">被壓成沙漏，只有腰那一段夠細</text>
+  <text x="540" y="133" fill="#585B63" font-size="12" text-anchor="end">透鏡</text>
+  <ellipse cx="600" cy="128" rx="52" ry="8" fill="#585B63" fill-opacity="0.55"/>
+  <rect x="520" y="220" width="170" height="56" fill="none" stroke="#585B63" stroke-width="2"/>
+  <text x="516" y="213" fill="#585B63" font-size="12" text-anchor="end">木板 6 mm</text>
+  <polygon points="558,136 642,136 603,248 597,248" fill="#F2803C" fill-opacity="0.9"/>
+  <polygon points="597,248 603,248 642,360 558,360" fill="#F2803C" fill-opacity="0.45"/>
+  <text x="614" y="243" fill="#FFFFFF" font-size="11" text-anchor="start">腰 0.1 mm</text>
+  <line x1="712" y1="228" x2="712" y2="268" stroke="#9A8DFF" stroke-width="2"/>
+  <line x1="706" y1="228" x2="718" y2="228" stroke="#9A8DFF" stroke-width="2"/>
+  <line x1="706" y1="268" x2="718" y2="268" stroke="#9A8DFF" stroke-width="2"/>
+  <text x="726" y="244" fill="#9A8DFF" font-size="12" text-anchor="start">焦深</text>
+  <text x="726" y="260" fill="#585B63" font-size="11" text-anchor="start">≈1.5 mm</text>
+  <text x="600" y="390" fill="#585B63" font-size="13" text-anchor="middle">焦點要對在板厚中間，上下才切得透</text>
+
+  <text x="400" y="424" fill="#9A8DFF" font-size="15" font-weight="700" text-anchor="middle">焦距加倍 → 焦點直徑變 2 倍，焦深變 4 倍</text>
+ </g>
+</svg>

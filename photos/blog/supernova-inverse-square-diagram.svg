@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="左邊是直覺：退到 2 倍遠亮度剩一半。右邊是實際：光被攤到 4 倍大的面積上，同一塊磁磚只接到四分之一">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <g font-family="system-ui, 'Noto Sans TC', sans-serif">
+  <text x="400" y="34" fill="#FFFFFF" font-size="20" font-weight="700" text-anchor="middle">退到 2 倍遠，牆上的亮度剩多少？</text>
+  <line x1="400" y1="58" x2="400" y2="376" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5"/>
+
+  <text x="200" y="88" fill="#FFFFFF" font-size="19" font-weight="700" text-anchor="middle">一般以為</text>
+  <text x="200" y="112" fill="#585B63" font-size="14" text-anchor="middle">距離變兩倍，亮度就剩一半</text>
+
+  <rect x="90" y="152" width="70" height="70" fill="#2F7DE1"/>
+  <text x="125" y="195" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">1</text>
+  <text x="125" y="243" fill="#585B63" font-size="13" text-anchor="middle">1 公尺</text>
+
+  <text x="200" y="192" fill="#585B63" font-size="18" text-anchor="middle">&#8594;</text>
+
+  <rect x="240" y="152" width="70" height="70" fill="#2F7DE1" fill-opacity="0.5"/>
+  <text x="275" y="195" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">1/2</text>
+  <text x="275" y="243" fill="#585B63" font-size="13" text-anchor="middle">2 公尺</text>
+
+  <text x="200" y="345" fill="#2F7DE1" font-size="15" font-weight="700" text-anchor="middle">×2 遠 → 亮度 ÷2</text>
+  <text x="200" y="370" fill="#585B63" font-size="13" text-anchor="middle">光圈變大這件事，沒被算進去</text>
+
+  <text x="600" y="88" fill="#FFFFFF" font-size="19" font-weight="700" text-anchor="middle">實際上</text>
+  <text x="600" y="112" fill="#585B63" font-size="14" text-anchor="middle">同一份光，被攤到四倍大的面積</text>
+
+  <rect x="455" y="152" width="70" height="70" fill="#F2803C"/>
+  <text x="490" y="195" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">1</text>
+  <text x="490" y="243" fill="#585B63" font-size="13" text-anchor="middle">1 公尺</text>
+
+  <text x="556" y="192" fill="#585B63" font-size="18" text-anchor="middle">&#8594;</text>
+
+  <rect x="590" y="152" width="140" height="140" fill="#F2803C" fill-opacity="0.25"/>
+  <line x1="660" y1="152" x2="660" y2="292" stroke="#101114" stroke-width="2"/>
+  <line x1="590" y1="222" x2="730" y2="222" stroke="#101114" stroke-width="2"/>
+  <rect x="590" y="152" width="70" height="70" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="625" y="195" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">1/4</text>
+  <text x="660" y="313" fill="#585B63" font-size="13" text-anchor="middle">2 公尺</text>
+
+  <text x="600" y="345" fill="#F2803C" font-size="15" font-weight="700" text-anchor="middle">×2 遠 → 面積 ×4 → 亮度 ÷4</text>
+  <text x="600" y="370" fill="#585B63" font-size="13" text-anchor="middle">白框就是同一塊磁磚，只接到四分之一</text>
+
+  <line x1="60" y1="392" x2="740" y2="392" stroke="#585B63" stroke-width="1"/>
+  <text x="400" y="421" fill="#9A8DFF" font-size="15" font-weight="700" text-anchor="middle">所以亮度剩一半的星，其實只遠了 1.4 倍（1.4 × 1.4 ≈ 2）</text>
+ </g>
+</svg>

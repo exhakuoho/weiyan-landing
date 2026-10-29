@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<rect x="0" y="0" width="800" height="450" fill="#101114"/>
+<g font-family="system-ui, 'Noto Sans TC', sans-serif">
+<text x="400" y="40" fill="#FFFFFF" font-size="22" font-weight="700" text-anchor="middle">每秒只看 24 次，真實的快會被讀成倒轉</text>
+<line x1="400" y1="62" x2="400" y2="400" stroke="#585B63" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="205" y="92" fill="#585B63" font-size="15" text-anchor="middle">大家以為</text>
+<text x="205" y="118" fill="#FFFFFF" font-size="17" font-weight="600" text-anchor="middle">相機一直在看</text>
+<circle cx="205" cy="242" r="76" fill="none" stroke="#2F7DE1" stroke-width="3"/>
+<circle cx="205" cy="242" r="7" fill="#2F7DE1"/>
+<circle cx="205.0" cy="166.0" r="10" fill="#FFFFFF"/>
+<path d="M 124.6 179.2 A 102 102 0 0 1 280.8 173.7" fill="none" stroke="#2F7DE1" stroke-width="2.5" opacity="0.85"/>
+<polygon points="0,-7 15,0 0,7" fill="#2F7DE1" transform="translate(280.8,173.7) rotate(48)"/>
+<text x="205" y="352" fill="#FFFFFF" font-size="16" text-anchor="middle">看到的＝每秒 23 圈</text>
+<text x="205" y="378" fill="#585B63" font-size="13" text-anchor="middle">直覺上沒有問題</text>
+<text x="600" y="92" fill="#585B63" font-size="15" text-anchor="middle">實際上</text>
+<text x="600" y="118" fill="#FFFFFF" font-size="17" font-weight="600" text-anchor="middle">每秒只有 24 個快照</text>
+<rect x="439" y="148" width="92" height="98" rx="8" fill="none" stroke="#585B63" stroke-width="1.5"/>
+<circle cx="485" cy="197" r="33" fill="none" stroke="#F2803C" stroke-width="2.5"/>
+<circle cx="485" cy="197" r="5" fill="#F2803C"/>
+<circle cx="485.0" cy="164.0" r="8" fill="#FFFFFF"/>
+<text x="485" y="268" fill="#585B63" font-size="13" text-anchor="middle">第 1 格</text>
+<rect x="551" y="148" width="92" height="98" rx="8" fill="none" stroke="#585B63" stroke-width="1.5"/>
+<circle cx="597" cy="197" r="33" fill="none" stroke="#F2803C" stroke-width="2.5"/>
+<circle cx="597" cy="197" r="5" fill="#F2803C"/>
+<circle cx="588.5" cy="165.1" r="8" fill="#FFFFFF"/>
+<text x="597" y="268" fill="#585B63" font-size="13" text-anchor="middle">第 2 格</text>
+<rect x="663" y="148" width="92" height="98" rx="8" fill="none" stroke="#585B63" stroke-width="1.5"/>
+<circle cx="709" cy="197" r="33" fill="none" stroke="#F2803C" stroke-width="2.5"/>
+<circle cx="709" cy="197" r="5" fill="#F2803C"/>
+<circle cx="692.5" cy="168.4" r="8" fill="#FFFFFF"/>
+<text x="709" y="268" fill="#585B63" font-size="13" text-anchor="middle">第 3 格</text>
+<path d="M 557 292 L 531 292" stroke="#9A8DFF" stroke-width="2"/>
+<polygon points="0,-6 13,0 0,6" fill="#9A8DFF" transform="translate(531,292) rotate(180)"/>
+<path d="M 669 292 L 643 292" stroke="#9A8DFF" stroke-width="2"/>
+<polygon points="0,-6 13,0 0,6" fill="#9A8DFF" transform="translate(643,292) rotate(180)"/>
+<text x="600" y="320" fill="#9A8DFF" font-size="17" font-weight="600" text-anchor="middle">每一格往後退 15 度</text>
+<text x="600" y="352" fill="#FFFFFF" font-size="16" text-anchor="middle">大腦讀成：每秒倒轉 1 圈</text>
+<text x="600" y="378" fill="#F2803C" font-size="13" text-anchor="middle">真實是每秒正轉 23 圈，每格走了 345 度</text>
+<text x="400" y="428" fill="#9A8DFF" font-size="16" font-weight="600" text-anchor="middle">一個週期至少要取兩點，否則讀到的是假的</text>
+</g>
+</svg>

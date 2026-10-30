@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="水冰吸收帶對照圖">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="32" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">同樣是水冰，三道吸收帶的深淺不一樣</text>
+ <text x="400" y="55" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">縱軸：反射回來的光量　橫軸：紅外線波長（微米）</text>
+
+ <g>
+  <rect x="30" y="72" width="356" height="262" rx="10" fill="none" stroke="#585B63" stroke-width="1"/>
+  <text x="208" y="97" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#F2803C">一般會以為：三道凹都在</text>
+  <text x="208" y="116" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">太陽系彗星（例 C/2024 E1）</text>
+  <line x1="58" y1="135" x2="58" y2="285" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="58" y1="285" x2="358" y2="285" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="118" y1="135" x2="118" y2="285" stroke="#585B63" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <line x1="178" y1="135" x2="178" y2="285" stroke="#585B63" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <line x1="298" y1="135" x2="298" y2="285" stroke="#585B63" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <polyline fill="none" stroke="#F2803C" stroke-width="2.6" stroke-linejoin="round" points="58,152 92,150 104,162 112,188 118,196 124,186 136,160 152,152 166,156 174,192 178,199 184,187 196,160 214,150 252,152 268,172 282,218 298,262 312,222 326,180 342,160 358,154"/>
+  <text x="118" y="303" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#FFFFFF">1.5</text>
+  <text x="178" y="303" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#FFFFFF">2.0</text>
+  <text x="298" y="303" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#FFFFFF">3.0</text>
+  <text x="208" y="325" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#F2803C">三道都看得見　→　冰粒比較乾淨</text>
+ </g>
+
+ <g>
+  <rect x="414" y="72" width="356" height="262" rx="10" fill="none" stroke="#585B63" stroke-width="1"/>
+  <text x="592" y="97" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#2F7DE1">韋伯實際量到：只剩一道</text>
+  <text x="592" y="116" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">星際彗星 3I/ATLAS</text>
+  <line x1="442" y1="135" x2="442" y2="285" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="442" y1="285" x2="742" y2="285" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="502" y1="135" x2="502" y2="285" stroke="#585B63" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <line x1="562" y1="135" x2="562" y2="285" stroke="#585B63" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <line x1="682" y1="135" x2="682" y2="285" stroke="#585B63" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <polyline fill="none" stroke="#2F7DE1" stroke-width="2.6" stroke-linejoin="round" points="442,152 476,150 488,153 496,157 502,159 508,156 520,152 536,151 550,153 558,158 562,160 568,157 580,152 598,150 636,152 652,168 666,206 682,250 696,212 710,176 726,158 742,153"/>
+  <text x="502" y="303" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#FFFFFF">1.5</text>
+  <text x="562" y="303" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#FFFFFF">2.0</text>
+  <text x="682" y="303" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#FFFFFF">3.0</text>
+  <text x="502" y="140" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11" fill="#9A8DFF">幾乎被抹平</text>
+  <text x="592" y="325" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#2F7DE1">只剩 3 微米　→　冰粒小又摻滿塵土</text>
+ </g>
+
+ <rect x="30" y="350" width="740" height="76" rx="10" fill="none" stroke="#9A8DFF" stroke-width="1.2"/>
+ <text x="400" y="378" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#FFFFFF">淺的凹，要光在冰裡多走一段路才凹得出來。</text>
+ <text x="400" y="402" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">冰粒又小、又摻著深色塵土，光一進去就被攔住——兩道淺的就不見了。</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="同一張紙攤平與捲成圓筒的對照：材料離中心線的距離決定抗彎能力">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="34" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="bold">同一張 A4 紙（5 公克），只有形狀不一樣</text>
+ <line x1="400" y1="52" x2="400" y2="300" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5"/>
+
+ <text x="205" y="76" text-anchor="middle" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="bold">直覺：紙很軟，撐不住</text>
+ <rect x="150" y="96" width="110" height="20" rx="3" fill="#585B63"/>
+ <text x="205" y="111" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">書</text>
+ <path d="M205 124 L205 148" stroke="#FFFFFF" stroke-width="2"/>
+ <path d="M199 142 L205 150 L211 142" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+ <path d="M205 156 C 163 196, 247 236, 205 276" fill="none" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+ <line x1="205" y1="286" x2="205" y2="286" stroke="#585B63" stroke-width="1"/>
+ <line x1="140" y1="286" x2="270" y2="286" stroke="#585B63" stroke-width="2"/>
+ <text x="205" y="310" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">一壓就往旁邊彎掉</text>
+
+ <text x="600" y="76" text-anchor="middle" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="bold">實際：捲成筒就站得住</text>
+ <rect x="536" y="78" width="128" height="18" rx="3" fill="#585B63"/>
+ <rect x="542" y="96" width="116" height="18" rx="3" fill="#585B63"/>
+ <rect x="536" y="114" width="128" height="18" rx="3" fill="#585B63"/>
+ <text x="690" y="110" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">一疊書</text>
+ <ellipse cx="600" cy="142" rx="46" ry="12" fill="none" stroke="#2F7DE1" stroke-width="4"/>
+ <line x1="554" y1="142" x2="554" y2="272" stroke="#2F7DE1" stroke-width="4"/>
+ <line x1="646" y1="142" x2="646" y2="272" stroke="#2F7DE1" stroke-width="4"/>
+ <path d="M554 272 A 46 12 0 0 0 646 272" fill="none" stroke="#2F7DE1" stroke-width="4"/>
+ <line x1="520" y1="286" x2="680" y2="286" stroke="#585B63" stroke-width="2"/>
+ <text x="600" y="310" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">往哪邊彎都有材料擋著</text>
+
+ <text x="400" y="348" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" font-weight="bold">看截面就知道差在哪：材料離中心有多遠</text>
+
+ <line x1="112" y1="388" x2="298" y2="388" stroke="#F2803C" stroke-width="5" stroke-linecap="round"/>
+ <text x="205" y="414" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">攤平：離中心只有 0.05 公釐</text>
+ <text x="205" y="434" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">材料全擠在同一條線上</text>
+
+ <circle cx="600" cy="388" r="30" fill="none" stroke="#2F7DE1" stroke-width="5"/>
+ <circle cx="600" cy="388" r="2" fill="#585B63"/>
+ <line x1="600" y1="388" x2="630" y2="388" stroke="#9A8DFF" stroke-width="2"/>
+ <text x="600" y="414" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">捲成筒：離中心 33 公釐</text>
+ <text x="600" y="434" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">遠 660 倍，距離要再平方</text>
+</svg>

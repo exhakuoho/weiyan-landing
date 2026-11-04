@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="左右對照：一般以為撞擊只交出一份推力，實際上碎石往回噴再推一把，合計約 2.1 倍">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <g font-family="system-ui, 'Noto Sans TC', sans-serif">
+
+  <text x="205" y="40" font-size="19" fill="#FFFFFF" text-anchor="middle">一般會以為：像打撞球</text>
+  <text x="600" y="40" font-size="19" fill="#FFFFFF" text-anchor="middle">實際上：碎石又推一把</text>
+  <line x1="405" y1="58" x2="405" y2="400" stroke="#585B63" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <rect x="66" y="152" width="4" height="38" fill="#2F7DE1"/>
+  <rect x="100" y="152" width="4" height="38" fill="#2F7DE1"/>
+  <rect x="70" y="160" width="30" height="22" fill="#2F7DE1"/>
+  <line x1="112" y1="171" x2="163" y2="171" stroke="#2F7DE1" stroke-width="5"/>
+  <polygon points="163,162 182,171 163,180" fill="#2F7DE1"/>
+  <circle cx="255" cy="171" r="50" fill="#22242A" stroke="#585B63" stroke-width="2"/>
+  <circle cx="238" cy="156" r="9" fill="#2E3138"/>
+  <circle cx="270" cy="186" r="6" fill="#2E3138"/>
+  <text x="85" y="212" font-size="12" fill="#585B63" text-anchor="middle">DART 550 公斤</text>
+  <text x="255" y="243" font-size="12" fill="#585B63" text-anchor="middle">Dimorphos 151 公尺</text>
+  <text x="205" y="275" font-size="14" fill="#585B63" text-anchor="middle">撞上去，力交出去，結束</text>
+
+  <circle cx="660" cy="171" r="50" fill="#22242A" stroke="#585B63" stroke-width="2"/>
+  <circle cx="645" cy="157" r="9" fill="#2E3138"/>
+  <circle cx="674" cy="188" r="6" fill="#2E3138"/>
+  <circle cx="598" cy="150" r="6" fill="#F2803C"/>
+  <circle cx="572" cy="128" r="4" fill="#F2803C"/>
+  <circle cx="556" cy="163" r="7" fill="#F2803C"/>
+  <circle cx="528" cy="134" r="4" fill="#F2803C"/>
+  <circle cx="520" cy="186" r="5" fill="#F2803C"/>
+  <circle cx="592" cy="203" r="5" fill="#F2803C"/>
+  <circle cx="560" cy="226" r="4" fill="#F2803C"/>
+  <circle cx="494" cy="208" r="4" fill="#F2803C"/>
+  <circle cx="486" cy="156" r="6" fill="#F2803C"/>
+  <circle cx="462" cy="180" r="3" fill="#F2803C"/>
+  <line x1="606" y1="171" x2="474" y2="171" stroke="#F2803C" stroke-width="2" stroke-dasharray="5 5"/>
+  <polygon points="474,163 456,171 474,179" fill="#F2803C"/>
+  <line x1="714" y1="171" x2="757" y2="171" stroke="#2F7DE1" stroke-width="6"/>
+  <polygon points="757,160 779,171 757,182" fill="#2F7DE1"/>
+  <text x="530" y="263" font-size="13" fill="#F2803C" text-anchor="middle">碎石往回噴</text>
+  <text x="530" y="283" font-size="12" fill="#585B63" text-anchor="middle">1,600 萬公斤</text>
+  <text x="700" y="247" font-size="12" fill="#585B63" text-anchor="middle">小行星被推</text>
+
+  <text x="70" y="312" font-size="14" fill="#585B63">交給小行星的推力</text>
+  <rect x="70" y="322" width="100" height="26" fill="#2F7DE1"/>
+  <text x="120" y="368" font-size="12" fill="#585B63" text-anchor="middle">撞擊</text>
+  <text x="70" y="400" font-size="19" fill="#FFFFFF">合計 1 份</text>
+
+  <text x="440" y="312" font-size="14" fill="#585B63">交給小行星的推力</text>
+  <rect x="440" y="322" width="100" height="26" fill="#2F7DE1"/>
+  <rect x="540" y="322" width="110" height="26" fill="#9A8DFF"/>
+  <text x="490" y="368" font-size="12" fill="#585B63" text-anchor="middle">撞擊</text>
+  <text x="595" y="368" font-size="12" fill="#585B63" text-anchor="middle">碎石反作用力</text>
+  <text x="440" y="400" font-size="19" fill="#FFFFFF">合計約 2.1 倍</text>
+
+  <text x="400" y="434" font-size="12" fill="#585B63" text-anchor="middle">同一條定律：牛頓第三定律．推力刻度 100 像素 ＝ 1 份</text>
+ </g>
+</svg>

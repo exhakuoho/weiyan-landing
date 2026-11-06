@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" font-family="system-ui, 'Noto Sans TC', sans-serif">
+<rect x="0" y="0" width="800" height="450" fill="#101114"/>
+<text x="400" y="34" fill="#FFFFFF" font-size="19" font-weight="700" text-anchor="middle">抓不到微中子，問題不在靈敏度，在靶的大小</text>
+<line x1="400" y1="52" x2="400" y2="404" stroke="#585B63" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="205" y="76" fill="#F2803C" font-size="16" font-weight="700" text-anchor="middle">直覺：把儀器調更靈敏</text>
+<rect x="150" y="196" width="110" height="88" rx="7" fill="#F2803C" fill-opacity="0.10" stroke="#F2803C" stroke-width="2.5"/>
+<text x="205" y="236" fill="#F2803C" font-size="14" font-weight="700" text-anchor="middle">小偵測器</text>
+<text x="205" y="258" fill="#F2803C" font-size="13" text-anchor="middle">靈敏度 ×10</text>
+<line x1="36" y1="170" x2="365" y2="170" stroke="#F2803C" stroke-width="2" opacity="0.5"/><polygon points="374,170 365,165.5 365,174.5" fill="#F2803C" opacity="0.5"/>
+<line x1="36" y1="215" x2="365" y2="215" stroke="#F2803C" stroke-width="2" opacity="0.5"/><polygon points="374,215 365,210.5 365,219.5" fill="#F2803C" opacity="0.5"/>
+<line x1="36" y1="265" x2="365" y2="265" stroke="#F2803C" stroke-width="2" opacity="0.5"/><polygon points="374,265 365,260.5 365,269.5" fill="#F2803C" opacity="0.5"/>
+<line x1="36" y1="310" x2="365" y2="310" stroke="#F2803C" stroke-width="2" opacity="0.5"/><polygon points="374,310 365,305.5 365,314.5" fill="#F2803C" opacity="0.5"/>
+<text x="205" y="358" fill="#585B63" font-size="13" text-anchor="middle">微中子不帶電，直接穿過去</text>
+<text x="205" y="392" fill="#FFFFFF" font-size="17" font-weight="700" text-anchor="middle">記錄到 0 顆</text>
+<text x="597" y="76" fill="#2F7DE1" font-size="16" font-weight="700" text-anchor="middle">實際：把靶的體積做大</text>
+<rect x="440" y="140" width="314" height="170" rx="8" fill="#2F7DE1" fill-opacity="0.14" stroke="#2F7DE1" stroke-width="2.5"/>
+<circle cx="462" cy="155" r="3" fill="#585B63"/>
+<circle cx="496" cy="155" r="3" fill="#585B63"/>
+<circle cx="530" cy="155" r="3" fill="#585B63"/>
+<circle cx="564" cy="155" r="3" fill="#585B63"/>
+<circle cx="598" cy="155" r="3" fill="#585B63"/>
+<circle cx="632" cy="155" r="3" fill="#585B63"/>
+<circle cx="666" cy="155" r="3" fill="#585B63"/>
+<circle cx="700" cy="155" r="3" fill="#585B63"/>
+<circle cx="734" cy="155" r="3" fill="#585B63"/>
+<circle cx="462" cy="190" r="3" fill="#585B63"/>
+<circle cx="496" cy="190" r="3" fill="#585B63"/>
+<circle cx="530" cy="190" r="3" fill="#585B63"/>
+<circle cx="564" cy="190" r="3" fill="#585B63"/>
+<circle cx="598" cy="190" r="3" fill="#585B63"/>
+<circle cx="632" cy="190" r="3" fill="#585B63"/>
+<circle cx="666" cy="190" r="3" fill="#585B63"/>
+<circle cx="700" cy="190" r="3" fill="#585B63"/>
+<circle cx="734" cy="190" r="3" fill="#585B63"/>
+<circle cx="462" cy="248" r="3" fill="#585B63"/>
+<circle cx="496" cy="248" r="3" fill="#585B63"/>
+<circle cx="530" cy="248" r="3" fill="#585B63"/>
+<circle cx="564" cy="248" r="3" fill="#585B63"/>
+<circle cx="598" cy="248" r="3" fill="#585B63"/>
+<circle cx="632" cy="248" r="3" fill="#585B63"/>
+<circle cx="666" cy="248" r="3" fill="#585B63"/>
+<circle cx="700" cy="248" r="3" fill="#585B63"/>
+<circle cx="734" cy="248" r="3" fill="#585B63"/>
+<circle cx="462" cy="285" r="3" fill="#585B63"/>
+<circle cx="496" cy="285" r="3" fill="#585B63"/>
+<circle cx="530" cy="285" r="3" fill="#585B63"/>
+<circle cx="564" cy="285" r="3" fill="#585B63"/>
+<circle cx="598" cy="285" r="3" fill="#585B63"/>
+<circle cx="632" cy="285" r="3" fill="#585B63"/>
+<circle cx="666" cy="285" r="3" fill="#585B63"/>
+<circle cx="700" cy="285" r="3" fill="#585B63"/>
+<circle cx="734" cy="285" r="3" fill="#585B63"/>
+<line x1="412" y1="170" x2="777" y2="170" stroke="#2F7DE1" stroke-width="2" opacity="0.5"/><polygon points="786,170 777,165.5 777,174.5" fill="#2F7DE1" opacity="0.5"/>
+<line x1="412" y1="205" x2="777" y2="205" stroke="#2F7DE1" stroke-width="2" opacity="0.5"/><polygon points="786,205 777,200.5 777,209.5" fill="#2F7DE1" opacity="0.5"/>
+<line x1="412" y1="230" x2="777" y2="230" stroke="#2F7DE1" stroke-width="2" opacity="0.5"/><polygon points="786,230 777,225.5 777,234.5" fill="#2F7DE1" opacity="0.5"/>
+<line x1="412" y1="300" x2="777" y2="300" stroke="#2F7DE1" stroke-width="2" opacity="0.5"/><polygon points="786,300 777,295.5 777,304.5" fill="#2F7DE1" opacity="0.5"/>
+<line x1="412" y1="266" x2="601" y2="266" stroke="#2F7DE1" stroke-width="2" opacity="1.0"/><polygon points="610,266 601,261.5 601,270.5" fill="#2F7DE1" opacity="1.0"/>
+<circle cx="622" cy="266" r="10" fill="#9A8DFF"/>
+<line x1="622.0" y1="251.0" x2="622.0" y2="242.0" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="622.0" y1="281.0" x2="622.0" y2="290.0" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="607.0" y1="266.0" x2="598.0" y2="266.0" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="637.0" y1="266.0" x2="646.0" y2="266.0" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="632.5" y1="276.5" x2="638.8" y2="282.8" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="611.5" y1="276.5" x2="605.2" y2="282.8" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="632.5" y1="255.5" x2="638.8" y2="249.2" stroke="#9A8DFF" stroke-width="2.2"/>
+<line x1="611.5" y1="255.5" x2="605.2" y2="249.2" stroke="#9A8DFF" stroke-width="2.2"/>
+<text x="622" y="334" fill="#9A8DFF" font-size="14" font-weight="700" text-anchor="middle">撞上原子核，發出藍光</text>
+<text x="597" y="358" fill="#585B63" font-size="13" text-anchor="middle">一立方公里南極冰 ≈ 9.2 億公噸</text>
+<text x="597" y="392" fill="#FFFFFF" font-size="17" font-weight="700" text-anchor="middle">一年記錄到幾十顆</text>
+<text x="400" y="428" fill="#585B63" font-size="13" text-anchor="middle">碰到的機率跟靶裡的原子核數量成正比，跟放大器的音量無關</text>
+</svg>

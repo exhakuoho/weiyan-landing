@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<rect x="0" y="0" width="800" height="450" fill="#101114"/>
+<text x="400" y="36" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700">同一支兩刃銑刀、進給都是 1,200 公釐／分，只把轉速開兩倍</text>
+<line x1="400" y1="56" x2="400" y2="332" stroke="#585B63" stroke-width="1" stroke-dasharray="5 6"/>
+
+<text x="205" y="80" text-anchor="middle" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18" font-weight="600">轉速 12,000 轉／分</text>
+<text x="205" y="101" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">一般會以為：轉速開大才切得細</text>
+
+<text x="595" y="80" text-anchor="middle" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18" font-weight="600">轉速 24,000 轉／分</text>
+<text x="595" y="101" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">實際上：每一刀只削一半厚</text>
+
+<path d="M252,216 C226,208 208,186 206,158" fill="none" stroke="#2F7DE1" stroke-width="24" stroke-linecap="round"/>
+<line x1="202" y1="146" x2="176" y2="124" stroke="#9A8DFF" stroke-width="2"/>
+<polygon points="178,133 170,119 184,120" fill="#9A8DFF"/>
+<text x="120" y="152" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">熱隨切屑飛走</text>
+<rect x="100" y="216" width="152" height="24" fill="#2F7DE1" fill-opacity="0.22" stroke="#2F7DE1" stroke-width="1.6" stroke-dasharray="4 4"/>
+<rect x="100" y="240" width="152" height="52" fill="#16181c" stroke="#585B63" stroke-width="1.6"/>
+<text x="176" y="272" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">材料</text>
+<rect x="252" y="130" width="70" height="110" fill="#1b1d22" stroke="#FFFFFF" stroke-width="1.6"/>
+<text x="287" y="190" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">刀刃</text>
+<circle cx="259" cy="233" r="9" fill="none" stroke="#9A8DFF" stroke-width="1.6" stroke-dasharray="3 3"/>
+
+<path d="M642,228 C616,220 598,198 596,170" fill="none" stroke="#F2803C" stroke-width="12" stroke-linecap="round"/>
+<text x="546" y="142" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">切屑又薄又碎</text>
+<line x1="572" y1="150" x2="590" y2="164" stroke="#585B63" stroke-width="1.4"/>
+<rect x="490" y="228" width="152" height="12" fill="#F2803C" fill-opacity="0.22" stroke="#F2803C" stroke-width="1.6" stroke-dasharray="4 4"/>
+<rect x="490" y="240" width="152" height="52" fill="#16181c" stroke="#585B63" stroke-width="1.6"/>
+<text x="566" y="272" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">材料</text>
+<rect x="642" y="130" width="70" height="110" fill="#1b1d22" stroke="#FFFFFF" stroke-width="1.6"/>
+<text x="677" y="190" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">刀刃</text>
+<circle cx="649" cy="233" r="9" fill="none" stroke="#9A8DFF" stroke-width="1.6" stroke-dasharray="3 3"/>
+<line x1="649" y1="248" x2="649" y2="262" stroke="#9A8DFF" stroke-width="2"/>
+<line x1="635" y1="245" x2="628" y2="257" stroke="#9A8DFF" stroke-width="2"/>
+<line x1="663" y1="245" x2="670" y2="257" stroke="#9A8DFF" stroke-width="2"/>
+<text x="688" y="283" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">熱積在刀尖</text>
+
+<text x="205" y="356" text-anchor="middle" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18" font-weight="700">每一刀削下 0.05 公釐</text>
+<text x="205" y="381" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">比刃口的圓角厚，剪得斷</text>
+<text x="205" y="403" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">約八成的熱隨切屑飛走</text>
+
+<text x="595" y="356" text-anchor="middle" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18" font-weight="700">每一刀只削 0.025 公釐</text>
+<text x="595" y="381" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">比刃口的圓角薄，只能磨</text>
+<text x="595" y="403" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">熱帶不走，刀具加速磨損</text>
+
+<text x="400" y="434" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">每刃進給量 ＝ 進給速度 ÷（刃數 × 轉速）——轉速在分母</text>
+</svg>

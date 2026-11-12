@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+<rect x="0" y="0" width="800" height="450" fill="#101114"/>
+<text x="24" y="34" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700">微步調細：指令的格子變細，推動一格的力變小</text>
+<text x="24" y="57" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">以步進角 1.8° 的馬達為例　增量扭矩 ＝ 保持扭矩 × sin(90 ÷ 微步數)</text>
+<text x="24" y="88" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">一般會以為</text>
+<text x="24" y="108" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">格子越細</text>
+<text x="24" y="124" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">位置越準</text>
+<rect x="152.0" y="92" width="62" height="34" fill="none" stroke="#585B63" stroke-width="1"/>
+<text x="183.0" y="146" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">1.8°</text>
+<rect x="263.2" y="92" width="62" height="34" fill="none" stroke="#585B63" stroke-width="1"/>
+<line x1="294.20" y1="94" x2="294.20" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<text x="294.2" y="146" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.9°</text>
+<rect x="374.4" y="92" width="62" height="34" fill="none" stroke="#585B63" stroke-width="1"/>
+<line x1="389.90" y1="94" x2="389.90" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="405.40" y1="94" x2="405.40" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="420.90" y1="94" x2="420.90" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<text x="405.4" y="146" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.45°</text>
+<rect x="485.6" y="92" width="62" height="34" fill="none" stroke="#585B63" stroke-width="1"/>
+<line x1="493.35" y1="94" x2="493.35" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="501.10" y1="94" x2="501.10" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="508.85" y1="94" x2="508.85" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="516.60" y1="94" x2="516.60" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="524.35" y1="94" x2="524.35" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="532.10" y1="94" x2="532.10" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="539.85" y1="94" x2="539.85" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<text x="516.6" y="146" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.225°</text>
+<rect x="596.8" y="92" width="62" height="34" fill="none" stroke="#585B63" stroke-width="1"/>
+<line x1="600.67" y1="94" x2="600.67" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="604.55" y1="94" x2="604.55" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="608.42" y1="94" x2="608.42" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="612.30" y1="94" x2="612.30" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="616.17" y1="94" x2="616.17" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="620.05" y1="94" x2="620.05" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="623.92" y1="94" x2="623.92" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="627.80" y1="94" x2="627.80" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="631.67" y1="94" x2="631.67" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="635.55" y1="94" x2="635.55" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="639.42" y1="94" x2="639.42" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="643.30" y1="94" x2="643.30" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="647.17" y1="94" x2="647.17" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="651.05" y1="94" x2="651.05" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="654.92" y1="94" x2="654.92" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<text x="627.8" y="146" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.1125°</text>
+<rect x="708.0" y="92" width="62" height="34" fill="none" stroke="#585B63" stroke-width="1"/>
+<line x1="711.88" y1="94" x2="711.88" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="715.75" y1="94" x2="715.75" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="719.62" y1="94" x2="719.62" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="723.50" y1="94" x2="723.50" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="727.38" y1="94" x2="727.38" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="731.25" y1="94" x2="731.25" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="735.12" y1="94" x2="735.12" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="739.00" y1="94" x2="739.00" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="742.88" y1="94" x2="742.88" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="746.75" y1="94" x2="746.75" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="750.62" y1="94" x2="750.62" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="754.50" y1="94" x2="754.50" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="758.38" y1="94" x2="758.38" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="762.25" y1="94" x2="762.25" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<line x1="766.12" y1="94" x2="766.12" y2="124" stroke="#2F7DE1" stroke-width="1" opacity="0.85"/>
+<text x="739.0" y="146" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">0.05625°</text>
+<text x="152.0" y="166" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">↑ 一個微步轉的角度（越右邊越細）</text>
+<line x1="24" y1="184" x2="776" y2="184" stroke="#585B63" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="24" y="210" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" font-weight="700">實際上</text>
+<text x="24" y="230" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">推動一個</text>
+<text x="24" y="246" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">微步的力</text>
+<line x1="138" y1="353.8" x2="782" y2="353.8" stroke="#9A8DFF" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="778" y="344.8" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" text-anchor="end">這台機器的負載＋摩擦需要的力（示意）</text>
+<rect x="152.0" y="230.0" width="62" height="172.0" fill="#2F7DE1" rx="2"/>
+<text x="183.0" y="223.0" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle" font-weight="700">100.0%</text>
+<text x="183.0" y="421.0" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">整步</text>
+<rect x="263.2" y="280.4" width="62" height="121.6" fill="#2F7DE1" rx="2"/>
+<text x="294.2" y="273.4" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle" font-weight="700">70.7%</text>
+<text x="294.2" y="421.0" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">1/2</text>
+<rect x="374.4" y="336.2" width="62" height="65.8" fill="#2F7DE1" rx="2"/>
+<text x="405.4" y="329.2" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle" font-weight="700">38.3%</text>
+<text x="405.4" y="421.0" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">1/4</text>
+<rect x="485.6" y="368.4" width="62" height="33.6" fill="#F2803C" rx="2"/>
+<text x="516.6" y="361.4" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle" font-weight="700">19.5%</text>
+<text x="516.6" y="421.0" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">1/8</text>
+<rect x="596.8" y="385.1" width="62" height="16.9" fill="#F2803C" rx="2"/>
+<text x="627.8" y="378.1" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle" font-weight="700">9.8%</text>
+<text x="627.8" y="421.0" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">1/16</text>
+<rect x="708.0" y="393.6" width="62" height="8.4" fill="#F2803C" rx="2"/>
+<text x="739.0" y="386.6" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle" font-weight="700">4.9%</text>
+<text x="739.0" y="421.0" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" text-anchor="middle">1/32</text>
+<line x1="138" y1="402" x2="782" y2="402" stroke="#585B63" stroke-width="1"/>
+<text x="24" y="421" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">微步設定</text>
+<text x="24" y="440" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">橘色＝低於虛線：這一個微步的指令下去，轉子可能原地不動</text>
+</svg>

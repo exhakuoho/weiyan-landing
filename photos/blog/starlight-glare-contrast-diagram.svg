@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="36" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">擋住行星的不是距離，是旁邊亮一百萬倍的光</text>
+
+ <!-- panel 1 -->
+ <rect x="24" y="58" width="236" height="232" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="142" y="84" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#585B63">直覺以為的樣子</text>
+ <circle cx="112" cy="180" r="9" fill="#FFFFFF"/>
+ <circle cx="186" cy="180" r="5" fill="#2F7DE1"/>
+ <text x="112" y="212" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#FFFFFF">恆星</text>
+ <text x="190" y="212" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#2F7DE1">行星</text>
+ <text x="142" y="258" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">兩個點，一眼就分得開</text>
+
+ <!-- panel 2 -->
+ <rect x="282" y="58" width="236" height="232" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="400" y="84" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#F2803C">實際拍到的樣子</text>
+ <circle cx="376" cy="180" r="54" fill="#F2803C" opacity="0.10"/>
+ <circle cx="376" cy="180" r="46" fill="#F2803C" opacity="0.16"/>
+ <circle cx="376" cy="180" r="32" fill="#F2803C" opacity="0.26"/>
+ <circle cx="376" cy="180" r="20" fill="#F2803C" opacity="0.45"/>
+ <circle cx="376" cy="180" r="10" fill="#F2803C" opacity="0.85"/>
+ <line x1="376" y1="118" x2="376" y2="242" stroke="#F2803C" stroke-width="3" opacity="0.40"/>
+ <line x1="306" y1="180" x2="446" y2="180" stroke="#F2803C" stroke-width="3" opacity="0.40"/>
+ <line x1="333" y1="137" x2="419" y2="223" stroke="#F2803C" stroke-width="2" opacity="0.28"/>
+ <line x1="419" y1="137" x2="333" y2="223" stroke="#F2803C" stroke-width="2" opacity="0.28"/>
+ <circle cx="438" cy="180" r="5" fill="#2F7DE1" opacity="0.45"/>
+ <text x="400" y="258" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">行星埋在恆星的光斑花紋裡</text>
+
+ <!-- panel 3 -->
+ <rect x="540" y="58" width="236" height="232" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="658" y="84" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#9A8DFF">算出光斑再減掉</text>
+ <circle cx="634" cy="180" r="46" fill="none" stroke="#585B63" stroke-width="1" stroke-dasharray="4 5"/>
+ <circle cx="634" cy="180" r="20" fill="none" stroke="#585B63" stroke-width="1" stroke-dasharray="4 5"/>
+ <circle cx="696" cy="180" r="6" fill="#2F7DE1"/>
+ <line x1="696" y1="148" x2="696" y2="167" stroke="#9A8DFF" stroke-width="2"/>
+ <text x="696" y="140" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#9A8DFF">行星露出來</text>
+ <text x="658" y="258" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">減掉已知的，剩下就是未知的</text>
+
+ <!-- bottom bar -->
+ <line x1="24" y1="318" x2="776" y2="318" stroke="#585B63" stroke-width="1"/>
+ <text x="24" y="350" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#FFFFFF">一般認知：看不到，是因為它太小、望遠鏡不夠大</text>
+ <text x="24" y="382" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#F2803C">實際上：它比恆星暗一百萬倍——擋住它的是亮度差，不是解析度</text>
+ <text x="24" y="420" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">同理：白天的星星還在天上，只是天空被太陽的散射光照亮了</text>
+</svg>

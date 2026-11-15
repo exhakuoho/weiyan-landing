@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+  <text x="400" y="40" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="24" fill="#FFFFFF">同樣是加熱，長度卻往相反的方向跑</text>
+  <line x1="400" y1="68" x2="400" y2="362" stroke="#585B63" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <text x="200" y="100" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">一般固體：金屬棒</text>
+  <text x="46" y="167" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">室溫</text>
+  <rect x="96" y="152" width="165" height="22" rx="3" fill="#2F7DE1"/>
+  <line x1="261" y1="144" x2="261" y2="248" stroke="#585B63" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="46" y="230" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">加熱後</text>
+  <rect x="96" y="215" width="200" height="22" rx="3" fill="#F2803C"/>
+  <path d="M134 256 L134 243 M129 248 L134 242 L139 248" stroke="#F2803C" stroke-width="2" fill="none"/>
+  <path d="M174 256 L174 243 M169 248 L174 242 L179 248" stroke="#F2803C" stroke-width="2" fill="none"/>
+  <path d="M214 256 L214 243 M209 248 L214 242 L219 248" stroke="#F2803C" stroke-width="2" fill="none"/>
+  <path d="M300 226 L327 226 M321 221 L328 226 L321 231" stroke="#9A8DFF" stroke-width="2" fill="none"/>
+  <text x="333" y="231" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#9A8DFF">變長</text>
+  <text x="200" y="296" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">原子振動更劇烈，平均距離被推遠</text>
+  <text x="200" y="318" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">→ 長度變長</text>
+
+  <text x="600" y="100" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">受拉的橡皮筋</text>
+  <rect x="452" y="128" width="296" height="8" rx="2" fill="#585B63"/>
+  <line x1="470" y1="232" x2="742" y2="232" stroke="#585B63" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <line x1="520" y1="136" x2="520" y2="232" stroke="#2F7DE1" stroke-width="6" stroke-linecap="round"/>
+  <rect x="498" y="232" width="44" height="34" rx="4" fill="#2F7DE1"/>
+  <text x="520" y="288" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">室溫</text>
+
+  <line x1="672" y1="136" x2="672" y2="198" stroke="#F2803C" stroke-width="6" stroke-linecap="round"/>
+  <rect x="650" y="198" width="44" height="34" rx="4" fill="#F2803C"/>
+  <text x="672" y="288" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">加熱後</text>
+  <path d="M716 152 L694 152 M700 147 L693 152 L700 157" stroke="#F2803C" stroke-width="2" fill="none"/>
+  <path d="M716 172 L694 172 M700 167 L693 172 L700 177" stroke="#F2803C" stroke-width="2" fill="none"/>
+  <path d="M728 254 L728 212 M723 218 L728 211 L733 218" stroke="#9A8DFF" stroke-width="2" fill="none"/>
+  <text x="738" y="238" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#9A8DFF">上升</text>
+  <text x="600" y="320" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">分子鏈想纏回去的力隨溫度變大</text>
+  <text x="600" y="342" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">→ 縮短，把重物提起來</text>
+
+  <rect x="40" y="378" width="720" height="48" rx="6" fill="none" stroke="#585B63" stroke-width="1"/>
+  <text x="400" y="400" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#FFFFFF">差別在拉力從哪裡來：金屬靠原子之間的鍵，橡膠靠「想回到亂纏狀態」的傾向</text>
+  <text x="400" y="419" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">而那個傾向正比於絕對溫度 —— 越熱，拉得越緊</text>
+</svg>

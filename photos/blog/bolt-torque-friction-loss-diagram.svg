@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+  <text x="40" y="46" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="26" font-weight="700">你鎖螺絲的力氣，到哪裡去了？</text>
+
+  <text x="105" y="88" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18">直覺以為的</text>
+  <rect x="105" y="104" width="110" height="276" fill="#2F7DE1" rx="4"/>
+  <text x="160" y="235" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="middle">夾緊力</text>
+  <text x="160" y="262" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="middle">100%</text>
+
+  <line x1="285" y1="100" x2="285" y2="390" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5"/>
+
+  <text x="360" y="88" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="18">實際上</text>
+  <rect x="360" y="104" width="110" height="34" fill="#2F7DE1" rx="3"/>
+  <rect x="360" y="138" width="110" height="111" fill="#F2803C"/>
+  <rect x="360" y="249" width="110" height="131" fill="#9A8DFF" rx="3"/>
+
+  <line x1="478" y1="121" x2="508" y2="121" stroke="#585B63" stroke-width="1"/>
+  <text x="518" y="116" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700">夾緊力 12%</text>
+  <text x="518" y="138" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">真正把螺栓拉長的部分</text>
+
+  <line x1="478" y1="193" x2="508" y2="193" stroke="#585B63" stroke-width="1"/>
+  <text x="518" y="188" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700">螺紋摩擦 40%</text>
+  <text x="518" y="210" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">磨在螺紋的斜面上</text>
+
+  <line x1="478" y1="314" x2="508" y2="314" stroke="#585B63" stroke-width="1"/>
+  <text x="518" y="309" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" font-weight="700">座面摩擦 48%</text>
+  <text x="518" y="331" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">磨在螺栓頭底下那一圈</text>
+
+  <text x="360" y="403" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">鋼對鋼、摩擦係數取 0.15，代入 NASA 手冊的扭力係數公式算出</text>
+  <text x="40" y="432" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">摩擦不是浪費——完全沒有摩擦，螺絲一鬆手就會自己轉回來。</text>
+</svg>

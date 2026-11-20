@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="同一份 45 微焦耳的能量，攤開與擠緊的強度對照">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="34" fill="#FFFFFF" font-size="23" font-weight="700" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">強度 ＝ 能量 ÷ 時間 ÷ 面積</text>
+ <line x1="440" y1="58" x2="440" y2="400" stroke="#585B63" stroke-width="1" opacity="0.55"/>
+ <text x="262" y="78" fill="#585B63" font-size="15" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">一般會以為：強度大＝能量大</text>
+ <text x="620" y="78" fill="#585B63" font-size="15" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">實際上：能量很小，但擠得極緊</text>
+
+ <text x="86" y="136" fill="#FFFFFF" font-size="16" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif">能量</text>
+ <rect x="187" y="112" width="150" height="34" rx="6" fill="#9A8DFF" opacity="0.9"/>
+ <text x="262" y="135" fill="#101114" font-size="16" font-weight="700" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">45 µJ</text>
+ <rect x="545" y="112" width="150" height="34" rx="6" fill="#9A8DFF" opacity="0.9"/>
+ <text x="620" y="135" fill="#101114" font-size="16" font-weight="700" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">45 µJ</text>
+ <text x="400" y="163" fill="#9A8DFF" font-size="13" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">兩邊完全一樣</text>
+
+ <text x="86" y="202" fill="#FFFFFF" font-size="16" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif">時間</text>
+ <rect x="147" y="188" width="230" height="20" rx="4" fill="#2F7DE1"/>
+ <text x="262" y="228" fill="#2F7DE1" font-size="14" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">1 秒</text>
+ <rect x="618" y="188" width="4" height="20" fill="#F2803C"/>
+ <line x1="620" y1="212" x2="664" y2="224" stroke="#585B63" stroke-width="1"/>
+ <text x="670" y="228" fill="#F2803C" font-size="14" font-family="system-ui, 'Noto Sans TC', sans-serif">300 阿托秒</text>
+
+ <text x="86" y="288" fill="#FFFFFF" font-size="16" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif">面積</text>
+ <rect x="217" y="246" width="90" height="90" fill="#2F7DE1" opacity="0.22"/>
+ <rect x="217" y="246" width="90" height="90" fill="none" stroke="#2F7DE1" stroke-width="2"/>
+ <text x="262" y="356" fill="#2F7DE1" font-size="14" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">1 平方公分</text>
+ <rect x="575" y="246" width="90" height="90" fill="none" stroke="#585B63" stroke-width="1" stroke-dasharray="5 4"/>
+ <circle cx="620" cy="291" r="4" fill="#F2803C"/>
+ <line x1="624" y1="291" x2="690" y2="276" stroke="#585B63" stroke-width="1"/>
+ <text x="694" y="281" fill="#F2803C" font-size="14" font-family="system-ui, 'Noto Sans TC', sans-serif">180×330 奈米</text>
+ <text x="620" y="356" fill="#585B63" font-size="13" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">虛線框＝左邊那個 1 平方公分</text>
+
+ <text x="86" y="390" fill="#FFFFFF" font-size="16" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif">強度</text>
+ <line x1="60" y1="408" x2="740" y2="408" stroke="#585B63" stroke-width="1" opacity="0.5"/>
+
+ <text x="262" y="391" fill="#2F7DE1" font-size="19" font-weight="700" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif">0.000045 W/cm²</text>
+ <text x="556" y="391" fill="#F2803C" font-size="19" font-weight="700" text-anchor="start" font-family="system-ui, 'Noto Sans TC', sans-serif">2.1×10</text>
+ <text x="627" y="382" fill="#F2803C" font-size="13" font-weight="700" text-anchor="start" font-family="system-ui, 'Noto Sans TC', sans-serif">20</text>
+ <text x="649" y="391" fill="#F2803C" font-size="19" font-weight="700" text-anchor="start" font-family="system-ui, 'Noto Sans TC', sans-serif">W/cm²</text>
+ <text x="222" y="434" fill="#FFFFFF" font-size="17" font-weight="700" text-anchor="start" font-family="system-ui, 'Noto Sans TC', sans-serif">能量沒變，只改時間與面積，強度差約 5×10</text>
+ <text x="558" y="425" fill="#FFFFFF" font-size="12" font-weight="700" text-anchor="start" font-family="system-ui, 'Noto Sans TC', sans-serif">24</text>
+ <text x="576" y="434" fill="#FFFFFF" font-size="17" font-weight="700" text-anchor="start" font-family="system-ui, 'Noto Sans TC', sans-serif">倍</text>
+</svg>

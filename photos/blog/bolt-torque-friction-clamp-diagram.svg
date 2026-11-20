@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" font-family="system-ui, 'Noto Sans TC', sans-serif">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+
+  <text x="30" y="40" fill="#F2803C" font-size="18" font-weight="700">一般以為：用力就是把零件壓住</text>
+  <text x="420" y="40" fill="#2F7DE1" font-size="18" font-weight="700">實際上：零件是被拉長的螺栓夾住</text>
+  <line x1="400" y1="58" x2="400" y2="318" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5"/>
+
+  <!-- 左：直覺 -->
+  <text x="195" y="78" fill="#FFFFFF" font-size="15" text-anchor="middle">手上出力 2.56 N·m</text>
+  <line x1="195" y1="92" x2="195" y2="132" stroke="#F2803C" stroke-width="7"/>
+  <polygon points="195,148 183,128 207,128" fill="#F2803C"/>
+  <rect x="95" y="152" width="200" height="24" rx="3" fill="#585B63"/>
+  <rect x="95" y="178" width="200" height="24" rx="3" fill="#585B63"/>
+  <text x="195" y="288" fill="#F2803C" font-size="14" text-anchor="middle">以為力氣全壓在兩片零件上</text>
+
+  <!-- 右：實際 -->
+  <text x="600" y="78" fill="#FFFFFF" font-size="15" text-anchor="middle">夾持力 1,000 N（約 100 公斤重）</text>
+  <rect x="548" y="110" width="44" height="18" rx="3" fill="#2F7DE1"/>
+  <path d="M570 128 L558 142 L582 158 L558 174 L582 190 L558 206 L582 222 L570 236" fill="none" stroke="#2F7DE1" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="548" y="236" width="44" height="18" rx="3" fill="#2F7DE1"/>
+  <rect x="480" y="152" width="180" height="24" rx="3" fill="#585B63"/>
+  <rect x="480" y="178" width="180" height="24" rx="3" fill="#585B63"/>
+  <line x1="716" y1="108" x2="716" y2="140" stroke="#FFFFFF" stroke-width="3"/>
+  <polygon points="716,152 707,134 725,134" fill="#FFFFFF"/>
+  <line x1="716" y1="246" x2="716" y2="214" stroke="#FFFFFF" stroke-width="3"/>
+  <polygon points="716,202 707,220 725,220" fill="#FFFFFF"/>
+  <text x="716" y="184" fill="#FFFFFF" font-size="14" text-anchor="middle">夾住</text>
+  <text x="600" y="288" fill="#2F7DE1" font-size="14" text-anchor="middle">螺栓被拉長，像彈簧一樣往回縮</text>
+  <text x="600" y="310" fill="#9A8DFF" font-size="14" text-anchor="middle">只有 10.9% 的扭力做到這件事</text>
+
+  <!-- 下：扭力分配 -->
+  <text x="60" y="346" fill="#FFFFFF" font-size="16" font-weight="700">那 2.56 N·m 的扭力，到底分給了誰</text>
+  <rect x="60" y="360" width="74" height="26" fill="#2F7DE1"/>
+  <rect x="134" y="360" width="247" height="26" fill="#F2803C"/>
+  <rect x="381" y="360" width="359" height="26" fill="#585B63"/>
+  <text x="60" y="408" fill="#2F7DE1" font-size="14">10.9% 拉長螺栓</text>
+  <text x="257" y="408" fill="#F2803C" font-size="14" text-anchor="middle">36.3% 螺紋摩擦</text>
+  <text x="560" y="408" fill="#FFFFFF" font-size="14" text-anchor="middle">52.8% 螺帽底面摩擦</text>
+  <text x="400" y="436" fill="#585B63" font-size="13" text-anchor="middle">摩擦吃掉約九成，那九成跟零件被夾得多緊無關</text>
+</svg>

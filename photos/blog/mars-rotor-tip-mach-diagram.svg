@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="34" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">重力小不等於好飛：火星缺的是空氣，音速天花板還更矮</text>
+
+ <!-- left panel: intuition -->
+ <rect x="24" y="54" width="364" height="190" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="206" y="80" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#F2803C">直覺以為的</text>
+ <text x="206" y="112" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#FFFFFF">火星重力只有地球的 38%</text>
+ <line x1="206" y1="126" x2="206" y2="156" stroke="#F2803C" stroke-width="3"/>
+ <path d="M 199 148 L 206 158 L 213 148 Z" fill="#F2803C"/>
+ <text x="206" y="182" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#FFFFFF">機身變輕，應該更好飛</text>
+ <text x="206" y="216" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">想的是「要撐起多重」</text>
+
+ <!-- right panel: reality -->
+ <rect x="412" y="54" width="364" height="190" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="594" y="80" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#2F7DE1">實際發生的</text>
+ <text x="594" y="104" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#FFFFFF">升力 = 空氣密度 × 速度²</text>
+
+ <text x="438" y="134" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">地球空氣</text>
+ <rect x="500" y="124" width="240" height="13" rx="3" fill="#2F7DE1"/>
+ <text x="438" y="162" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">火星空氣</text>
+ <rect x="500" y="152" width="240" height="13" rx="3" fill="none" stroke="#585B63" stroke-width="1" stroke-dasharray="4 4"/>
+ <rect x="500" y="152" width="4" height="13" rx="1" fill="#2F7DE1"/>
+ <text x="522" y="163" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#9A8DFF">只剩約 1%</text>
+
+ <text x="594" y="196" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#FFFFFF">密度剩 1%，速度要 10 倍才補得回</text>
+ <text x="594" y="216" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">靠的是「有多少空氣可以打」</text>
+
+ <!-- bottom: speed ruler -->
+ <text x="400" y="278" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#9A8DFF">第二道限制：葉尖可用的速度上限，火星比地球矮</text>
+
+ <line x1="80" y1="356" x2="740" y2="356" stroke="#585B63" stroke-width="2"/>
+ <text x="80" y="384" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">0</text>
+ <text x="760" y="360" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">m/s</text>
+
+ <!-- earth sound speed 340 m/s -->
+ <line x1="703" y1="300" x2="703" y2="356" stroke="#585B63" stroke-width="2" stroke-dasharray="5 5"/>
+ <text x="703" y="384" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">340</text>
+ <text x="703" y="294" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">地球的 Mach 1</text>
+
+ <!-- mars sound speed 241 m/s -->
+ <line x1="522" y1="300" x2="522" y2="356" stroke="#F2803C" stroke-width="3"/>
+ <text x="522" y="294" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" fill="#F2803C">火星的 Mach 1 ＝ 241</text>
+
+ <!-- ingenuity 169 m/s -->
+ <circle cx="390" cy="356" r="6" fill="#2F7DE1"/>
+ <line x1="390" y1="356" x2="390" y2="330" stroke="#2F7DE1" stroke-width="2"/>
+ <text x="390" y="322" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#2F7DE1">Ingenuity 169</text>
+ <text x="390" y="384" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">Mach 0.7</text>
+
+ <!-- new test 260 m/s -->
+ <circle cx="557" cy="356" r="6" fill="#9A8DFF"/>
+ <line x1="557" y1="356" x2="557" y2="398" stroke="#9A8DFF" stroke-width="2"/>
+ <text x="600" y="416" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#9A8DFF">這次測試 260（Mach 1.08，越線了）</text>
+
+ <text x="80" y="440" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">火星音速由新聞稿的 869 km/h 換算；地球 1,223 km/h 換算得 340 m/s</text>
+</svg>

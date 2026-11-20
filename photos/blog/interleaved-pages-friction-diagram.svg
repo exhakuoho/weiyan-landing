@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="左邊是直覺上以為靠書的重量壓緊，右邊是實際上每張紙微微傾斜把拉力折成正向力">
+ <defs>
+  <marker id="ar-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+   <path d="M0,0 L10,5 L0,10 z" fill="#F2803C"/>
+  </marker>
+  <marker id="ar-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+   <path d="M0,0 L10,5 L0,10 z" fill="#9A8DFF"/>
+  </marker>
+  <marker id="ar-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+   <path d="M0,0 L10,5 L0,10 z" fill="#2F7DE1"/>
+  </marker>
+ </defs>
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="40" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="24" fill="#FFFFFF">兩疊交錯的紙：拉不開的力從哪裡來</text>
+ <line x1="400" y1="68" x2="400" y2="400" stroke="#585B63" stroke-width="1" stroke-dasharray="6 6"/>
+
+ <text x="210" y="104" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" fill="#F2803C">一般認知：靠重量壓住</text>
+ <line x1="210" y1="138" x2="210" y2="170" stroke="#F2803C" stroke-width="3" marker-end="url(#ar-o)"/>
+ <text x="226" y="158" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#FFFFFF">書的重量</text>
+ <rect x="110" y="182" width="200" height="10" fill="#F2803C" fill-opacity="0.35" stroke="#F2803C" stroke-width="1"/>
+ <rect x="110" y="198" width="200" height="10" fill="#F2803C" fill-opacity="0.35" stroke="#F2803C" stroke-width="1"/>
+ <rect x="110" y="214" width="200" height="10" fill="#F2803C" fill-opacity="0.35" stroke="#F2803C" stroke-width="1"/>
+ <rect x="110" y="230" width="200" height="10" fill="#F2803C" fill-opacity="0.35" stroke="#F2803C" stroke-width="1"/>
+ <rect x="110" y="246" width="200" height="10" fill="#F2803C" fill-opacity="0.35" stroke="#F2803C" stroke-width="1"/>
+ <rect x="110" y="262" width="200" height="10" fill="#F2803C" fill-opacity="0.35" stroke="#F2803C" stroke-width="1"/>
+ <line x1="98" y1="288" x2="322" y2="288" stroke="#585B63" stroke-width="2"/>
+ <text x="210" y="340" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" fill="#FFFFFF">重量壓多少，摩擦力就那麼多</text>
+ <text x="210" y="368" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">實測：橫著拉、豎著拉都一樣</text>
+
+ <text x="600" y="104" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" fill="#2F7DE1">實際上：拉力自己折出壓力</text>
+ <text x="472" y="206" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#FFFFFF">每張紙微微斜著</text>
+ <line x1="470" y1="240" x2="740" y2="180" stroke="#2F7DE1" stroke-width="3"/>
+ <line x1="470" y1="240" x2="550" y2="240" stroke="#585B63" stroke-width="1" stroke-dasharray="4 4"/>
+ <text x="556" y="237" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#9A8DFF">傾角</text>
+ <rect x="470" y="250" width="270" height="14" fill="#2F7DE1" fill-opacity="0.30" stroke="#2F7DE1" stroke-width="1"/>
+ <line x1="660" y1="198" x2="753" y2="177" stroke="#F2803C" stroke-width="3" marker-end="url(#ar-o)"/>
+ <text x="664" y="162" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#F2803C">你拉的力</text>
+ <line x1="660" y1="198" x2="673" y2="259" stroke="#9A8DFF" stroke-width="3" marker-end="url(#ar-p)"/>
+ <text x="688" y="234" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">壓住下面的分量</text>
+ <line x1="612" y1="284" x2="500" y2="284" stroke="#2F7DE1" stroke-width="3" marker-end="url(#ar-b)"/>
+ <text x="500" y="306" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#2F7DE1">接觸面的摩擦力</text>
+ <text x="600" y="340" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" fill="#FFFFFF">你拉得越用力，紫色箭頭就越長</text>
+ <text x="600" y="368" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">張數加倍，需要的力跳好幾十倍</text>
+
+ <text x="400" y="420" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#585B63">放大參數 α＝2μεM²／d：M＝每邊張數，ε＝紙厚，d＝重疊長度</text>
+</svg>

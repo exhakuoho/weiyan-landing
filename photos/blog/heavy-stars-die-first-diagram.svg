@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="36" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="24" font-weight="700">大的比較耐久？恆星剛好相反</text>
+
+ <rect x="30" y="54" width="360" height="40" rx="6" fill="none" stroke="#585B63" stroke-width="1.5"/>
+ <text x="210" y="79" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">直覺：越大的星撐得越久</text>
+ <rect x="410" y="54" width="360" height="40" rx="6" fill="none" stroke="#9A8DFF" stroke-width="1.5"/>
+ <text x="590" y="79" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">實際：越重的星燒得越快</text>
+
+ <circle cx="55" cy="145" r="26" fill="#F2803C"/>
+ <text x="92" y="141" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">1.44 太陽質量</text>
+ <text x="92" y="159" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11">白矮星的前身</text>
+ <rect x="250" y="127" width="23.3" height="36" fill="#F2803C"/>
+ <text x="284" y="150" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">約 40 億年就燒完</text>
+
+ <circle cx="55" cy="215" r="21" fill="#585B63"/>
+ <text x="92" y="211" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">1.00 太陽質量</text>
+ <text x="92" y="229" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11">太陽（參考值）</text>
+ <rect x="250" y="197" width="58.3" height="36" fill="#585B63"/>
+ <text x="319" y="220" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">100 億年</text>
+
+ <circle cx="55" cy="285" r="14" fill="#2F7DE1"/>
+ <text x="92" y="281" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">0.42 太陽質量</text>
+ <text x="92" y="299" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11">紅矮星 Aa</text>
+ <rect x="250" y="267" width="513.3" height="36" fill="#2F7DE1"/>
+ <text x="264" y="290" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">約 880 億年，現在還在發光</text>
+
+ <line x1="250" y1="330" x2="775" y2="330" stroke="#585B63" stroke-width="1.5"/>
+ <line x1="250" y1="330" x2="250" y2="337" stroke="#585B63" stroke-width="1.5"/>
+ <line x1="366.7" y1="330" x2="366.7" y2="337" stroke="#585B63" stroke-width="1.5"/>
+ <line x1="483.3" y1="330" x2="483.3" y2="337" stroke="#585B63" stroke-width="1.5"/>
+ <line x1="600" y1="330" x2="600" y2="337" stroke="#585B63" stroke-width="1.5"/>
+ <line x1="716.7" y1="330" x2="716.7" y2="337" stroke="#585B63" stroke-width="1.5"/>
+ <text x="250" y="353" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">0</text>
+ <text x="366.7" y="353" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">200</text>
+ <text x="483.3" y="353" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">400</text>
+ <text x="600" y="353" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">600</text>
+ <text x="716.7" y="353" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">800</text>
+ <text x="512" y="377" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13">主序階段的壽命（億年）</text>
+
+ <text x="400" y="412" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">依質光關係（亮度正比於質量的 3.5 次方）推得：壽命反比於質量的 2.5 次方</text>
+ <text x="400" y="432" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12">以太陽 100 億年為基準的粗估，用來看趨勢，不是精確值</text>
+</svg>

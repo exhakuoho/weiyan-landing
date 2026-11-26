@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <defs>
+  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+   <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/>
+  </marker>
+ </defs>
+ <text x="400" y="36" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="23" fill="#FFFFFF">規格上的「±0.1 公釐」，量的是哪一段？</text>
+ <line x1="400" y1="62" x2="400" y2="420" stroke="#585B63" stroke-width="1" stroke-dasharray="5 6"/>
+
+ <text x="200" y="80" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" fill="#F2803C">一般人以為</text>
+ <circle cx="200" cy="215" r="80" fill="none" stroke="#585B63" stroke-width="2"/>
+ <circle cx="200" cy="215" r="54" fill="none" stroke="#585B63" stroke-width="2"/>
+ <circle cx="200" cy="215" r="28" fill="none" stroke="#585B63" stroke-width="2"/>
+ <line x1="200" y1="203" x2="200" y2="227" stroke="#585B63" stroke-width="1"/>
+ <line x1="188" y1="215" x2="212" y2="215" stroke="#585B63" stroke-width="1"/>
+ <circle cx="200" cy="215" r="5" fill="#F2803C"/>
+ <circle cx="208" cy="209" r="5" fill="#F2803C"/>
+ <circle cx="193" cy="208" r="5" fill="#F2803C"/>
+ <circle cx="205" cy="223" r="5" fill="#F2803C"/>
+ <circle cx="191" cy="222" r="5" fill="#F2803C"/>
+ <circle cx="199" cy="204" r="5" fill="#F2803C"/>
+ <text x="200" y="356" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">六次都落在靶心上</text>
+ <text x="200" y="384" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" fill="#585B63">穩，而且準</text>
+
+ <text x="600" y="80" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="19" fill="#2F7DE1">實際上</text>
+ <circle cx="600" cy="215" r="80" fill="none" stroke="#585B63" stroke-width="2"/>
+ <circle cx="600" cy="215" r="54" fill="none" stroke="#585B63" stroke-width="2"/>
+ <circle cx="600" cy="215" r="28" fill="none" stroke="#585B63" stroke-width="2"/>
+ <line x1="600" y1="203" x2="600" y2="227" stroke="#585B63" stroke-width="1"/>
+ <line x1="588" y1="215" x2="612" y2="215" stroke="#585B63" stroke-width="1"/>
+ <circle cx="640" cy="178" r="21" fill="none" stroke="#9A8DFF" stroke-width="2" stroke-dasharray="4 4"/>
+ <circle cx="640" cy="178" r="5" fill="#2F7DE1"/>
+ <circle cx="647" cy="173" r="5" fill="#2F7DE1"/>
+ <circle cx="634" cy="172" r="5" fill="#2F7DE1"/>
+ <circle cx="645" cy="185" r="5" fill="#2F7DE1"/>
+ <circle cx="634" cy="185" r="5" fill="#2F7DE1"/>
+ <circle cx="640" cy="167" r="5" fill="#2F7DE1"/>
+ <line x1="656" y1="164" x2="690" y2="132" stroke="#9A8DFF" stroke-width="1.5"/>
+ <text x="712" y="122" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" fill="#9A8DFF">重複精度</text>
+ <text x="712" y="142" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#9A8DFF">落點散佈的半徑</text>
+ <line x1="600" y1="215" x2="634" y2="184" stroke="#FFFFFF" stroke-width="2.5" marker-end="url(#ah)"/>
+ <line x1="620" y1="200" x2="688" y2="296" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4 4"/>
+ <text x="700" y="316" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" fill="#FFFFFF">絕對精度</text>
+ <text x="700" y="336" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14" fill="#FFFFFF">5～15 公釐</text>
+ <text x="560" y="372" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="17" fill="#FFFFFF">落點更密，但整組偏掉了</text>
+ <text x="560" y="400" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16" fill="#585B63">一樣穩，卻不準</text>
+
+ <text x="400" y="436" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" fill="#585B63">ISO 9283：絕對精度量落點重心離命令位置多遠，重複精度量落點本身擠得多密</text>
+</svg>

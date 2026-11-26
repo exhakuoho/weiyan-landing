@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="左右對照：一般認知以為重心落在 L 形紙板的實體上，實際上兩條鉛垂線交在被剪掉的方洞裡">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <g font-family="system-ui, 'Noto Sans TC', sans-serif">
+  <text x="400" y="40" fill="#FFFFFF" font-size="22" font-weight="700" text-anchor="middle">一樣的 L 形紙板，重心在哪裡？</text>
+  <text x="400" y="66" fill="#585B63" font-size="13" text-anchor="middle">12 公分見方的卡紙，剪掉右上角 9 公分 × 9 公分，剩下兩條寬 3 公分的臂</text>
+  <line x1="400" y1="88" x2="400" y2="420" stroke="#585B63" stroke-width="1" opacity="0.45"/>
+
+  <text x="199" y="114" fill="#F2803C" font-size="16" font-weight="700" text-anchor="middle">一般認知：重心在物體上</text>
+  <rect x="157" y="162" width="126" height="126" fill="none" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5" opacity="0.7"/>
+  <polygon points="115,330 283,330 283,288 157,288 157,162 115,162" fill="#1A1C22" stroke="#F2803C" stroke-width="2.5"/>
+  <line x1="166" y1="276" x2="143" y2="302" stroke="#F2803C" stroke-width="1.5"/>
+  <text x="172" y="262" fill="#F2803C" font-size="13" text-anchor="start">以為在這裡</text>
+  <circle cx="136" cy="309" r="9" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="136" cy="309" r="5.5" fill="#F2803C"/>
+  <text x="199" y="374" fill="#FFFFFF" font-size="13" text-anchor="middle">手指幾乎都落在紙板的實體上</text>
+  <text x="199" y="396" fill="#585B63" font-size="13" text-anchor="middle">直覺：重心＝物體的正中央</text>
+
+  <text x="585" y="114" fill="#2F7DE1" font-size="16" font-weight="700" text-anchor="middle">實際上：重心在空氣裡</text>
+  <rect x="543" y="162" width="126" height="126" fill="#9A8DFF" fill-opacity="0.07" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5" opacity="0.7"/>
+  <polygon points="501,330 669,330 669,288 543,288 543,162 501,162" fill="#1A1C22" stroke="#2F7DE1" stroke-width="2.5"/>
+  <text x="663" y="180" fill="#585B63" font-size="12" text-anchor="end">（剪掉）</text>
+  <line x1="501" y1="162" x2="587" y2="330" stroke="#585B63" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="669" y1="330" x2="501" y2="244" stroke="#585B63" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <circle cx="501" cy="162" r="4" fill="#FFFFFF"/>
+  <circle cx="669" cy="330" r="4" fill="#FFFFFF"/>
+  <line x1="590" y1="228" x2="566" y2="264" stroke="#9A8DFF" stroke-width="1.5"/>
+  <text x="606" y="214" fill="#9A8DFF" font-size="13" font-weight="700" text-anchor="middle">重心 (4.1, 4.1)</text>
+  <circle cx="558" cy="273" r="9" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="558" cy="273" r="5.5" fill="#9A8DFF"/>
+  <text x="585" y="374" fill="#FFFFFF" font-size="13" text-anchor="middle">兩條鉛垂線交在剪掉的洞裡</text>
+  <text x="585" y="396" fill="#585B63" font-size="13" text-anchor="middle">重心＝重量的平均位置，不必落在材料上</text>
+ </g>
+</svg>

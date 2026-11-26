@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="32" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">X 光正對鏡子會穿過去，貼平擦過才會轉向</text>
+
+ <!-- ===== upper panel: intuition ===== -->
+ <rect x="24" y="48" width="752" height="146" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="44" y="72" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#F2803C">直覺以為的：鏡子正對著 X 光</text>
+
+ <!-- face-on mirror -->
+ <rect x="424" y="88" width="9" height="88" rx="2" fill="#585B63"/>
+ <text x="428" y="186" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">鏡面</text>
+
+ <!-- incoming ray hits perpendicular -->
+ <line x1="120" y1="132" x2="414" y2="132" stroke="#F2803C" stroke-width="3"/>
+ <path d="M 410 125 L 424 132 L 410 139 Z" fill="#F2803C"/>
+ <text x="120" y="120" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#FFFFFF">X 光（垂直入射，90 度）</text>
+
+ <!-- passes through -->
+ <line x1="433" y1="132" x2="690" y2="132" stroke="#585B63" stroke-width="3" stroke-dasharray="7 6"/>
+ <path d="M 686 125 L 700 132 L 686 139 Z" fill="#585B63"/>
+ <text x="560" y="120" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#585B63">穿過去，或被鏡子吸收</text>
+ <text x="560" y="160" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" fill="#F2803C">不反射，一張影像也拍不到</text>
+
+ <!-- ===== lower panel: reality ===== -->
+ <rect x="24" y="204" width="752" height="186" rx="10" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="44" y="228" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" fill="#2F7DE1">實際的做法：讓 X 光幾乎貼平擦過，而且擦兩次</text>
+
+ <!-- optical axis -->
+ <line x1="60" y1="370" x2="752" y2="370" stroke="#585B63" stroke-width="1" stroke-dasharray="5 6"/>
+ <text x="66" y="384" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11" fill="#585B63">光軸</text>
+ <text x="752" y="384" text-anchor="end" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11" fill="#585B63">（此圖的轉折角度已放大，方便看清路徑；真正的掠射角請看下方比例尺）</text>
+
+ <!-- mirror 1 (nearly flat) -->
+ <line x1="280" y1="254" x2="430" y2="262" stroke="#2F7DE1" stroke-width="6" stroke-linecap="round"/>
+ <text x="300" y="246" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#2F7DE1">第一次掠過</text>
+
+ <!-- mirror 2 (nearly flat, slightly steeper) -->
+ <line x1="500" y1="288" x2="640" y2="316" stroke="#2F7DE1" stroke-width="6" stroke-linecap="round"/>
+ <text x="548" y="282" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#2F7DE1">第二次掠過</text>
+
+ <!-- ray: in, bounce 1, bounce 2, focus -->
+ <line x1="70" y1="258" x2="346" y2="258" stroke="#F2803C" stroke-width="3"/>
+ <line x1="350" y1="258" x2="556" y2="300" stroke="#F2803C" stroke-width="3"/>
+ <line x1="560" y1="300" x2="726" y2="368" stroke="#F2803C" stroke-width="3"/>
+ <path d="M 718 358 L 732 370 L 714 372 Z" fill="#F2803C"/>
+ <text x="76" y="250" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" fill="#FFFFFF">X 光</text>
+
+ <!-- bounce point markers -->
+ <circle cx="350" cy="258" r="4" fill="#9A8DFF"/>
+ <circle cx="560" cy="300" r="4" fill="#9A8DFF"/>
+
+ <!-- grazing angle callout -->
+ <text x="366" y="290" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" fill="#9A8DFF">掠射角不到 2 度</text>
+
+ <!-- focus -->
+ <circle cx="732" cy="370" r="6" fill="#9A8DFF"/>
+ <text x="732" y="350" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">焦點</text>
+
+ <!-- ===== slope ruler strip ===== -->
+ <rect x="24" y="400" width="752" height="42" rx="8" fill="#17181c" stroke="#585B63" stroke-width="1"/>
+ <text x="44" y="426" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">2 度有多平？</text>
+
+ <!-- to-scale 2 degree triangle: base 250, rise 9 (tan2deg = 0.035) -->
+ <path d="M 170 432 L 420 432 L 420 423 Z" fill="#2F7DE1" fill-opacity="0.35"/>
+ <line x1="170" y1="432" x2="420" y2="432" stroke="#585B63" stroke-width="1"/>
+ <line x1="170" y1="432" x2="420" y2="423" stroke="#2F7DE1" stroke-width="2"/>
+ <line x1="420" y1="432" x2="420" y2="423" stroke="#9A8DFF" stroke-width="2"/>
+ <text x="295" y="412" text-anchor="middle" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="11" fill="#585B63">1 公尺（按實際比例畫）</text>
+ <text x="432" y="428" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" fill="#9A8DFF">抬高 3.5 公分</text>
+ <text x="566" y="428" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="12" fill="#585B63">10 角分只抬高 2.9 公釐</text>
+</svg>

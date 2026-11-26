@@ -147,6 +147,13 @@ curl -s -o /dev/null -w "%{http_code}\n" "$U/photos/blog/<slug>.webp"
 
 推上去之後要等 1–2 分鐘 Cloudflare 才建好，第一次抓到 404 是正常的，重試即可。
 
+**分支名換成網址後不可超過 28 個字元**，超過的部分 Cloudflare 會直接截掉。
+2026-11-22 踩過一次：分支 `claude/science-2026-11-22-ai-kids` 的網址不是
+`claude-science-2026-11-22-ai-kids`（33 字元，回 Deployment Not Found），
+而是被截成 `claude-science-2026-11-22-ai`（28 字元）。
+取分支名時盡量讓換算後的網址在 28 字元以內；真的超過就用 curl 逐一試出截斷後的網址，
+不要把沒驗證過的連結貼進 PR。
+
 **注意**：`_worker.js` 只把 `weiyan.pages.dev` 這一個網域導回正式站，
 `*.weiyan-landing.pages.dev` 的分支預覽**不會**被導走，所以預覽站可以正常使用。
 

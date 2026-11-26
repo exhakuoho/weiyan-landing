@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+  <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+  <text x="400" y="40" text-anchor="middle" fill="#FFFFFF" font-size="25" font-weight="600" font-family="system-ui, 'Noto Sans TC', sans-serif">要做 100.0 公釐的塑膠零件，模具的洞該挖多大？</text>
+  <line x1="400" y1="66" x2="400" y2="400" stroke="#585B63" stroke-width="1" stroke-dasharray="5 6"/>
+
+  <text x="200" y="94" text-anchor="middle" fill="#585B63" font-size="19" font-family="system-ui, 'Noto Sans TC', sans-serif">一般會以為</text>
+  <line x1="66" y1="152" x2="334" y2="152" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="66" y1="146" x2="66" y2="158" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="334" y1="146" x2="334" y2="158" stroke="#585B63" stroke-width="1.5"/>
+  <text x="200" y="138" text-anchor="middle" fill="#F2803C" font-size="18" font-family="system-ui, 'Noto Sans TC', sans-serif">模具的洞 100.0</text>
+  <rect x="52" y="172" width="14" height="100" fill="#F2803C"/>
+  <rect x="334" y="172" width="14" height="100" fill="#F2803C"/>
+  <rect x="66" y="187" width="268" height="70" fill="#2F7DE1"/>
+  <text x="200" y="296" text-anchor="middle" fill="#2F7DE1" font-size="18" font-family="system-ui, 'Noto Sans TC', sans-serif">零件 100.0</text>
+  <text x="200" y="332" text-anchor="middle" fill="#585B63" font-size="17" font-family="system-ui, 'Noto Sans TC', sans-serif">模具＝成品的反形狀</text>
+  <text x="200" y="366" text-anchor="middle" fill="#585B63" font-size="17" font-family="system-ui, 'Noto Sans TC', sans-serif">塑膠一冷卻，就不到 100.0</text>
+
+  <text x="600" y="94" text-anchor="middle" fill="#FFFFFF" font-size="19" font-family="system-ui, 'Noto Sans TC', sans-serif">實際上</text>
+  <line x1="462" y1="152" x2="738" y2="152" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="462" y1="146" x2="462" y2="158" stroke="#585B63" stroke-width="1.5"/>
+  <line x1="738" y1="146" x2="738" y2="158" stroke="#585B63" stroke-width="1.5"/>
+  <text x="600" y="138" text-anchor="middle" fill="#F2803C" font-size="18" font-family="system-ui, 'Noto Sans TC', sans-serif">模具的洞 100.70</text>
+  <rect x="448" y="172" width="14" height="100" fill="#F2803C"/>
+  <rect x="738" y="172" width="14" height="100" fill="#F2803C"/>
+  <rect x="486" y="187" width="228" height="70" fill="#2F7DE1"/>
+  <polygon points="486,222 466,214 466,230" fill="#9A8DFF"/>
+  <polygon points="714,222 734,214 734,230" fill="#9A8DFF"/>
+  <text x="600" y="296" text-anchor="middle" fill="#2F7DE1" font-size="18" font-family="system-ui, 'Noto Sans TC', sans-serif">冷卻後的零件 100.0</text>
+  <text x="600" y="332" text-anchor="middle" fill="#9A8DFF" font-size="17" font-family="system-ui, 'Noto Sans TC', sans-serif">縮掉 0.7％，也就是 0.70 公釐</text>
+  <text x="600" y="366" text-anchor="middle" fill="#FFFFFF" font-size="17" font-family="system-ui, 'Noto Sans TC', sans-serif">師傅先把會縮掉的補回去</text>
+
+  <text x="600" y="396" text-anchor="middle" fill="#585B63" font-size="15" font-family="system-ui, 'Noto Sans TC', sans-serif">（圖中的縮水差距有放大）</text>
+  <text x="400" y="430" text-anchor="middle" fill="#585B63" font-size="17" font-family="system-ui, 'Noto Sans TC', sans-serif">縮水率％＝（模具尺寸 − 零件尺寸）÷ 模具尺寸 × 100</text>
+</svg>

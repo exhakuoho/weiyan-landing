@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img">
+ <defs>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+   <path d="M0 0 L10 5 L0 10 z" fill="#2F7DE1"/>
+  </marker>
+  <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+   <path d="M0 0 L10 5 L0 10 z" fill="#F2803C"/>
+  </marker>
+ </defs>
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <g font-family="system-ui, 'Noto Sans TC', sans-serif" text-anchor="middle">
+  <text x="400" y="32" font-size="21" fill="#FFFFFF" font-weight="bold">擋得住電磁波，擋不住重力</text>
+  <text x="400" y="56" font-size="13" fill="#585B63">一般人以為「牆擋訊號」是材料厚不厚的事，實際上要看那個場能不能被抵銷</text>
+
+  <line x1="400" y1="72" x2="400" y2="352" stroke="#585B63" stroke-width="1" stroke-dasharray="5 5"/>
+
+  <text x="205" y="96" font-size="17" fill="#2F7DE1" font-weight="bold">電磁波：擋得掉</text>
+  <text x="595" y="96" font-size="17" fill="#F2803C" font-weight="bold">重力：擋不掉</text>
+
+  <line x1="26" y1="186" x2="62" y2="186" stroke="#2F7DE1" stroke-width="2.5" marker-end="url(#ab)"/>
+  <line x1="26" y1="208" x2="62" y2="208" stroke="#2F7DE1" stroke-width="2.5" marker-end="url(#ab)"/>
+  <line x1="26" y1="230" x2="62" y2="230" stroke="#2F7DE1" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="72" y="146" width="178" height="122" rx="6" fill="none" stroke="#2F7DE1" stroke-width="3"/>
+  <text x="85" y="172" font-size="17" fill="#9A8DFF">−</text>
+  <text x="85" y="202" font-size="17" fill="#9A8DFF">−</text>
+  <text x="85" y="232" font-size="17" fill="#9A8DFF">−</text>
+  <text x="85" y="262" font-size="17" fill="#9A8DFF">−</text>
+  <text x="238" y="172" font-size="17" fill="#F2803C">+</text>
+  <text x="238" y="202" font-size="17" fill="#F2803C">+</text>
+  <text x="238" y="232" font-size="17" fill="#F2803C">+</text>
+  <text x="238" y="262" font-size="17" fill="#F2803C">+</text>
+  <text x="161" y="214" font-size="24" fill="#FFFFFF" font-weight="bold">E ≈ 0</text>
+  <text x="205" y="300" font-size="13" fill="#FFFFFF">金屬盒裡的自由電子被推向一側</text>
+  <text x="205" y="321" font-size="13" fill="#585B63">正負分離，自己產生反向電場</text>
+  <text x="205" y="342" font-size="13" fill="#9A8DFF">兩個電場相減，內部量不到</text>
+
+  <circle cx="452" cy="208" r="27" fill="#F2803C"/>
+  <text x="452" y="258" font-size="12" fill="#FFFFFF">1.8 公噸</text>
+  <text x="452" y="274" font-size="12" fill="#FFFFFF">配重塊</text>
+  <rect x="556" y="140" width="32" height="136" fill="#2A2D33" stroke="#585B63" stroke-width="2"/>
+  <text x="572" y="130" font-size="12" fill="#585B63">磚牆</text>
+  <line x1="484" y1="186" x2="684" y2="186" stroke="#F2803C" stroke-width="2.5" marker-end="url(#ao)"/>
+  <line x1="484" y1="208" x2="684" y2="208" stroke="#F2803C" stroke-width="2.5" marker-end="url(#ao)"/>
+  <line x1="484" y1="230" x2="684" y2="230" stroke="#F2803C" stroke-width="2.5" marker-end="url(#ao)"/>
+  <rect x="692" y="182" width="58" height="52" rx="5" fill="none" stroke="#9A8DFF" stroke-width="2.5"/>
+  <text x="721" y="214" font-size="13" fill="#9A8DFF">讀到</text>
+  <text x="721" y="258" font-size="12" fill="#FFFFFF">重力儀</text>
+  <text x="595" y="300" font-size="13" fill="#FFFFFF">牆的原子只有「質量」這一種來源</text>
+  <text x="595" y="321" font-size="13" fill="#585B63">它的重力場同樣是吸引，同向相加</text>
+  <text x="595" y="342" font-size="13" fill="#9A8DFF">沒有負質量可抵銷，做不出重力籠</text>
+
+  <text x="400" y="392" font-size="13" fill="#FFFFFF">昆士蘭大學 2026：把電梯的 1.8 公噸配重塊在兩個位置間移動，隔一道磚牆讀出「Gravity」</text>
+  <text x="400" y="416" font-size="12" fill="#585B63">每分鐘 1 位元是實驗做到的；每分鐘 15 位元、約 500 公尺是論文模擬推估，尚未驗證</text>
+ </g>
+</svg>

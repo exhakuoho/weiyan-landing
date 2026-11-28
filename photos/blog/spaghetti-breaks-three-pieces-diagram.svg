@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="左右對照：直覺以為麵條折成兩段，實際上彎曲波會折出第三段">
+ <rect x="0" y="0" width="800" height="450" fill="#101114"/>
+ <text x="400" y="38" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="23" font-weight="700">折一根乾麵條，會得到幾段？</text>
+ <line x1="400" y1="62" x2="400" y2="392" stroke="#585B63" stroke-width="1.5" stroke-dasharray="6 7"/>
+
+ <text x="200" y="92" text-anchor="middle" fill="#F2803C" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700">一般人以為</text>
+ <path d="M 70 158 Q 135 192 196 212" stroke="#F2803C" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M 204 212 Q 265 192 330 158" stroke="#F2803C" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M 190 196 L 210 228 M 210 196 L 190 228" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+ <text x="200" y="258" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16">喀一聲，從最彎的地方斷開</text>
+ <rect x="62" y="294" width="118" height="17" rx="8.5" fill="#F2803C"/>
+ <rect x="220" y="294" width="118" height="17" rx="8.5" fill="#F2803C"/>
+ <text x="200" y="364" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="30" font-weight="700">2 段</text>
+
+ <text x="600" y="92" text-anchor="middle" fill="#2F7DE1" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="21" font-weight="700">實際上</text>
+ <path d="M 470 158 Q 524 187 576 191" stroke="#2F7DE1" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M 585 193 Q 626 195 667 183" stroke="#9A8DFF" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M 677 180 Q 704 172 730 158" stroke="#2F7DE1" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M 572 178 L 588 206 M 588 178 L 572 206" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M 664 169 L 680 195 M 680 169 L 664 195" stroke="#9A8DFF" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M 592 148 C 604 134 613 162 625 148 C 637 134 646 162 658 150" stroke="#9A8DFF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+ <path d="M 659 150 L 650 144 L 651 155 Z" fill="#9A8DFF"/>
+ <text x="622" y="126" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="15">彎曲波往回跑</text>
+ <text x="508" y="228" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">① 第一次斷</text>
+ <text x="712" y="214" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">② 又斷一次</text>
+ <text x="600" y="258" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="16">曲率被推到 1.428 倍，超過極限</text>
+ <rect x="460" y="294" width="104" height="17" rx="8.5" fill="#2F7DE1"/>
+ <rect x="574" y="294" width="88" height="17" rx="8.5" fill="#9A8DFF"/>
+ <rect x="672" y="294" width="66" height="17" rx="8.5" fill="#2F7DE1"/>
+ <text x="600" y="334" text-anchor="middle" fill="#9A8DFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">紫色這段就是多出來的</text>
+ <text x="600" y="364" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="30" font-weight="700">3 段以上</text>
+
+ <text x="400" y="424" text-anchor="middle" fill="#585B63" font-family="system-ui, 'Noto Sans TC', sans-serif" font-size="14">Audoly &amp; Neukirch, Phys. Rev. Lett. 95, 095505 (2005)：典型斷成三到四段</text>
+</svg>
